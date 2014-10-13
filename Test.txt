@@ -1,1 +1,1 @@
-Hook test 9
+Hook Test with manual mediator invokation
