@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FluentPro.FluentPS.Contracts.Proxies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace FluentPro.FluentPS.Proxy.Services
 {
-    public class ProjectWcfService
+    public class ProjectWcfService : IProjectWcfService
     {
     }
 }
