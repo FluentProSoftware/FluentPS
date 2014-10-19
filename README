@@ -1,16 +1,8 @@
 FluentPS
-===
-
-FluentPS15.Db - remove
-FluentPS15.Ioc - remove, rework to sepparate library or use per project.
-FluentPS15.Migrations.Core - rework, move SPMigrator and PSMigrator methods to main libs.
-FluentPS15.Migrations.Runner - move to sepparate repo with FluentPS15.Migrations.Core
-FluentPS15.Powershell - remove
-FluentPS15.Workflow - remove
-FluentSP15.UI - remove
+====
 
 Goals
-===
+====
 - Simplify use of framework
 - Create Nuget package
 - Create platform independent framework
