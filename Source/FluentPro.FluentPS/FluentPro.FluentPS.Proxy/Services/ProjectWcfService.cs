@@ -1,4 +1,5 @@
 ﻿using FluentPro.FluentPS.Contracts.Proxies;
+using FluentPro.FluentPS.Proxy.Network;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,29 +17,21 @@ namespace FluentPro.FluentPS.Proxy.Services
 
         public DataSet ReadProjectList()
         {
-            throw new NotImplementedException();
+            using (var channel = PsiChannelFactory.CreateProjectChannel())
+            {
+                var projectList = channel.ReadProjectList();
+            }
         }
 
         private static void SetClientEndpoints(Uri pwaUri)
-        {
-            
+        {            
             //const string svcRouter = "_vti_bin/PSI/ProjectServer.svc";
 
             //pwaUrl = pwaUri.Scheme + Uri.SchemeDelimiter + pwaUri.Host + ":" + pwaUri.Port + pwaUri.AbsolutePath;
-            //Console.WriteLine("URL: {0}", pwaUrl);
-
-        
+            //Console.WriteLine("URL: {0}", pwaUrl);        
 
             //// The endpoint address is the ProjectServer.svc router for all public PSI calls.
             //EndpointAddress address = new EndpointAddress(pwaUrl + svcRouter);
-
-            //projectClient = new backendProject.ProjectClient(binding, address);
-            //projectClient.ChannelFactory.Credentials.Windows.AllowedImpersonationLevel = TokenImpersonationLevel.Impersonation;
-            //projectClient.ChannelFactory.Credentials.Windows.AllowNtlm = true;
-
-            //queueSystemClient = new backendQueueSystem.QueueSystemClient(binding, address);
-            //queueSystemClient.ChannelFactory.Credentials.Windows.AllowedImpersonationLevel = TokenImpersonationLevel.Impersonation;
-            //queueSystemClient.ChannelFactory.Credentials.Windows.AllowNtlm = true;
         }
     }
 }

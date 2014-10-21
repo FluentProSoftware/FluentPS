@@ -1,4 +1,4 @@
-﻿namespace FluentPro.FluentPS.Proxy.Bindings
+﻿namespace FluentPro.FluentPS.Proxy.Network.Bindings
 {
     using System;
     using System.ServiceModel;
