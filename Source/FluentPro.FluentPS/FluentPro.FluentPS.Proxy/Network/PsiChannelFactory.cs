@@ -1,10 +1,7 @@
-﻿using FluentPro.FluentPS.Proxy.Network.ChannelFactories;
+﻿using FluentPro.FluentPS.Proxy.Network.Bindings;
 using FluentPro.FluentPS.Proxy.Wcf;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel.Channels;
-using System.Text;
+using System.Security.Principal;
+using System.ServiceModel;
 
 namespace FluentPro.FluentPS.Proxy.Network
 {
@@ -12,9 +9,9 @@ namespace FluentPro.FluentPS.Proxy.Network
     {
         private static readonly object _projectChannelFactoryLock = new object();
 
-        private static readonly ProjectChannelFactory _projectChannelFactory;
+        private static ChannelFactory<ProjectChannel> _projectChannelFactory;
 
-        private static ProjectChannelFactory ProjectChannelFactory
+        private static ChannelFactory<ProjectChannel> ProjectChannelFactory
         {
             get
             {
@@ -24,11 +21,14 @@ namespace FluentPro.FluentPS.Proxy.Network
                     {
                         if (_projectChannelFactory == null)
                         {
-                            _projectChannelFactory = new ProjectChannelFactory();
-                            return _projectChannelFactory;
+                            _projectChannelFactory = new ChannelFactory<ProjectChannel>(new HttpPsiWcfBinding(), new EndpointAddress("http://udav/pulse/_vti_bin/PSI/ProjectServer.svc"));
+                            _projectChannelFactory.Credentials.Windows.AllowedImpersonationLevel = TokenImpersonationLevel.Impersonation;
+                            _projectChannelFactory.Credentials.Windows.AllowNtlm = true;
                         }
                     }
                 }
+
+                return _projectChannelFactory;
             }
         }
 

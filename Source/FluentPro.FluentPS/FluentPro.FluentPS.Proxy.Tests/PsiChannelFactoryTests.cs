@@ -1,0 +1,16 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentPro.FluentPS.Proxy.Network;
+
+namespace FluentPro.FluentPS.Proxy.Tests
+{
+    [TestClass]
+    public class PsiChannelFactoryTests
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            var list = PsiChannelFactory.CreateProjectChannel().ReadProjectList();
+        }
+    }
+}
