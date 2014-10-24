@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace FluentPro.FluentPS.Proxy.Services
@@ -19,8 +20,15 @@ namespace FluentPro.FluentPS.Proxy.Services
         {
             using (var channel = PsiChannelFactory.CreateProjectChannel())
             {
-                var projectList = channel.ReadProjectList();
-                return new DataSet();
+                using (new OperationContextScope(channel))
+                {
+                    //http://msdn.microsoft.com/en-us/library/ee872368.aspx 
+                    WebOperationContext.Current.OutgoingRequest.Headers.Remove("X-FORMS_BASED_AUTH_ACCEPTED");
+                    WebOperationContext.Current.OutgoingRequest.Headers.Add("X-FORMS_BASED_AUTH_ACCEPTED", "f");
+
+                    var projectList = channel.ReadProjectList();
+                    return new DataSet();
+                }
             }
         }
     }

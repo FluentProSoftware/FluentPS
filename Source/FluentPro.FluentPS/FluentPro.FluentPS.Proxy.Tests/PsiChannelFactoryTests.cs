@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentPro.FluentPS.Proxy.Network;
+using FluentPro.FluentPS.Proxy.Services;
 
 namespace FluentPro.FluentPS.Proxy.Tests
 {
@@ -10,7 +11,7 @@ namespace FluentPro.FluentPS.Proxy.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var list = PsiChannelFactory.CreateProjectChannel().ReadProjectList();
+            var list = new ProjectWcfService().ReadProjectList();
         }
     }
 }

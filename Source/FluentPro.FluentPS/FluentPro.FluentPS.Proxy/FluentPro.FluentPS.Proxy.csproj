@@ -35,12 +35,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Network\Behaviors\MaxFaultSizeBehavior.cs" />
     <Compile Include="Network\Bindings\HttpsPsiWcfBinding.cs" />
     <Compile Include="Network\Bindings\HttpPsiWcfBinding.cs" />
     <Compile Include="Network\Bindings\PsiWcfBinding.cs" />

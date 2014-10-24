@@ -61,6 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">
+      <Project>{459f522c-fec0-4175-bb39-147644acf858}</Project>
+      <Name>FluentPro.FluentPS.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FluentPro.FluentPS.Proxy\FluentPro.FluentPS.Proxy.csproj">
       <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
       <Name>FluentPro.FluentPS.Proxy</Name>
