@@ -19,3 +19,4 @@ obj/
 _ReSharper*/
 *.mdf
 *.ldf
+Source/FluentPro.FluentPS/TestResults/*

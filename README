@@ -9,3 +9,5 @@ Goals
 - Use static code analysis
 - Merge two branches, create a single lib with use of wrappers
 - Implement caching of channel factories
+
+- Ask about search service, ask about mirror.
