@@ -9,6 +9,7 @@
         public ProjectPsiChannelFactory(Binding binding, EndpointAddress remoteAddress)
             : base(binding, remoteAddress)
         {
+
         }
     }
 }
