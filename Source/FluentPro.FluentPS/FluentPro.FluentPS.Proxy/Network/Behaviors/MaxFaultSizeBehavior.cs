@@ -1,4 +1,4 @@
-﻿namespace FluentPro.FluentPS.Proxy.Network.Behaviors
+﻿namespace FluentPro.FluentPS.Psi.Network.Behaviors
 {
     using System.ServiceModel.Channels;
     using System.ServiceModel.Description;

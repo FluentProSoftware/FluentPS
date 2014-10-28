@@ -1,12 +1,11 @@
-﻿namespace FluentPro.FluentPS.Proxy.Network
+﻿namespace FluentPro.FluentPS.Psi.Network
 {
-    using FluentPro.FluentPS.Proxy.Network.Bindings;
-    using FluentPro.FluentPS.Proxy.Network.ChannelFactories;
-    using FluentPro.FluentPS.Proxy.Network.Channels;
-    using FluentPro.FluentPS.Proxy.Wcf;
     using System;
     using System.Collections.Generic;
     using System.ServiceModel;
+    using Bindings;
+    using ChannelFactories;
+    using Channels;
 
     //TODO: Implement smart cache by url
     public static class Psi
@@ -46,12 +45,12 @@
             _address = address;
         }
 
-        public ProjectChannel Project
+        public IProjectChannel Project
         {
             get { return ProjectChannelFactory.CreateChannel(); }
         }
 
-        public LookupTableChannel LookupTable
+        public ILookupTableChannel LookupTable
         {
             get { return LookupChannelFactory.CreateChannel(); }
         }

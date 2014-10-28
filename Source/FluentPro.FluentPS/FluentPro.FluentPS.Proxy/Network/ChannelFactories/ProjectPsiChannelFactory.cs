@@ -1,15 +1,15 @@
-﻿namespace FluentPro.FluentPS.Proxy.Network.ChannelFactories
+﻿using FluentPro.FluentPS.Psi.Network.Channels;
+
+namespace FluentPro.FluentPS.Psi.Network.ChannelFactories
 {
-    using FluentPro.FluentPS.Proxy.Network.Channels;
     using System.ServiceModel;
     using System.ServiceModel.Channels;
 
-    public class ProjectPsiChannelFactory : PsiChannelFactory<ProjectChannel>
+    public class ProjectPsiChannelFactory : PsiChannelFactory<IProjectChannel>
     {
         public ProjectPsiChannelFactory(Binding binding, EndpointAddress remoteAddress)
             : base(binding, remoteAddress)
         {
-
         }
     }
 }

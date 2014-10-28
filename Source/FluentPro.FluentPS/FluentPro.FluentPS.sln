@@ -5,11 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS", "Fluen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentSP", "FluentPro.FluentSP\FluentPro.FluentSP.csproj", "{F40B7601-92BC-40CC-88AA-A1EF45D362EC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SP13", "SP13", "{0C0EFE6A-A942-4357-888A-57CD6DCB95D0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Contracts", "FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj", "{459F522C-FEC0-4175-BB39-147644ACF858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Proxy", "FluentPro.FluentPS.Proxy\FluentPro.FluentPS.Proxy.csproj", "{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi", "FluentPro.FluentPS.Proxy\FluentPro.FluentPS.Psi.csproj", "{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Proxy.Tests", "FluentPro.FluentPS.Proxy.Tests\FluentPro.FluentPS.Proxy.Tests.csproj", "{47D7DC8F-31A8-4557-91B2-838CE05CFF6C}"
 EndProject
@@ -42,9 +40,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F} = {0C0EFE6A-A942-4357-888A-57CD6DCB95D0}
-		{47D7DC8F-31A8-4557-91B2-838CE05CFF6C} = {0C0EFE6A-A942-4357-888A-57CD6DCB95D0}
 	EndGlobalSection
 EndGlobal

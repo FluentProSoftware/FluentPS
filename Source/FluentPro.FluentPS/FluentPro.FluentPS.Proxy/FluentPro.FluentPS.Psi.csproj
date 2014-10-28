@@ -7,9 +7,9 @@
     <ProjectGuid>{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FluentPro.FluentPS.Proxy</RootNamespace>
-    <AssemblyName>FluentPro.FluentPS.Proxy</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>FluentPro.FluentPS.Psi</RootNamespace>
+    <AssemblyName>FluentPro.FluentPS.Psi</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -42,15 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\Faults\DefaultServerFault.cs" />
-    <Compile Include="Exceptions\Faults\ServerExecutionFault.cs" />
-    <Compile Include="Exceptions\Faults\ServerFault.cs" />
-    <Compile Include="Model\DataSets\LookupTableDataSet.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Model\DataSets\LookupTableMultiLangDataSet.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Network\Behaviors\MaxFaultSizeBehavior.cs" />
     <Compile Include="Network\Bindings\HttpsPsiWcfBinding.cs" />
     <Compile Include="Network\Bindings\HttpPsiWcfBinding.cs" />
@@ -63,10 +54,6 @@
     <Compile Include="Network\Psi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProjectWcfService.cs" />
-    <Compile Include="Wcf\LookupTable.cs" />
-    <Compile Include="Wcf\Project.cs">
-      <SubType>Component</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">

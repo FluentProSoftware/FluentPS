@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FluentPro.FluentPS.Proxy.Model.DataSets
+namespace FluentPro.FluentPS.Contracts.Model.DataSets
 {
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.

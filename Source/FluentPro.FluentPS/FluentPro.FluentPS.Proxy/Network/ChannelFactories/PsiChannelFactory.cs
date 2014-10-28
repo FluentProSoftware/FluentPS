@@ -1,9 +1,9 @@
-﻿namespace FluentPro.FluentPS.Proxy.Network.ChannelFactories
+﻿namespace FluentPro.FluentPS.Psi.Network.ChannelFactories
 {
-    using FluentPro.FluentPS.Proxy.Network.Behaviors;
     using System.Security.Principal;
     using System.ServiceModel;
     using System.ServiceModel.Channels;
+    using Behaviors;
 
     public class PsiChannelFactory<TChannel> : ChannelFactory<TChannel> where TChannel : IClientChannel
     {

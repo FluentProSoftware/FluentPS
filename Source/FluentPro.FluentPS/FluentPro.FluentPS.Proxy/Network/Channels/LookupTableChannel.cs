@@ -1,13 +1,9 @@
-﻿using FluentPro.FluentPS.Proxy.Wcf;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
+﻿using System.ServiceModel;
+using FluentPro.FluentPS.Contracts.Interfaces.Psi;
 
-namespace FluentPro.FluentPS.Proxy.Network.Channels
+namespace FluentPro.FluentPS.Psi.Network.Channels
 {
-    public interface LookupTableChannel : LookupTable, IClientChannel
+    public interface ILookupTableChannel : ILookupTable, IClientChannel
     {
     }
 }

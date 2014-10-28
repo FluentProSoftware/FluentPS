@@ -1,9 +1,10 @@
-﻿namespace FluentPro.FluentPS.Proxy.Network.Channels
+﻿using FluentPro.FluentPS.Contracts.Interfaces.Psi;
+
+namespace FluentPro.FluentPS.Psi.Network.Channels
 {
-    using FluentPro.FluentPS.Proxy.Wcf;
     using System.ServiceModel;
 
-    public interface ProjectChannel : Project, IClientChannel
+    public interface IProjectChannel : IProject, IClientChannel
     {
     }
 }

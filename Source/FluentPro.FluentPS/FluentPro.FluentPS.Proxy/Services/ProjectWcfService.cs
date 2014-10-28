@@ -1,9 +1,8 @@
-﻿namespace FluentPro.FluentPS.Proxy.Services
+﻿namespace FluentPro.FluentPS.Psi.Services
 {
-    using FluentPro.FluentPS.Contracts.Proxies;
-    using FluentPro.FluentPS.Proxy.Network;
     using System;
     using System.Data;
+    using Contracts.Proxies;
 
     public class ProjectWcfService : IProjectWcfService
     {
@@ -16,7 +15,7 @@
 
         public DataSet ReadProjectList()
         {
-            var psi = Psi.Get(_pwaUri);
+            var psi = Psi.Network.Psi.Get(_pwaUri);
             return psi.Project.ReadProjectList();
         }
     }

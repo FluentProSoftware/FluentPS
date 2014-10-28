@@ -32,12 +32,55 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Faults\DefaultServerFault.cs" />
+    <Compile Include="Exceptions\Faults\ServerExecutionFault.cs" />
+    <Compile Include="Exceptions\Faults\ServerFault.cs" />
+    <Compile Include="Interfaces\Psi\ILookupTable.cs" />
+    <Compile Include="Interfaces\Psi\IProject.cs" />
+    <Compile Include="Model\DataSets\LookupTableDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\LookupTableMultiLangDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectContextDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectImpactDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectRelationsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectTeamDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SyncDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SyncErrorsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\Enums\DataStoreEnum.cs" />
+    <Compile Include="Model\Enums\PSErrorID.cs" />
+    <Compile Include="Model\Enums\SyncEntityUidType.cs" />
+    <Compile Include="Model\Messages\ImportResult.cs" />
+    <Compile Include="Model\Messages\QueueImportTaskListsRequest.cs" />
+    <Compile Include="Model\Messages\QueueImportTaskListsResponse.cs" />
+    <Compile Include="Model\Messages\ReadProjectListByDepartmentRequest.cs" />
+    <Compile Include="Model\Messages\ReadProjectListByDepartmentResponse.cs" />
+    <Compile Include="Model\Messages\TaskListImportInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxies\IProjectWcfService.cs" />
     <Compile Include="Services\IPSProjectService.cs" />
