@@ -51,9 +51,8 @@
     <Compile Include="Network\ChannelFactories\PsiChannelFactory.cs" />
     <Compile Include="Network\Channels\LookupTableChannel.cs" />
     <Compile Include="Network\Channels\ProjectChannel.cs" />
-    <Compile Include="Network\Psi.cs" />
+    <Compile Include="Network\PsiContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ProjectWcfService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">

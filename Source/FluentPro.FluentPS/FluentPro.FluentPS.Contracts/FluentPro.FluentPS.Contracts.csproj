@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Urls.cs" />
     <Compile Include="Exceptions\Faults\DefaultServerFault.cs" />
     <Compile Include="Exceptions\Faults\ServerExecutionFault.cs" />
     <Compile Include="Exceptions\Faults\ServerFault.cs" />
@@ -82,8 +83,9 @@
     <Compile Include="Model\Messages\ReadProjectListByDepartmentResponse.cs" />
     <Compile Include="Model\Messages\TaskListImportInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxies\IProjectWcfService.cs" />
-    <Compile Include="Services\IPSProjectService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

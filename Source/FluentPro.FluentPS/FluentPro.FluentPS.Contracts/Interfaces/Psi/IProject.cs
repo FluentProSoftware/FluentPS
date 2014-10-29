@@ -16,80 +16,50 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [XmlSerializerFormat]
         void QueueUpdateProjectImpacts(Guid jobUid, Guid sessionUid, ProjectImpactDataSet projectImpactDataSet);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateWssL" +
-            "istSyncedProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateWssL" +
-            "istSyncedProjectResponse")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Cr" +
-            "eateWssListSyncedProjectDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Cr" +
-            "eateWssListSyncedProjectServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateWssListSyncedProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateWssListSyncedProjectResponse")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/CreateWssListSyncedProjectDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/CreateWssListSyncedProjectServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         Guid CreateWssListSyncedProject(SyncDataSet syncDataSet, string projectName);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/SyncProjec" +
-            "tWithWss", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/SyncProjec" +
-            "tWithWssResponse")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Sy" +
-            "ncProjectWithWssServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Sy" +
-            "ncProjectWithWssDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/SyncProjectWithWss", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/SyncProjectWithWssResponse")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/SyncProjectWithWssServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/SyncProjectWithWssDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         void SyncProjectWithWss(Guid syncEntityUid, SyncEntityUidType syncEntityUidType);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
-            "tSyncSettings", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
-            "tSyncSettingsResponse")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adProjectSyncSettingsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adProjectSyncSettingsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjectSyncSettings", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjectSyncSettingsResponse")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadProjectSyncSettingsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadProjectSyncSettingsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         SyncDataSet ReadProjectSyncSettings(Guid[] syncEntityUids, SyncEntityUidType syncEntityUidType, bool includeMappingData);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProj" +
-            "ectSyncSettings", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProj" +
-            "ectSyncSettingsResponse")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Up" +
-            "dateProjectSyncSettingsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Up" +
-            "dateProjectSyncSettingsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProjectSyncSettings", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProjectSyncSettingsResponse")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/UpdateProjectSyncSettingsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/UpdateProjectSyncSettingsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         void UpdateProjectSyncSettings(SyncDataSet syncDataSet);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
-            "tSyncErrorInfo", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
-            "tSyncErrorInfoResponse")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adProjectSyncErrorInfoDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adProjectSyncErrorInfoServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjectSyncErrorInfo", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjectSyncErrorInfoResponse")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadProjectSyncErrorInfoDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadProjectSyncErrorInfoServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         SyncErrorsDataSet ReadProjectSyncErrorInfo(Guid wssListUid);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServer" +
-            "TimelineData", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServer" +
-            "TimelineDataResponse")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adServerTimelineDataServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adServerTimelineDataDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServerTimelineData", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServerTimelineDataResponse")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadServerTimelineDataServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadServerTimelineDataDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         string ReadServerTimelineData(Guid timelineType);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateServ" +
-            "erTimelineData", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateServ" +
-            "erTimelineDataResponse")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Up" +
-            "dateServerTimelineDataServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Up" +
-            "dateServerTimelineDataDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateServerTimelineData", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateServerTimelineDataResponse")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/UpdateServerTimelineDataServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/UpdateServerTimelineDataDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         void UpdateServerTimelineData(Guid timelineType, string tlData);
 
         // CODEGEN: Parameter 'QueueImportTaskListsResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'XmlArrayItem'.
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueImpor" +
-            "tTaskLists", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueImpor" +
-            "tTaskListsResponse")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueImportTaskLists", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueImportTaskListsResponse")]
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueImportTaskListsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
@@ -357,13 +327,9 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [XmlSerializerFormat]
         void UpdateProjectWorkspaceAddress(Guid projectUid, string newWebName, Guid newWSSServerUID);
 
-        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
-            "tList", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
-            "tListResponse")]
-        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adProjectListDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
-        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
-            "adProjectListServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjectList", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjectListResponse")]
+        [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadProjectListDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
+        [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/ReadProjectListServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
         ProjectDataSet ReadProjectList();
 

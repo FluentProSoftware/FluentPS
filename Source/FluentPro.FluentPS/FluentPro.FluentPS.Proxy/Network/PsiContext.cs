@@ -1,49 +1,35 @@
-﻿namespace FluentPro.FluentPS.Psi.Network
+﻿using FluentPro.FluentPS.Contracts.Constants;
+using FluentPro.FluentPS.Psi.Network.Bindings;
+using FluentPro.FluentPS.Psi.Network.ChannelFactories;
+using FluentPro.FluentPS.Psi.Network.Channels;
+using System;
+using System.Collections.Generic;
+using System.ServiceModel;
+
+namespace FluentPro.FluentPS.Psi.Network
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ServiceModel;
-    using Bindings;
-    using ChannelFactories;
-    using Channels;
-
-    //TODO: Implement smart cache by url
-    public static class Psi
-    {
-        private static Dictionary<Uri, PsiContext> _contexts = new Dictionary<Uri, PsiContext>();
-
-        public static PsiContext Get(Uri uri)
-        {
-            var address = new EndpointAddress(new Uri(uri, "_vti_bin/PSI/ProjectServer.svc"));
-            if (!_contexts.ContainsKey(address.Uri))
-            {
-                PsiWcfBinding binding = new HttpPsiWcfBinding();
-                if (uri.Scheme == Uri.UriSchemeHttps)
-                {
-                    binding = new HttpsPsiWcfBinding();
-                }
-
-                var contex = new PsiContext(binding, address);
-                _contexts.Add(address.Uri, contex);
-            }
-
-            return _contexts[address.Uri];
-        }
-    }
-
     public class PsiContext
     {
+        private static readonly Dictionary<Uri, PsiContext> Contexts = new Dictionary<Uri, PsiContext>();
+
+        private readonly object _lock = new object();
+
         private readonly PsiWcfBinding _binding;
         private readonly EndpointAddress _address;
-        private readonly object _lock = new object();
         private volatile ProjectPsiChannelFactory _projectPsiChannelFactory;
         private volatile LookupTablePsiChannelFactory _lookupPsiChannelFactory;
 
-        public PsiContext(PsiWcfBinding binding, EndpointAddress address)
+        #region Constructors
+
+        private PsiContext(PsiWcfBinding binding, EndpointAddress address)
         {
             _binding = binding;
             _address = address;
         }
+
+        #endregion // Constructors
+
+        #region Channels
 
         public IProjectChannel Project
         {
@@ -54,6 +40,32 @@
         {
             get { return LookupChannelFactory.CreateChannel(); }
         }
+
+        #endregion // Channels
+
+        #region PsiContext static factories
+
+        public static PsiContext Get(Uri uri)
+        {
+            var address = new EndpointAddress(new Uri(uri, Urls.PsiServiceRelativeUrl));
+            if (!Contexts.ContainsKey(address.Uri))
+            {
+                PsiWcfBinding binding = new HttpPsiWcfBinding();
+                if (uri.Scheme == Uri.UriSchemeHttps)
+                {
+                    binding = new HttpsPsiWcfBinding();
+                }
+
+                var contex = new PsiContext(binding, address);
+                Contexts.Add(address.Uri, contex);
+            }
+
+            return Contexts[address.Uri];
+        }
+
+        #endregion // PsiContext static factories
+
+        #region Channel factories
 
         private ProjectPsiChannelFactory ProjectChannelFactory
         {
@@ -92,5 +104,7 @@
                 return _lookupPsiChannelFactory;
             }
         }
+
+        #endregion // Channel factories
     }
 }
