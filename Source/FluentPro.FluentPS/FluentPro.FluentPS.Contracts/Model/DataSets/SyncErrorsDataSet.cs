@@ -507,7 +507,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncErrorsRow AddSyncErrorsRow(System.Guid SYNC_ERROR_UID, System.Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID, System.Guid SYNC_PROJ_UID, System.Guid SYNC_TASK_UID, System.DateTime SYNC_ERROR_DATE, int SYNC_ERROR_TYPE_ENUM, int SYNC_ERROR_SEVERITY_ENUM, string SYNC_ERROR_XML_DATA)
+            public SyncErrorsRow AddSyncErrorsRow(Guid SYNC_ERROR_UID, Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID, Guid SYNC_PROJ_UID, Guid SYNC_TASK_UID, System.DateTime SYNC_ERROR_DATE, int SYNC_ERROR_TYPE_ENUM, int SYNC_ERROR_SEVERITY_ENUM, string SYNC_ERROR_XML_DATA)
             {
                 SyncErrorsRow rowSyncErrorsRow = ((SyncErrorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -567,15 +567,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnSYNC_ERROR_UID = new global::System.Data.DataColumn("SYNC_ERROR_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_ERROR_UID = new global::System.Data.DataColumn("SYNC_ERROR_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_ERROR_UID);
-                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
                 this.columnSYNC_WSS_LIST_ITEM_ID = new global::System.Data.DataColumn("SYNC_WSS_LIST_ITEM_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_ITEM_ID);
-                this.columnSYNC_PROJ_UID = new global::System.Data.DataColumn("SYNC_PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_PROJ_UID = new global::System.Data.DataColumn("SYNC_PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_PROJ_UID);
-                this.columnSYNC_TASK_UID = new global::System.Data.DataColumn("SYNC_TASK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_TASK_UID = new global::System.Data.DataColumn("SYNC_TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_TASK_UID);
                 this.columnSYNC_ERROR_DATE = new global::System.Data.DataColumn("SYNC_ERROR_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_ERROR_DATE);
@@ -754,11 +754,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_ERROR_UID
+            public Guid SYNC_ERROR_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncErrors.SYNC_ERROR_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncErrors.SYNC_ERROR_UIDColumn]));
                 }
                 set
                 {
@@ -768,11 +768,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_LIST_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncErrors.SYNC_WSS_LIST_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncErrors.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
@@ -803,13 +803,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_PROJ_UID
+            public Guid SYNC_PROJ_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableSyncErrors.SYNC_PROJ_UIDColumn]));
+                        return ((Guid)(this[this.tableSyncErrors.SYNC_PROJ_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -824,13 +824,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_TASK_UID
+            public Guid SYNC_TASK_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableSyncErrors.SYNC_TASK_UIDColumn]));
+                        return ((Guid)(this[this.tableSyncErrors.SYNC_TASK_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {

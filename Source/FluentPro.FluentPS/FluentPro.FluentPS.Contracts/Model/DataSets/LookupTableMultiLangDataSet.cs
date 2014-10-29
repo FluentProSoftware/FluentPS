@@ -801,7 +801,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTablesRow AddLookupTablesRow(System.Guid LT_UID, string LT_NAME, byte LT_SORT_ORDER_ENUM, int LT_PRIMARY_LCID, bool LT_FILL_ALL_LEVELS, System.Guid LT_CHECKOUTBY, System.DateTime LT_CHECKOUTDATE, System.DateTime MOD_DATE, System.Guid APP_ENTITY_UID)
+            public LookupTablesRow AddLookupTablesRow(Guid LT_UID, string LT_NAME, byte LT_SORT_ORDER_ENUM, int LT_PRIMARY_LCID, bool LT_FILL_ALL_LEVELS, Guid LT_CHECKOUTBY, System.DateTime LT_CHECKOUTDATE, System.DateTime MOD_DATE, Guid APP_ENTITY_UID)
             {
                 LookupTablesRow rowLookupTablesRow = ((LookupTablesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -821,7 +821,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTablesRow FindByLT_UID(System.Guid LT_UID)
+            public LookupTablesRow FindByLT_UID(Guid LT_UID)
             {
                 return ((LookupTablesRow)(this.Rows.Find(new object[] {
                             LT_UID})));
@@ -869,7 +869,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_UID);
                 this.columnLT_NAME = new global::System.Data.DataColumn("LT_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_NAME);
@@ -879,13 +879,13 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
                 base.Columns.Add(this.columnLT_PRIMARY_LCID);
                 this.columnLT_FILL_ALL_LEVELS = new global::System.Data.DataColumn("LT_FILL_ALL_LEVELS", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_FILL_ALL_LEVELS);
-                this.columnLT_CHECKOUTBY = new global::System.Data.DataColumn("LT_CHECKOUTBY", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_CHECKOUTBY = new global::System.Data.DataColumn("LT_CHECKOUTBY", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_CHECKOUTBY);
                 this.columnLT_CHECKOUTDATE = new global::System.Data.DataColumn("LT_CHECKOUTDATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_CHECKOUTDATE);
                 this.columnMOD_DATE = new global::System.Data.DataColumn("MOD_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMOD_DATE);
-                this.columnAPP_ENTITY_UID = new global::System.Data.DataColumn("APP_ENTITY_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnAPP_ENTITY_UID = new global::System.Data.DataColumn("APP_ENTITY_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAPP_ENTITY_UID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("LookupTableMultiLangDataSetKey1", new global::System.Data.DataColumn[] {
                                 this.columnLT_UID}, true));
@@ -1201,7 +1201,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableMaskStructuresRow FindByLT_UIDLT_MASK_STRUCT_LEVEL(System.Guid LT_UID, int LT_MASK_STRUCT_LEVEL)
+            public LookupTableMaskStructuresRow FindByLT_UIDLT_MASK_STRUCT_LEVEL(Guid LT_UID, int LT_MASK_STRUCT_LEVEL)
             {
                 return ((LookupTableMaskStructuresRow)(this.Rows.Find(new object[] {
                             LT_UID,
@@ -1245,7 +1245,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_UID);
                 this.columnLT_MASK_STRUCT_LEVEL = new global::System.Data.DataColumn("LT_MASK_STRUCT_LEVEL", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_MASK_STRUCT_LEVEL);
@@ -1544,7 +1544,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableMaskValuesRow AddLookupTableMaskValuesRow(System.Guid LT_UID, string LT_MASK_VALUE_SEPARATOR, int LT_MASK_STRUCT_LEVEL, int LCID)
+            public LookupTableMaskValuesRow AddLookupTableMaskValuesRow(Guid LT_UID, string LT_MASK_VALUE_SEPARATOR, int LT_MASK_STRUCT_LEVEL, int LCID)
             {
                 LookupTableMaskValuesRow rowLookupTableMaskValuesRow = ((LookupTableMaskValuesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1559,7 +1559,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableMaskValuesRow FindByLT_UIDLT_MASK_STRUCT_LEVELLCID(System.Guid LT_UID, int LT_MASK_STRUCT_LEVEL, int LCID)
+            public LookupTableMaskValuesRow FindByLT_UIDLT_MASK_STRUCT_LEVELLCID(Guid LT_UID, int LT_MASK_STRUCT_LEVEL, int LCID)
             {
                 return ((LookupTableMaskValuesRow)(this.Rows.Find(new object[] {
                             LT_UID,
@@ -1604,7 +1604,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_UID);
                 this.columnLT_MASK_VALUE_SEPARATOR = new global::System.Data.DataColumn("LT_MASK_VALUE_SEPARATOR", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_MASK_VALUE_SEPARATOR);
@@ -1917,7 +1917,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableStructuresRow AddLookupTableStructuresRow(System.Guid LT_STRUCT_UID, LookupTablesRow parentLookupTablesRowByLookupTablesLookupTableStructures, LookupTableStructuresRow parentLookupTableStructuresRowByLookupTableStructuresLookupTableStructures, string LT_STRUCT_COOKIE, System.Guid APP_ENTITY_UID)
+            public LookupTableStructuresRow AddLookupTableStructuresRow(Guid LT_STRUCT_UID, LookupTablesRow parentLookupTablesRowByLookupTablesLookupTableStructures, LookupTableStructuresRow parentLookupTableStructuresRowByLookupTableStructuresLookupTableStructures, string LT_STRUCT_COOKIE, Guid APP_ENTITY_UID)
             {
                 LookupTableStructuresRow rowLookupTableStructuresRow = ((LookupTableStructuresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1941,7 +1941,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableStructuresRow FindByLT_STRUCT_UID(System.Guid LT_STRUCT_UID)
+            public LookupTableStructuresRow FindByLT_STRUCT_UID(Guid LT_STRUCT_UID)
             {
                 return ((LookupTableStructuresRow)(this.Rows.Find(new object[] {
                             LT_STRUCT_UID})));
@@ -1985,15 +1985,15 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_STRUCT_UID);
-                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_UID);
-                this.columnLT_PARENT_STRUCT_UID = new global::System.Data.DataColumn("LT_PARENT_STRUCT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_PARENT_STRUCT_UID = new global::System.Data.DataColumn("LT_PARENT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_PARENT_STRUCT_UID);
                 this.columnLT_STRUCT_COOKIE = new global::System.Data.DataColumn("LT_STRUCT_COOKIE", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_STRUCT_COOKIE);
-                this.columnAPP_ENTITY_UID = new global::System.Data.DataColumn("APP_ENTITY_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnAPP_ENTITY_UID = new global::System.Data.DataColumn("APP_ENTITY_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAPP_ENTITY_UID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("LookupTableMultiLangDataSetKey4", new global::System.Data.DataColumn[] {
                                 this.columnLT_STRUCT_UID}, true));
@@ -2432,7 +2432,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             public LookupTableValuesRow AddLookupTableValuesRow(
                         LookupTableStructuresRow parentLookupTableStructuresRowByLookupTableStructuresLookupTableValues,
                         int LCID,
-                        System.Guid LT_UID,
+                        Guid LT_UID,
                         int LT_VALUE_DUR,
                         decimal LT_VALUE_NUM,
                         byte LT_VALUE_DUR_FMT,
@@ -2476,7 +2476,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRow FindByLT_STRUCT_UIDLCID(System.Guid LT_STRUCT_UID, int LCID)
+            public LookupTableValuesRow FindByLT_STRUCT_UIDLCID(Guid LT_STRUCT_UID, int LCID)
             {
                 return ((LookupTableValuesRow)(this.Rows.Find(new object[] {
                             LT_STRUCT_UID,
@@ -2532,11 +2532,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_STRUCT_UID);
                 this.columnLCID = new global::System.Data.DataColumn("LCID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLCID);
-                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_UID);
                 this.columnLT_VALUE_DUR = new global::System.Data.DataColumn("LT_VALUE_DUR", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_VALUE_DUR);
@@ -2848,7 +2848,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableLanguagesRow FindByLT_UIDLCID(System.Guid LT_UID, int LCID)
+            public LookupTableLanguagesRow FindByLT_UIDLCID(Guid LT_UID, int LCID)
             {
                 return ((LookupTableLanguagesRow)(this.Rows.Find(new object[] {
                             LT_UID,
@@ -2890,7 +2890,7 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_UID = new global::System.Data.DataColumn("LT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_UID);
                 this.columnLCID = new global::System.Data.DataColumn("LCID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLCID);
@@ -3065,11 +3065,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_UID
+            public Guid LT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTables.LT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTables.LT_UIDColumn]));
                 }
                 set
                 {
@@ -3149,13 +3149,13 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_CHECKOUTBY
+            public Guid LT_CHECKOUTBY
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableLookupTables.LT_CHECKOUTBYColumn]));
+                        return ((Guid)(this[this.tableLookupTables.LT_CHECKOUTBYColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -3212,13 +3212,13 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid APP_ENTITY_UID
+            public Guid APP_ENTITY_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableLookupTables.APP_ENTITY_UIDColumn]));
+                        return ((Guid)(this[this.tableLookupTables.APP_ENTITY_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -3376,11 +3376,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_UID
+            public Guid LT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableMaskStructures.LT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableMaskStructures.LT_UIDColumn]));
                 }
                 set
                 {
@@ -3521,11 +3521,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_UID
+            public Guid LT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableMaskValues.LT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableMaskValues.LT_UIDColumn]));
                 }
                 set
                 {
@@ -3630,11 +3630,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_STRUCT_UID
+            public Guid LT_STRUCT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableStructures.LT_STRUCT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableStructures.LT_STRUCT_UIDColumn]));
                 }
                 set
                 {
@@ -3644,11 +3644,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_UID
+            public Guid LT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableStructures.LT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableStructures.LT_UIDColumn]));
                 }
                 set
                 {
@@ -3658,13 +3658,13 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_PARENT_STRUCT_UID
+            public Guid LT_PARENT_STRUCT_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableLookupTableStructures.LT_PARENT_STRUCT_UIDColumn]));
+                        return ((Guid)(this[this.tableLookupTableStructures.LT_PARENT_STRUCT_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -3702,13 +3702,13 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid APP_ENTITY_UID
+            public Guid APP_ENTITY_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableLookupTableStructures.APP_ENTITY_UIDColumn]));
+                        return ((Guid)(this[this.tableLookupTableStructures.APP_ENTITY_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -3839,11 +3839,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_STRUCT_UID
+            public Guid LT_STRUCT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableValues.LT_STRUCT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableValues.LT_STRUCT_UIDColumn]));
                 }
                 set
                 {
@@ -3867,13 +3867,13 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_UID
+            public Guid LT_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableLookupTableValues.LT_UIDColumn]));
+                        return ((Guid)(this[this.tableLookupTableValues.LT_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -4393,11 +4393,11 @@ namespace FluentPro.FluentPS.Proxy.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_UID
+            public Guid LT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableLanguages.LT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableLanguages.LT_UIDColumn]));
                 }
                 set
                 {

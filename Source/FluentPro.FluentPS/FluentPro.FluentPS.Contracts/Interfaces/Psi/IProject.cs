@@ -14,7 +14,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/QueueUpdateProjectImpactsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/QueueUpdateProjectImpactsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueUpdateProjectImpacts(System.Guid jobUid, System.Guid sessionUid, ProjectImpactDataSet projectImpactDataSet);
+        void QueueUpdateProjectImpacts(Guid jobUid, Guid sessionUid, ProjectImpactDataSet projectImpactDataSet);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateWssL" +
             "istSyncedProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateWssL" +
@@ -24,7 +24,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Cr" +
             "eateWssListSyncedProjectServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        System.Guid CreateWssListSyncedProject(SyncDataSet syncDataSet, string projectName);
+        Guid CreateWssListSyncedProject(SyncDataSet syncDataSet, string projectName);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/SyncProjec" +
             "tWithWss", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/SyncProjec" +
@@ -34,7 +34,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Sy" +
             "ncProjectWithWssDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void SyncProjectWithWss(System.Guid syncEntityUid, SyncEntityUidType syncEntityUidType);
+        void SyncProjectWithWss(Guid syncEntityUid, SyncEntityUidType syncEntityUidType);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
             "tSyncSettings", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
@@ -44,7 +44,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectSyncSettingsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.SyncDataSet ReadProjectSyncSettings(System.Guid[] syncEntityUids, SyncEntityUidType syncEntityUidType, bool includeMappingData);
+        SyncDataSet ReadProjectSyncSettings(Guid[] syncEntityUids, SyncEntityUidType syncEntityUidType, bool includeMappingData);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProj" +
             "ectSyncSettings", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProj" +
@@ -64,7 +64,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectSyncErrorInfoServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        SyncErrorsDataSet ReadProjectSyncErrorInfo(System.Guid wssListUid);
+        SyncErrorsDataSet ReadProjectSyncErrorInfo(Guid wssListUid);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServer" +
             "TimelineData", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServer" +
@@ -74,7 +74,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adServerTimelineDataDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        string ReadServerTimelineData(System.Guid timelineType);
+        string ReadServerTimelineData(Guid timelineType);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateServ" +
             "erTimelineData", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateServ" +
@@ -84,7 +84,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Up" +
             "dateServerTimelineDataDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void UpdateServerTimelineData(System.Guid timelineType, string tlData);
+        void UpdateServerTimelineData(Guid timelineType, string tlData);
 
         // CODEGEN: Parameter 'QueueImportTaskListsResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'XmlArrayItem'.
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueImpor" +
@@ -105,7 +105,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueUpdateProject2ServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueUpdateProject2(System.Guid jobUid, System.Guid sessionUid, ProjectDataSet dataset, bool validateOnly);
+        void QueueUpdateProject2(Guid jobUid, Guid sessionUid, ProjectDataSet dataset, bool validateOnly);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpdat" +
             "eVisibilityMode", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpdat" +
@@ -115,7 +115,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueUpdateVisibilityModeServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueUpdateVisibilityMode(System.Guid jobUid, System.Guid projectUid, ProjectDataSet dataset);
+        void QueueUpdateVisibilityMode(Guid jobUid, Guid projectUid, ProjectDataSet dataset);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/CheckOutPr" +
             "oject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/CheckOutPr" +
@@ -125,7 +125,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Ch" +
             "eckOutProjectDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void CheckOutProject(System.Guid projectUid, System.Guid sessionUid, string sessionDescription);
+        void CheckOutProject(Guid projectUid, Guid sessionUid, string sessionDescription);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCheck" +
             "InProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCheck" +
@@ -135,7 +135,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueCheckInProjectServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueCheckInProject(System.Guid jobUid, System.Guid projectUid, bool force, Guid sessionUid, string sessionDescription);
+        void QueueCheckInProject(Guid jobUid, Guid projectUid, bool force, Guid sessionUid, string sessionDescription);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCreat" +
             "eProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCreat" +
@@ -145,7 +145,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueCreateProjectDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueCreateProject(System.Guid jobUid, ProjectDataSet dataset, bool validateOnly);
+        void QueueCreateProject(Guid jobUid, ProjectDataSet dataset, bool validateOnly);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCreat" +
             "eProjectAndCheckOut", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCreat" +
@@ -225,7 +225,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueUpdateProjectServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueUpdateProject(Guid jobUid, Guid sessionUid, FluentPro.FluentPS.Proxy.Wcf.ProjectDataSet dataset, bool validateOnly);
+        void QueueUpdateProject(Guid jobUid, Guid sessionUid, ProjectDataSet dataset, bool validateOnly);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueDelet" +
             "eFromProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueDelet" +
@@ -235,7 +235,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueDeleteFromProjectDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueDeleteFromProject(System.Guid jobUid, System.Guid sessionUid, System.Guid projectUid, System.Guid[] projectEntityUids);
+        void QueueDeleteFromProject(Guid jobUid, Guid sessionUid, Guid projectUid, Guid[] projectEntityUids);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
             "tTeam", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
@@ -245,7 +245,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectTeamServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ProjectTeamDataSet ReadProjectTeam(System.Guid projectUid);
+        ProjectTeamDataSet ReadProjectTeam(Guid projectUid);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpdat" +
             "eProjectTeam", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpdat" +
@@ -255,7 +255,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueUpdateProjectTeamDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueUpdateProjectTeam(System.Guid JobUid, System.Guid sessionUid, System.Guid projectUid, FluentPro.FluentPS.Proxy.Wcf.ProjectTeamDataSet dataset);
+        void QueueUpdateProjectTeam(Guid JobUid, Guid sessionUid, Guid projectUid, ProjectTeamDataSet dataset);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadSchedu" +
             "lingContext", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadSchedu" +
@@ -265,7 +265,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adSchedulingContextDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ProjectContextDataSet ReadSchedulingContext(System.Guid[] projectUids, System.Guid[] resourceUids);
+        ProjectContextDataSet ReadSchedulingContext(Guid[] projectUids, Guid[] resourceUids);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/GetProject" +
             "NameFromProjectUid", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/GetProject" +
@@ -275,7 +275,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Ge" +
             "tProjectNameFromProjectUidServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        string GetProjectNameFromProjectUid(System.Guid projectUid, FluentPro.FluentPS.Proxy.Wcf.DataStoreEnum dataStore);
+        string GetProjectNameFromProjectUid(Guid projectUid, DataStoreEnum dataStore);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServer" +
             "ListSeparator", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadServer" +
@@ -295,7 +295,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectStatusServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ProjectDataSet ReadProjectStatus(System.Guid projGuid, FluentPro.FluentPS.Proxy.Wcf.DataStoreEnum dataStore, string projName, int projType);
+        ProjectDataSet ReadProjectStatus(Guid projGuid, DataStoreEnum dataStore, string projName, int projType);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueuePubli" +
             "sh", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueuePubli" +
@@ -305,7 +305,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "euePublishServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ProjectRelationsDataSet QueuePublish(System.Guid jobUid, System.Guid projectUid, bool fullPublish, string WssURL);
+        ProjectRelationsDataSet QueuePublish(Guid jobUid, Guid projectUid, bool fullPublish, string WssURL);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueuePubli" +
             "shSummary", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueuePubli" +
@@ -315,7 +315,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "euePublishSummaryServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ProjectRelationsDataSet QueuePublishSummary(System.Guid jobUid, System.Guid projectUid);
+        ProjectRelationsDataSet QueuePublishSummary(Guid jobUid, Guid projectUid);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpgra" +
             "deProject", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpgra" +
@@ -325,7 +325,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueUpgradeProjectDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueUpgradeProject(System.Guid projectUID);
+        void QueueUpgradeProject(Guid projectUID);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCreat" +
             "eProposalProjectAndCheckout", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueCreat" +
@@ -335,7 +335,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueCreateProposalProjectAndCheckoutDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueCreateProposalProjectAndCheckout(System.Guid jobUid, System.Guid sessionUid, string sessionDescription, FluentPro.FluentPS.Proxy.Wcf.ProjectDataSet projDS, bool validateOnly, bool publishProject);
+        void QueueCreateProposalProjectAndCheckout(Guid jobUid, Guid sessionUid, string sessionDescription, ProjectDataSet projDS, bool validateOnly, bool publishProject);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateOper" +
             "ationsWorkFromWssList", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/CreateOper" +
@@ -345,7 +345,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Cr" +
             "eateOperationsWorkFromWssListServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        System.Guid CreateOperationsWorkFromWssList(System.Guid sessionUid, string listDataXml, string priorityMappingsXml, string projectName, string projectDescription, string titleFieldName, string startDateFieldName, string finishDateFieldName, string taskPriorityFieldName, string percentCompleteFieldName, string resourceFieldName, bool includeWorkflow);
+        Guid CreateOperationsWorkFromWssList(Guid sessionUid, string listDataXml, string priorityMappingsXml, string projectName, string projectDescription, string titleFieldName, string startDateFieldName, string finishDateFieldName, string taskPriorityFieldName, string percentCompleteFieldName, string resourceFieldName, bool includeWorkflow);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProj" +
             "ectWorkspaceAddress", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/UpdateProj" +
@@ -355,7 +355,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Up" +
             "dateProjectWorkspaceAddressDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void UpdateProjectWorkspaceAddress(System.Guid projectUid, string newWebName, System.Guid newWSSServerUID);
+        void UpdateProjectWorkspaceAddress(Guid projectUid, string newWebName, Guid newWSSServerUID);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
             "tList", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
@@ -365,7 +365,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectListServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ProjectDataSet ReadProjectList();
+        ProjectDataSet ReadProjectList();
 
         // CODEGEN: Parameter 'departmentUid' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'XmlElement'.
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
@@ -376,7 +376,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectListByDepartmentDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        FluentPro.FluentPS.Proxy.Wcf.ReadProjectListByDepartmentResponse ReadProjectListByDepartment(FluentPro.FluentPS.Proxy.Wcf.ReadProjectListByDepartmentRequest request);
+        ReadProjectListByDepartmentResponse ReadProjectListByDepartment(ReadProjectListByDepartmentRequest request);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueSynch" +
             "ronizeProjectWorkspace", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueSynch" +
@@ -386,7 +386,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Qu" +
             "eueSynchronizeProjectWorkspaceServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void QueueSynchronizeProjectWorkspace(System.Guid jobUid, System.Guid projectUid, bool forceFullSync);
+        void QueueSynchronizeProjectWorkspace(Guid jobUid, Guid projectUid, bool forceFullSync);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
             "tImpacts", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/ReadProjec" +
@@ -396,8 +396,6 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/Project/Re" +
             "adProjectImpactsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        ProjectImpactDataSet ReadProjectImpacts(System.Guid projectUid, FluentPro.FluentPS.Proxy.Wcf.DataStoreEnum store);
-
+        ProjectImpactDataSet ReadProjectImpacts(Guid projectUid, DataStoreEnum store);
     }
-
 }

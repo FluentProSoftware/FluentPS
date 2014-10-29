@@ -460,7 +460,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectRelationsRow AddProjectRelationsRow(System.Guid ProjectUID, string ProjectName, System.Guid RelatedProjectUID, string RelatedProjectName, int Relationship)
+            public ProjectRelationsRow AddProjectRelationsRow(Guid ProjectUID, string ProjectName, Guid RelatedProjectUID, string RelatedProjectName, int Relationship)
             {
                 ProjectRelationsRow rowProjectRelationsRow = ((ProjectRelationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -476,7 +476,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectRelationsRow FindByProjectUIDRelatedProjectUID(System.Guid ProjectUID, System.Guid RelatedProjectUID)
+            public ProjectRelationsRow FindByProjectUIDRelatedProjectUID(Guid ProjectUID, Guid RelatedProjectUID)
             {
                 return ((ProjectRelationsRow)(this.Rows.Find(new object[] {
                             ProjectUID,
@@ -521,11 +521,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnProjectUID = new global::System.Data.DataColumn("ProjectUID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnProjectUID = new global::System.Data.DataColumn("ProjectUID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProjectUID);
                 this.columnProjectName = new global::System.Data.DataColumn("ProjectName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProjectName);
-                this.columnRelatedProjectUID = new global::System.Data.DataColumn("RelatedProjectUID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRelatedProjectUID = new global::System.Data.DataColumn("RelatedProjectUID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRelatedProjectUID);
                 this.columnRelatedProjectName = new global::System.Data.DataColumn("RelatedProjectName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRelatedProjectName);
@@ -708,11 +708,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ProjectUID
+            public Guid ProjectUID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectRelations.ProjectUIDColumn]));
+                    return ((Guid)(this[this.tableProjectRelations.ProjectUIDColumn]));
                 }
                 set
                 {
@@ -736,11 +736,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RelatedProjectUID
+            public Guid RelatedProjectUID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectRelations.RelatedProjectUIDColumn]));
+                    return ((Guid)(this[this.tableProjectRelations.RelatedProjectUIDColumn]));
                 }
                 set
                 {

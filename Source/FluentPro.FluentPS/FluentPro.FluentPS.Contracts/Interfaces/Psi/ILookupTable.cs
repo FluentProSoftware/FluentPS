@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using FluentPro.FluentPS.Contracts.Exceptions.Faults;
 using FluentPro.FluentPS.Contracts.Model.DataSets;
 using FluentPro.FluentPS.Proxy.Model.DataSets;
@@ -12,13 +13,13 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/CheckOutLookupTablesDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/CheckOutLookupTablesServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void CheckOutLookupTables(System.Guid[] array);
+        void CheckOutLookupTables(Guid[] array);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CheckInLookupTables", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CheckInLookupTablesResponse")]
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/CheckInLookupTablesServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/CheckInLookupTablesDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void CheckInLookupTables(System.Guid[] array, bool force);
+        void CheckInLookupTables(Guid[] array, bool force);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesMultiLang", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesMultiLangResponse")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/ReadLookupTablesMultiLangDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
@@ -36,7 +37,7 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/DeleteLookupTablesDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/DeleteLookupTablesServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        void DeleteLookupTables(System.Guid[] ltGuids);
+        void DeleteLookupTables(Guid[] ltGuids);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/UpdateLookupTablesMultiLang", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/UpdateLookupTablesMultiLangResponse")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/UpdateLookupTablesMultiLangDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
@@ -54,13 +55,13 @@ namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/ReadLookupTablesByUidsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/ReadLookupTablesByUidsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        LookupTableDataSet ReadLookupTablesByUids(System.Guid[] ltUidList, bool autoCheckOut, int language);
+        LookupTableDataSet ReadLookupTablesByUids(Guid[] ltUidList, bool autoCheckOut, int language);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesMultiLangByUids", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesMultiLangByUidsResponse")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/ReadLookupTablesMultiLangByUidsDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [FaultContract(typeof(ServerExecutionFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/ReadLookupTablesMultiLangByUidsServerExecutionFaultFault", Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]
         [XmlSerializerFormat]
-        LookupTableMultiLangDataSet ReadLookupTablesMultiLangByUids(System.Guid[] ltUidList, bool autoCheckOut);
+        LookupTableMultiLangDataSet ReadLookupTablesMultiLangByUids(Guid[] ltUidList, bool autoCheckOut);
 
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CreateLookupTables", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CreateLookupTablesResponse")]
         [FaultContract(typeof(DefaultServerFault), Action = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/LookupTable/CreateLookupTablesDefaultServerFaultFault", Name = "DefaultServerFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]

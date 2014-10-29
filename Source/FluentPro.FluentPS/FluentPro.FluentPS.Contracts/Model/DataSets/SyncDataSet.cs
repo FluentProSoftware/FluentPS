@@ -573,7 +573,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncProjectSettingsRow AddSyncProjectSettingsRow(System.Guid SYNC_WSS_LIST_UID, System.Guid PROJ_UID, string SYNC_WSS_SERVER_URL, System.DateTime SYNC_LAST_SYNC_DATE)
+            public SyncProjectSettingsRow AddSyncProjectSettingsRow(Guid SYNC_WSS_LIST_UID, Guid PROJ_UID, string SYNC_WSS_SERVER_URL, System.DateTime SYNC_LAST_SYNC_DATE)
             {
                 SyncProjectSettingsRow rowSyncProjectSettingsRow = ((SyncProjectSettingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -588,7 +588,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncProjectSettingsRow FindBySYNC_WSS_LIST_UID(System.Guid SYNC_WSS_LIST_UID)
+            public SyncProjectSettingsRow FindBySYNC_WSS_LIST_UID(Guid SYNC_WSS_LIST_UID)
             {
                 return ((SyncProjectSettingsRow)(this.Rows.Find(new object[] {
                             SYNC_WSS_LIST_UID})));
@@ -631,9 +631,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
                 this.columnSYNC_WSS_SERVER_URL = new global::System.Data.DataColumn("SYNC_WSS_SERVER_URL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_SERVER_URL);
@@ -954,7 +954,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncFieldMappingsRow AddSyncFieldMappingsRow(System.Guid SYNC_WSS_LIST_UID, System.Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_FIELD_NAME, System.Guid SYNC_PROJECT_FIELD_UID, string SYNC_PROJECT_FIELD_NAME, bool SYNC_IS_PROJECT_CUSTOM_FIELD)
+            public SyncFieldMappingsRow AddSyncFieldMappingsRow(Guid SYNC_WSS_LIST_UID, Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_FIELD_NAME, Guid SYNC_PROJECT_FIELD_UID, string SYNC_PROJECT_FIELD_NAME, bool SYNC_IS_PROJECT_CUSTOM_FIELD)
             {
                 SyncFieldMappingsRow rowSyncFieldMappingsRow = ((SyncFieldMappingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -971,7 +971,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncFieldMappingsRow FindBySYNC_WSS_LIST_UIDSYNC_PROJECT_FIELD_UID(System.Guid SYNC_WSS_LIST_UID, System.Guid SYNC_PROJECT_FIELD_UID)
+            public SyncFieldMappingsRow FindBySYNC_WSS_LIST_UIDSYNC_PROJECT_FIELD_UID(Guid SYNC_WSS_LIST_UID, Guid SYNC_PROJECT_FIELD_UID)
             {
                 return ((SyncFieldMappingsRow)(this.Rows.Find(new object[] {
                             SYNC_WSS_LIST_UID,
@@ -1017,13 +1017,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
-                this.columnSYNC_WSS_FIELD_UID = new global::System.Data.DataColumn("SYNC_WSS_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_FIELD_UID = new global::System.Data.DataColumn("SYNC_WSS_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_FIELD_UID);
                 this.columnSYNC_WSS_FIELD_NAME = new global::System.Data.DataColumn("SYNC_WSS_FIELD_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_FIELD_NAME);
-                this.columnSYNC_PROJECT_FIELD_UID = new global::System.Data.DataColumn("SYNC_PROJECT_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_PROJECT_FIELD_UID = new global::System.Data.DataColumn("SYNC_PROJECT_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 this.columnSYNC_PROJECT_FIELD_UID.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "SYNC_PROJECT_FIELD_UID");
                 this.columnSYNC_PROJECT_FIELD_UID.ExtendedProperties.Add("Generator_UserColumnName", "SYNC_PROJECT_FIELD_UID");
                 base.Columns.Add(this.columnSYNC_PROJECT_FIELD_UID);
@@ -1315,7 +1315,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncItemTaskMappingsRow AddSyncItemTaskMappingsRow(System.Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID, System.Guid SYNC_TASK_UID)
+            public SyncItemTaskMappingsRow AddSyncItemTaskMappingsRow(Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID, Guid SYNC_TASK_UID)
             {
                 SyncItemTaskMappingsRow rowSyncItemTaskMappingsRow = ((SyncItemTaskMappingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1329,7 +1329,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncItemTaskMappingsRow FindBySYNC_WSS_LIST_UIDSYNC_WSS_LIST_ITEM_ID(System.Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID)
+            public SyncItemTaskMappingsRow FindBySYNC_WSS_LIST_UIDSYNC_WSS_LIST_ITEM_ID(Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID)
             {
                 return ((SyncItemTaskMappingsRow)(this.Rows.Find(new object[] {
                             SYNC_WSS_LIST_UID,
@@ -1372,11 +1372,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
                 this.columnSYNC_WSS_LIST_ITEM_ID = new global::System.Data.DataColumn("SYNC_WSS_LIST_ITEM_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_ITEM_ID);
-                this.columnSYNC_TASK_UID = new global::System.Data.DataColumn("SYNC_TASK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_TASK_UID = new global::System.Data.DataColumn("SYNC_TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_TASK_UID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSYNC_WSS_LIST_UID,
@@ -1680,7 +1680,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncValueTranslationsRow AddSyncValueTranslationsRow(System.Guid SYNC_WSS_LIST_UID, System.Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_FIELD_NAME, string SYNC_WSS_VALUE, string SYNC_PROJECT_VALUE)
+            public SyncValueTranslationsRow AddSyncValueTranslationsRow(Guid SYNC_WSS_LIST_UID, Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_FIELD_NAME, string SYNC_WSS_VALUE, string SYNC_PROJECT_VALUE)
             {
                 SyncValueTranslationsRow rowSyncValueTranslationsRow = ((SyncValueTranslationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1696,7 +1696,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SyncValueTranslationsRow FindBySYNC_WSS_LIST_UIDSYNC_WSS_FIELD_UIDSYNC_WSS_VALUE(System.Guid SYNC_WSS_LIST_UID, System.Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_VALUE)
+            public SyncValueTranslationsRow FindBySYNC_WSS_LIST_UIDSYNC_WSS_FIELD_UIDSYNC_WSS_VALUE(Guid SYNC_WSS_LIST_UID, Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_VALUE)
             {
                 return ((SyncValueTranslationsRow)(this.Rows.Find(new object[] {
                             SYNC_WSS_LIST_UID,
@@ -1742,9 +1742,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
-                this.columnSYNC_WSS_FIELD_UID = new global::System.Data.DataColumn("SYNC_WSS_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_WSS_FIELD_UID = new global::System.Data.DataColumn("SYNC_WSS_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_FIELD_UID);
                 this.columnSYNC_WSS_FIELD_NAME = new global::System.Data.DataColumn("SYNC_WSS_FIELD_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSYNC_WSS_FIELD_NAME);
@@ -1930,11 +1930,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_LIST_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncProjectSettings.SYNC_WSS_LIST_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncProjectSettings.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
@@ -1944,11 +1944,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncProjectSettings.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncProjectSettings.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -2047,11 +2047,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_LIST_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncFieldMappings.SYNC_WSS_LIST_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncFieldMappings.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
@@ -2061,11 +2061,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_FIELD_UID
+            public Guid SYNC_WSS_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncFieldMappings.SYNC_WSS_FIELD_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncFieldMappings.SYNC_WSS_FIELD_UIDColumn]));
                 }
                 set
                 {
@@ -2089,11 +2089,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_PROJECT_FIELD_UID
+            public Guid SYNC_PROJECT_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncFieldMappings.SYNC_PROJECT_FIELD_UID]));
+                    return ((Guid)(this[this.tableSyncFieldMappings.SYNC_PROJECT_FIELD_UID]));
                 }
                 set
                 {
@@ -2148,11 +2148,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_LIST_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncItemTaskMappings.SYNC_WSS_LIST_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncItemTaskMappings.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
@@ -2176,13 +2176,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_TASK_UID
+            public Guid SYNC_TASK_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableSyncItemTaskMappings.SYNC_TASK_UIDColumn]));
+                        return ((Guid)(this[this.tableSyncItemTaskMappings.SYNC_TASK_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -2228,11 +2228,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_LIST_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncValueTranslations.SYNC_WSS_LIST_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncValueTranslations.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
@@ -2242,11 +2242,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SYNC_WSS_FIELD_UID
+            public Guid SYNC_WSS_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableSyncValueTranslations.SYNC_WSS_FIELD_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncValueTranslations.SYNC_WSS_FIELD_UIDColumn]));
                 }
                 set
                 {

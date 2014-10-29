@@ -561,7 +561,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow AddProjectImpactValuesRow(System.Guid PROJ_UID, System.Guid DRIVER_UID, System.Guid LT_STRUCT_UID)
+            public ProjectImpactValuesRow AddProjectImpactValuesRow(Guid PROJ_UID, Guid DRIVER_UID, Guid LT_STRUCT_UID)
             {
                 ProjectImpactValuesRow rowProjectImpactValuesRow = ((ProjectImpactValuesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -575,7 +575,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow FindByPROJ_UIDDRIVER_UID(System.Guid PROJ_UID, System.Guid DRIVER_UID)
+            public ProjectImpactValuesRow FindByPROJ_UIDDRIVER_UID(Guid PROJ_UID, Guid DRIVER_UID)
             {
                 return ((ProjectImpactValuesRow)(this.Rows.Find(new object[] {
                             PROJ_UID,
@@ -618,11 +618,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDRIVER_UID);
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_STRUCT_UID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPROJ_UID,
@@ -914,7 +914,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow AddImpactStatementsRow(System.Guid DRIVER_UID, System.Guid PROJECT_IMPACT_CF_UID, System.Guid LT_STRUCT_UID, string DESCRIPTION)
+            public ImpactStatementsRow AddImpactStatementsRow(Guid DRIVER_UID, Guid PROJECT_IMPACT_CF_UID, Guid LT_STRUCT_UID, string DESCRIPTION)
             {
                 ImpactStatementsRow rowImpactStatementsRow = ((ImpactStatementsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -929,7 +929,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow FindByDRIVER_UIDPROJECT_IMPACT_CF_UIDLT_STRUCT_UID(System.Guid DRIVER_UID, System.Guid PROJECT_IMPACT_CF_UID, System.Guid LT_STRUCT_UID)
+            public ImpactStatementsRow FindByDRIVER_UIDPROJECT_IMPACT_CF_UIDLT_STRUCT_UID(Guid DRIVER_UID, Guid PROJECT_IMPACT_CF_UID, Guid LT_STRUCT_UID)
             {
                 return ((ImpactStatementsRow)(this.Rows.Find(new object[] {
                             DRIVER_UID,
@@ -974,11 +974,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDRIVER_UID);
-                this.columnPROJECT_IMPACT_CF_UID = new global::System.Data.DataColumn("PROJECT_IMPACT_CF_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJECT_IMPACT_CF_UID = new global::System.Data.DataColumn("PROJECT_IMPACT_CF_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJECT_IMPACT_CF_UID);
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_STRUCT_UID);
                 this.columnDESCRIPTION = new global::System.Data.DataColumn("DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESCRIPTION);
@@ -1268,7 +1268,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow AddDriversRow(System.Guid DRIVER_UID, string DRIVER_NAME, string DRIVER_DESCRIPTION)
+            public DriversRow AddDriversRow(Guid DRIVER_UID, string DRIVER_NAME, string DRIVER_DESCRIPTION)
             {
                 DriversRow rowDriversRow = ((DriversRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1282,7 +1282,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow FindByDRIVER_UID(System.Guid DRIVER_UID)
+            public DriversRow FindByDRIVER_UID(Guid DRIVER_UID)
             {
                 return ((DriversRow)(this.Rows.Find(new object[] {
                             DRIVER_UID})));
@@ -1324,7 +1324,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDRIVER_UID);
                 this.columnDRIVER_NAME = new global::System.Data.DataColumn("DRIVER_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDRIVER_NAME);
@@ -1601,7 +1601,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRow AddLookupTableValuesRow(System.Guid LT_STRUCT_UID, string LT_VALUE_TEXT)
+            public LookupTableValuesRow AddLookupTableValuesRow(Guid LT_STRUCT_UID, string LT_VALUE_TEXT)
             {
                 LookupTableValuesRow rowLookupTableValuesRow = ((LookupTableValuesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1647,7 +1647,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_STRUCT_UID);
                 this.columnLT_VALUE_TEXT = new global::System.Data.DataColumn("LT_VALUE_TEXT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLT_VALUE_TEXT);
@@ -1821,11 +1821,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectImpactValues.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectImpactValues.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -1835,11 +1835,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid DRIVER_UID
+            public Guid DRIVER_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectImpactValues.DRIVER_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectImpactValues.DRIVER_UIDColumn]));
                 }
                 set
                 {
@@ -1849,13 +1849,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_STRUCT_UID
+            public Guid LT_STRUCT_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectImpactValues.LT_STRUCT_UIDColumn]));
+                        return ((Guid)(this[this.tableProjectImpactValues.LT_STRUCT_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -1901,11 +1901,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid DRIVER_UID
+            public Guid DRIVER_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableImpactStatements.DRIVER_UIDColumn]));
+                    return ((Guid)(this[this.tableImpactStatements.DRIVER_UIDColumn]));
                 }
                 set
                 {
@@ -1915,11 +1915,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJECT_IMPACT_CF_UID
+            public Guid PROJECT_IMPACT_CF_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableImpactStatements.PROJECT_IMPACT_CF_UIDColumn]));
+                    return ((Guid)(this[this.tableImpactStatements.PROJECT_IMPACT_CF_UIDColumn]));
                 }
                 set
                 {
@@ -1929,11 +1929,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_STRUCT_UID
+            public Guid LT_STRUCT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableImpactStatements.LT_STRUCT_UIDColumn]));
+                    return ((Guid)(this[this.tableImpactStatements.LT_STRUCT_UIDColumn]));
                 }
                 set
                 {
@@ -1974,11 +1974,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid DRIVER_UID
+            public Guid DRIVER_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableDrivers.DRIVER_UIDColumn]));
+                    return ((Guid)(this[this.tableDrivers.DRIVER_UIDColumn]));
                 }
                 set
                 {
@@ -2054,11 +2054,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LT_STRUCT_UID
+            public Guid LT_STRUCT_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableLookupTableValues.LT_STRUCT_UIDColumn]));
+                    return ((Guid)(this[this.tableLookupTableValues.LT_STRUCT_UIDColumn]));
                 }
                 set
                 {

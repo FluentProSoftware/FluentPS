@@ -1827,11 +1827,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectRow AddProjectRow(
-                        System.Guid PROJ_UID,
+                        Guid PROJ_UID,
                         string PROJ_NAME,
                         int PROJ_TYPE,
                         string PROJ_PROP_AUTHOR,
-                        System.Guid CAL_UID,
+                        Guid CAL_UID,
                         string CAL_NAME,
                         string PROJ_PROP_CATEGORY,
                         string PROJ_PROP_COMPANY,
@@ -1881,41 +1881,41 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         bool PROJ_OPT_MOVE_REMAINING_TO_STATUS,
                         bool PROJ_OPT_SHOW_EST_DUR,
                         short PROJ_OPT_WEEK_START_DAY,
-                        System.Guid WPROJ_ISSUE_LIST_NAME,
-                        System.Guid WPROJ_RISK_LIST_NAME,
+                        Guid WPROJ_ISSUE_LIST_NAME,
+                        Guid WPROJ_RISK_LIST_NAME,
                         string WPROJ_STS_SUBWEB_NAME,
-                        System.Guid WSTS_SERVER_UID,
-                        System.Guid ProjectOwnerID,
-                        System.Guid PROJ_CHECKOUTBY,
+                        Guid WSTS_SERVER_UID,
+                        Guid ProjectOwnerID,
+                        Guid PROJ_CHECKOUTBY,
                         System.DateTime PROJ_CHECKOUTDATE,
-                        System.Guid PROJ_SESSION_UID,
+                        Guid PROJ_SESSION_UID,
                         string PROJ_SESSION_DESCRIPTION,
                         int PROJ_STALE_FLAGS,
                         string WPROJ_DESCRIPTION,
                         System.DateTime WPROJ_LAST_PUB,
                         System.DateTime PROJ_LAST_SAVED,
-                        System.Guid PROJ_SUMMARY_TASK_UID,
+                        Guid PROJ_SUMMARY_TASK_UID,
                         System.DateTime CREATED_DATE,
-                        System.Guid ENTERPRISE_PROJECT_TYPE_UID,
+                        Guid ENTERPRISE_PROJECT_TYPE_UID,
                         string ENTERPRISE_PROJECT_TYPE_NAME,
-                        System.Guid WORKFLOW_INSTANCE_UID,
-                        System.Guid PHASE_UID,
+                        Guid WORKFLOW_INSTANCE_UID,
+                        Guid PHASE_UID,
                         string PHASE_NAME,
-                        System.Guid STAGE_UID,
+                        Guid STAGE_UID,
                         string STAGE_NAME,
-                        System.Guid SKIP_TO_STAGE_UID,
-                        System.Guid OPTIMIZER_SOLUTION_UID,
-                        System.Guid PLANNER_SOLUTION_UID,
+                        Guid SKIP_TO_STAGE_UID,
+                        Guid OPTIMIZER_SOLUTION_UID,
+                        Guid PLANNER_SOLUTION_UID,
                         int OPTIMIZER_DECISION,
                         int PLANNER_DECISION,
                         System.DateTime PLANNER_START_DATE,
                         System.DateTime PLANNER_END_DATE,
-                        System.Guid OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID,
-                        System.Guid PLANNER_FORCE_ALIAS_LT_VALUE_UID,
+                        Guid OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID,
+                        Guid PLANNER_FORCE_ALIAS_LT_VALUE_UID,
                         bool PROJ_NEW_TASKS_ARE_MANUAL,
                         decimal PROJ_WINPROJ_VERSION_NUMBER,
-                        System.Guid IDEA_WEB_UID,
-                        System.Guid IDEA_LIST_UID,
+                        Guid IDEA_WEB_UID,
+                        Guid IDEA_LIST_UID,
                         int IDEA_ITEM_ID,
                         bool PROJ_IS_TASK_LIST)
             {
@@ -2019,7 +2019,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectRow FindByPROJ_UID(System.Guid PROJ_UID)
+            public ProjectRow FindByPROJ_UID(Guid PROJ_UID)
             {
                 return ((ProjectRow)(this.Rows.Find(new object[] {
                             PROJ_UID})));
@@ -2149,7 +2149,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
                 this.columnPROJ_NAME = new global::System.Data.DataColumn("PROJ_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_NAME);
@@ -2157,7 +2157,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnPROJ_TYPE);
                 this.columnPROJ_PROP_AUTHOR = new global::System.Data.DataColumn("PROJ_PROP_AUTHOR", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_PROP_AUTHOR);
-                this.columnCAL_UID = new global::System.Data.DataColumn("CAL_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCAL_UID = new global::System.Data.DataColumn("CAL_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCAL_UID);
                 this.columnCAL_NAME = new global::System.Data.DataColumn("CAL_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCAL_NAME);
@@ -2257,21 +2257,21 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnPROJ_OPT_SHOW_EST_DUR);
                 this.columnPROJ_OPT_WEEK_START_DAY = new global::System.Data.DataColumn("PROJ_OPT_WEEK_START_DAY", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_OPT_WEEK_START_DAY);
-                this.columnWPROJ_ISSUE_LIST_NAME = new global::System.Data.DataColumn("WPROJ_ISSUE_LIST_NAME", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnWPROJ_ISSUE_LIST_NAME = new global::System.Data.DataColumn("WPROJ_ISSUE_LIST_NAME", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWPROJ_ISSUE_LIST_NAME);
-                this.columnWPROJ_RISK_LIST_NAME = new global::System.Data.DataColumn("WPROJ_RISK_LIST_NAME", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnWPROJ_RISK_LIST_NAME = new global::System.Data.DataColumn("WPROJ_RISK_LIST_NAME", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWPROJ_RISK_LIST_NAME);
                 this.columnWPROJ_STS_SUBWEB_NAME = new global::System.Data.DataColumn("WPROJ_STS_SUBWEB_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWPROJ_STS_SUBWEB_NAME);
-                this.columnWSTS_SERVER_UID = new global::System.Data.DataColumn("WSTS_SERVER_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnWSTS_SERVER_UID = new global::System.Data.DataColumn("WSTS_SERVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWSTS_SERVER_UID);
-                this.columnProjectOwnerID = new global::System.Data.DataColumn("ProjectOwnerID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnProjectOwnerID = new global::System.Data.DataColumn("ProjectOwnerID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProjectOwnerID);
-                this.columnPROJ_CHECKOUTBY = new global::System.Data.DataColumn("PROJ_CHECKOUTBY", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_CHECKOUTBY = new global::System.Data.DataColumn("PROJ_CHECKOUTBY", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_CHECKOUTBY);
                 this.columnPROJ_CHECKOUTDATE = new global::System.Data.DataColumn("PROJ_CHECKOUTDATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_CHECKOUTDATE);
-                this.columnPROJ_SESSION_UID = new global::System.Data.DataColumn("PROJ_SESSION_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_SESSION_UID = new global::System.Data.DataColumn("PROJ_SESSION_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_SESSION_UID);
                 this.columnPROJ_SESSION_DESCRIPTION = new global::System.Data.DataColumn("PROJ_SESSION_DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_SESSION_DESCRIPTION);
@@ -2283,29 +2283,29 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnWPROJ_LAST_PUB);
                 this.columnPROJ_LAST_SAVED = new global::System.Data.DataColumn("PROJ_LAST_SAVED", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_LAST_SAVED);
-                this.columnPROJ_SUMMARY_TASK_UID = new global::System.Data.DataColumn("PROJ_SUMMARY_TASK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_SUMMARY_TASK_UID = new global::System.Data.DataColumn("PROJ_SUMMARY_TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_SUMMARY_TASK_UID);
                 this.columnCREATED_DATE = new global::System.Data.DataColumn("CREATED_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCREATED_DATE);
-                this.columnENTERPRISE_PROJECT_TYPE_UID = new global::System.Data.DataColumn("ENTERPRISE_PROJECT_TYPE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnENTERPRISE_PROJECT_TYPE_UID = new global::System.Data.DataColumn("ENTERPRISE_PROJECT_TYPE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnENTERPRISE_PROJECT_TYPE_UID);
                 this.columnENTERPRISE_PROJECT_TYPE_NAME = new global::System.Data.DataColumn("ENTERPRISE_PROJECT_TYPE_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnENTERPRISE_PROJECT_TYPE_NAME);
-                this.columnWORKFLOW_INSTANCE_UID = new global::System.Data.DataColumn("WORKFLOW_INSTANCE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnWORKFLOW_INSTANCE_UID = new global::System.Data.DataColumn("WORKFLOW_INSTANCE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWORKFLOW_INSTANCE_UID);
-                this.columnPHASE_UID = new global::System.Data.DataColumn("PHASE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPHASE_UID = new global::System.Data.DataColumn("PHASE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPHASE_UID);
                 this.columnPHASE_NAME = new global::System.Data.DataColumn("PHASE_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPHASE_NAME);
-                this.columnSTAGE_UID = new global::System.Data.DataColumn("STAGE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSTAGE_UID = new global::System.Data.DataColumn("STAGE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSTAGE_UID);
                 this.columnSTAGE_NAME = new global::System.Data.DataColumn("STAGE_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSTAGE_NAME);
-                this.columnSKIP_TO_STAGE_UID = new global::System.Data.DataColumn("SKIP_TO_STAGE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnSKIP_TO_STAGE_UID = new global::System.Data.DataColumn("SKIP_TO_STAGE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSKIP_TO_STAGE_UID);
-                this.columnOPTIMIZER_SOLUTION_UID = new global::System.Data.DataColumn("OPTIMIZER_SOLUTION_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnOPTIMIZER_SOLUTION_UID = new global::System.Data.DataColumn("OPTIMIZER_SOLUTION_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOPTIMIZER_SOLUTION_UID);
-                this.columnPLANNER_SOLUTION_UID = new global::System.Data.DataColumn("PLANNER_SOLUTION_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPLANNER_SOLUTION_UID = new global::System.Data.DataColumn("PLANNER_SOLUTION_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPLANNER_SOLUTION_UID);
                 this.columnOPTIMIZER_DECISION = new global::System.Data.DataColumn("OPTIMIZER_DECISION", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOPTIMIZER_DECISION);
@@ -2315,17 +2315,17 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnPLANNER_START_DATE);
                 this.columnPLANNER_END_DATE = new global::System.Data.DataColumn("PLANNER_END_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPLANNER_END_DATE);
-                this.columnOPTIMIZER_FORCE_ALIAS_LT_VALUE_UID = new global::System.Data.DataColumn("OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnOPTIMIZER_FORCE_ALIAS_LT_VALUE_UID = new global::System.Data.DataColumn("OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOPTIMIZER_FORCE_ALIAS_LT_VALUE_UID);
-                this.columnPLANNER_FORCE_ALIAS_LT_VALUE_UID = new global::System.Data.DataColumn("PLANNER_FORCE_ALIAS_LT_VALUE_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPLANNER_FORCE_ALIAS_LT_VALUE_UID = new global::System.Data.DataColumn("PLANNER_FORCE_ALIAS_LT_VALUE_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPLANNER_FORCE_ALIAS_LT_VALUE_UID);
                 this.columnPROJ_NEW_TASKS_ARE_MANUAL = new global::System.Data.DataColumn("PROJ_NEW_TASKS_ARE_MANUAL", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_NEW_TASKS_ARE_MANUAL);
                 this.columnPROJ_WINPROJ_VERSION_NUMBER = new global::System.Data.DataColumn("PROJ_WINPROJ_VERSION_NUMBER", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_WINPROJ_VERSION_NUMBER);
-                this.columnIDEA_WEB_UID = new global::System.Data.DataColumn("IDEA_WEB_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnIDEA_WEB_UID = new global::System.Data.DataColumn("IDEA_WEB_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDEA_WEB_UID);
-                this.columnIDEA_LIST_UID = new global::System.Data.DataColumn("IDEA_LIST_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnIDEA_LIST_UID = new global::System.Data.DataColumn("IDEA_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDEA_LIST_UID);
                 this.columnIDEA_ITEM_ID = new global::System.Data.DataColumn("IDEA_ITEM_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDEA_ITEM_ID);
@@ -4191,9 +4191,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TaskRow AddTaskRow(
-                        System.Guid PROJ_UID,
-                        System.Guid TASK_UID,
-                        System.Guid TASK_PARENT_UID,
+                        Guid PROJ_UID,
+                        Guid TASK_UID,
+                        Guid TASK_PARENT_UID,
                         string TASK_NAME,
                         int TASK_ID,
                         bool TASK_IS_MILESTONE,
@@ -4250,7 +4250,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         int TASK_EVMETHOD,
                         int TASK_OUTLINE_LEVEL,
                         string TASK_OUTLINE_NUM,
-                        System.Guid TASK_CAL_UID,
+                        Guid TASK_CAL_UID,
                         System.DateTime TASK_START_DATE,
                         int TASK_START_VAR,
                         System.DateTime TASK_FINISH_DATE,
@@ -4277,7 +4277,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         bool TASK_HAS_LINKED_FIELDS,
                         string TASK_WBS,
                         int AddPosition,
-                        System.Guid AddAfterTaskUID,
+                        Guid AddAfterTaskUID,
                         int DurationType,
                         int WOBJ_DOC_REF_CNT,
                         int WOBJ_ISSUE_REF_CNT,
@@ -4290,7 +4290,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         int PROJ_OPT_CURRENCY_DIGITS,
                         int PROJ_OPT_CURRENCY_POSITION,
                         string PROJ_OPT_CURRENCY_SYMBOL,
-                        System.Guid TASK_EXT_PROJ_UID,
+                        Guid TASK_EXT_PROJ_UID,
                         double TASK_BUDGET_COST,
                         bool TASK_IS_NULL,
                         double TASK_BUDGET_WORK,
@@ -4322,7 +4322,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         int TASK_SCHED_DUR,
                         int TASK_SCHED_DUR_FMT,
                         string TASK_DUR_TXT,
-                        System.Guid StatusManager)
+                        Guid StatusManager)
             {
                 TaskRow rowTaskRow = ((TaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -4465,7 +4465,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskRow FindByTASK_UIDPROJ_UID(System.Guid TASK_UID, System.Guid PROJ_UID)
+            public TaskRow FindByTASK_UIDPROJ_UID(Guid TASK_UID, Guid PROJ_UID)
             {
                 return ((TaskRow)(this.Rows.Find(new object[] {
                             TASK_UID,
@@ -4637,11 +4637,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnTASK_UID = new global::System.Data.DataColumn("TASK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnTASK_UID = new global::System.Data.DataColumn("TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_UID);
-                this.columnTASK_PARENT_UID = new global::System.Data.DataColumn("TASK_PARENT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnTASK_PARENT_UID = new global::System.Data.DataColumn("TASK_PARENT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_PARENT_UID);
                 this.columnTASK_NAME = new global::System.Data.DataColumn("TASK_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_NAME);
@@ -4755,7 +4755,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTASK_OUTLINE_LEVEL);
                 this.columnTASK_OUTLINE_NUM = new global::System.Data.DataColumn("TASK_OUTLINE_NUM", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_OUTLINE_NUM);
-                this.columnTASK_CAL_UID = new global::System.Data.DataColumn("TASK_CAL_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnTASK_CAL_UID = new global::System.Data.DataColumn("TASK_CAL_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_CAL_UID);
                 this.columnTASK_START_DATE = new global::System.Data.DataColumn("TASK_START_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_START_DATE);
@@ -4809,7 +4809,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTASK_WBS);
                 this.columnAddPosition = new global::System.Data.DataColumn("AddPosition", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddPosition);
-                this.columnAddAfterTaskUID = new global::System.Data.DataColumn("AddAfterTaskUID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnAddAfterTaskUID = new global::System.Data.DataColumn("AddAfterTaskUID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddAfterTaskUID);
                 this.columnDurationType = new global::System.Data.DataColumn("DurationType", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDurationType);
@@ -4835,7 +4835,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnPROJ_OPT_CURRENCY_POSITION);
                 this.columnPROJ_OPT_CURRENCY_SYMBOL = new global::System.Data.DataColumn("PROJ_OPT_CURRENCY_SYMBOL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_OPT_CURRENCY_SYMBOL);
-                this.columnTASK_EXT_PROJ_UID = new global::System.Data.DataColumn("TASK_EXT_PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnTASK_EXT_PROJ_UID = new global::System.Data.DataColumn("TASK_EXT_PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_EXT_PROJ_UID);
                 this.columnTASK_BUDGET_COST = new global::System.Data.DataColumn("TASK_BUDGET_COST", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_BUDGET_COST);
@@ -4899,7 +4899,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTASK_SCHED_DUR_FMT);
                 this.columnTASK_DUR_TXT = new global::System.Data.DataColumn("TASK_DUR_TXT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_DUR_TXT);
-                this.columnStatusManager = new global::System.Data.DataColumn("StatusManager", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnStatusManager = new global::System.Data.DataColumn("StatusManager", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatusManager);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("TaskKey", new global::System.Data.DataColumn[] {
                                 this.columnTASK_UID,
@@ -6082,9 +6082,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectResourceRow AddProjectResourceRow(
-                        System.Guid PROJ_UID,
-                        System.Guid RES_UID,
-                        System.Guid RES_AD_GUID,
+                        Guid PROJ_UID,
+                        Guid RES_UID,
+                        Guid RES_AD_GUID,
                         string RES_NAME,
                         int RES_ID,
                         string RES_INITIALS,
@@ -6133,7 +6133,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         bool RES_HAS_LINKED_FIELDS,
                         bool RES_IS_OVERALLOCATED,
                         bool RES_IS_ENTERPRISE_RESOURCE,
-                        System.Guid RES_DEF_ASSN_OWNER,
+                        Guid RES_DEF_ASSN_OWNER,
                         bool ResourceIsBudget,
                         double RES_BUDGET_COST,
                         double RES_BUDGET_WORK,
@@ -6234,7 +6234,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectResourceRow FindByRES_UIDPROJ_UID(System.Guid RES_UID, System.Guid PROJ_UID)
+            public ProjectResourceRow FindByRES_UIDPROJ_UID(Guid RES_UID, Guid PROJ_UID)
             {
                 return ((ProjectResourceRow)(this.Rows.Find(new object[] {
                             RES_UID,
@@ -6345,11 +6345,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_UID);
-                this.columnRES_AD_GUID = new global::System.Data.DataColumn("RES_AD_GUID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRES_AD_GUID = new global::System.Data.DataColumn("RES_AD_GUID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_AD_GUID);
                 this.columnRES_NAME = new global::System.Data.DataColumn("RES_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_NAME);
@@ -6447,7 +6447,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnRES_IS_OVERALLOCATED);
                 this.columnRES_IS_ENTERPRISE_RESOURCE = new global::System.Data.DataColumn("RES_IS_ENTERPRISE_RESOURCE", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_IS_ENTERPRISE_RESOURCE);
-                this.columnRES_DEF_ASSN_OWNER = new global::System.Data.DataColumn("RES_DEF_ASSN_OWNER", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRES_DEF_ASSN_OWNER = new global::System.Data.DataColumn("RES_DEF_ASSN_OWNER", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_DEF_ASSN_OWNER);
                 this.columnResourceIsBudget = new global::System.Data.DataColumn("ResourceIsBudget", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResourceIsBudget);
@@ -7709,11 +7709,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AssignmentRow AddAssignmentRow(
-                        System.Guid PROJ_UID,
-                        System.Guid TASK_UID,
-                        System.Guid ASSN_UID,
-                        System.Guid RES_UID,
-                        System.Guid ASSN_PARENT_UID,
+                        Guid PROJ_UID,
+                        Guid TASK_UID,
+                        Guid ASSN_UID,
+                        Guid RES_UID,
+                        Guid ASSN_PARENT_UID,
                         System.DateTime ASSN_ACT_START,
                         System.DateTime ASSN_ACT_FINISH,
                         int ASSN_WORK_CONTOUR,
@@ -7764,7 +7764,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                         bool ASSN_RES_TYPE,
                         bool ASSN_RESPONSE_PENDING,
                         bool ASSN_UPDATE_NEEDED,
-                        System.Guid RES_UID_OWNER,
+                        Guid RES_UID_OWNER,
                         double ASSN_BUDGET_COST,
                         double ASSN_BUDGET_WORK,
                         string PROJ_NAME,
@@ -7875,7 +7875,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AssignmentRow FindByASSN_UIDPROJ_UID(System.Guid ASSN_UID, System.Guid PROJ_UID)
+            public AssignmentRow FindByASSN_UIDPROJ_UID(Guid ASSN_UID, Guid PROJ_UID)
             {
                 return ((AssignmentRow)(this.Rows.Find(new object[] {
                             ASSN_UID,
@@ -7993,15 +7993,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnTASK_UID = new global::System.Data.DataColumn("TASK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnTASK_UID = new global::System.Data.DataColumn("TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_UID);
-                this.columnASSN_UID = new global::System.Data.DataColumn("ASSN_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnASSN_UID = new global::System.Data.DataColumn("ASSN_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnASSN_UID);
-                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_UID);
-                this.columnASSN_PARENT_UID = new global::System.Data.DataColumn("ASSN_PARENT_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnASSN_PARENT_UID = new global::System.Data.DataColumn("ASSN_PARENT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnASSN_PARENT_UID);
                 this.columnASSN_ACT_START = new global::System.Data.DataColumn("ASSN_ACT_START", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnASSN_ACT_START);
@@ -8103,7 +8103,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnASSN_RESPONSE_PENDING);
                 this.columnASSN_UPDATE_NEEDED = new global::System.Data.DataColumn("ASSN_UPDATE_NEEDED", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnASSN_UPDATE_NEEDED);
-                this.columnRES_UID_OWNER = new global::System.Data.DataColumn("RES_UID_OWNER", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRES_UID_OWNER = new global::System.Data.DataColumn("RES_UID_OWNER", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_UID_OWNER);
                 this.columnASSN_BUDGET_COST = new global::System.Data.DataColumn("ASSN_BUDGET_COST", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnASSN_BUDGET_COST);
@@ -8522,7 +8522,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DependencyRow AddDependencyRow(System.Guid LINK_UID, System.Guid PROJ_UID, System.Guid LINK_PRED_UID, System.Guid LINK_SUCC_UID, int LINK_TYPE, int LINK_LAG, int LINK_LAG_FMT)
+            public DependencyRow AddDependencyRow(Guid LINK_UID, Guid PROJ_UID, Guid LINK_PRED_UID, Guid LINK_SUCC_UID, int LINK_TYPE, int LINK_LAG, int LINK_LAG_FMT)
             {
                 DependencyRow rowDependencyRow = ((DependencyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -8540,7 +8540,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DependencyRow FindByLINK_UIDPROJ_UID(System.Guid LINK_UID, System.Guid PROJ_UID)
+            public DependencyRow FindByLINK_UIDPROJ_UID(Guid LINK_UID, Guid PROJ_UID)
             {
                 return ((DependencyRow)(this.Rows.Find(new object[] {
                             LINK_UID,
@@ -8587,13 +8587,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLINK_UID = new global::System.Data.DataColumn("LINK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLINK_UID = new global::System.Data.DataColumn("LINK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLINK_UID);
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnLINK_PRED_UID = new global::System.Data.DataColumn("LINK_PRED_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLINK_PRED_UID = new global::System.Data.DataColumn("LINK_PRED_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLINK_PRED_UID);
-                this.columnLINK_SUCC_UID = new global::System.Data.DataColumn("LINK_SUCC_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnLINK_SUCC_UID = new global::System.Data.DataColumn("LINK_SUCC_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLINK_SUCC_UID);
                 this.columnLINK_TYPE = new global::System.Data.DataColumn("LINK_TYPE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLINK_TYPE);
@@ -9001,7 +9001,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectCustomFieldsRow AddProjectCustomFieldsRow(System.Guid CUSTOM_FIELD_UID, System.Guid PROJ_UID, System.Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, System.Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
+            public ProjectCustomFieldsRow AddProjectCustomFieldsRow(Guid CUSTOM_FIELD_UID, Guid PROJ_UID, Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
             {
                 ProjectCustomFieldsRow rowProjectCustomFieldsRow = ((ProjectCustomFieldsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -9025,7 +9025,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectCustomFieldsRow FindByCUSTOM_FIELD_UID(System.Guid CUSTOM_FIELD_UID)
+            public ProjectCustomFieldsRow FindByCUSTOM_FIELD_UID(Guid CUSTOM_FIELD_UID)
             {
                 return ((ProjectCustomFieldsRow)(this.Rows.Find(new object[] {
                             CUSTOM_FIELD_UID})));
@@ -9077,11 +9077,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCUSTOM_FIELD_UID);
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_UID);
                 this.columnMD_PROP_ID = new global::System.Data.DataColumn("MD_PROP_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_ID);
@@ -9093,7 +9093,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTEXT_VALUE);
                 this.columnDATE_VALUE = new global::System.Data.DataColumn("DATE_VALUE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDATE_VALUE);
-                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCODE_VALUE);
                 this.columnDUR_VALUE = new global::System.Data.DataColumn("DUR_VALUE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDUR_VALUE);
@@ -9514,7 +9514,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskCustomFieldsRow AddTaskCustomFieldsRow(System.Guid CUSTOM_FIELD_UID, System.Guid PROJ_UID, System.Guid TASK_UID, System.Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, System.Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
+            public TaskCustomFieldsRow AddTaskCustomFieldsRow(Guid CUSTOM_FIELD_UID, Guid PROJ_UID, Guid TASK_UID, Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
             {
                 TaskCustomFieldsRow rowTaskCustomFieldsRow = ((TaskCustomFieldsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -9539,7 +9539,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaskCustomFieldsRow FindByCUSTOM_FIELD_UID(System.Guid CUSTOM_FIELD_UID)
+            public TaskCustomFieldsRow FindByCUSTOM_FIELD_UID(Guid CUSTOM_FIELD_UID)
             {
                 return ((TaskCustomFieldsRow)(this.Rows.Find(new object[] {
                             CUSTOM_FIELD_UID})));
@@ -9592,13 +9592,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCUSTOM_FIELD_UID);
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnTASK_UID = new global::System.Data.DataColumn("TASK_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnTASK_UID = new global::System.Data.DataColumn("TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTASK_UID);
-                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_UID);
                 this.columnMD_PROP_ID = new global::System.Data.DataColumn("MD_PROP_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_ID);
@@ -9610,7 +9610,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTEXT_VALUE);
                 this.columnDATE_VALUE = new global::System.Data.DataColumn("DATE_VALUE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDATE_VALUE);
-                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCODE_VALUE);
                 this.columnDUR_VALUE = new global::System.Data.DataColumn("DUR_VALUE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDUR_VALUE);
@@ -10032,7 +10032,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectResourceCustomFieldsRow AddProjectResourceCustomFieldsRow(System.Guid CUSTOM_FIELD_UID, System.Guid PROJ_UID, System.Guid RES_UID, System.Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, System.Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
+            public ProjectResourceCustomFieldsRow AddProjectResourceCustomFieldsRow(Guid CUSTOM_FIELD_UID, Guid PROJ_UID, Guid RES_UID, Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
             {
                 ProjectResourceCustomFieldsRow rowProjectResourceCustomFieldsRow = ((ProjectResourceCustomFieldsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -10057,7 +10057,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectResourceCustomFieldsRow FindByCUSTOM_FIELD_UID(System.Guid CUSTOM_FIELD_UID)
+            public ProjectResourceCustomFieldsRow FindByCUSTOM_FIELD_UID(Guid CUSTOM_FIELD_UID)
             {
                 return ((ProjectResourceCustomFieldsRow)(this.Rows.Find(new object[] {
                             CUSTOM_FIELD_UID})));
@@ -10110,13 +10110,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCUSTOM_FIELD_UID);
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRES_UID);
-                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_UID);
                 this.columnMD_PROP_ID = new global::System.Data.DataColumn("MD_PROP_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_ID);
@@ -10128,7 +10128,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTEXT_VALUE);
                 this.columnDATE_VALUE = new global::System.Data.DataColumn("DATE_VALUE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDATE_VALUE);
-                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCODE_VALUE);
                 this.columnDUR_VALUE = new global::System.Data.DataColumn("DUR_VALUE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDUR_VALUE);
@@ -10550,7 +10550,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AssignmentCustomFieldsRow AddAssignmentCustomFieldsRow(System.Guid CUSTOM_FIELD_UID, System.Guid PROJ_UID, System.Guid ASSN_UID, System.Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, System.Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
+            public AssignmentCustomFieldsRow AddAssignmentCustomFieldsRow(Guid CUSTOM_FIELD_UID, Guid PROJ_UID, Guid ASSN_UID, Guid MD_PROP_UID, int MD_PROP_ID, byte FIELD_TYPE_ENUM, bool FLAG_VALUE, string TEXT_VALUE, System.DateTime DATE_VALUE, Guid CODE_VALUE, int DUR_VALUE, decimal NUM_VALUE, byte DUR_FMT, int INDICATOR_VALUE)
             {
                 AssignmentCustomFieldsRow rowAssignmentCustomFieldsRow = ((AssignmentCustomFieldsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -10575,7 +10575,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AssignmentCustomFieldsRow FindByCUSTOM_FIELD_UID(System.Guid CUSTOM_FIELD_UID)
+            public AssignmentCustomFieldsRow FindByCUSTOM_FIELD_UID(Guid CUSTOM_FIELD_UID)
             {
                 return ((AssignmentCustomFieldsRow)(this.Rows.Find(new object[] {
                             CUSTOM_FIELD_UID})));
@@ -10628,13 +10628,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCUSTOM_FIELD_UID = new global::System.Data.DataColumn("CUSTOM_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCUSTOM_FIELD_UID);
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnASSN_UID = new global::System.Data.DataColumn("ASSN_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnASSN_UID = new global::System.Data.DataColumn("ASSN_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnASSN_UID);
-                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnMD_PROP_UID = new global::System.Data.DataColumn("MD_PROP_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_UID);
                 this.columnMD_PROP_ID = new global::System.Data.DataColumn("MD_PROP_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMD_PROP_ID);
@@ -10646,7 +10646,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 base.Columns.Add(this.columnTEXT_VALUE);
                 this.columnDATE_VALUE = new global::System.Data.DataColumn("DATE_VALUE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDATE_VALUE);
-                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                this.columnCODE_VALUE = new global::System.Data.DataColumn("CODE_VALUE", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCODE_VALUE);
                 this.columnDUR_VALUE = new global::System.Data.DataColumn("DUR_VALUE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDUR_VALUE);
@@ -10829,11 +10829,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProject.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableProject.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -10906,13 +10906,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CAL_UID
+            public Guid CAL_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.CAL_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.CAL_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -11967,13 +11967,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid WPROJ_ISSUE_LIST_NAME
+            public Guid WPROJ_ISSUE_LIST_NAME
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.WPROJ_ISSUE_LIST_NAMEColumn]));
+                        return ((Guid)(this[this.tableProject.WPROJ_ISSUE_LIST_NAMEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -11988,13 +11988,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid WPROJ_RISK_LIST_NAME
+            public Guid WPROJ_RISK_LIST_NAME
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.WPROJ_RISK_LIST_NAMEColumn]));
+                        return ((Guid)(this[this.tableProject.WPROJ_RISK_LIST_NAMEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12030,13 +12030,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid WSTS_SERVER_UID
+            public Guid WSTS_SERVER_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.WSTS_SERVER_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.WSTS_SERVER_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12051,13 +12051,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ProjectOwnerID
+            public Guid ProjectOwnerID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.ProjectOwnerIDColumn]));
+                        return ((Guid)(this[this.tableProject.ProjectOwnerIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12072,13 +12072,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_CHECKOUTBY
+            public Guid PROJ_CHECKOUTBY
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.PROJ_CHECKOUTBYColumn]));
+                        return ((Guid)(this[this.tableProject.PROJ_CHECKOUTBYColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12114,13 +12114,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_SESSION_UID
+            public Guid PROJ_SESSION_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.PROJ_SESSION_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.PROJ_SESSION_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12240,13 +12240,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_SUMMARY_TASK_UID
+            public Guid PROJ_SUMMARY_TASK_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.PROJ_SUMMARY_TASK_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.PROJ_SUMMARY_TASK_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12282,13 +12282,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ENTERPRISE_PROJECT_TYPE_UID
+            public Guid ENTERPRISE_PROJECT_TYPE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.ENTERPRISE_PROJECT_TYPE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.ENTERPRISE_PROJECT_TYPE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12325,13 +12325,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid WORKFLOW_INSTANCE_UID
+            public Guid WORKFLOW_INSTANCE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.WORKFLOW_INSTANCE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.WORKFLOW_INSTANCE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12346,13 +12346,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PHASE_UID
+            public Guid PHASE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.PHASE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.PHASE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12388,13 +12388,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid STAGE_UID
+            public Guid STAGE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.STAGE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.STAGE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12430,13 +12430,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid SKIP_TO_STAGE_UID
+            public Guid SKIP_TO_STAGE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.SKIP_TO_STAGE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.SKIP_TO_STAGE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12451,13 +12451,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid OPTIMIZER_SOLUTION_UID
+            public Guid OPTIMIZER_SOLUTION_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.OPTIMIZER_SOLUTION_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.OPTIMIZER_SOLUTION_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12472,13 +12472,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PLANNER_SOLUTION_UID
+            public Guid PLANNER_SOLUTION_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.PLANNER_SOLUTION_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.PLANNER_SOLUTION_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12577,13 +12577,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID
+            public Guid OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.OPTIMIZER_FORCE_ALIAS_LT_VALUE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.OPTIMIZER_FORCE_ALIAS_LT_VALUE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12599,13 +12599,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PLANNER_FORCE_ALIAS_LT_VALUE_UID
+            public Guid PLANNER_FORCE_ALIAS_LT_VALUE_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.PLANNER_FORCE_ALIAS_LT_VALUE_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.PLANNER_FORCE_ALIAS_LT_VALUE_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12663,13 +12663,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid IDEA_WEB_UID
+            public Guid IDEA_WEB_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.IDEA_WEB_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.IDEA_WEB_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -12684,13 +12684,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid IDEA_LIST_UID
+            public Guid IDEA_LIST_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProject.IDEA_LIST_UIDColumn]));
+                        return ((Guid)(this[this.tableProject.IDEA_LIST_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -14024,11 +14024,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableTask.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableTask.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -14038,11 +14038,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid TASK_UID
+            public Guid TASK_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableTask.TASK_UIDColumn]));
+                    return ((Guid)(this[this.tableTask.TASK_UIDColumn]));
                 }
                 set
                 {
@@ -14052,13 +14052,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid TASK_PARENT_UID
+            public Guid TASK_PARENT_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTask.TASK_PARENT_UIDColumn]));
+                        return ((Guid)(this[this.tableTask.TASK_PARENT_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -15242,13 +15242,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid TASK_CAL_UID
+            public Guid TASK_CAL_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTask.TASK_CAL_UIDColumn]));
+                        return ((Guid)(this[this.tableTask.TASK_CAL_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -15809,13 +15809,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid AddAfterTaskUID
+            public Guid AddAfterTaskUID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTask.AddAfterTaskUIDColumn]));
+                        return ((Guid)(this[this.tableTask.AddAfterTaskUIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -16082,13 +16082,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid TASK_EXT_PROJ_UID
+            public Guid TASK_EXT_PROJ_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTask.TASK_EXT_PROJ_UIDColumn]));
+                        return ((Guid)(this[this.tableTask.TASK_EXT_PROJ_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -16754,13 +16754,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid StatusManager
+            public Guid StatusManager
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTask.StatusManagerColumn]));
+                        return ((Guid)(this[this.tableTask.StatusManagerColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -18598,11 +18598,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectResource.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectResource.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -18612,11 +18612,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RES_UID
+            public Guid RES_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectResource.RES_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectResource.RES_UIDColumn]));
                 }
                 set
                 {
@@ -18626,13 +18626,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RES_AD_GUID
+            public Guid RES_AD_GUID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectResource.RES_AD_GUIDColumn]));
+                        return ((Guid)(this[this.tableProjectResource.RES_AD_GUIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -19662,13 +19662,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RES_DEF_ASSN_OWNER
+            public Guid RES_DEF_ASSN_OWNER
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectResource.RES_DEF_ASSN_OWNERColumn]));
+                        return ((Guid)(this[this.tableProjectResource.RES_DEF_ASSN_OWNERColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -21068,11 +21068,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignment.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignment.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -21082,11 +21082,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid TASK_UID
+            public Guid TASK_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignment.TASK_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignment.TASK_UIDColumn]));
                 }
                 set
                 {
@@ -21096,11 +21096,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ASSN_UID
+            public Guid ASSN_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignment.ASSN_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignment.ASSN_UIDColumn]));
                 }
                 set
                 {
@@ -21110,11 +21110,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RES_UID
+            public Guid RES_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignment.RES_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignment.RES_UIDColumn]));
                 }
                 set
                 {
@@ -21124,13 +21124,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ASSN_PARENT_UID
+            public Guid ASSN_PARENT_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableAssignment.ASSN_PARENT_UIDColumn]));
+                        return ((Guid)(this[this.tableAssignment.ASSN_PARENT_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -22188,13 +22188,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RES_UID_OWNER
+            public Guid RES_UID_OWNER
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableAssignment.RES_UID_OWNERColumn]));
+                        return ((Guid)(this[this.tableAssignment.RES_UID_OWNERColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -23712,11 +23712,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LINK_UID
+            public Guid LINK_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableDependency.LINK_UIDColumn]));
+                    return ((Guid)(this[this.tableDependency.LINK_UIDColumn]));
                 }
                 set
                 {
@@ -23726,11 +23726,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableDependency.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableDependency.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -23740,11 +23740,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LINK_PRED_UID
+            public Guid LINK_PRED_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableDependency.LINK_PRED_UIDColumn]));
+                    return ((Guid)(this[this.tableDependency.LINK_PRED_UIDColumn]));
                 }
                 set
                 {
@@ -23754,11 +23754,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid LINK_SUCC_UID
+            public Guid LINK_SUCC_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableDependency.LINK_SUCC_UIDColumn]));
+                    return ((Guid)(this[this.tableDependency.LINK_SUCC_UIDColumn]));
                 }
                 set
                 {
@@ -23890,11 +23890,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CUSTOM_FIELD_UID
+            public Guid CUSTOM_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectCustomFields.CUSTOM_FIELD_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectCustomFields.CUSTOM_FIELD_UIDColumn]));
                 }
                 set
                 {
@@ -23904,11 +23904,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectCustomFields.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectCustomFields.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -23918,13 +23918,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid MD_PROP_UID
+            public Guid MD_PROP_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectCustomFields.MD_PROP_UIDColumn]));
+                        return ((Guid)(this[this.tableProjectCustomFields.MD_PROP_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -24044,13 +24044,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CODE_VALUE
+            public Guid CODE_VALUE
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectCustomFields.CODE_VALUEColumn]));
+                        return ((Guid)(this[this.tableProjectCustomFields.CODE_VALUEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -24320,11 +24320,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CUSTOM_FIELD_UID
+            public Guid CUSTOM_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableTaskCustomFields.CUSTOM_FIELD_UIDColumn]));
+                    return ((Guid)(this[this.tableTaskCustomFields.CUSTOM_FIELD_UIDColumn]));
                 }
                 set
                 {
@@ -24334,11 +24334,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableTaskCustomFields.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableTaskCustomFields.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -24348,11 +24348,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid TASK_UID
+            public Guid TASK_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableTaskCustomFields.TASK_UIDColumn]));
+                    return ((Guid)(this[this.tableTaskCustomFields.TASK_UIDColumn]));
                 }
                 set
                 {
@@ -24362,13 +24362,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid MD_PROP_UID
+            public Guid MD_PROP_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTaskCustomFields.MD_PROP_UIDColumn]));
+                        return ((Guid)(this[this.tableTaskCustomFields.MD_PROP_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -24488,13 +24488,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CODE_VALUE
+            public Guid CODE_VALUE
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableTaskCustomFields.CODE_VALUEColumn]));
+                        return ((Guid)(this[this.tableTaskCustomFields.CODE_VALUEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -24764,11 +24764,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CUSTOM_FIELD_UID
+            public Guid CUSTOM_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectResourceCustomFields.CUSTOM_FIELD_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectResourceCustomFields.CUSTOM_FIELD_UIDColumn]));
                 }
                 set
                 {
@@ -24778,11 +24778,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectResourceCustomFields.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectResourceCustomFields.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -24792,11 +24792,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid RES_UID
+            public Guid RES_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableProjectResourceCustomFields.RES_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectResourceCustomFields.RES_UIDColumn]));
                 }
                 set
                 {
@@ -24806,13 +24806,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid MD_PROP_UID
+            public Guid MD_PROP_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectResourceCustomFields.MD_PROP_UIDColumn]));
+                        return ((Guid)(this[this.tableProjectResourceCustomFields.MD_PROP_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -24938,13 +24938,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CODE_VALUE
+            public Guid CODE_VALUE
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableProjectResourceCustomFields.CODE_VALUEColumn]));
+                        return ((Guid)(this[this.tableProjectResourceCustomFields.CODE_VALUEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -25218,11 +25218,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CUSTOM_FIELD_UID
+            public Guid CUSTOM_FIELD_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignmentCustomFields.CUSTOM_FIELD_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignmentCustomFields.CUSTOM_FIELD_UIDColumn]));
                 }
                 set
                 {
@@ -25232,11 +25232,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid PROJ_UID
+            public Guid PROJ_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignmentCustomFields.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignmentCustomFields.PROJ_UIDColumn]));
                 }
                 set
                 {
@@ -25246,11 +25246,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ASSN_UID
+            public Guid ASSN_UID
             {
                 get
                 {
-                    return ((global::System.Guid)(this[this.tableAssignmentCustomFields.ASSN_UIDColumn]));
+                    return ((Guid)(this[this.tableAssignmentCustomFields.ASSN_UIDColumn]));
                 }
                 set
                 {
@@ -25260,13 +25260,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid MD_PROP_UID
+            public Guid MD_PROP_UID
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableAssignmentCustomFields.MD_PROP_UIDColumn]));
+                        return ((Guid)(this[this.tableAssignmentCustomFields.MD_PROP_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -25387,13 +25387,13 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CODE_VALUE
+            public Guid CODE_VALUE
             {
                 get
                 {
                     try
                     {
-                        return ((global::System.Guid)(this[this.tableAssignmentCustomFields.CODE_VALUEColumn]));
+                        return ((Guid)(this[this.tableAssignmentCustomFields.CODE_VALUEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
