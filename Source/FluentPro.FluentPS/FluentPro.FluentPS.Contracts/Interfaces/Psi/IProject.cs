@@ -1,9 +1,9 @@
-﻿using System;
-using FluentPro.FluentPS.Contracts.Exceptions.Faults;
-using System.ServiceModel;
+﻿using FluentPro.FluentPS.Contracts.Exceptions.Faults;
 using FluentPro.FluentPS.Contracts.Model.DataSets;
 using FluentPro.FluentPS.Contracts.Model.Enums;
 using FluentPro.FluentPS.Contracts.Model.Messages;
+using System;
+using System.ServiceModel;
 
 namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
 {

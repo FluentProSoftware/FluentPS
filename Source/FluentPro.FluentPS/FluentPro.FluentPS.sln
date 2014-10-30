@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi.Tests", "FluentPro.FluentPS.Proxy.Tests\FluentPro.FluentPS.Psi.Tests.csproj", "{47D7DC8F-31A8-4557-91B2-838CE05CFF6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Pj", "FluentPro.FluentPS.Pj\FluentPro.FluentPS.Pj.csproj", "{5FC71615-4CA8-494D-9070-9472D6F2123A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{47D7DC8F-31A8-4557-91B2-838CE05CFF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D7DC8F-31A8-4557-91B2-838CE05CFF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D7DC8F-31A8-4557-91B2-838CE05CFF6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
