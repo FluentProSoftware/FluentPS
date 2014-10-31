@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace FluentPro.FluentPS.Contracts.Model.Messages
+namespace FluentPro.FluentPS.Psi.Model.Messages
 {
     [Serializable]
     [DebuggerStepThrough]

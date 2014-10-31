@@ -1,11 +1,11 @@
-﻿using FluentPro.FluentPS.Contracts.Exceptions.Faults;
-using FluentPro.FluentPS.Contracts.Model.DataSets;
-using FluentPro.FluentPS.Contracts.Model.Enums;
-using FluentPro.FluentPS.Contracts.Model.Messages;
-using System;
+﻿using System;
 using System.ServiceModel;
+using FluentPro.FluentPS.Psi.Exceptions.Faults;
+using FluentPro.FluentPS.Psi.Model.DataSets;
+using FluentPro.FluentPS.Psi.Model.Enums;
+using FluentPro.FluentPS.Psi.Model.Messages;
 
-namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
+namespace FluentPro.FluentPS.Psi.Interfaces.Psi
 {
     [ServiceContract(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/Project/", ConfigurationName = "FluentPro.FluentPS.Proxy.Wcf.Project")]
     public interface IProject

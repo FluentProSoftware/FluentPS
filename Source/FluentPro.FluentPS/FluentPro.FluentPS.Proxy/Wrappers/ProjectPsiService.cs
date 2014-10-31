@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using FluentPro.FluentPS.Contracts.Model;
+using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Network;
 
 namespace FluentPro.FluentPS.Psi.Wrappers
@@ -19,6 +21,11 @@ namespace FluentPro.FluentPS.Psi.Wrappers
         public DataSet ReadProjectList()
         {
             return _psiContext.Project.ReadProjectList();
+        }
+
+        public DataSet ReadProject(Guid projecUid, DataStore dataStore)
+        {
+            return _psiContext.Project.ReadProject(projecUid, (DataStoreEnum)dataStore);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using FluentPro.FluentPS.Contracts.Model.DataSets;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.ServiceModel;
+using FluentPro.FluentPS.Psi.Model.DataSets;
 
-namespace FluentPro.FluentPS.Contracts.Model.Messages
+namespace FluentPro.FluentPS.Psi.Model.Messages
 {
     [DebuggerStepThrough]
     [MessageContract(WrapperName = "ReadProjectListByDepartmentResponse", WrapperNamespace = "http://schemas.microsoft.com/office/project/server/webservices/Project/", IsWrapped = true)]

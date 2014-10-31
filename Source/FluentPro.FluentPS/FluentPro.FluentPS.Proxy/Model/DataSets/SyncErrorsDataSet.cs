@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FluentPro.FluentPS.Contracts.Model.DataSets
+namespace FluentPro.FluentPS.Psi.Model.DataSets
 {
+
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
     ///</summary>
@@ -13,19 +14,19 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ProjectTeamDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("SyncErrorsDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.0.30319.17929")]
-    public partial class ProjectTeamDataSet : global::System.Data.DataSet
+    public partial class SyncErrorsDataSet : global::System.Data.DataSet
     {
 
-        private ProjectTeamDataTable tableProjectTeam;
+        private SyncErrorsDataTable tableSyncErrors;
 
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ProjectTeamDataSet()
+        public SyncErrorsDataSet()
         {
             this.BeginInit();
             this.InitClass();
@@ -37,7 +38,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ProjectTeamDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+        protected SyncErrorsDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
             base(info, context, false)
         {
             if ((this.IsBinarySerialized(info, context) == true))
@@ -53,9 +54,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ProjectTeam"] != null))
+                if ((ds.Tables["SyncErrors"] != null))
                 {
-                    base.Tables.Add(new ProjectTeamDataTable(ds.Tables["ProjectTeam"]));
+                    base.Tables.Add(new SyncErrorsDataTable(ds.Tables["SyncErrors"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -80,11 +81,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ProjectTeamDataTable ProjectTeam
+        public SyncErrorsDataTable SyncErrors
         {
             get
             {
-                return this.tableProjectTeam;
+                return this.tableSyncErrors;
             }
         }
 
@@ -139,7 +140,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone()
         {
-            ProjectTeamDataSet cln = ((ProjectTeamDataSet)(base.Clone()));
+            SyncErrorsDataSet cln = ((SyncErrorsDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -168,9 +169,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ProjectTeam"] != null))
+                if ((ds.Tables["SyncErrors"] != null))
                 {
-                    base.Tables.Add(new ProjectTeamDataTable(ds.Tables["ProjectTeam"]));
+                    base.Tables.Add(new SyncErrorsDataTable(ds.Tables["SyncErrors"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -209,12 +210,12 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable)
         {
-            this.tableProjectTeam = ((ProjectTeamDataTable)(base.Tables["ProjectTeam"]));
+            this.tableSyncErrors = ((SyncErrorsDataTable)(base.Tables["SyncErrors"]));
             if ((initTable == true))
             {
-                if ((this.tableProjectTeam != null))
+                if ((this.tableSyncErrors != null))
                 {
-                    this.tableProjectTeam.InitVars();
+                    this.tableSyncErrors.InitVars();
                 }
             }
         }
@@ -223,19 +224,18 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass()
         {
-            this.DataSetName = "ProjectTeamDataSet";
+            this.DataSetName = "SyncErrorsDataSet";
             this.Prefix = "";
-            this.Namespace = "http://schemas.microsoft.com/office/project/server/webservices/TeamBuilderDataSet" +
-                "/";
+            this.Namespace = "http://schemas.microsoft.com/office/project/server/webservices/SyncErrorsDataSet";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableProjectTeam = new ProjectTeamDataTable();
-            base.Tables.Add(this.tableProjectTeam);
+            this.tableSyncErrors = new SyncErrorsDataTable();
+            base.Tables.Add(this.tableSyncErrors);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeProjectTeam()
+        private bool ShouldSerializeSyncErrors()
         {
             return false;
         }
@@ -254,7 +254,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs)
         {
-            ProjectTeamDataSet ds = new ProjectTeamDataSet();
+            SyncErrorsDataSet ds = new SyncErrorsDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -308,39 +308,39 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ProjectTeamRowChangeEventHandler(object sender, ProjectTeamRowChangeEvent e);
+        public delegate void SyncErrorsRowChangeEventHandler(object sender, SyncErrorsRowChangeEvent e);
 
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ProjectTeamDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
+        public partial class SyncErrorsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
 
-            private global::System.Data.DataColumn columnPROJ_UID;
+            private global::System.Data.DataColumn columnSYNC_ERROR_UID;
 
-            private global::System.Data.DataColumn columnRES_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_UID;
 
-            private global::System.Data.DataColumn columnNEW_RES_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_ITEM_ID;
 
-            private global::System.Data.DataColumn columnRES_NAME;
+            private global::System.Data.DataColumn columnSYNC_PROJ_UID;
 
-            private global::System.Data.DataColumn columnRES_BOOKING_TYPE;
+            private global::System.Data.DataColumn columnSYNC_TASK_UID;
 
-            private global::System.Data.DataColumn columnRES_HAS_ACTUALS;
+            private global::System.Data.DataColumn columnSYNC_ERROR_DATE;
 
-            private global::System.Data.DataColumn columnRES_TYPE;
+            private global::System.Data.DataColumn columnSYNC_ERROR_TYPE_ENUM;
 
-            private global::System.Data.DataColumn columnRES_IS_ENTERPRISE_RESOURCE;
+            private global::System.Data.DataColumn columnSYNC_ERROR_SEVERITY_ENUM;
 
-            private global::System.Data.DataColumn columnWRES_EMAIL;
+            private global::System.Data.DataColumn columnSYNC_ERROR_XML_DATA;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamDataTable()
+            public SyncErrorsDataTable()
             {
-                this.TableName = "ProjectTeam";
+                this.TableName = "SyncErrors";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -348,7 +348,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectTeamDataTable(global::System.Data.DataTable table)
+            internal SyncErrorsDataTable(global::System.Data.DataTable table)
             {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive))
@@ -369,7 +369,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ProjectTeamDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected SyncErrorsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
                 base(info, context)
             {
                 this.InitVars();
@@ -377,91 +377,91 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PROJ_UIDColumn
+            public global::System.Data.DataColumn SYNC_ERROR_UIDColumn
             {
                 get
                 {
-                    return this.columnPROJ_UID;
+                    return this.columnSYNC_ERROR_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RES_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_LIST_UIDColumn
             {
                 get
                 {
-                    return this.columnRES_UID;
+                    return this.columnSYNC_WSS_LIST_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NEW_RES_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_LIST_ITEM_IDColumn
             {
                 get
                 {
-                    return this.columnNEW_RES_UID;
+                    return this.columnSYNC_WSS_LIST_ITEM_ID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RES_NAMEColumn
+            public global::System.Data.DataColumn SYNC_PROJ_UIDColumn
             {
                 get
                 {
-                    return this.columnRES_NAME;
+                    return this.columnSYNC_PROJ_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RES_BOOKING_TYPEColumn
+            public global::System.Data.DataColumn SYNC_TASK_UIDColumn
             {
                 get
                 {
-                    return this.columnRES_BOOKING_TYPE;
+                    return this.columnSYNC_TASK_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RES_HAS_ACTUALSColumn
+            public global::System.Data.DataColumn SYNC_ERROR_DATEColumn
             {
                 get
                 {
-                    return this.columnRES_HAS_ACTUALS;
+                    return this.columnSYNC_ERROR_DATE;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RES_TYPEColumn
+            public global::System.Data.DataColumn SYNC_ERROR_TYPE_ENUMColumn
             {
                 get
                 {
-                    return this.columnRES_TYPE;
+                    return this.columnSYNC_ERROR_TYPE_ENUM;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RES_IS_ENTERPRISE_RESOURCEColumn
+            public global::System.Data.DataColumn SYNC_ERROR_SEVERITY_ENUMColumn
             {
                 get
                 {
-                    return this.columnRES_IS_ENTERPRISE_RESOURCE;
+                    return this.columnSYNC_ERROR_SEVERITY_ENUM;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WRES_EMAILColumn
+            public global::System.Data.DataColumn SYNC_ERROR_XML_DATAColumn
             {
                 get
                 {
-                    return this.columnWRES_EMAIL;
+                    return this.columnSYNC_ERROR_XML_DATA;
                 }
             }
 
@@ -478,60 +478,51 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamRow this[int index]
+            public SyncErrorsRow this[int index]
             {
                 get
                 {
-                    return ((ProjectTeamRow)(this.Rows[index]));
+                    return ((SyncErrorsRow)(this.Rows[index]));
                 }
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectTeamRowChangeEventHandler ProjectTeamRowChanging;
+            public event SyncErrorsRowChangeEventHandler SyncErrorsRowChanging;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectTeamRowChangeEventHandler ProjectTeamRowChanged;
+            public event SyncErrorsRowChangeEventHandler SyncErrorsRowChanged;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectTeamRowChangeEventHandler ProjectTeamRowDeleting;
+            public event SyncErrorsRowChangeEventHandler SyncErrorsRowDeleting;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectTeamRowChangeEventHandler ProjectTeamRowDeleted;
+            public event SyncErrorsRowChangeEventHandler SyncErrorsRowDeleted;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddProjectTeamRow(ProjectTeamRow row)
+            public void AddSyncErrorsRow(SyncErrorsRow row)
             {
                 this.Rows.Add(row);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamRow AddProjectTeamRow(Guid PROJ_UID, Guid RES_UID, Guid NEW_RES_UID, string RES_NAME, int RES_BOOKING_TYPE, bool RES_HAS_ACTUALS, int RES_TYPE, bool RES_IS_ENTERPRISE_RESOURCE, string WRES_EMAIL)
+            public SyncErrorsRow AddSyncErrorsRow(Guid SYNC_ERROR_UID, Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID, Guid SYNC_PROJ_UID, Guid SYNC_TASK_UID, System.DateTime SYNC_ERROR_DATE, int SYNC_ERROR_TYPE_ENUM, int SYNC_ERROR_SEVERITY_ENUM, string SYNC_ERROR_XML_DATA)
             {
-                ProjectTeamRow rowProjectTeamRow = ((ProjectTeamRow)(this.NewRow()));
+                SyncErrorsRow rowSyncErrorsRow = ((SyncErrorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        PROJ_UID,
-                        RES_UID,
-                        NEW_RES_UID,
-                        RES_NAME,
-                        RES_BOOKING_TYPE,
-                        RES_HAS_ACTUALS,
-                        RES_TYPE,
-                        RES_IS_ENTERPRISE_RESOURCE,
-                        WRES_EMAIL};
-                rowProjectTeamRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowProjectTeamRow);
-                return rowProjectTeamRow;
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamRow FindByRES_UIDPROJ_UID(Guid RES_UID, Guid PROJ_UID)
-            {
-                return ((ProjectTeamRow)(this.Rows.Find(new object[] {
-                            RES_UID,
-                            PROJ_UID})));
+                        SYNC_ERROR_UID,
+                        SYNC_WSS_LIST_UID,
+                        SYNC_WSS_LIST_ITEM_ID,
+                        SYNC_PROJ_UID,
+                        SYNC_TASK_UID,
+                        SYNC_ERROR_DATE,
+                        SYNC_ERROR_TYPE_ENUM,
+                        SYNC_ERROR_SEVERITY_ENUM,
+                        SYNC_ERROR_XML_DATA};
+                rowSyncErrorsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSyncErrorsRow);
+                return rowSyncErrorsRow;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -545,7 +536,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone()
             {
-                ProjectTeamDataTable cln = ((ProjectTeamDataTable)(base.Clone()));
+                SyncErrorsDataTable cln = ((SyncErrorsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -554,76 +545,70 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance()
             {
-                return new ProjectTeamDataTable();
+                return new SyncErrorsDataTable();
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars()
             {
-                this.columnPROJ_UID = base.Columns["PROJ_UID"];
-                this.columnRES_UID = base.Columns["RES_UID"];
-                this.columnNEW_RES_UID = base.Columns["NEW_RES_UID"];
-                this.columnRES_NAME = base.Columns["RES_NAME"];
-                this.columnRES_BOOKING_TYPE = base.Columns["RES_BOOKING_TYPE"];
-                this.columnRES_HAS_ACTUALS = base.Columns["RES_HAS_ACTUALS"];
-                this.columnRES_TYPE = base.Columns["RES_TYPE"];
-                this.columnRES_IS_ENTERPRISE_RESOURCE = base.Columns["RES_IS_ENTERPRISE_RESOURCE"];
-                this.columnWRES_EMAIL = base.Columns["WRES_EMAIL"];
+                this.columnSYNC_ERROR_UID = base.Columns["SYNC_ERROR_UID"];
+                this.columnSYNC_WSS_LIST_UID = base.Columns["SYNC_WSS_LIST_UID"];
+                this.columnSYNC_WSS_LIST_ITEM_ID = base.Columns["SYNC_WSS_LIST_ITEM_ID"];
+                this.columnSYNC_PROJ_UID = base.Columns["SYNC_PROJ_UID"];
+                this.columnSYNC_TASK_UID = base.Columns["SYNC_TASK_UID"];
+                this.columnSYNC_ERROR_DATE = base.Columns["SYNC_ERROR_DATE"];
+                this.columnSYNC_ERROR_TYPE_ENUM = base.Columns["SYNC_ERROR_TYPE_ENUM"];
+                this.columnSYNC_ERROR_SEVERITY_ENUM = base.Columns["SYNC_ERROR_SEVERITY_ENUM"];
+                this.columnSYNC_ERROR_XML_DATA = base.Columns["SYNC_ERROR_XML_DATA"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROJ_UID);
-                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRES_UID);
-                this.columnNEW_RES_UID = new global::System.Data.DataColumn("NEW_RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNEW_RES_UID);
-                this.columnRES_NAME = new global::System.Data.DataColumn("RES_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRES_NAME);
-                this.columnRES_BOOKING_TYPE = new global::System.Data.DataColumn("RES_BOOKING_TYPE", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRES_BOOKING_TYPE);
-                this.columnRES_HAS_ACTUALS = new global::System.Data.DataColumn("RES_HAS_ACTUALS", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRES_HAS_ACTUALS);
-                this.columnRES_TYPE = new global::System.Data.DataColumn("RES_TYPE", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRES_TYPE);
-                this.columnRES_IS_ENTERPRISE_RESOURCE = new global::System.Data.DataColumn("RES_IS_ENTERPRISE_RESOURCE", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRES_IS_ENTERPRISE_RESOURCE);
-                this.columnWRES_EMAIL = new global::System.Data.DataColumn("WRES_EMAIL", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWRES_EMAIL);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("ProjectTeamKey", new global::System.Data.DataColumn[] {
-                                this.columnRES_UID,
-                                this.columnPROJ_UID}, true));
-                this.columnPROJ_UID.AllowDBNull = false;
-                this.columnRES_UID.AllowDBNull = false;
-                this.columnRES_NAME.ReadOnly = true;
-                this.columnRES_TYPE.ReadOnly = true;
-                this.columnRES_IS_ENTERPRISE_RESOURCE.ReadOnly = true;
-                this.columnWRES_EMAIL.ReadOnly = true;
+                this.columnSYNC_ERROR_UID = new global::System.Data.DataColumn("SYNC_ERROR_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_ERROR_UID);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
+                this.columnSYNC_WSS_LIST_ITEM_ID = new global::System.Data.DataColumn("SYNC_WSS_LIST_ITEM_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_ITEM_ID);
+                this.columnSYNC_PROJ_UID = new global::System.Data.DataColumn("SYNC_PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_PROJ_UID);
+                this.columnSYNC_TASK_UID = new global::System.Data.DataColumn("SYNC_TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_TASK_UID);
+                this.columnSYNC_ERROR_DATE = new global::System.Data.DataColumn("SYNC_ERROR_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_ERROR_DATE);
+                this.columnSYNC_ERROR_TYPE_ENUM = new global::System.Data.DataColumn("SYNC_ERROR_TYPE_ENUM", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_ERROR_TYPE_ENUM);
+                this.columnSYNC_ERROR_SEVERITY_ENUM = new global::System.Data.DataColumn("SYNC_ERROR_SEVERITY_ENUM", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_ERROR_SEVERITY_ENUM);
+                this.columnSYNC_ERROR_XML_DATA = new global::System.Data.DataColumn("SYNC_ERROR_XML_DATA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_ERROR_XML_DATA);
+                this.columnSYNC_ERROR_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_LIST_UID.AllowDBNull = false;
+                this.columnSYNC_ERROR_XML_DATA.MaxLength = 2000;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamRow NewProjectTeamRow()
+            public SyncErrorsRow NewSyncErrorsRow()
             {
-                return ((ProjectTeamRow)(this.NewRow()));
+                return ((SyncErrorsRow)(this.NewRow()));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
             {
-                return new ProjectTeamRow(builder);
+                return new SyncErrorsRow(builder);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType()
             {
-                return typeof(ProjectTeamRow);
+                return typeof(SyncErrorsRow);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -631,9 +616,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanged(e);
-                if ((this.ProjectTeamRowChanged != null))
+                if ((this.SyncErrorsRowChanged != null))
                 {
-                    this.ProjectTeamRowChanged(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
+                    this.SyncErrorsRowChanged(this, new SyncErrorsRowChangeEvent(((SyncErrorsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -642,9 +627,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanging(e);
-                if ((this.ProjectTeamRowChanging != null))
+                if ((this.SyncErrorsRowChanging != null))
                 {
-                    this.ProjectTeamRowChanging(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
+                    this.SyncErrorsRowChanging(this, new SyncErrorsRowChangeEvent(((SyncErrorsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -653,9 +638,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleted(e);
-                if ((this.ProjectTeamRowDeleted != null))
+                if ((this.SyncErrorsRowDeleted != null))
                 {
-                    this.ProjectTeamRowDeleted(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
+                    this.SyncErrorsRowDeleted(this, new SyncErrorsRowChangeEvent(((SyncErrorsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -664,15 +649,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleting(e);
-                if ((this.ProjectTeamRowDeleting != null))
+                if ((this.SyncErrorsRowDeleting != null))
                 {
-                    this.ProjectTeamRowDeleting(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
+                    this.SyncErrorsRowDeleting(this, new SyncErrorsRowChangeEvent(((SyncErrorsRow)(e.Row)), e.Action));
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveProjectTeamRow(ProjectTeamRow row)
+            public void RemoveSyncErrorsRow(SyncErrorsRow row)
             {
                 this.Rows.Remove(row);
             }
@@ -683,7 +668,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectTeamDataSet ds = new ProjectTeamDataSet();
+                SyncErrorsDataSet ds = new SyncErrorsDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -701,7 +686,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ProjectTeamDataTable";
+                attribute2.FixedValue = "SyncErrorsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -754,291 +739,290 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ProjectTeamRow : global::System.Data.DataRow
+        public partial class SyncErrorsRow : global::System.Data.DataRow
         {
 
-            private ProjectTeamDataTable tableProjectTeam;
+            private SyncErrorsDataTable tableSyncErrors;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectTeamRow(global::System.Data.DataRowBuilder rb) :
+            internal SyncErrorsRow(global::System.Data.DataRowBuilder rb) :
                 base(rb)
             {
-                this.tableProjectTeam = ((ProjectTeamDataTable)(this.Table));
+                this.tableSyncErrors = ((SyncErrorsDataTable)(this.Table));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid PROJ_UID
+            public Guid SYNC_ERROR_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableProjectTeam.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncErrors.SYNC_ERROR_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableProjectTeam.PROJ_UIDColumn] = value;
+                    this[this.tableSyncErrors.SYNC_ERROR_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid RES_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableProjectTeam.RES_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncErrors.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableProjectTeam.RES_UIDColumn] = value;
+                    this[this.tableSyncErrors.SYNC_WSS_LIST_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid NEW_RES_UID
-            {
-                get
-                {
-                    try
-                    {
-                        return ((Guid)(this[this.tableProjectTeam.NEW_RES_UIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e)
-                    {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NEW_RES_UID\' in table \'ProjectTeam\' is DBNull.", e);
-                    }
-                }
-                set
-                {
-                    this[this.tableProjectTeam.NEW_RES_UIDColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string RES_NAME
+            public int SYNC_WSS_LIST_ITEM_ID
             {
                 get
                 {
                     try
                     {
-                        return ((string)(this[this.tableProjectTeam.RES_NAMEColumn]));
+                        return ((int)(this[this.tableSyncErrors.SYNC_WSS_LIST_ITEM_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RES_NAME\' in table \'ProjectTeam\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_WSS_LIST_ITEM_ID\' in table \'SyncErrors\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectTeam.RES_NAMEColumn] = value;
+                    this[this.tableSyncErrors.SYNC_WSS_LIST_ITEM_IDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int RES_BOOKING_TYPE
+            public Guid SYNC_PROJ_UID
             {
                 get
                 {
                     try
                     {
-                        return ((int)(this[this.tableProjectTeam.RES_BOOKING_TYPEColumn]));
+                        return ((Guid)(this[this.tableSyncErrors.SYNC_PROJ_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RES_BOOKING_TYPE\' in table \'ProjectTeam\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_PROJ_UID\' in table \'SyncErrors\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectTeam.RES_BOOKING_TYPEColumn] = value;
+                    this[this.tableSyncErrors.SYNC_PROJ_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool RES_HAS_ACTUALS
+            public Guid SYNC_TASK_UID
             {
                 get
                 {
                     try
                     {
-                        return ((bool)(this[this.tableProjectTeam.RES_HAS_ACTUALSColumn]));
+                        return ((Guid)(this[this.tableSyncErrors.SYNC_TASK_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RES_HAS_ACTUALS\' in table \'ProjectTeam\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_TASK_UID\' in table \'SyncErrors\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectTeam.RES_HAS_ACTUALSColumn] = value;
+                    this[this.tableSyncErrors.SYNC_TASK_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int RES_TYPE
+            public System.DateTime SYNC_ERROR_DATE
             {
                 get
                 {
                     try
                     {
-                        return ((int)(this[this.tableProjectTeam.RES_TYPEColumn]));
+                        return ((global::System.DateTime)(this[this.tableSyncErrors.SYNC_ERROR_DATEColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RES_TYPE\' in table \'ProjectTeam\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_ERROR_DATE\' in table \'SyncErrors\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectTeam.RES_TYPEColumn] = value;
+                    this[this.tableSyncErrors.SYNC_ERROR_DATEColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool RES_IS_ENTERPRISE_RESOURCE
+            public int SYNC_ERROR_TYPE_ENUM
             {
                 get
                 {
                     try
                     {
-                        return ((bool)(this[this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn]));
+                        return ((int)(this[this.tableSyncErrors.SYNC_ERROR_TYPE_ENUMColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RES_IS_ENTERPRISE_RESOURCE\' in table \'ProjectTeam\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_ERROR_TYPE_ENUM\' in table \'SyncErrors\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn] = value;
+                    this[this.tableSyncErrors.SYNC_ERROR_TYPE_ENUMColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WRES_EMAIL
+            public int SYNC_ERROR_SEVERITY_ENUM
             {
                 get
                 {
                     try
                     {
-                        return ((string)(this[this.tableProjectTeam.WRES_EMAILColumn]));
+                        return ((int)(this[this.tableSyncErrors.SYNC_ERROR_SEVERITY_ENUMColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WRES_EMAIL\' in table \'ProjectTeam\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_ERROR_SEVERITY_ENUM\' in table \'SyncErrors\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectTeam.WRES_EMAILColumn] = value;
+                    this[this.tableSyncErrors.SYNC_ERROR_SEVERITY_ENUMColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNEW_RES_UIDNull()
+            public string SYNC_ERROR_XML_DATA
             {
-                return this.IsNull(this.tableProjectTeam.NEW_RES_UIDColumn);
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableSyncErrors.SYNC_ERROR_XML_DATAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_ERROR_XML_DATA\' in table \'SyncErrors\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSyncErrors.SYNC_ERROR_XML_DATAColumn] = value;
+                }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNEW_RES_UIDNull()
+            public bool IsSYNC_WSS_LIST_ITEM_IDNull()
             {
-                this[this.tableProjectTeam.NEW_RES_UIDColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_WSS_LIST_ITEM_IDColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRES_NAMENull()
+            public void SetSYNC_WSS_LIST_ITEM_IDNull()
             {
-                return this.IsNull(this.tableProjectTeam.RES_NAMEColumn);
+                this[this.tableSyncErrors.SYNC_WSS_LIST_ITEM_IDColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRES_NAMENull()
+            public bool IsSYNC_PROJ_UIDNull()
             {
-                this[this.tableProjectTeam.RES_NAMEColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_PROJ_UIDColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRES_BOOKING_TYPENull()
+            public void SetSYNC_PROJ_UIDNull()
             {
-                return this.IsNull(this.tableProjectTeam.RES_BOOKING_TYPEColumn);
+                this[this.tableSyncErrors.SYNC_PROJ_UIDColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRES_BOOKING_TYPENull()
+            public bool IsSYNC_TASK_UIDNull()
             {
-                this[this.tableProjectTeam.RES_BOOKING_TYPEColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_TASK_UIDColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRES_HAS_ACTUALSNull()
+            public void SetSYNC_TASK_UIDNull()
             {
-                return this.IsNull(this.tableProjectTeam.RES_HAS_ACTUALSColumn);
+                this[this.tableSyncErrors.SYNC_TASK_UIDColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRES_HAS_ACTUALSNull()
+            public bool IsSYNC_ERROR_DATENull()
             {
-                this[this.tableProjectTeam.RES_HAS_ACTUALSColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_ERROR_DATEColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRES_TYPENull()
+            public void SetSYNC_ERROR_DATENull()
             {
-                return this.IsNull(this.tableProjectTeam.RES_TYPEColumn);
+                this[this.tableSyncErrors.SYNC_ERROR_DATEColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRES_TYPENull()
+            public bool IsSYNC_ERROR_TYPE_ENUMNull()
             {
-                this[this.tableProjectTeam.RES_TYPEColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_ERROR_TYPE_ENUMColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRES_IS_ENTERPRISE_RESOURCENull()
+            public void SetSYNC_ERROR_TYPE_ENUMNull()
             {
-                return this.IsNull(this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn);
+                this[this.tableSyncErrors.SYNC_ERROR_TYPE_ENUMColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRES_IS_ENTERPRISE_RESOURCENull()
+            public bool IsSYNC_ERROR_SEVERITY_ENUMNull()
             {
-                this[this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_ERROR_SEVERITY_ENUMColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWRES_EMAILNull()
+            public void SetSYNC_ERROR_SEVERITY_ENUMNull()
             {
-                return this.IsNull(this.tableProjectTeam.WRES_EMAILColumn);
+                this[this.tableSyncErrors.SYNC_ERROR_SEVERITY_ENUMColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWRES_EMAILNull()
+            public bool IsSYNC_ERROR_XML_DATANull()
             {
-                this[this.tableProjectTeam.WRES_EMAILColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncErrors.SYNC_ERROR_XML_DATAColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSYNC_ERROR_XML_DATANull()
+            {
+                this[this.tableSyncErrors.SYNC_ERROR_XML_DATAColumn] = global::System.Convert.DBNull;
             }
         }
 
@@ -1046,16 +1030,16 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ProjectTeamRowChangeEvent : global::System.EventArgs
+        public class SyncErrorsRowChangeEvent : global::System.EventArgs
         {
 
-            private ProjectTeamRow eventRow;
+            private SyncErrorsRow eventRow;
 
             private global::System.Data.DataRowAction eventAction;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamRowChangeEvent(ProjectTeamRow row, global::System.Data.DataRowAction action)
+            public SyncErrorsRowChangeEvent(SyncErrorsRow row, global::System.Data.DataRowAction action)
             {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -1063,7 +1047,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectTeamRow Row
+            public SyncErrorsRow Row
             {
                 get
                 {

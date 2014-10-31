@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Serialization;
 
-namespace FluentPro.FluentPS.Contracts.Model.Messages
+namespace FluentPro.FluentPS.Psi.Model.Messages
 {
     [DebuggerStepThrough]
     [MessageContract(WrapperName = "ReadProjectListByDepartment", WrapperNamespace = "http://schemas.microsoft.com/office/project/server/webservices/Project/", IsWrapped = true)]

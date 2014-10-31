@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FluentPro.FluentPS.Contracts.Model.DataSets
+namespace FluentPro.FluentPS.Psi.Model.DataSets
 {
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
@@ -13,19 +13,19 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ProjectContextDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ProjectTeamDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.0.30319.17929")]
-    public partial class ProjectContextDataSet : global::System.Data.DataSet
+    public partial class ProjectTeamDataSet : global::System.Data.DataSet
     {
 
-        private RelationshipsDataTable tableRelationships;
+        private ProjectTeamDataTable tableProjectTeam;
 
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ProjectContextDataSet()
+        public ProjectTeamDataSet()
         {
             this.BeginInit();
             this.InitClass();
@@ -37,7 +37,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ProjectContextDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+        protected ProjectTeamDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
             base(info, context, false)
         {
             if ((this.IsBinarySerialized(info, context) == true))
@@ -53,9 +53,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Relationships"] != null))
+                if ((ds.Tables["ProjectTeam"] != null))
                 {
-                    base.Tables.Add(new RelationshipsDataTable(ds.Tables["Relationships"]));
+                    base.Tables.Add(new ProjectTeamDataTable(ds.Tables["ProjectTeam"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -80,11 +80,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public RelationshipsDataTable Relationships
+        public ProjectTeamDataTable ProjectTeam
         {
             get
             {
-                return this.tableRelationships;
+                return this.tableProjectTeam;
             }
         }
 
@@ -139,7 +139,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone()
         {
-            ProjectContextDataSet cln = ((ProjectContextDataSet)(base.Clone()));
+            ProjectTeamDataSet cln = ((ProjectTeamDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -168,9 +168,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Relationships"] != null))
+                if ((ds.Tables["ProjectTeam"] != null))
                 {
-                    base.Tables.Add(new RelationshipsDataTable(ds.Tables["Relationships"]));
+                    base.Tables.Add(new ProjectTeamDataTable(ds.Tables["ProjectTeam"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -209,12 +209,12 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable)
         {
-            this.tableRelationships = ((RelationshipsDataTable)(base.Tables["Relationships"]));
+            this.tableProjectTeam = ((ProjectTeamDataTable)(base.Tables["ProjectTeam"]));
             if ((initTable == true))
             {
-                if ((this.tableRelationships != null))
+                if ((this.tableProjectTeam != null))
                 {
-                    this.tableRelationships.InitVars();
+                    this.tableProjectTeam.InitVars();
                 }
             }
         }
@@ -223,19 +223,19 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass()
         {
-            this.DataSetName = "ProjectContextDataSet";
+            this.DataSetName = "ProjectTeamDataSet";
             this.Prefix = "";
-            this.Namespace = "http://schemas.microsoft.com/office/project/server/webservices/ProjectContextData" +
-                "Set/";
+            this.Namespace = "http://schemas.microsoft.com/office/project/server/webservices/TeamBuilderDataSet" +
+                "/";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableRelationships = new RelationshipsDataTable();
-            base.Tables.Add(this.tableRelationships);
+            this.tableProjectTeam = new ProjectTeamDataTable();
+            base.Tables.Add(this.tableProjectTeam);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeRelationships()
+        private bool ShouldSerializeProjectTeam()
         {
             return false;
         }
@@ -254,7 +254,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs)
         {
-            ProjectContextDataSet ds = new ProjectContextDataSet();
+            ProjectTeamDataSet ds = new ProjectTeamDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -308,31 +308,39 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void RelationshipsRowChangeEventHandler(object sender, RelationshipsRowChangeEvent e);
+        public delegate void ProjectTeamRowChangeEventHandler(object sender, ProjectTeamRowChangeEvent e);
 
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class RelationshipsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
+        public partial class ProjectTeamDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
 
             private global::System.Data.DataColumn columnPROJ_UID;
 
-            private global::System.Data.DataColumn columnRelatedTo_UID;
+            private global::System.Data.DataColumn columnRES_UID;
 
-            private global::System.Data.DataColumn columnRelatedTo_NAME;
+            private global::System.Data.DataColumn columnNEW_RES_UID;
 
-            private global::System.Data.DataColumn columnRelationship;
+            private global::System.Data.DataColumn columnRES_NAME;
 
-            private global::System.Data.DataColumn columnHasBuildTeamPermission;
+            private global::System.Data.DataColumn columnRES_BOOKING_TYPE;
+
+            private global::System.Data.DataColumn columnRES_HAS_ACTUALS;
+
+            private global::System.Data.DataColumn columnRES_TYPE;
+
+            private global::System.Data.DataColumn columnRES_IS_ENTERPRISE_RESOURCE;
+
+            private global::System.Data.DataColumn columnWRES_EMAIL;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelationshipsDataTable()
+            public ProjectTeamDataTable()
             {
-                this.TableName = "Relationships";
+                this.TableName = "ProjectTeam";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -340,7 +348,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RelationshipsDataTable(global::System.Data.DataTable table)
+            internal ProjectTeamDataTable(global::System.Data.DataTable table)
             {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive))
@@ -361,7 +369,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected RelationshipsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected ProjectTeamDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
                 base(info, context)
             {
                 this.InitVars();
@@ -379,41 +387,81 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RelatedTo_UIDColumn
+            public global::System.Data.DataColumn RES_UIDColumn
             {
                 get
                 {
-                    return this.columnRelatedTo_UID;
+                    return this.columnRES_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RelatedTo_NAMEColumn
+            public global::System.Data.DataColumn NEW_RES_UIDColumn
             {
                 get
                 {
-                    return this.columnRelatedTo_NAME;
+                    return this.columnNEW_RES_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RelationshipColumn
+            public global::System.Data.DataColumn RES_NAMEColumn
             {
                 get
                 {
-                    return this.columnRelationship;
+                    return this.columnRES_NAME;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HasBuildTeamPermissionColumn
+            public global::System.Data.DataColumn RES_BOOKING_TYPEColumn
             {
                 get
                 {
-                    return this.columnHasBuildTeamPermission;
+                    return this.columnRES_BOOKING_TYPE;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RES_HAS_ACTUALSColumn
+            {
+                get
+                {
+                    return this.columnRES_HAS_ACTUALS;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RES_TYPEColumn
+            {
+                get
+                {
+                    return this.columnRES_TYPE;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RES_IS_ENTERPRISE_RESOURCEColumn
+            {
+                get
+                {
+                    return this.columnRES_IS_ENTERPRISE_RESOURCE;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WRES_EMAILColumn
+            {
+                get
+                {
+                    return this.columnWRES_EMAIL;
                 }
             }
 
@@ -430,47 +478,60 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelationshipsRow this[int index]
+            public ProjectTeamRow this[int index]
             {
                 get
                 {
-                    return ((RelationshipsRow)(this.Rows[index]));
+                    return ((ProjectTeamRow)(this.Rows[index]));
                 }
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RelationshipsRowChangeEventHandler RelationshipsRowChanging;
+            public event ProjectTeamRowChangeEventHandler ProjectTeamRowChanging;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RelationshipsRowChangeEventHandler RelationshipsRowChanged;
+            public event ProjectTeamRowChangeEventHandler ProjectTeamRowChanged;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RelationshipsRowChangeEventHandler RelationshipsRowDeleting;
+            public event ProjectTeamRowChangeEventHandler ProjectTeamRowDeleting;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RelationshipsRowChangeEventHandler RelationshipsRowDeleted;
+            public event ProjectTeamRowChangeEventHandler ProjectTeamRowDeleted;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddRelationshipsRow(RelationshipsRow row)
+            public void AddProjectTeamRow(ProjectTeamRow row)
             {
                 this.Rows.Add(row);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelationshipsRow AddRelationshipsRow(Guid PROJ_UID, Guid RelatedTo_UID, string RelatedTo_NAME, byte Relationship, bool HasBuildTeamPermission)
+            public ProjectTeamRow AddProjectTeamRow(Guid PROJ_UID, Guid RES_UID, Guid NEW_RES_UID, string RES_NAME, int RES_BOOKING_TYPE, bool RES_HAS_ACTUALS, int RES_TYPE, bool RES_IS_ENTERPRISE_RESOURCE, string WRES_EMAIL)
             {
-                RelationshipsRow rowRelationshipsRow = ((RelationshipsRow)(this.NewRow()));
+                ProjectTeamRow rowProjectTeamRow = ((ProjectTeamRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PROJ_UID,
-                        RelatedTo_UID,
-                        RelatedTo_NAME,
-                        Relationship,
-                        HasBuildTeamPermission};
-                rowRelationshipsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRelationshipsRow);
-                return rowRelationshipsRow;
+                        RES_UID,
+                        NEW_RES_UID,
+                        RES_NAME,
+                        RES_BOOKING_TYPE,
+                        RES_HAS_ACTUALS,
+                        RES_TYPE,
+                        RES_IS_ENTERPRISE_RESOURCE,
+                        WRES_EMAIL};
+                rowProjectTeamRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowProjectTeamRow);
+                return rowProjectTeamRow;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectTeamRow FindByRES_UIDPROJ_UID(Guid RES_UID, Guid PROJ_UID)
+            {
+                return ((ProjectTeamRow)(this.Rows.Find(new object[] {
+                            RES_UID,
+                            PROJ_UID})));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,7 +545,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone()
             {
-                RelationshipsDataTable cln = ((RelationshipsDataTable)(base.Clone()));
+                ProjectTeamDataTable cln = ((ProjectTeamDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -493,7 +554,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance()
             {
-                return new RelationshipsDataTable();
+                return new ProjectTeamDataTable();
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -501,10 +562,14 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             internal void InitVars()
             {
                 this.columnPROJ_UID = base.Columns["PROJ_UID"];
-                this.columnRelatedTo_UID = base.Columns["RelatedTo_UID"];
-                this.columnRelatedTo_NAME = base.Columns["RelatedTo_NAME"];
-                this.columnRelationship = base.Columns["Relationship"];
-                this.columnHasBuildTeamPermission = base.Columns["HasBuildTeamPermission"];
+                this.columnRES_UID = base.Columns["RES_UID"];
+                this.columnNEW_RES_UID = base.Columns["NEW_RES_UID"];
+                this.columnRES_NAME = base.Columns["RES_NAME"];
+                this.columnRES_BOOKING_TYPE = base.Columns["RES_BOOKING_TYPE"];
+                this.columnRES_HAS_ACTUALS = base.Columns["RES_HAS_ACTUALS"];
+                this.columnRES_TYPE = base.Columns["RES_TYPE"];
+                this.columnRES_IS_ENTERPRISE_RESOURCE = base.Columns["RES_IS_ENTERPRISE_RESOURCE"];
+                this.columnWRES_EMAIL = base.Columns["WRES_EMAIL"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -513,45 +578,52 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnRelatedTo_UID = new global::System.Data.DataColumn("RelatedTo_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRelatedTo_UID);
-                this.columnRelatedTo_NAME = new global::System.Data.DataColumn("RelatedTo_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRelatedTo_NAME);
-                this.columnRelationship = new global::System.Data.DataColumn("Relationship", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRelationship);
-                this.columnHasBuildTeamPermission = new global::System.Data.DataColumn("HasBuildTeamPermission", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHasBuildTeamPermission);
+                this.columnRES_UID = new global::System.Data.DataColumn("RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRES_UID);
+                this.columnNEW_RES_UID = new global::System.Data.DataColumn("NEW_RES_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNEW_RES_UID);
+                this.columnRES_NAME = new global::System.Data.DataColumn("RES_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRES_NAME);
+                this.columnRES_BOOKING_TYPE = new global::System.Data.DataColumn("RES_BOOKING_TYPE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRES_BOOKING_TYPE);
+                this.columnRES_HAS_ACTUALS = new global::System.Data.DataColumn("RES_HAS_ACTUALS", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRES_HAS_ACTUALS);
+                this.columnRES_TYPE = new global::System.Data.DataColumn("RES_TYPE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRES_TYPE);
+                this.columnRES_IS_ENTERPRISE_RESOURCE = new global::System.Data.DataColumn("RES_IS_ENTERPRISE_RESOURCE", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRES_IS_ENTERPRISE_RESOURCE);
+                this.columnWRES_EMAIL = new global::System.Data.DataColumn("WRES_EMAIL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWRES_EMAIL);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("ProjectTeamKey", new global::System.Data.DataColumn[] {
+                                this.columnRES_UID,
+                                this.columnPROJ_UID}, true));
                 this.columnPROJ_UID.AllowDBNull = false;
-                this.columnPROJ_UID.ReadOnly = true;
-                this.columnRelatedTo_UID.AllowDBNull = false;
-                this.columnRelatedTo_UID.ReadOnly = true;
-                this.columnRelatedTo_NAME.AllowDBNull = false;
-                this.columnRelatedTo_NAME.ReadOnly = true;
-                this.columnRelationship.AllowDBNull = false;
-                this.columnRelationship.ReadOnly = true;
-                this.columnHasBuildTeamPermission.AllowDBNull = false;
-                this.columnHasBuildTeamPermission.ReadOnly = true;
+                this.columnRES_UID.AllowDBNull = false;
+                this.columnRES_NAME.ReadOnly = true;
+                this.columnRES_TYPE.ReadOnly = true;
+                this.columnRES_IS_ENTERPRISE_RESOURCE.ReadOnly = true;
+                this.columnWRES_EMAIL.ReadOnly = true;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelationshipsRow NewRelationshipsRow()
+            public ProjectTeamRow NewProjectTeamRow()
             {
-                return ((RelationshipsRow)(this.NewRow()));
+                return ((ProjectTeamRow)(this.NewRow()));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
             {
-                return new RelationshipsRow(builder);
+                return new ProjectTeamRow(builder);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType()
             {
-                return typeof(RelationshipsRow);
+                return typeof(ProjectTeamRow);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -559,9 +631,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanged(e);
-                if ((this.RelationshipsRowChanged != null))
+                if ((this.ProjectTeamRowChanged != null))
                 {
-                    this.RelationshipsRowChanged(this, new RelationshipsRowChangeEvent(((RelationshipsRow)(e.Row)), e.Action));
+                    this.ProjectTeamRowChanged(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
                 }
             }
 
@@ -570,9 +642,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanging(e);
-                if ((this.RelationshipsRowChanging != null))
+                if ((this.ProjectTeamRowChanging != null))
                 {
-                    this.RelationshipsRowChanging(this, new RelationshipsRowChangeEvent(((RelationshipsRow)(e.Row)), e.Action));
+                    this.ProjectTeamRowChanging(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
                 }
             }
 
@@ -581,9 +653,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleted(e);
-                if ((this.RelationshipsRowDeleted != null))
+                if ((this.ProjectTeamRowDeleted != null))
                 {
-                    this.RelationshipsRowDeleted(this, new RelationshipsRowChangeEvent(((RelationshipsRow)(e.Row)), e.Action));
+                    this.ProjectTeamRowDeleted(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
                 }
             }
 
@@ -592,15 +664,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleting(e);
-                if ((this.RelationshipsRowDeleting != null))
+                if ((this.ProjectTeamRowDeleting != null))
                 {
-                    this.RelationshipsRowDeleting(this, new RelationshipsRowChangeEvent(((RelationshipsRow)(e.Row)), e.Action));
+                    this.ProjectTeamRowDeleting(this, new ProjectTeamRowChangeEvent(((ProjectTeamRow)(e.Row)), e.Action));
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveRelationshipsRow(RelationshipsRow row)
+            public void RemoveProjectTeamRow(ProjectTeamRow row)
             {
                 this.Rows.Remove(row);
             }
@@ -611,7 +683,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectContextDataSet ds = new ProjectContextDataSet();
+                ProjectTeamDataSet ds = new ProjectTeamDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -629,7 +701,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "RelationshipsDataTable";
+                attribute2.FixedValue = "ProjectTeamDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -682,17 +754,17 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class RelationshipsRow : global::System.Data.DataRow
+        public partial class ProjectTeamRow : global::System.Data.DataRow
         {
 
-            private RelationshipsDataTable tableRelationships;
+            private ProjectTeamDataTable tableProjectTeam;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RelationshipsRow(global::System.Data.DataRowBuilder rb) :
+            internal ProjectTeamRow(global::System.Data.DataRowBuilder rb) :
                 base(rb)
             {
-                this.tableRelationships = ((RelationshipsDataTable)(this.Table));
+                this.tableProjectTeam = ((ProjectTeamDataTable)(this.Table));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -701,68 +773,272 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 get
                 {
-                    return ((Guid)(this[this.tableRelationships.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectTeam.PROJ_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableRelationships.PROJ_UIDColumn] = value;
+                    this[this.tableProjectTeam.PROJ_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid RelatedTo_UID
+            public Guid RES_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableRelationships.RelatedTo_UIDColumn]));
+                    return ((Guid)(this[this.tableProjectTeam.RES_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableRelationships.RelatedTo_UIDColumn] = value;
+                    this[this.tableProjectTeam.RES_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string RelatedTo_NAME
+            public Guid NEW_RES_UID
             {
                 get
                 {
-                    return ((string)(this[this.tableRelationships.RelatedTo_NAMEColumn]));
+                    try
+                    {
+                        return ((Guid)(this[this.tableProjectTeam.NEW_RES_UIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NEW_RES_UID\' in table \'ProjectTeam\' is DBNull.", e);
+                    }
                 }
                 set
                 {
-                    this[this.tableRelationships.RelatedTo_NAMEColumn] = value;
+                    this[this.tableProjectTeam.NEW_RES_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public byte Relationship
+            public string RES_NAME
             {
                 get
                 {
-                    return ((byte)(this[this.tableRelationships.RelationshipColumn]));
+                    try
+                    {
+                        return ((string)(this[this.tableProjectTeam.RES_NAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RES_NAME\' in table \'ProjectTeam\' is DBNull.", e);
+                    }
                 }
                 set
                 {
-                    this[this.tableRelationships.RelationshipColumn] = value;
+                    this[this.tableProjectTeam.RES_NAMEColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool HasBuildTeamPermission
+            public int RES_BOOKING_TYPE
             {
                 get
                 {
-                    return ((bool)(this[this.tableRelationships.HasBuildTeamPermissionColumn]));
+                    try
+                    {
+                        return ((int)(this[this.tableProjectTeam.RES_BOOKING_TYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RES_BOOKING_TYPE\' in table \'ProjectTeam\' is DBNull.", e);
+                    }
                 }
                 set
                 {
-                    this[this.tableRelationships.HasBuildTeamPermissionColumn] = value;
+                    this[this.tableProjectTeam.RES_BOOKING_TYPEColumn] = value;
                 }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool RES_HAS_ACTUALS
+            {
+                get
+                {
+                    try
+                    {
+                        return ((bool)(this[this.tableProjectTeam.RES_HAS_ACTUALSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RES_HAS_ACTUALS\' in table \'ProjectTeam\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableProjectTeam.RES_HAS_ACTUALSColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RES_TYPE
+            {
+                get
+                {
+                    try
+                    {
+                        return ((int)(this[this.tableProjectTeam.RES_TYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RES_TYPE\' in table \'ProjectTeam\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableProjectTeam.RES_TYPEColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool RES_IS_ENTERPRISE_RESOURCE
+            {
+                get
+                {
+                    try
+                    {
+                        return ((bool)(this[this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RES_IS_ENTERPRISE_RESOURCE\' in table \'ProjectTeam\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WRES_EMAIL
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableProjectTeam.WRES_EMAILColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WRES_EMAIL\' in table \'ProjectTeam\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableProjectTeam.WRES_EMAILColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNEW_RES_UIDNull()
+            {
+                return this.IsNull(this.tableProjectTeam.NEW_RES_UIDColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNEW_RES_UIDNull()
+            {
+                this[this.tableProjectTeam.NEW_RES_UIDColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRES_NAMENull()
+            {
+                return this.IsNull(this.tableProjectTeam.RES_NAMEColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRES_NAMENull()
+            {
+                this[this.tableProjectTeam.RES_NAMEColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRES_BOOKING_TYPENull()
+            {
+                return this.IsNull(this.tableProjectTeam.RES_BOOKING_TYPEColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRES_BOOKING_TYPENull()
+            {
+                this[this.tableProjectTeam.RES_BOOKING_TYPEColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRES_HAS_ACTUALSNull()
+            {
+                return this.IsNull(this.tableProjectTeam.RES_HAS_ACTUALSColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRES_HAS_ACTUALSNull()
+            {
+                this[this.tableProjectTeam.RES_HAS_ACTUALSColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRES_TYPENull()
+            {
+                return this.IsNull(this.tableProjectTeam.RES_TYPEColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRES_TYPENull()
+            {
+                this[this.tableProjectTeam.RES_TYPEColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRES_IS_ENTERPRISE_RESOURCENull()
+            {
+                return this.IsNull(this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRES_IS_ENTERPRISE_RESOURCENull()
+            {
+                this[this.tableProjectTeam.RES_IS_ENTERPRISE_RESOURCEColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWRES_EMAILNull()
+            {
+                return this.IsNull(this.tableProjectTeam.WRES_EMAILColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWRES_EMAILNull()
+            {
+                this[this.tableProjectTeam.WRES_EMAILColumn] = global::System.Convert.DBNull;
             }
         }
 
@@ -770,16 +1046,16 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class RelationshipsRowChangeEvent : global::System.EventArgs
+        public class ProjectTeamRowChangeEvent : global::System.EventArgs
         {
 
-            private RelationshipsRow eventRow;
+            private ProjectTeamRow eventRow;
 
             private global::System.Data.DataRowAction eventAction;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelationshipsRowChangeEvent(RelationshipsRow row, global::System.Data.DataRowAction action)
+            public ProjectTeamRowChangeEvent(ProjectTeamRow row, global::System.Data.DataRowAction action)
             {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -787,7 +1063,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelationshipsRow Row
+            public ProjectTeamRow Row
             {
                 get
                 {

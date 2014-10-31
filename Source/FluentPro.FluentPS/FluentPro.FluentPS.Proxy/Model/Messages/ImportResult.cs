@@ -1,9 +1,9 @@
-﻿using FluentPro.FluentPS.Contracts.Model.Enums;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
+using FluentPro.FluentPS.Psi.Model.Enums;
 
-namespace FluentPro.FluentPS.Contracts.Model.Messages
+namespace FluentPro.FluentPS.Psi.Model.Messages
 {
     [Serializable]
     [DebuggerStepThrough]

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ServiceModel;
-using FluentPro.FluentPS.Contracts.Exceptions.Faults;
-using FluentPro.FluentPS.Contracts.Model.DataSets;
-using FluentPro.FluentPS.Proxy.Model.DataSets;
+using FluentPro.FluentPS.Psi.Exceptions.Faults;
+using FluentPro.FluentPS.Psi.Model.DataSets;
 
-namespace FluentPro.FluentPS.Contracts.Interfaces.Psi
+namespace FluentPro.FluentPS.Psi.Interfaces.Psi
 {
     [ServiceContract(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ConfigurationName = "FluentPro.FluentPS.Proxy.Wcf.LookupTable")]
     public interface ILookupTable

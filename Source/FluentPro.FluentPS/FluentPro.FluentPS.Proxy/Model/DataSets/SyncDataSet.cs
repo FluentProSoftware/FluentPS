@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FluentPro.FluentPS.Contracts.Model.DataSets
+namespace FluentPro.FluentPS.Psi.Model.DataSets
 {
+
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
     ///</summary>
@@ -13,25 +14,25 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ProjectImpactDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("SyncDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.0.30319.17929")]
-    public partial class ProjectImpactDataSet : global::System.Data.DataSet
+    public partial class SyncDataSet : global::System.Data.DataSet
     {
 
-        private ProjectImpactValuesDataTable tableProjectImpactValues;
+        private SyncProjectSettingsDataTable tableSyncProjectSettings;
 
-        private ImpactStatementsDataTable tableImpactStatements;
+        private SyncFieldMappingsDataTable tableSyncFieldMappings;
 
-        private DriversDataTable tableDrivers;
+        private SyncItemTaskMappingsDataTable tableSyncItemTaskMappings;
 
-        private LookupTableValuesDataTable tableLookupTableValues;
+        private SyncValueTranslationsDataTable tableSyncValueTranslations;
 
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ProjectImpactDataSet()
+        public SyncDataSet()
         {
             this.BeginInit();
             this.InitClass();
@@ -43,7 +44,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ProjectImpactDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+        protected SyncDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
             base(info, context, false)
         {
             if ((this.IsBinarySerialized(info, context) == true))
@@ -59,21 +60,21 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ProjectImpactValues"] != null))
+                if ((ds.Tables["SyncProjectSettings"] != null))
                 {
-                    base.Tables.Add(new ProjectImpactValuesDataTable(ds.Tables["ProjectImpactValues"]));
+                    base.Tables.Add(new SyncProjectSettingsDataTable(ds.Tables["SyncProjectSettings"]));
                 }
-                if ((ds.Tables["ImpactStatements"] != null))
+                if ((ds.Tables["SyncFieldMappings"] != null))
                 {
-                    base.Tables.Add(new ImpactStatementsDataTable(ds.Tables["ImpactStatements"]));
+                    base.Tables.Add(new SyncFieldMappingsDataTable(ds.Tables["SyncFieldMappings"]));
                 }
-                if ((ds.Tables["Drivers"] != null))
+                if ((ds.Tables["SyncItemTaskMappings"] != null))
                 {
-                    base.Tables.Add(new DriversDataTable(ds.Tables["Drivers"]));
+                    base.Tables.Add(new SyncItemTaskMappingsDataTable(ds.Tables["SyncItemTaskMappings"]));
                 }
-                if ((ds.Tables["LookupTableValues"] != null))
+                if ((ds.Tables["SyncValueTranslations"] != null))
                 {
-                    base.Tables.Add(new LookupTableValuesDataTable(ds.Tables["LookupTableValues"]));
+                    base.Tables.Add(new SyncValueTranslationsDataTable(ds.Tables["SyncValueTranslations"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -98,11 +99,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ProjectImpactValuesDataTable ProjectImpactValues
+        public SyncProjectSettingsDataTable SyncProjectSettings
         {
             get
             {
-                return this.tableProjectImpactValues;
+                return this.tableSyncProjectSettings;
             }
         }
 
@@ -110,11 +111,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ImpactStatementsDataTable ImpactStatements
+        public SyncFieldMappingsDataTable SyncFieldMappings
         {
             get
             {
-                return this.tableImpactStatements;
+                return this.tableSyncFieldMappings;
             }
         }
 
@@ -122,11 +123,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DriversDataTable Drivers
+        public SyncItemTaskMappingsDataTable SyncItemTaskMappings
         {
             get
             {
-                return this.tableDrivers;
+                return this.tableSyncItemTaskMappings;
             }
         }
 
@@ -134,11 +135,11 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public LookupTableValuesDataTable LookupTableValues
+        public SyncValueTranslationsDataTable SyncValueTranslations
         {
             get
             {
-                return this.tableLookupTableValues;
+                return this.tableSyncValueTranslations;
             }
         }
 
@@ -193,7 +194,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone()
         {
-            ProjectImpactDataSet cln = ((ProjectImpactDataSet)(base.Clone()));
+            SyncDataSet cln = ((SyncDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -222,21 +223,21 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ProjectImpactValues"] != null))
+                if ((ds.Tables["SyncProjectSettings"] != null))
                 {
-                    base.Tables.Add(new ProjectImpactValuesDataTable(ds.Tables["ProjectImpactValues"]));
+                    base.Tables.Add(new SyncProjectSettingsDataTable(ds.Tables["SyncProjectSettings"]));
                 }
-                if ((ds.Tables["ImpactStatements"] != null))
+                if ((ds.Tables["SyncFieldMappings"] != null))
                 {
-                    base.Tables.Add(new ImpactStatementsDataTable(ds.Tables["ImpactStatements"]));
+                    base.Tables.Add(new SyncFieldMappingsDataTable(ds.Tables["SyncFieldMappings"]));
                 }
-                if ((ds.Tables["Drivers"] != null))
+                if ((ds.Tables["SyncItemTaskMappings"] != null))
                 {
-                    base.Tables.Add(new DriversDataTable(ds.Tables["Drivers"]));
+                    base.Tables.Add(new SyncItemTaskMappingsDataTable(ds.Tables["SyncItemTaskMappings"]));
                 }
-                if ((ds.Tables["LookupTableValues"] != null))
+                if ((ds.Tables["SyncValueTranslations"] != null))
                 {
-                    base.Tables.Add(new LookupTableValuesDataTable(ds.Tables["LookupTableValues"]));
+                    base.Tables.Add(new SyncValueTranslationsDataTable(ds.Tables["SyncValueTranslations"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -275,36 +276,36 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable)
         {
-            this.tableProjectImpactValues = ((ProjectImpactValuesDataTable)(base.Tables["ProjectImpactValues"]));
+            this.tableSyncProjectSettings = ((SyncProjectSettingsDataTable)(base.Tables["SyncProjectSettings"]));
             if ((initTable == true))
             {
-                if ((this.tableProjectImpactValues != null))
+                if ((this.tableSyncProjectSettings != null))
                 {
-                    this.tableProjectImpactValues.InitVars();
+                    this.tableSyncProjectSettings.InitVars();
                 }
             }
-            this.tableImpactStatements = ((ImpactStatementsDataTable)(base.Tables["ImpactStatements"]));
+            this.tableSyncFieldMappings = ((SyncFieldMappingsDataTable)(base.Tables["SyncFieldMappings"]));
             if ((initTable == true))
             {
-                if ((this.tableImpactStatements != null))
+                if ((this.tableSyncFieldMappings != null))
                 {
-                    this.tableImpactStatements.InitVars();
+                    this.tableSyncFieldMappings.InitVars();
                 }
             }
-            this.tableDrivers = ((DriversDataTable)(base.Tables["Drivers"]));
+            this.tableSyncItemTaskMappings = ((SyncItemTaskMappingsDataTable)(base.Tables["SyncItemTaskMappings"]));
             if ((initTable == true))
             {
-                if ((this.tableDrivers != null))
+                if ((this.tableSyncItemTaskMappings != null))
                 {
-                    this.tableDrivers.InitVars();
+                    this.tableSyncItemTaskMappings.InitVars();
                 }
             }
-            this.tableLookupTableValues = ((LookupTableValuesDataTable)(base.Tables["LookupTableValues"]));
+            this.tableSyncValueTranslations = ((SyncValueTranslationsDataTable)(base.Tables["SyncValueTranslations"]));
             if ((initTable == true))
             {
-                if ((this.tableLookupTableValues != null))
+                if ((this.tableSyncValueTranslations != null))
                 {
-                    this.tableLookupTableValues.InitVars();
+                    this.tableSyncValueTranslations.InitVars();
                 }
             }
         }
@@ -313,46 +314,45 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass()
         {
-            this.DataSetName = "ProjectImpactDataSet";
+            this.DataSetName = "SyncDataSet";
             this.Prefix = "";
-            this.Namespace = "http://schemas.microsoft.com/office/project/server/webservices/ProjectImpactDataS" +
-                "et/";
+            this.Namespace = "http://schemas.microsoft.com/office/project/server/webservices/SyncDataSet";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableProjectImpactValues = new ProjectImpactValuesDataTable();
-            base.Tables.Add(this.tableProjectImpactValues);
-            this.tableImpactStatements = new ImpactStatementsDataTable();
-            base.Tables.Add(this.tableImpactStatements);
-            this.tableDrivers = new DriversDataTable();
-            base.Tables.Add(this.tableDrivers);
-            this.tableLookupTableValues = new LookupTableValuesDataTable();
-            base.Tables.Add(this.tableLookupTableValues);
+            this.tableSyncProjectSettings = new SyncProjectSettingsDataTable();
+            base.Tables.Add(this.tableSyncProjectSettings);
+            this.tableSyncFieldMappings = new SyncFieldMappingsDataTable();
+            base.Tables.Add(this.tableSyncFieldMappings);
+            this.tableSyncItemTaskMappings = new SyncItemTaskMappingsDataTable();
+            base.Tables.Add(this.tableSyncItemTaskMappings);
+            this.tableSyncValueTranslations = new SyncValueTranslationsDataTable();
+            base.Tables.Add(this.tableSyncValueTranslations);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeProjectImpactValues()
+        private bool ShouldSerializeSyncProjectSettings()
         {
             return false;
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeImpactStatements()
+        private bool ShouldSerializeSyncFieldMappings()
         {
             return false;
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeDrivers()
+        private bool ShouldSerializeSyncItemTaskMappings()
         {
             return false;
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeLookupTableValues()
+        private bool ShouldSerializeSyncValueTranslations()
         {
             return false;
         }
@@ -371,7 +371,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs)
         {
-            ProjectImpactDataSet ds = new ProjectImpactDataSet();
+            SyncDataSet ds = new SyncDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -425,36 +425,38 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ProjectImpactValuesRowChangeEventHandler(object sender, ProjectImpactValuesRowChangeEvent e);
+        public delegate void SyncProjectSettingsRowChangeEventHandler(object sender, SyncProjectSettingsRowChangeEvent e);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ImpactStatementsRowChangeEventHandler(object sender, ImpactStatementsRowChangeEvent e);
+        public delegate void SyncFieldMappingsRowChangeEventHandler(object sender, SyncFieldMappingsRowChangeEvent e);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void DriversRowChangeEventHandler(object sender, DriversRowChangeEvent e);
+        public delegate void SyncItemTaskMappingsRowChangeEventHandler(object sender, SyncItemTaskMappingsRowChangeEvent e);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void LookupTableValuesRowChangeEventHandler(object sender, LookupTableValuesRowChangeEvent e);
+        public delegate void SyncValueTranslationsRowChangeEventHandler(object sender, SyncValueTranslationsRowChangeEvent e);
 
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ProjectImpactValuesDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
+        public partial class SyncProjectSettingsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
+
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_UID;
 
             private global::System.Data.DataColumn columnPROJ_UID;
 
-            private global::System.Data.DataColumn columnDRIVER_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_SERVER_URL;
 
-            private global::System.Data.DataColumn columnLT_STRUCT_UID;
+            private global::System.Data.DataColumn columnSYNC_LAST_SYNC_DATE;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesDataTable()
+            public SyncProjectSettingsDataTable()
             {
-                this.TableName = "ProjectImpactValues";
+                this.TableName = "SyncProjectSettings";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -462,7 +464,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectImpactValuesDataTable(global::System.Data.DataTable table)
+            internal SyncProjectSettingsDataTable(global::System.Data.DataTable table)
             {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive))
@@ -483,10 +485,20 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ProjectImpactValuesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected SyncProjectSettingsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
                 base(info, context)
             {
                 this.InitVars();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SYNC_WSS_LIST_UIDColumn
+            {
+                get
+                {
+                    return this.columnSYNC_WSS_LIST_UID;
+                }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -501,21 +513,21 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DRIVER_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_SERVER_URLColumn
             {
                 get
                 {
-                    return this.columnDRIVER_UID;
+                    return this.columnSYNC_WSS_SERVER_URL;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LT_STRUCT_UIDColumn
+            public global::System.Data.DataColumn SYNC_LAST_SYNC_DATEColumn
             {
                 get
                 {
-                    return this.columnLT_STRUCT_UID;
+                    return this.columnSYNC_LAST_SYNC_DATE;
                 }
             }
 
@@ -532,54 +544,54 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow this[int index]
+            public SyncProjectSettingsRow this[int index]
             {
                 get
                 {
-                    return ((ProjectImpactValuesRow)(this.Rows[index]));
+                    return ((SyncProjectSettingsRow)(this.Rows[index]));
                 }
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectImpactValuesRowChangeEventHandler ProjectImpactValuesRowChanging;
+            public event SyncProjectSettingsRowChangeEventHandler SyncProjectSettingsRowChanging;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectImpactValuesRowChangeEventHandler ProjectImpactValuesRowChanged;
+            public event SyncProjectSettingsRowChangeEventHandler SyncProjectSettingsRowChanged;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectImpactValuesRowChangeEventHandler ProjectImpactValuesRowDeleting;
+            public event SyncProjectSettingsRowChangeEventHandler SyncProjectSettingsRowDeleting;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectImpactValuesRowChangeEventHandler ProjectImpactValuesRowDeleted;
+            public event SyncProjectSettingsRowChangeEventHandler SyncProjectSettingsRowDeleted;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddProjectImpactValuesRow(ProjectImpactValuesRow row)
+            public void AddSyncProjectSettingsRow(SyncProjectSettingsRow row)
             {
                 this.Rows.Add(row);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow AddProjectImpactValuesRow(Guid PROJ_UID, Guid DRIVER_UID, Guid LT_STRUCT_UID)
+            public SyncProjectSettingsRow AddSyncProjectSettingsRow(Guid SYNC_WSS_LIST_UID, Guid PROJ_UID, string SYNC_WSS_SERVER_URL, System.DateTime SYNC_LAST_SYNC_DATE)
             {
-                ProjectImpactValuesRow rowProjectImpactValuesRow = ((ProjectImpactValuesRow)(this.NewRow()));
+                SyncProjectSettingsRow rowSyncProjectSettingsRow = ((SyncProjectSettingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        SYNC_WSS_LIST_UID,
                         PROJ_UID,
-                        DRIVER_UID,
-                        LT_STRUCT_UID};
-                rowProjectImpactValuesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowProjectImpactValuesRow);
-                return rowProjectImpactValuesRow;
+                        SYNC_WSS_SERVER_URL,
+                        SYNC_LAST_SYNC_DATE};
+                rowSyncProjectSettingsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSyncProjectSettingsRow);
+                return rowSyncProjectSettingsRow;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow FindByPROJ_UIDDRIVER_UID(Guid PROJ_UID, Guid DRIVER_UID)
+            public SyncProjectSettingsRow FindBySYNC_WSS_LIST_UID(Guid SYNC_WSS_LIST_UID)
             {
-                return ((ProjectImpactValuesRow)(this.Rows.Find(new object[] {
-                            PROJ_UID,
-                            DRIVER_UID})));
+                return ((SyncProjectSettingsRow)(this.Rows.Find(new object[] {
+                            SYNC_WSS_LIST_UID})));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -593,7 +605,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone()
             {
-                ProjectImpactValuesDataTable cln = ((ProjectImpactValuesDataTable)(base.Clone()));
+                SyncProjectSettingsDataTable cln = ((SyncProjectSettingsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -602,54 +614,58 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance()
             {
-                return new ProjectImpactValuesDataTable();
+                return new SyncProjectSettingsDataTable();
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars()
             {
+                this.columnSYNC_WSS_LIST_UID = base.Columns["SYNC_WSS_LIST_UID"];
                 this.columnPROJ_UID = base.Columns["PROJ_UID"];
-                this.columnDRIVER_UID = base.Columns["DRIVER_UID"];
-                this.columnLT_STRUCT_UID = base.Columns["LT_STRUCT_UID"];
+                this.columnSYNC_WSS_SERVER_URL = base.Columns["SYNC_WSS_SERVER_URL"];
+                this.columnSYNC_LAST_SYNC_DATE = base.Columns["SYNC_LAST_SYNC_DATE"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
                 this.columnPROJ_UID = new global::System.Data.DataColumn("PROJ_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROJ_UID);
-                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER_UID);
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLT_STRUCT_UID);
+                this.columnSYNC_WSS_SERVER_URL = new global::System.Data.DataColumn("SYNC_WSS_SERVER_URL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_SERVER_URL);
+                this.columnSYNC_LAST_SYNC_DATE = new global::System.Data.DataColumn("SYNC_LAST_SYNC_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_LAST_SYNC_DATE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPROJ_UID,
-                                this.columnDRIVER_UID}, true));
+                                this.columnSYNC_WSS_LIST_UID}, true));
+                this.columnSYNC_WSS_LIST_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_LIST_UID.Unique = true;
                 this.columnPROJ_UID.AllowDBNull = false;
-                this.columnDRIVER_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_SERVER_URL.MaxLength = 2000;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow NewProjectImpactValuesRow()
+            public SyncProjectSettingsRow NewSyncProjectSettingsRow()
             {
-                return ((ProjectImpactValuesRow)(this.NewRow()));
+                return ((SyncProjectSettingsRow)(this.NewRow()));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
             {
-                return new ProjectImpactValuesRow(builder);
+                return new SyncProjectSettingsRow(builder);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType()
             {
-                return typeof(ProjectImpactValuesRow);
+                return typeof(SyncProjectSettingsRow);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -657,9 +673,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanged(e);
-                if ((this.ProjectImpactValuesRowChanged != null))
+                if ((this.SyncProjectSettingsRowChanged != null))
                 {
-                    this.ProjectImpactValuesRowChanged(this, new ProjectImpactValuesRowChangeEvent(((ProjectImpactValuesRow)(e.Row)), e.Action));
+                    this.SyncProjectSettingsRowChanged(this, new SyncProjectSettingsRowChangeEvent(((SyncProjectSettingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -668,9 +684,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanging(e);
-                if ((this.ProjectImpactValuesRowChanging != null))
+                if ((this.SyncProjectSettingsRowChanging != null))
                 {
-                    this.ProjectImpactValuesRowChanging(this, new ProjectImpactValuesRowChangeEvent(((ProjectImpactValuesRow)(e.Row)), e.Action));
+                    this.SyncProjectSettingsRowChanging(this, new SyncProjectSettingsRowChangeEvent(((SyncProjectSettingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -679,9 +695,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleted(e);
-                if ((this.ProjectImpactValuesRowDeleted != null))
+                if ((this.SyncProjectSettingsRowDeleted != null))
                 {
-                    this.ProjectImpactValuesRowDeleted(this, new ProjectImpactValuesRowChangeEvent(((ProjectImpactValuesRow)(e.Row)), e.Action));
+                    this.SyncProjectSettingsRowDeleted(this, new SyncProjectSettingsRowChangeEvent(((SyncProjectSettingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -690,15 +706,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleting(e);
-                if ((this.ProjectImpactValuesRowDeleting != null))
+                if ((this.SyncProjectSettingsRowDeleting != null))
                 {
-                    this.ProjectImpactValuesRowDeleting(this, new ProjectImpactValuesRowChangeEvent(((ProjectImpactValuesRow)(e.Row)), e.Action));
+                    this.SyncProjectSettingsRowDeleting(this, new SyncProjectSettingsRowChangeEvent(((SyncProjectSettingsRow)(e.Row)), e.Action));
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveProjectImpactValuesRow(ProjectImpactValuesRow row)
+            public void RemoveSyncProjectSettingsRow(SyncProjectSettingsRow row)
             {
                 this.Rows.Remove(row);
             }
@@ -709,7 +725,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectImpactDataSet ds = new ProjectImpactDataSet();
+                SyncDataSet ds = new SyncDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -727,7 +743,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ProjectImpactValuesDataTable";
+                attribute2.FixedValue = "SyncProjectSettingsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -782,22 +798,26 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ImpactStatementsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
+        public partial class SyncFieldMappingsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
 
-            private global::System.Data.DataColumn columnDRIVER_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_UID;
 
-            private global::System.Data.DataColumn columnPROJECT_IMPACT_CF_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_FIELD_UID;
 
-            private global::System.Data.DataColumn columnLT_STRUCT_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_FIELD_NAME;
 
-            private global::System.Data.DataColumn columnDESCRIPTION;
+            private global::System.Data.DataColumn columnSYNC_PROJECT_FIELD_UID;
+
+            private global::System.Data.DataColumn columnSYNC_PROJECT_FIELD_NAME;
+
+            private global::System.Data.DataColumn columnSYNC_IS_PROJECT_CUSTOM_FIELD;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsDataTable()
+            public SyncFieldMappingsDataTable()
             {
-                this.TableName = "ImpactStatements";
+                this.TableName = "SyncFieldMappings";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -805,7 +825,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ImpactStatementsDataTable(global::System.Data.DataTable table)
+            internal SyncFieldMappingsDataTable(global::System.Data.DataTable table)
             {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive))
@@ -826,7 +846,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ImpactStatementsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected SyncFieldMappingsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
                 base(info, context)
             {
                 this.InitVars();
@@ -834,41 +854,61 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DRIVER_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_LIST_UIDColumn
             {
                 get
                 {
-                    return this.columnDRIVER_UID;
+                    return this.columnSYNC_WSS_LIST_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PROJECT_IMPACT_CF_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_FIELD_UIDColumn
             {
                 get
                 {
-                    return this.columnPROJECT_IMPACT_CF_UID;
+                    return this.columnSYNC_WSS_FIELD_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LT_STRUCT_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_FIELD_NAMEColumn
             {
                 get
                 {
-                    return this.columnLT_STRUCT_UID;
+                    return this.columnSYNC_WSS_FIELD_NAME;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DESCRIPTIONColumn
+            public global::System.Data.DataColumn SYNC_PROJECT_FIELD_UID
             {
                 get
                 {
-                    return this.columnDESCRIPTION;
+                    return this.columnSYNC_PROJECT_FIELD_UID;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SYNC_PROJECT_FIELD_NAMEColumn
+            {
+                get
+                {
+                    return this.columnSYNC_PROJECT_FIELD_NAME;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SYNC_IS_PROJECT_CUSTOM_FIELDColumn
+            {
+                get
+                {
+                    return this.columnSYNC_IS_PROJECT_CUSTOM_FIELD;
                 }
             }
 
@@ -885,56 +925,57 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow this[int index]
+            public SyncFieldMappingsRow this[int index]
             {
                 get
                 {
-                    return ((ImpactStatementsRow)(this.Rows[index]));
+                    return ((SyncFieldMappingsRow)(this.Rows[index]));
                 }
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ImpactStatementsRowChangeEventHandler ImpactStatementsRowChanging;
+            public event SyncFieldMappingsRowChangeEventHandler SyncFieldMappingsRowChanging;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ImpactStatementsRowChangeEventHandler ImpactStatementsRowChanged;
+            public event SyncFieldMappingsRowChangeEventHandler SyncFieldMappingsRowChanged;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ImpactStatementsRowChangeEventHandler ImpactStatementsRowDeleting;
+            public event SyncFieldMappingsRowChangeEventHandler SyncFieldMappingsRowDeleting;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ImpactStatementsRowChangeEventHandler ImpactStatementsRowDeleted;
+            public event SyncFieldMappingsRowChangeEventHandler SyncFieldMappingsRowDeleted;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddImpactStatementsRow(ImpactStatementsRow row)
+            public void AddSyncFieldMappingsRow(SyncFieldMappingsRow row)
             {
                 this.Rows.Add(row);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow AddImpactStatementsRow(Guid DRIVER_UID, Guid PROJECT_IMPACT_CF_UID, Guid LT_STRUCT_UID, string DESCRIPTION)
+            public SyncFieldMappingsRow AddSyncFieldMappingsRow(Guid SYNC_WSS_LIST_UID, Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_FIELD_NAME, Guid SYNC_PROJECT_FIELD_UID, string SYNC_PROJECT_FIELD_NAME, bool SYNC_IS_PROJECT_CUSTOM_FIELD)
             {
-                ImpactStatementsRow rowImpactStatementsRow = ((ImpactStatementsRow)(this.NewRow()));
+                SyncFieldMappingsRow rowSyncFieldMappingsRow = ((SyncFieldMappingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        DRIVER_UID,
-                        PROJECT_IMPACT_CF_UID,
-                        LT_STRUCT_UID,
-                        DESCRIPTION};
-                rowImpactStatementsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowImpactStatementsRow);
-                return rowImpactStatementsRow;
+                        SYNC_WSS_LIST_UID,
+                        SYNC_WSS_FIELD_UID,
+                        SYNC_WSS_FIELD_NAME,
+                        SYNC_PROJECT_FIELD_UID,
+                        SYNC_PROJECT_FIELD_NAME,
+                        SYNC_IS_PROJECT_CUSTOM_FIELD};
+                rowSyncFieldMappingsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSyncFieldMappingsRow);
+                return rowSyncFieldMappingsRow;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow FindByDRIVER_UIDPROJECT_IMPACT_CF_UIDLT_STRUCT_UID(Guid DRIVER_UID, Guid PROJECT_IMPACT_CF_UID, Guid LT_STRUCT_UID)
+            public SyncFieldMappingsRow FindBySYNC_WSS_LIST_UIDSYNC_PROJECT_FIELD_UID(Guid SYNC_WSS_LIST_UID, Guid SYNC_PROJECT_FIELD_UID)
             {
-                return ((ImpactStatementsRow)(this.Rows.Find(new object[] {
-                            DRIVER_UID,
-                            PROJECT_IMPACT_CF_UID,
-                            LT_STRUCT_UID})));
+                return ((SyncFieldMappingsRow)(this.Rows.Find(new object[] {
+                            SYNC_WSS_LIST_UID,
+                            SYNC_PROJECT_FIELD_UID})));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -948,7 +989,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone()
             {
-                ImpactStatementsDataTable cln = ((ImpactStatementsDataTable)(base.Clone()));
+                SyncFieldMappingsDataTable cln = ((SyncFieldMappingsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -957,65 +998,71 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance()
             {
-                return new ImpactStatementsDataTable();
+                return new SyncFieldMappingsDataTable();
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars()
             {
-                this.columnDRIVER_UID = base.Columns["DRIVER_UID"];
-                this.columnPROJECT_IMPACT_CF_UID = base.Columns["PROJECT_IMPACT_CF_UID"];
-                this.columnLT_STRUCT_UID = base.Columns["LT_STRUCT_UID"];
-                this.columnDESCRIPTION = base.Columns["DESCRIPTION"];
+                this.columnSYNC_WSS_LIST_UID = base.Columns["SYNC_WSS_LIST_UID"];
+                this.columnSYNC_WSS_FIELD_UID = base.Columns["SYNC_WSS_FIELD_UID"];
+                this.columnSYNC_WSS_FIELD_NAME = base.Columns["SYNC_WSS_FIELD_NAME"];
+                this.columnSYNC_PROJECT_FIELD_UID = base.Columns["SYNC_PROJECT_FIELD_UID"];
+                this.columnSYNC_PROJECT_FIELD_NAME = base.Columns["SYNC_PROJECT_FIELD_NAME"];
+                this.columnSYNC_IS_PROJECT_CUSTOM_FIELD = base.Columns["SYNC_IS_PROJECT_CUSTOM_FIELD"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER_UID);
-                this.columnPROJECT_IMPACT_CF_UID = new global::System.Data.DataColumn("PROJECT_IMPACT_CF_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROJECT_IMPACT_CF_UID);
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLT_STRUCT_UID);
-                this.columnDESCRIPTION = new global::System.Data.DataColumn("DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESCRIPTION);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
+                this.columnSYNC_WSS_FIELD_UID = new global::System.Data.DataColumn("SYNC_WSS_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_FIELD_UID);
+                this.columnSYNC_WSS_FIELD_NAME = new global::System.Data.DataColumn("SYNC_WSS_FIELD_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_FIELD_NAME);
+                this.columnSYNC_PROJECT_FIELD_UID = new global::System.Data.DataColumn("SYNC_PROJECT_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                this.columnSYNC_PROJECT_FIELD_UID.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "SYNC_PROJECT_FIELD_UID");
+                this.columnSYNC_PROJECT_FIELD_UID.ExtendedProperties.Add("Generator_UserColumnName", "SYNC_PROJECT_FIELD_UID");
+                base.Columns.Add(this.columnSYNC_PROJECT_FIELD_UID);
+                this.columnSYNC_PROJECT_FIELD_NAME = new global::System.Data.DataColumn("SYNC_PROJECT_FIELD_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_PROJECT_FIELD_NAME);
+                this.columnSYNC_IS_PROJECT_CUSTOM_FIELD = new global::System.Data.DataColumn("SYNC_IS_PROJECT_CUSTOM_FIELD", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_IS_PROJECT_CUSTOM_FIELD);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnDRIVER_UID,
-                                this.columnPROJECT_IMPACT_CF_UID,
-                                this.columnLT_STRUCT_UID}, true));
-                this.columnDRIVER_UID.AllowDBNull = false;
-                this.columnDRIVER_UID.ReadOnly = true;
-                this.columnPROJECT_IMPACT_CF_UID.AllowDBNull = false;
-                this.columnPROJECT_IMPACT_CF_UID.ReadOnly = true;
-                this.columnLT_STRUCT_UID.AllowDBNull = false;
-                this.columnLT_STRUCT_UID.ReadOnly = true;
-                this.columnDESCRIPTION.AllowDBNull = false;
-                this.columnDESCRIPTION.ReadOnly = true;
-                this.columnDESCRIPTION.MaxLength = 1000;
+                                this.columnSYNC_WSS_LIST_UID,
+                                this.columnSYNC_PROJECT_FIELD_UID}, true));
+                this.columnSYNC_WSS_LIST_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_FIELD_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_FIELD_NAME.AllowDBNull = false;
+                this.columnSYNC_WSS_FIELD_NAME.MaxLength = 255;
+                this.columnSYNC_PROJECT_FIELD_UID.AllowDBNull = false;
+                this.columnSYNC_PROJECT_FIELD_NAME.AllowDBNull = false;
+                this.columnSYNC_PROJECT_FIELD_NAME.MaxLength = 255;
+                this.columnSYNC_IS_PROJECT_CUSTOM_FIELD.AllowDBNull = false;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow NewImpactStatementsRow()
+            public SyncFieldMappingsRow NewSyncFieldMappingsRow()
             {
-                return ((ImpactStatementsRow)(this.NewRow()));
+                return ((SyncFieldMappingsRow)(this.NewRow()));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
             {
-                return new ImpactStatementsRow(builder);
+                return new SyncFieldMappingsRow(builder);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType()
             {
-                return typeof(ImpactStatementsRow);
+                return typeof(SyncFieldMappingsRow);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1023,9 +1070,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanged(e);
-                if ((this.ImpactStatementsRowChanged != null))
+                if ((this.SyncFieldMappingsRowChanged != null))
                 {
-                    this.ImpactStatementsRowChanged(this, new ImpactStatementsRowChangeEvent(((ImpactStatementsRow)(e.Row)), e.Action));
+                    this.SyncFieldMappingsRowChanged(this, new SyncFieldMappingsRowChangeEvent(((SyncFieldMappingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1034,9 +1081,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanging(e);
-                if ((this.ImpactStatementsRowChanging != null))
+                if ((this.SyncFieldMappingsRowChanging != null))
                 {
-                    this.ImpactStatementsRowChanging(this, new ImpactStatementsRowChangeEvent(((ImpactStatementsRow)(e.Row)), e.Action));
+                    this.SyncFieldMappingsRowChanging(this, new SyncFieldMappingsRowChangeEvent(((SyncFieldMappingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1045,9 +1092,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleted(e);
-                if ((this.ImpactStatementsRowDeleted != null))
+                if ((this.SyncFieldMappingsRowDeleted != null))
                 {
-                    this.ImpactStatementsRowDeleted(this, new ImpactStatementsRowChangeEvent(((ImpactStatementsRow)(e.Row)), e.Action));
+                    this.SyncFieldMappingsRowDeleted(this, new SyncFieldMappingsRowChangeEvent(((SyncFieldMappingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1056,15 +1103,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleting(e);
-                if ((this.ImpactStatementsRowDeleting != null))
+                if ((this.SyncFieldMappingsRowDeleting != null))
                 {
-                    this.ImpactStatementsRowDeleting(this, new ImpactStatementsRowChangeEvent(((ImpactStatementsRow)(e.Row)), e.Action));
+                    this.SyncFieldMappingsRowDeleting(this, new SyncFieldMappingsRowChangeEvent(((SyncFieldMappingsRow)(e.Row)), e.Action));
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveImpactStatementsRow(ImpactStatementsRow row)
+            public void RemoveSyncFieldMappingsRow(SyncFieldMappingsRow row)
             {
                 this.Rows.Remove(row);
             }
@@ -1075,7 +1122,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectImpactDataSet ds = new ProjectImpactDataSet();
+                SyncDataSet ds = new SyncDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1093,7 +1140,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ImpactStatementsDataTable";
+                attribute2.FixedValue = "SyncFieldMappingsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1148,20 +1195,20 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DriversDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
+        public partial class SyncItemTaskMappingsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
 
-            private global::System.Data.DataColumn columnDRIVER_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_UID;
 
-            private global::System.Data.DataColumn columnDRIVER_NAME;
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_ITEM_ID;
 
-            private global::System.Data.DataColumn columnDRIVER_DESCRIPTION;
+            private global::System.Data.DataColumn columnSYNC_TASK_UID;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversDataTable()
+            public SyncItemTaskMappingsDataTable()
             {
-                this.TableName = "Drivers";
+                this.TableName = "SyncItemTaskMappings";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1169,7 +1216,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DriversDataTable(global::System.Data.DataTable table)
+            internal SyncItemTaskMappingsDataTable(global::System.Data.DataTable table)
             {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive))
@@ -1190,7 +1237,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected DriversDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected SyncItemTaskMappingsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
                 base(info, context)
             {
                 this.InitVars();
@@ -1198,31 +1245,31 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DRIVER_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_LIST_UIDColumn
             {
                 get
                 {
-                    return this.columnDRIVER_UID;
+                    return this.columnSYNC_WSS_LIST_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DRIVER_NAMEColumn
+            public global::System.Data.DataColumn SYNC_WSS_LIST_ITEM_IDColumn
             {
                 get
                 {
-                    return this.columnDRIVER_NAME;
+                    return this.columnSYNC_WSS_LIST_ITEM_ID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DRIVER_DESCRIPTIONColumn
+            public global::System.Data.DataColumn SYNC_TASK_UIDColumn
             {
                 get
                 {
-                    return this.columnDRIVER_DESCRIPTION;
+                    return this.columnSYNC_TASK_UID;
                 }
             }
 
@@ -1239,53 +1286,54 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow this[int index]
+            public SyncItemTaskMappingsRow this[int index]
             {
                 get
                 {
-                    return ((DriversRow)(this.Rows[index]));
+                    return ((SyncItemTaskMappingsRow)(this.Rows[index]));
                 }
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DriversRowChangeEventHandler DriversRowChanging;
+            public event SyncItemTaskMappingsRowChangeEventHandler SyncItemTaskMappingsRowChanging;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DriversRowChangeEventHandler DriversRowChanged;
+            public event SyncItemTaskMappingsRowChangeEventHandler SyncItemTaskMappingsRowChanged;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DriversRowChangeEventHandler DriversRowDeleting;
+            public event SyncItemTaskMappingsRowChangeEventHandler SyncItemTaskMappingsRowDeleting;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DriversRowChangeEventHandler DriversRowDeleted;
+            public event SyncItemTaskMappingsRowChangeEventHandler SyncItemTaskMappingsRowDeleted;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddDriversRow(DriversRow row)
+            public void AddSyncItemTaskMappingsRow(SyncItemTaskMappingsRow row)
             {
                 this.Rows.Add(row);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow AddDriversRow(Guid DRIVER_UID, string DRIVER_NAME, string DRIVER_DESCRIPTION)
+            public SyncItemTaskMappingsRow AddSyncItemTaskMappingsRow(Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID, Guid SYNC_TASK_UID)
             {
-                DriversRow rowDriversRow = ((DriversRow)(this.NewRow()));
+                SyncItemTaskMappingsRow rowSyncItemTaskMappingsRow = ((SyncItemTaskMappingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        DRIVER_UID,
-                        DRIVER_NAME,
-                        DRIVER_DESCRIPTION};
-                rowDriversRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDriversRow);
-                return rowDriversRow;
+                        SYNC_WSS_LIST_UID,
+                        SYNC_WSS_LIST_ITEM_ID,
+                        SYNC_TASK_UID};
+                rowSyncItemTaskMappingsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSyncItemTaskMappingsRow);
+                return rowSyncItemTaskMappingsRow;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow FindByDRIVER_UID(Guid DRIVER_UID)
+            public SyncItemTaskMappingsRow FindBySYNC_WSS_LIST_UIDSYNC_WSS_LIST_ITEM_ID(Guid SYNC_WSS_LIST_UID, int SYNC_WSS_LIST_ITEM_ID)
             {
-                return ((DriversRow)(this.Rows.Find(new object[] {
-                            DRIVER_UID})));
+                return ((SyncItemTaskMappingsRow)(this.Rows.Find(new object[] {
+                            SYNC_WSS_LIST_UID,
+                            SYNC_WSS_LIST_ITEM_ID})));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1299,7 +1347,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone()
             {
-                DriversDataTable cln = ((DriversDataTable)(base.Clone()));
+                SyncItemTaskMappingsDataTable cln = ((SyncItemTaskMappingsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1308,59 +1356,54 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance()
             {
-                return new DriversDataTable();
+                return new SyncItemTaskMappingsDataTable();
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars()
             {
-                this.columnDRIVER_UID = base.Columns["DRIVER_UID"];
-                this.columnDRIVER_NAME = base.Columns["DRIVER_NAME"];
-                this.columnDRIVER_DESCRIPTION = base.Columns["DRIVER_DESCRIPTION"];
+                this.columnSYNC_WSS_LIST_UID = base.Columns["SYNC_WSS_LIST_UID"];
+                this.columnSYNC_WSS_LIST_ITEM_ID = base.Columns["SYNC_WSS_LIST_ITEM_ID"];
+                this.columnSYNC_TASK_UID = base.Columns["SYNC_TASK_UID"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnDRIVER_UID = new global::System.Data.DataColumn("DRIVER_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER_UID);
-                this.columnDRIVER_NAME = new global::System.Data.DataColumn("DRIVER_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER_NAME);
-                this.columnDRIVER_DESCRIPTION = new global::System.Data.DataColumn("DRIVER_DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER_DESCRIPTION);
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
+                this.columnSYNC_WSS_LIST_ITEM_ID = new global::System.Data.DataColumn("SYNC_WSS_LIST_ITEM_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_ITEM_ID);
+                this.columnSYNC_TASK_UID = new global::System.Data.DataColumn("SYNC_TASK_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_TASK_UID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnDRIVER_UID}, true));
-                this.columnDRIVER_UID.AllowDBNull = false;
-                this.columnDRIVER_UID.ReadOnly = true;
-                this.columnDRIVER_UID.Unique = true;
-                this.columnDRIVER_NAME.AllowDBNull = false;
-                this.columnDRIVER_NAME.ReadOnly = true;
-                this.columnDRIVER_NAME.MaxLength = 255;
-                this.columnDRIVER_DESCRIPTION.ReadOnly = true;
-                this.columnDRIVER_DESCRIPTION.MaxLength = 1000;
+                                this.columnSYNC_WSS_LIST_UID,
+                                this.columnSYNC_WSS_LIST_ITEM_ID}, true));
+                this.columnSYNC_WSS_LIST_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_LIST_ITEM_ID.AllowDBNull = false;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow NewDriversRow()
+            public SyncItemTaskMappingsRow NewSyncItemTaskMappingsRow()
             {
-                return ((DriversRow)(this.NewRow()));
+                return ((SyncItemTaskMappingsRow)(this.NewRow()));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
             {
-                return new DriversRow(builder);
+                return new SyncItemTaskMappingsRow(builder);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType()
             {
-                return typeof(DriversRow);
+                return typeof(SyncItemTaskMappingsRow);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1368,9 +1411,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanged(e);
-                if ((this.DriversRowChanged != null))
+                if ((this.SyncItemTaskMappingsRowChanged != null))
                 {
-                    this.DriversRowChanged(this, new DriversRowChangeEvent(((DriversRow)(e.Row)), e.Action));
+                    this.SyncItemTaskMappingsRowChanged(this, new SyncItemTaskMappingsRowChangeEvent(((SyncItemTaskMappingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1379,9 +1422,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanging(e);
-                if ((this.DriversRowChanging != null))
+                if ((this.SyncItemTaskMappingsRowChanging != null))
                 {
-                    this.DriversRowChanging(this, new DriversRowChangeEvent(((DriversRow)(e.Row)), e.Action));
+                    this.SyncItemTaskMappingsRowChanging(this, new SyncItemTaskMappingsRowChangeEvent(((SyncItemTaskMappingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1390,9 +1433,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleted(e);
-                if ((this.DriversRowDeleted != null))
+                if ((this.SyncItemTaskMappingsRowDeleted != null))
                 {
-                    this.DriversRowDeleted(this, new DriversRowChangeEvent(((DriversRow)(e.Row)), e.Action));
+                    this.SyncItemTaskMappingsRowDeleted(this, new SyncItemTaskMappingsRowChangeEvent(((SyncItemTaskMappingsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1401,15 +1444,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleting(e);
-                if ((this.DriversRowDeleting != null))
+                if ((this.SyncItemTaskMappingsRowDeleting != null))
                 {
-                    this.DriversRowDeleting(this, new DriversRowChangeEvent(((DriversRow)(e.Row)), e.Action));
+                    this.SyncItemTaskMappingsRowDeleting(this, new SyncItemTaskMappingsRowChangeEvent(((SyncItemTaskMappingsRow)(e.Row)), e.Action));
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveDriversRow(DriversRow row)
+            public void RemoveSyncItemTaskMappingsRow(SyncItemTaskMappingsRow row)
             {
                 this.Rows.Remove(row);
             }
@@ -1420,7 +1463,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectImpactDataSet ds = new ProjectImpactDataSet();
+                SyncDataSet ds = new SyncDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1438,7 +1481,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DriversDataTable";
+                attribute2.FixedValue = "SyncItemTaskMappingsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1493,18 +1536,24 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class LookupTableValuesDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
+        public partial class SyncValueTranslationsDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
 
-            private global::System.Data.DataColumn columnLT_STRUCT_UID;
+            private global::System.Data.DataColumn columnSYNC_WSS_LIST_UID;
 
-            private global::System.Data.DataColumn columnLT_VALUE_TEXT;
+            private global::System.Data.DataColumn columnSYNC_WSS_FIELD_UID;
+
+            private global::System.Data.DataColumn columnSYNC_WSS_FIELD_NAME;
+
+            private global::System.Data.DataColumn columnSYNC_WSS_VALUE;
+
+            private global::System.Data.DataColumn columnSYNC_PROJECT_VALUE;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesDataTable()
+            public SyncValueTranslationsDataTable()
             {
-                this.TableName = "LookupTableValues";
+                this.TableName = "SyncValueTranslations";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1512,7 +1561,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal LookupTableValuesDataTable(global::System.Data.DataTable table)
+            internal SyncValueTranslationsDataTable(global::System.Data.DataTable table)
             {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive))
@@ -1533,7 +1582,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected LookupTableValuesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected SyncValueTranslationsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
                 base(info, context)
             {
                 this.InitVars();
@@ -1541,21 +1590,51 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LT_STRUCT_UIDColumn
+            public global::System.Data.DataColumn SYNC_WSS_LIST_UIDColumn
             {
                 get
                 {
-                    return this.columnLT_STRUCT_UID;
+                    return this.columnSYNC_WSS_LIST_UID;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LT_VALUE_TEXTColumn
+            public global::System.Data.DataColumn SYNC_WSS_FIELD_UIDColumn
             {
                 get
                 {
-                    return this.columnLT_VALUE_TEXT;
+                    return this.columnSYNC_WSS_FIELD_UID;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SYNC_WSS_FIELD_NAMEColumn
+            {
+                get
+                {
+                    return this.columnSYNC_WSS_FIELD_NAME;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SYNC_WSS_VALUEColumn
+            {
+                get
+                {
+                    return this.columnSYNC_WSS_VALUE;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SYNC_PROJECT_VALUEColumn
+            {
+                get
+                {
+                    return this.columnSYNC_PROJECT_VALUE;
                 }
             }
 
@@ -1572,44 +1651,57 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRow this[int index]
+            public SyncValueTranslationsRow this[int index]
             {
                 get
                 {
-                    return ((LookupTableValuesRow)(this.Rows[index]));
+                    return ((SyncValueTranslationsRow)(this.Rows[index]));
                 }
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LookupTableValuesRowChangeEventHandler LookupTableValuesRowChanging;
+            public event SyncValueTranslationsRowChangeEventHandler SyncValueTranslationsRowChanging;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LookupTableValuesRowChangeEventHandler LookupTableValuesRowChanged;
+            public event SyncValueTranslationsRowChangeEventHandler SyncValueTranslationsRowChanged;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LookupTableValuesRowChangeEventHandler LookupTableValuesRowDeleting;
+            public event SyncValueTranslationsRowChangeEventHandler SyncValueTranslationsRowDeleting;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LookupTableValuesRowChangeEventHandler LookupTableValuesRowDeleted;
+            public event SyncValueTranslationsRowChangeEventHandler SyncValueTranslationsRowDeleted;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddLookupTableValuesRow(LookupTableValuesRow row)
+            public void AddSyncValueTranslationsRow(SyncValueTranslationsRow row)
             {
                 this.Rows.Add(row);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRow AddLookupTableValuesRow(Guid LT_STRUCT_UID, string LT_VALUE_TEXT)
+            public SyncValueTranslationsRow AddSyncValueTranslationsRow(Guid SYNC_WSS_LIST_UID, Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_FIELD_NAME, string SYNC_WSS_VALUE, string SYNC_PROJECT_VALUE)
             {
-                LookupTableValuesRow rowLookupTableValuesRow = ((LookupTableValuesRow)(this.NewRow()));
+                SyncValueTranslationsRow rowSyncValueTranslationsRow = ((SyncValueTranslationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        LT_STRUCT_UID,
-                        LT_VALUE_TEXT};
-                rowLookupTableValuesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowLookupTableValuesRow);
-                return rowLookupTableValuesRow;
+                        SYNC_WSS_LIST_UID,
+                        SYNC_WSS_FIELD_UID,
+                        SYNC_WSS_FIELD_NAME,
+                        SYNC_WSS_VALUE,
+                        SYNC_PROJECT_VALUE};
+                rowSyncValueTranslationsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSyncValueTranslationsRow);
+                return rowSyncValueTranslationsRow;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SyncValueTranslationsRow FindBySYNC_WSS_LIST_UIDSYNC_WSS_FIELD_UIDSYNC_WSS_VALUE(Guid SYNC_WSS_LIST_UID, Guid SYNC_WSS_FIELD_UID, string SYNC_WSS_VALUE)
+            {
+                return ((SyncValueTranslationsRow)(this.Rows.Find(new object[] {
+                            SYNC_WSS_LIST_UID,
+                            SYNC_WSS_FIELD_UID,
+                            SYNC_WSS_VALUE})));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1623,7 +1715,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone()
             {
-                LookupTableValuesDataTable cln = ((LookupTableValuesDataTable)(base.Clone()));
+                SyncValueTranslationsDataTable cln = ((SyncValueTranslationsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1632,50 +1724,67 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance()
             {
-                return new LookupTableValuesDataTable();
+                return new SyncValueTranslationsDataTable();
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars()
             {
-                this.columnLT_STRUCT_UID = base.Columns["LT_STRUCT_UID"];
-                this.columnLT_VALUE_TEXT = base.Columns["LT_VALUE_TEXT"];
+                this.columnSYNC_WSS_LIST_UID = base.Columns["SYNC_WSS_LIST_UID"];
+                this.columnSYNC_WSS_FIELD_UID = base.Columns["SYNC_WSS_FIELD_UID"];
+                this.columnSYNC_WSS_FIELD_NAME = base.Columns["SYNC_WSS_FIELD_NAME"];
+                this.columnSYNC_WSS_VALUE = base.Columns["SYNC_WSS_VALUE"];
+                this.columnSYNC_PROJECT_VALUE = base.Columns["SYNC_PROJECT_VALUE"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass()
             {
-                this.columnLT_STRUCT_UID = new global::System.Data.DataColumn("LT_STRUCT_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLT_STRUCT_UID);
-                this.columnLT_VALUE_TEXT = new global::System.Data.DataColumn("LT_VALUE_TEXT", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLT_VALUE_TEXT);
-                this.columnLT_STRUCT_UID.AllowDBNull = false;
-                this.columnLT_STRUCT_UID.ReadOnly = true;
-                this.columnLT_VALUE_TEXT.ReadOnly = true;
-                this.columnLT_VALUE_TEXT.MaxLength = 255;
+                this.columnSYNC_WSS_LIST_UID = new global::System.Data.DataColumn("SYNC_WSS_LIST_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_LIST_UID);
+                this.columnSYNC_WSS_FIELD_UID = new global::System.Data.DataColumn("SYNC_WSS_FIELD_UID", typeof(Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_FIELD_UID);
+                this.columnSYNC_WSS_FIELD_NAME = new global::System.Data.DataColumn("SYNC_WSS_FIELD_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_FIELD_NAME);
+                this.columnSYNC_WSS_VALUE = new global::System.Data.DataColumn("SYNC_WSS_VALUE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_WSS_VALUE);
+                this.columnSYNC_PROJECT_VALUE = new global::System.Data.DataColumn("SYNC_PROJECT_VALUE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSYNC_PROJECT_VALUE);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnSYNC_WSS_LIST_UID,
+                                this.columnSYNC_WSS_FIELD_UID,
+                                this.columnSYNC_WSS_VALUE}, true));
+                this.columnSYNC_WSS_LIST_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_FIELD_UID.AllowDBNull = false;
+                this.columnSYNC_WSS_FIELD_NAME.AllowDBNull = false;
+                this.columnSYNC_WSS_FIELD_NAME.MaxLength = 255;
+                this.columnSYNC_WSS_VALUE.AllowDBNull = false;
+                this.columnSYNC_WSS_VALUE.MaxLength = 255;
+                this.columnSYNC_PROJECT_VALUE.AllowDBNull = false;
+                this.columnSYNC_PROJECT_VALUE.MaxLength = 255;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRow NewLookupTableValuesRow()
+            public SyncValueTranslationsRow NewSyncValueTranslationsRow()
             {
-                return ((LookupTableValuesRow)(this.NewRow()));
+                return ((SyncValueTranslationsRow)(this.NewRow()));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
             {
-                return new LookupTableValuesRow(builder);
+                return new SyncValueTranslationsRow(builder);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType()
             {
-                return typeof(LookupTableValuesRow);
+                return typeof(SyncValueTranslationsRow);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1683,9 +1792,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanged(e);
-                if ((this.LookupTableValuesRowChanged != null))
+                if ((this.SyncValueTranslationsRowChanged != null))
                 {
-                    this.LookupTableValuesRowChanged(this, new LookupTableValuesRowChangeEvent(((LookupTableValuesRow)(e.Row)), e.Action));
+                    this.SyncValueTranslationsRowChanged(this, new SyncValueTranslationsRowChangeEvent(((SyncValueTranslationsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1694,9 +1803,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowChanging(e);
-                if ((this.LookupTableValuesRowChanging != null))
+                if ((this.SyncValueTranslationsRowChanging != null))
                 {
-                    this.LookupTableValuesRowChanging(this, new LookupTableValuesRowChangeEvent(((LookupTableValuesRow)(e.Row)), e.Action));
+                    this.SyncValueTranslationsRowChanging(this, new SyncValueTranslationsRowChangeEvent(((SyncValueTranslationsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1705,9 +1814,9 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleted(e);
-                if ((this.LookupTableValuesRowDeleted != null))
+                if ((this.SyncValueTranslationsRowDeleted != null))
                 {
-                    this.LookupTableValuesRowDeleted(this, new LookupTableValuesRowChangeEvent(((LookupTableValuesRow)(e.Row)), e.Action));
+                    this.SyncValueTranslationsRowDeleted(this, new SyncValueTranslationsRowChangeEvent(((SyncValueTranslationsRow)(e.Row)), e.Action));
                 }
             }
 
@@ -1716,15 +1825,15 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
             {
                 base.OnRowDeleting(e);
-                if ((this.LookupTableValuesRowDeleting != null))
+                if ((this.SyncValueTranslationsRowDeleting != null))
                 {
-                    this.LookupTableValuesRowDeleting(this, new LookupTableValuesRowChangeEvent(((LookupTableValuesRow)(e.Row)), e.Action));
+                    this.SyncValueTranslationsRowDeleting(this, new SyncValueTranslationsRowChangeEvent(((SyncValueTranslationsRow)(e.Row)), e.Action));
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveLookupTableValuesRow(LookupTableValuesRow row)
+            public void RemoveSyncValueTranslationsRow(SyncValueTranslationsRow row)
             {
                 this.Rows.Remove(row);
             }
@@ -1735,7 +1844,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectImpactDataSet ds = new ProjectImpactDataSet();
+                SyncDataSet ds = new SyncDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1753,7 +1862,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "LookupTableValuesDataTable";
+                attribute2.FixedValue = "SyncValueTranslationsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1806,17 +1915,31 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ProjectImpactValuesRow : global::System.Data.DataRow
+        public partial class SyncProjectSettingsRow : global::System.Data.DataRow
         {
 
-            private ProjectImpactValuesDataTable tableProjectImpactValues;
+            private SyncProjectSettingsDataTable tableSyncProjectSettings;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectImpactValuesRow(global::System.Data.DataRowBuilder rb) :
+            internal SyncProjectSettingsRow(global::System.Data.DataRowBuilder rb) :
                 base(rb)
             {
-                this.tableProjectImpactValues = ((ProjectImpactValuesDataTable)(this.Table));
+                this.tableSyncProjectSettings = ((SyncProjectSettingsDataTable)(this.Table));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Guid SYNC_WSS_LIST_UID
+            {
+                get
+                {
+                    return ((Guid)(this[this.tableSyncProjectSettings.SYNC_WSS_LIST_UIDColumn]));
+                }
+                set
+                {
+                    this[this.tableSyncProjectSettings.SYNC_WSS_LIST_UIDColumn] = value;
+                }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1825,133 +1948,184 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
             {
                 get
                 {
-                    return ((Guid)(this[this.tableProjectImpactValues.PROJ_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncProjectSettings.PROJ_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableProjectImpactValues.PROJ_UIDColumn] = value;
+                    this[this.tableSyncProjectSettings.PROJ_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid DRIVER_UID
-            {
-                get
-                {
-                    return ((Guid)(this[this.tableProjectImpactValues.DRIVER_UIDColumn]));
-                }
-                set
-                {
-                    this[this.tableProjectImpactValues.DRIVER_UIDColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid LT_STRUCT_UID
+            public string SYNC_WSS_SERVER_URL
             {
                 get
                 {
                     try
                     {
-                        return ((Guid)(this[this.tableProjectImpactValues.LT_STRUCT_UIDColumn]));
+                        return ((string)(this[this.tableSyncProjectSettings.SYNC_WSS_SERVER_URLColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LT_STRUCT_UID\' in table \'ProjectImpactValues\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_WSS_SERVER_URL\' in table \'SyncProjectSettings\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableProjectImpactValues.LT_STRUCT_UIDColumn] = value;
+                    this[this.tableSyncProjectSettings.SYNC_WSS_SERVER_URLColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLT_STRUCT_UIDNull()
+            public System.DateTime SYNC_LAST_SYNC_DATE
             {
-                return this.IsNull(this.tableProjectImpactValues.LT_STRUCT_UIDColumn);
+                get
+                {
+                    try
+                    {
+                        return ((global::System.DateTime)(this[this.tableSyncProjectSettings.SYNC_LAST_SYNC_DATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_LAST_SYNC_DATE\' in table \'SyncProjectSettings\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSyncProjectSettings.SYNC_LAST_SYNC_DATEColumn] = value;
+                }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLT_STRUCT_UIDNull()
+            public bool IsSYNC_WSS_SERVER_URLNull()
             {
-                this[this.tableProjectImpactValues.LT_STRUCT_UIDColumn] = global::System.Convert.DBNull;
+                return this.IsNull(this.tableSyncProjectSettings.SYNC_WSS_SERVER_URLColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSYNC_WSS_SERVER_URLNull()
+            {
+                this[this.tableSyncProjectSettings.SYNC_WSS_SERVER_URLColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSYNC_LAST_SYNC_DATENull()
+            {
+                return this.IsNull(this.tableSyncProjectSettings.SYNC_LAST_SYNC_DATEColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSYNC_LAST_SYNC_DATENull()
+            {
+                this[this.tableSyncProjectSettings.SYNC_LAST_SYNC_DATEColumn] = global::System.Convert.DBNull;
             }
         }
 
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ImpactStatementsRow : global::System.Data.DataRow
+        public partial class SyncFieldMappingsRow : global::System.Data.DataRow
         {
 
-            private ImpactStatementsDataTable tableImpactStatements;
+            private SyncFieldMappingsDataTable tableSyncFieldMappings;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ImpactStatementsRow(global::System.Data.DataRowBuilder rb) :
+            internal SyncFieldMappingsRow(global::System.Data.DataRowBuilder rb) :
                 base(rb)
             {
-                this.tableImpactStatements = ((ImpactStatementsDataTable)(this.Table));
+                this.tableSyncFieldMappings = ((SyncFieldMappingsDataTable)(this.Table));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid DRIVER_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableImpactStatements.DRIVER_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncFieldMappings.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableImpactStatements.DRIVER_UIDColumn] = value;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid PROJECT_IMPACT_CF_UID
-            {
-                get
-                {
-                    return ((Guid)(this[this.tableImpactStatements.PROJECT_IMPACT_CF_UIDColumn]));
-                }
-                set
-                {
-                    this[this.tableImpactStatements.PROJECT_IMPACT_CF_UIDColumn] = value;
+                    this[this.tableSyncFieldMappings.SYNC_WSS_LIST_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid LT_STRUCT_UID
+            public Guid SYNC_WSS_FIELD_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableImpactStatements.LT_STRUCT_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncFieldMappings.SYNC_WSS_FIELD_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableImpactStatements.LT_STRUCT_UIDColumn] = value;
+                    this[this.tableSyncFieldMappings.SYNC_WSS_FIELD_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DESCRIPTION
+            public string SYNC_WSS_FIELD_NAME
             {
                 get
                 {
-                    return ((string)(this[this.tableImpactStatements.DESCRIPTIONColumn]));
+                    return ((string)(this[this.tableSyncFieldMappings.SYNC_WSS_FIELD_NAMEColumn]));
                 }
                 set
                 {
-                    this[this.tableImpactStatements.DESCRIPTIONColumn] = value;
+                    this[this.tableSyncFieldMappings.SYNC_WSS_FIELD_NAMEColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Guid SYNC_PROJECT_FIELD_UID
+            {
+                get
+                {
+                    return ((Guid)(this[this.tableSyncFieldMappings.SYNC_PROJECT_FIELD_UID]));
+                }
+                set
+                {
+                    this[this.tableSyncFieldMappings.SYNC_PROJECT_FIELD_UID] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SYNC_PROJECT_FIELD_NAME
+            {
+                get
+                {
+                    return ((string)(this[this.tableSyncFieldMappings.SYNC_PROJECT_FIELD_NAMEColumn]));
+                }
+                set
+                {
+                    this[this.tableSyncFieldMappings.SYNC_PROJECT_FIELD_NAMEColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool SYNC_IS_PROJECT_CUSTOM_FIELD
+            {
+                get
+                {
+                    return ((bool)(this[this.tableSyncFieldMappings.SYNC_IS_PROJECT_CUSTOM_FIELDColumn]));
+                }
+                set
+                {
+                    this[this.tableSyncFieldMappings.SYNC_IS_PROJECT_CUSTOM_FIELDColumn] = value;
                 }
             }
         }
@@ -1959,146 +2133,167 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DriversRow : global::System.Data.DataRow
+        public partial class SyncItemTaskMappingsRow : global::System.Data.DataRow
         {
 
-            private DriversDataTable tableDrivers;
+            private SyncItemTaskMappingsDataTable tableSyncItemTaskMappings;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DriversRow(global::System.Data.DataRowBuilder rb) :
+            internal SyncItemTaskMappingsRow(global::System.Data.DataRowBuilder rb) :
                 base(rb)
             {
-                this.tableDrivers = ((DriversDataTable)(this.Table));
+                this.tableSyncItemTaskMappings = ((SyncItemTaskMappingsDataTable)(this.Table));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid DRIVER_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableDrivers.DRIVER_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncItemTaskMappings.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableDrivers.DRIVER_UIDColumn] = value;
+                    this[this.tableSyncItemTaskMappings.SYNC_WSS_LIST_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DRIVER_NAME
+            public int SYNC_WSS_LIST_ITEM_ID
             {
                 get
                 {
-                    return ((string)(this[this.tableDrivers.DRIVER_NAMEColumn]));
+                    return ((int)(this[this.tableSyncItemTaskMappings.SYNC_WSS_LIST_ITEM_IDColumn]));
                 }
                 set
                 {
-                    this[this.tableDrivers.DRIVER_NAMEColumn] = value;
+                    this[this.tableSyncItemTaskMappings.SYNC_WSS_LIST_ITEM_IDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DRIVER_DESCRIPTION
+            public Guid SYNC_TASK_UID
             {
                 get
                 {
                     try
                     {
-                        return ((string)(this[this.tableDrivers.DRIVER_DESCRIPTIONColumn]));
+                        return ((Guid)(this[this.tableSyncItemTaskMappings.SYNC_TASK_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e)
                     {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DRIVER_DESCRIPTION\' in table \'Drivers\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SYNC_TASK_UID\' in table \'SyncItemTaskMappings\' is DBNull.", e);
                     }
                 }
                 set
                 {
-                    this[this.tableDrivers.DRIVER_DESCRIPTIONColumn] = value;
+                    this[this.tableSyncItemTaskMappings.SYNC_TASK_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDRIVER_DESCRIPTIONNull()
+            public bool IsSYNC_TASK_UIDNull()
             {
-                return this.IsNull(this.tableDrivers.DRIVER_DESCRIPTIONColumn);
+                return this.IsNull(this.tableSyncItemTaskMappings.SYNC_TASK_UIDColumn);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDRIVER_DESCRIPTIONNull()
+            public void SetSYNC_TASK_UIDNull()
             {
-                this[this.tableDrivers.DRIVER_DESCRIPTIONColumn] = global::System.Convert.DBNull;
+                this[this.tableSyncItemTaskMappings.SYNC_TASK_UIDColumn] = global::System.Convert.DBNull;
             }
         }
 
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class LookupTableValuesRow : global::System.Data.DataRow
+        public partial class SyncValueTranslationsRow : global::System.Data.DataRow
         {
 
-            private LookupTableValuesDataTable tableLookupTableValues;
+            private SyncValueTranslationsDataTable tableSyncValueTranslations;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal LookupTableValuesRow(global::System.Data.DataRowBuilder rb) :
+            internal SyncValueTranslationsRow(global::System.Data.DataRowBuilder rb) :
                 base(rb)
             {
-                this.tableLookupTableValues = ((LookupTableValuesDataTable)(this.Table));
+                this.tableSyncValueTranslations = ((SyncValueTranslationsDataTable)(this.Table));
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Guid LT_STRUCT_UID
+            public Guid SYNC_WSS_LIST_UID
             {
                 get
                 {
-                    return ((Guid)(this[this.tableLookupTableValues.LT_STRUCT_UIDColumn]));
+                    return ((Guid)(this[this.tableSyncValueTranslations.SYNC_WSS_LIST_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableLookupTableValues.LT_STRUCT_UIDColumn] = value;
+                    this[this.tableSyncValueTranslations.SYNC_WSS_LIST_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LT_VALUE_TEXT
+            public Guid SYNC_WSS_FIELD_UID
             {
                 get
                 {
-                    try
-                    {
-                        return ((string)(this[this.tableLookupTableValues.LT_VALUE_TEXTColumn]));
-                    }
-                    catch (global::System.InvalidCastException e)
-                    {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LT_VALUE_TEXT\' in table \'LookupTableValues\' is DBNull.", e);
-                    }
+                    return ((Guid)(this[this.tableSyncValueTranslations.SYNC_WSS_FIELD_UIDColumn]));
                 }
                 set
                 {
-                    this[this.tableLookupTableValues.LT_VALUE_TEXTColumn] = value;
+                    this[this.tableSyncValueTranslations.SYNC_WSS_FIELD_UIDColumn] = value;
                 }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLT_VALUE_TEXTNull()
+            public string SYNC_WSS_FIELD_NAME
             {
-                return this.IsNull(this.tableLookupTableValues.LT_VALUE_TEXTColumn);
+                get
+                {
+                    return ((string)(this[this.tableSyncValueTranslations.SYNC_WSS_FIELD_NAMEColumn]));
+                }
+                set
+                {
+                    this[this.tableSyncValueTranslations.SYNC_WSS_FIELD_NAMEColumn] = value;
+                }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLT_VALUE_TEXTNull()
+            public string SYNC_WSS_VALUE
             {
-                this[this.tableLookupTableValues.LT_VALUE_TEXTColumn] = global::System.Convert.DBNull;
+                get
+                {
+                    return ((string)(this[this.tableSyncValueTranslations.SYNC_WSS_VALUEColumn]));
+                }
+                set
+                {
+                    this[this.tableSyncValueTranslations.SYNC_WSS_VALUEColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SYNC_PROJECT_VALUE
+            {
+                get
+                {
+                    return ((string)(this[this.tableSyncValueTranslations.SYNC_PROJECT_VALUEColumn]));
+                }
+                set
+                {
+                    this[this.tableSyncValueTranslations.SYNC_PROJECT_VALUEColumn] = value;
+                }
             }
         }
 
@@ -2106,16 +2301,16 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ProjectImpactValuesRowChangeEvent : global::System.EventArgs
+        public class SyncProjectSettingsRowChangeEvent : global::System.EventArgs
         {
 
-            private ProjectImpactValuesRow eventRow;
+            private SyncProjectSettingsRow eventRow;
 
             private global::System.Data.DataRowAction eventAction;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRowChangeEvent(ProjectImpactValuesRow row, global::System.Data.DataRowAction action)
+            public SyncProjectSettingsRowChangeEvent(SyncProjectSettingsRow row, global::System.Data.DataRowAction action)
             {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -2123,7 +2318,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectImpactValuesRow Row
+            public SyncProjectSettingsRow Row
             {
                 get
                 {
@@ -2146,16 +2341,16 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ImpactStatementsRowChangeEvent : global::System.EventArgs
+        public class SyncFieldMappingsRowChangeEvent : global::System.EventArgs
         {
 
-            private ImpactStatementsRow eventRow;
+            private SyncFieldMappingsRow eventRow;
 
             private global::System.Data.DataRowAction eventAction;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRowChangeEvent(ImpactStatementsRow row, global::System.Data.DataRowAction action)
+            public SyncFieldMappingsRowChangeEvent(SyncFieldMappingsRow row, global::System.Data.DataRowAction action)
             {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -2163,7 +2358,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ImpactStatementsRow Row
+            public SyncFieldMappingsRow Row
             {
                 get
                 {
@@ -2186,16 +2381,16 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class DriversRowChangeEvent : global::System.EventArgs
+        public class SyncItemTaskMappingsRowChangeEvent : global::System.EventArgs
         {
 
-            private DriversRow eventRow;
+            private SyncItemTaskMappingsRow eventRow;
 
             private global::System.Data.DataRowAction eventAction;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRowChangeEvent(DriversRow row, global::System.Data.DataRowAction action)
+            public SyncItemTaskMappingsRowChangeEvent(SyncItemTaskMappingsRow row, global::System.Data.DataRowAction action)
             {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -2203,7 +2398,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DriversRow Row
+            public SyncItemTaskMappingsRow Row
             {
                 get
                 {
@@ -2226,16 +2421,16 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class LookupTableValuesRowChangeEvent : global::System.EventArgs
+        public class SyncValueTranslationsRowChangeEvent : global::System.EventArgs
         {
 
-            private LookupTableValuesRow eventRow;
+            private SyncValueTranslationsRow eventRow;
 
             private global::System.Data.DataRowAction eventAction;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRowChangeEvent(LookupTableValuesRow row, global::System.Data.DataRowAction action)
+            public SyncValueTranslationsRowChangeEvent(SyncValueTranslationsRow row, global::System.Data.DataRowAction action)
             {
                 this.eventRow = row;
                 this.eventAction = action;
@@ -2243,7 +2438,7 @@ namespace FluentPro.FluentPS.Contracts.Model.DataSets
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LookupTableValuesRow Row
+            public SyncValueTranslationsRow Row
             {
                 get
                 {

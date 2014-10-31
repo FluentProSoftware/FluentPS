@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Xml;
 
-namespace FluentPro.FluentPS.Contracts.Exceptions.Faults
+namespace FluentPro.FluentPS.Psi.Exceptions.Faults
 {
     [DebuggerStepThrough]
     [DataContract(Name = "ServerExecutionFault", Namespace = "http://Microsoft.Office.Project.Interfaces/")]

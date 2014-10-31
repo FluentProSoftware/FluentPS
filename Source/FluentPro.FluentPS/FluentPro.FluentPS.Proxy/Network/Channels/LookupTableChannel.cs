@@ -1,5 +1,5 @@
 ﻿using System.ServiceModel;
-using FluentPro.FluentPS.Contracts.Interfaces.Psi;
+using FluentPro.FluentPS.Psi.Interfaces.Psi;
 
 namespace FluentPro.FluentPS.Psi.Network.Channels
 {
