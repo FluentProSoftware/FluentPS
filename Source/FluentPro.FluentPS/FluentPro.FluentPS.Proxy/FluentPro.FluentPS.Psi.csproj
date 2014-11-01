@@ -94,7 +94,7 @@
     <Compile Include="Network\Channels\ProjectChannel.cs" />
     <Compile Include="Network\PsiContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrappers\ProjectPsiService.cs" />
+    <Compile Include="Services\ProjectPsiService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">

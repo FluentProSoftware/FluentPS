@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Pj", "FluentPro.FluentPS.Pj\FluentPro.FluentPS.Pj.csproj", "{5FC71615-4CA8-494D-9070-9472D6F2123A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Common", "FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj", "{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Common.Tests", "FluentPro.FluentPS.Common.Tests\FluentPro.FluentPS.Common.Tests.csproj", "{F5551897-C53B-49A5-9388-EA964496BC36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FC71615-4CA8-494D-9070-9472D6F2123A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5551897-C53B-49A5-9388-EA964496BC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5551897-C53B-49A5-9388-EA964496BC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5551897-C53B-49A5-9388-EA964496BC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5551897-C53B-49A5-9388-EA964496BC36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

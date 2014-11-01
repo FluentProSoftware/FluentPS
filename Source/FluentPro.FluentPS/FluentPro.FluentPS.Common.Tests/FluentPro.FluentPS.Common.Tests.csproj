@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{47D7DC8F-31A8-4557-91B2-838CE05CFF6C}</ProjectGuid>
+    <ProjectGuid>{F5551897-C53B-49A5-9388-EA964496BC36}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FluentPro.FluentPS.Psi.Tests</RootNamespace>
-    <AssemblyName>FluentPro.FluentPS.Psi.Tests</AssemblyName>
+    <RootNamespace>FluentPro.FluentPS.Common.Tests</RootNamespace>
+    <AssemblyName>FluentPro.FluentPS.Common.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -16,7 +16,6 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +40,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <Choose>
@@ -57,18 +55,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Network\PsiContextTests.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Mapper\MapperTest.cs" />
+    <Compile Include="Model\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ProjectPsiServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">
-      <Project>{459f522c-fec0-4175-bb39-147644acf858}</Project>
-      <Name>FluentPro.FluentPS.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentPro.FluentPS.Proxy\FluentPro.FluentPS.Psi.csproj">
-      <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
-      <Name>FluentPro.FluentPS.Psi</Name>
+    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
+      <Project>{33988cf5-b1bb-4d98-bf1b-e34d0ef0e3d2}</Project>
+      <Name>FluentPro.FluentPS.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

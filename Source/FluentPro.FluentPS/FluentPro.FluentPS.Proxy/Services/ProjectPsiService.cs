@@ -7,7 +7,7 @@ using FluentPro.FluentPS.Contracts.Model;
 using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Network;
 
-namespace FluentPro.FluentPS.Psi.Wrappers
+namespace FluentPro.FluentPS.Psi.Services
 {
     public class ProjectPsiService
     {

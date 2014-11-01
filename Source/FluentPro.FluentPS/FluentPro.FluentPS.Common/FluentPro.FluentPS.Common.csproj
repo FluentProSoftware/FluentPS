@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{459F522C-FEC0-4175-BB39-147644ACF858}</ProjectGuid>
+    <ProjectGuid>{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FluentPro.FluentPS.Contracts</RootNamespace>
-    <AssemblyName>FluentPro.FluentPS.Contracts</AssemblyName>
+    <RootNamespace>FluentPro.FluentPS.Common</RootNamespace>
+    <AssemblyName>FluentPro.FluentPS.Common</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,22 +32,25 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\DsTables.cs" />
-    <Compile Include="Constants\Urls.cs" />
-    <Compile Include="Model\DataStore.cs" />
+    <Compile Include="Mapper\Conventions\Naming\DefaultNamingConvention.cs" />
+    <Compile Include="Mapper\DsMapper.cs" />
+    <Compile Include="Mapper\Exceptions\MissingPropertyResolverException.cs" />
+    <Compile Include="Mapper\Interfaces\INamingConvention.cs" />
+    <Compile Include="Mapper\Interfaces\IObjectResolver.cs" />
+    <Compile Include="Mapper\Interfaces\IPropertiesResolver.cs" />
+    <Compile Include="Mapper\Model\PropInfo.cs" />
+    <Compile Include="Mapper\Resolvers\DefaultObjectResolver.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesResolvers\DataTableReaderPropertiesResolver.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesResolvers\PocoPropertiesResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
