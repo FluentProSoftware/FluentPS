@@ -14,7 +14,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void ReadProjectList_NoParams_ShouldReturnProjects()
         {
-            var target = new ProjectPsiService(new Uri("http://udav/pwa/"));
+            var target = new ProjectPsiService(new Uri("http://udav/pulse/"));
             var result = target.ReadProjectList();
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Tables[DsTables.Project].Rows.Count > 0);

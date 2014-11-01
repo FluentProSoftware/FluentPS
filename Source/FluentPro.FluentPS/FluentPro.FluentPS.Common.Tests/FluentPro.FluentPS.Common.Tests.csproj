@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Mapper\MapperTest.cs" />
-    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\EntityWithPlainNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

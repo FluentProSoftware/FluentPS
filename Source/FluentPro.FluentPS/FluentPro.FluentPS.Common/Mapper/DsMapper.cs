@@ -33,18 +33,26 @@ namespace FluentPro.FluentPS.Common.Mapper
             var destProps = destPropsResolver.GetProperties(dest);
 
             var srcPropsResolver = GetPropsResolver<TSource>();
-            var srcProps = srcPropsResolver.GetProperties(src);
+            var srcProps = srcPropsResolver.GetProperties(src).ToArray();
 
             foreach (var prop in destProps)
             {
-                var srcPropertyName = NamingConvention.GetName(prop.Name);
-                var srcVal = srcPropsResolver.GetPropertyValue(src, new PropInfo
+                PropInfo propInfo = null;
+                var srcPropertyNames = NamingConvention.GetNames(prop.Name);
+                foreach (var suggestedPropertyName in srcPropertyNames)
                 {
-                    Name = srcPropertyName,
-                    Type = prop.Type
-                });
+                    var srcProp = srcProps.FirstOrDefault(p => p.Name == suggestedPropertyName);
+                    if (srcProp != null)
+                    {
+                        propInfo = srcProp;
+                    }
+                }
 
-                destPropsResolver.SetPropertyValue(dest, prop, srcVal);
+                if (propInfo != null)
+                {
+                    var srcVal = srcPropsResolver.GetPropertyValue(src, propInfo);
+                    destPropsResolver.SetPropertyValue(dest, prop, srcVal);
+                }
             }
 
             return dest;
