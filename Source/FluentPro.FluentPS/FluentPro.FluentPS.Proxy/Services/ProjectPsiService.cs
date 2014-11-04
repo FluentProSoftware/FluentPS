@@ -35,22 +35,23 @@ namespace FluentPro.FluentPS.Psi.Services
             _psiContext.Project.QueueUpdateProjectImpacts(jobUid, sessionUid, (ProjectImpactDataSet)projectImpactDataSet);
         }
 
-        public Guid CreateWssListSyncedProject(SyncDataSet syncDataSet, string projectName)
+        public Guid CreateWssListSyncedProject(DataSet syncDataSet, string projectName)
         {
-            throw new NotImplementedException();
+            return _psiContext.Project.CreateWssListSyncedProject((SyncDataSet)syncDataSet, projectName);
         }
 
         public void SyncProjectWithWss(Guid syncEntityUid, SyncEntityUidType syncEntityUidType)
         {
-            throw new NotImplementedException();
+            //TODO: Fix this
+            _psiContext.Project.SyncProjectWithWss(syncEntityUid, syncEntityUidType);
         }
 
-        public Model.DataSets.SyncDataSet ReadProjectSyncSettings(Guid[] syncEntityUids, SyncEntityUidType syncEntityUidType, bool includeMappingData)
+        public DataSet ReadProjectSyncSettings(Guid[] syncEntityUids, SyncEntityUidType syncEntityUidType, bool includeMappingData)
         {
-            throw new NotImplementedException();
+            return _psiContext.Project.ReadProjectSyncSettings(syncEntityUids, syncEntityUidType, includeMappingData);
         }
 
-        public void UpdateProjectSyncSettings(Model.DataSets.SyncDataSet syncDataSet)
+        public void UpdateProjectSyncSettings(SyncDataSet syncDataSet)
         {
             throw new NotImplementedException();
         }
@@ -95,9 +96,10 @@ namespace FluentPro.FluentPS.Psi.Services
             throw new NotImplementedException();
         }
 
-        public void QueueCreateProject(Guid jobUid, Model.DataSets.ProjectDataSet dataset, bool validateOnly)
+        public void QueueCreateProject(Guid jobUid, DataSet dataset, bool validateOnly)
         {
-            throw new NotImplementedException();
+            //TODO: Create two methods, one something like IsValid(), and the other one is Create()
+            _psiContext.Project.QueueCreateProject(jobUid, (ProjectDataSet)dataset, false);
         }
 
         public void QueueCreateProjectAndCheckOut(Guid jobUid, Guid sessionUid, string sessionDescription, Model.DataSets.ProjectDataSet dataset, bool validateOnly)
