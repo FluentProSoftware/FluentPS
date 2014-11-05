@@ -39,16 +39,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ProjectService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">
       <Project>{459f522c-fec0-4175-bb39-147644acf858}</Project>
       <Name>FluentPro.FluentPS.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FluentPro.FluentPS.Proxy\FluentPro.FluentPS.Psi.csproj">
+      <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
+      <Name>FluentPro.FluentPS.Psi</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

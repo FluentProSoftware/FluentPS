@@ -75,6 +75,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\Enums\DataStoreEnum.cs" />
+    <Compile Include="Model\Enums\ProjectType.cs" />
     <Compile Include="Model\Enums\PSErrorID.cs" />
     <Compile Include="Model\Enums\SyncEntityUidType.cs" />
     <Compile Include="Model\Messages\ImportResult.cs" />

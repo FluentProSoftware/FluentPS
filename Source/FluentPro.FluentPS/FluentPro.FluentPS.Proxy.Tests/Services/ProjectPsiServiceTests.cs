@@ -19,5 +19,13 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Tables[DsTables.Project].Rows.Count > 0);
         }
+
+        [TestMethod]
+        public void CreateProject_WithName_ShouldReturnProjects()
+        {
+            var target = new ProjectPsiService(new Uri("http://udav/pulse/"));
+            var result = target.CreateProject("New Project From Tests");
+            Assert.IsNotNull(result);
+        }
     }
 }
