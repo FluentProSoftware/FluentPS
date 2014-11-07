@@ -14,7 +14,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void ReadProjectList_NoParams_ShouldReturnProjects()
         {
-            var target = new ProjectPsiService(new Uri("http://udav/pulse/"));
+            var target = new ProjectPsiService(new Uri("http://udav/test/"));
             var result = target.ReadProjectList();
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Tables[DsTables.Project].Rows.Count > 0);
@@ -23,8 +23,8 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void CreateProject_WithName_ShouldReturnProjects()
         {
-            var target = new ProjectPsiService(new Uri("http://udav/pulse/"));
-            var result = target.CreateProject("New Project From Tests");
+            var target = new ProjectPsiService(new Uri("http://udav/test/"));
+            var result = target.CreateProject("New Project From Tests 1");
             Assert.IsNotNull(result);
         }
     }
