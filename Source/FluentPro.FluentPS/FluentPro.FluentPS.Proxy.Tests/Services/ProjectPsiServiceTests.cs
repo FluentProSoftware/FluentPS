@@ -24,7 +24,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         public void CreateProject_WithName_ShouldReturnProjects()
         {
             var target = new ProjectPsiService(new Uri("http://udav/test/"));
-            var result = target.CreateProject("New Project From Tests 1");
+            var result = target.Create("New Project From Tests 1");
             Assert.IsNotNull(result);
         }
     }
