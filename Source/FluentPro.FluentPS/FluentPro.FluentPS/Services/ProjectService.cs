@@ -18,7 +18,7 @@ namespace FluentPro.FluentPS.Services
 
         public Guid CreateProject(string name)
         {
-            return _projectPsiService.CreateProject(name);
+            return _projectPsiService.Create(name);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using FluentPro.FluentPS.Common.Mapper;
 using FluentPro.FluentPS.Contracts.Model;
 using FluentPro.FluentPS.Psi.Interfaces.Psi;
 using FluentPro.FluentPS.Psi.Model.DataSets;
@@ -23,11 +24,6 @@ namespace FluentPro.FluentPS.Psi.Services
         public DataSet ReadProjectList()
         {
             return _psiContext.Project.ReadProjectList();
-        }
-
-        public DataSet ReadProject(Guid projecUid, DataStore dataStore)
-        {
-            return _psiContext.Project.ReadProject(projecUid, (DataStoreEnum)dataStore);
         }
 
         public Guid Create(string projectName)
@@ -61,10 +57,26 @@ namespace FluentPro.FluentPS.Psi.Services
             return jobUid;
         }
 
+        public Guid Delete(Guid projectUid)
+        {
+            var jobUid = Guid.NewGuid();
+            _psiContext.Project.QueueDeleteProjects(jobUid, true, new [] { projectUid }, true);
+            return jobUid;
+        }
+
+        public T Get<T>(Guid projectUid)
+        {
+            var dataSet = _psiContext.Project.ReadProject(projectUid, DataStoreEnum.WorkingStore);
+            var reader = dataSet.Project.CreateDataReader();
+            reader.Read();
+
+            return DsMapper.Map<DataTableReader, T>(reader);
+        }
+       
         public Guid Publish(Guid projectUid)
         {
             var jobUid = Guid.NewGuid();
-            _psiContext.Project.QueuePublish(jobUid, projectUid, true, "/project1");
+            _psiContext.Project.QueuePublish(jobUid, projectUid, true, string.Empty);
             return jobUid;
         }
     }

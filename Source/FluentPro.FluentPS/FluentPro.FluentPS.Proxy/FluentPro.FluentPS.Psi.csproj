@@ -99,6 +99,10 @@
     <Compile Include="Services\ProjectPsiService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
+      <Project>{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}</Project>
+      <Name>FluentPro.FluentPS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">
       <Project>{459f522c-fec0-4175-bb39-147644acf858}</Project>
       <Name>FluentPro.FluentPS.Contracts</Name>
