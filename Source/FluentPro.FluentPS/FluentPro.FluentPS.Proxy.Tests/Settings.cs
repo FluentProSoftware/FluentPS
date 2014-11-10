@@ -7,5 +7,7 @@ namespace FluentPro.FluentPS.Psi.Tests
         public static Uri PwaUri = new Uri("http://udav/test/");
 
         public static string DefaultProjectName = "FluentPS Integration Tests Project";
+
+        public static Guid DefaultProjectGuid = new Guid("E337221E-C381-4D99-A06E-35579C1D793F");
     }
 }

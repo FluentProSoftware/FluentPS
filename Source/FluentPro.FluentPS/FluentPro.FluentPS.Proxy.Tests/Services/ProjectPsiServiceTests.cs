@@ -13,19 +13,29 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
     public class ProjectPsiServiceTests
     {
         [TestMethod]
-        public void CreateProject_WithName_ShouldReturnJobUid()
+        public void CreateProject_WithNameAndGuid_ShouldReturnJobUid()
         {
             var target = new ProjectPsiService(Settings.PwaUri);
-            var result = target.Create(Settings.DefaultProjectName);
+
+            var result = target.Create(Settings.DefaultProjectGuid, Settings.DefaultProjectName);
+
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public void Get_NoParams_ShouldReturnProject()
+        public void GetProject_ByGuid_ShouldReturnProject()
         {
             var target = new ProjectPsiService(Settings.PwaUri);
-            var result = target.Get<SimpleProject>(new Guid("f5915800-ba86-4759-a7f7-98fac5b02a3c"));
+
+            var result = target.Get<SimpleProject>(Settings.DefaultProjectGuid);
+
             Assert.IsTrue(result.ProjName == Settings.DefaultProjectName);
+        }
+
+        [TestMethod]
+        public void DeleteProject_ByGuid_ShouldReturnJobUid()
+        {
+
         }
     }
 }

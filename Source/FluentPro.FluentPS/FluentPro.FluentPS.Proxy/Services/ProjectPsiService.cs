@@ -26,24 +26,9 @@ namespace FluentPro.FluentPS.Psi.Services
             return _psiContext.Project.ReadProjectList();
         }
 
-        public Guid Create(string projectName)
-        {
-            //So, check in you enterprise what Custom fields (for task or project) that are flagged with "Required".
-            var jobUid = Guid.NewGuid();
-            var ds = new ProjectDataSet();
-
-            var row = ds.Project.NewProjectRow();
-            row.PROJ_TYPE = (int)ProjectType.Project;
-            row.PROJ_UID = Guid.NewGuid();
-            row.PROJ_NAME = projectName;
-            ds.Project.AddProjectRow(row);
-
-            _psiContext.Project.QueueCreateProject(jobUid, ds, false);
-            return jobUid;
-        }
-
         public Guid Create(Guid projectUid, string projectName)
         {
+            //So, check in you enterprise what Custom fields (for task or project) that are flagged with "Required".
             var jobUid = Guid.NewGuid();
             var ds = new ProjectDataSet();
 
