@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="ProjectFlow" storage="d:\projects\fluentps-ng\source\fluentpro.fluentps\fluentpro.fluentps.proxy.tests\orderedtests\projectflow.orderedtest" id="e782e845-3430-4043-b906-b23d3b58d455" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="0d196133-66fe-9212-9c2f-668a4125e36a" name="CreateProject_WithNameAndGuid_ShouldReturnTrue" storage="..\bin\debug\fluentpro.fluentps.psi.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="9c51f1f7-23af-770c-c76d-63e1061100ac" name="GetProject_ByGuid_ShouldReturnProject" storage="..\bin\debug\fluentpro.fluentps.psi.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="ad895b48-e0dd-0c77-d0a6-0edbdacd19f5" name="DeleteProject_ByGuid_ShouldReturnTrue" storage="..\bin\debug\fluentpro.fluentps.psi.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

@@ -18,6 +18,7 @@ namespace FluentPro.FluentPS.Psi.Network
         private readonly EndpointAddress _address;
         private volatile ProjectPsiChannelFactory _projectPsiChannelFactory;
         private volatile LookupTablePsiChannelFactory _lookupPsiChannelFactory;
+        private volatile QueueSystemChannelFactory _queueSystemChannelFactory;
 
         #region Constructors
 
@@ -39,6 +40,11 @@ namespace FluentPro.FluentPS.Psi.Network
         public ILookupTableChannel LookupTable
         {
             get { return LookupChannelFactory.CreateChannel(); }
+        }
+
+        public IQueueSystemChannel QueueSystem
+        {
+            get { return QueueSystemChannelFactory.CreateChannel(); }
         }
 
         #endregion // Channels
@@ -102,6 +108,25 @@ namespace FluentPro.FluentPS.Psi.Network
                 }
 
                 return _lookupPsiChannelFactory;
+            }
+        }
+
+        private QueueSystemChannelFactory QueueSystemChannelFactory
+        {
+            get
+            {
+                if (_queueSystemChannelFactory == null)
+                {
+                    lock (_lock)
+                    {
+                        if (_queueSystemChannelFactory == null)
+                        {
+                            _queueSystemChannelFactory = new QueueSystemChannelFactory(_binding, _address);
+                        }
+                    }
+                }
+
+                return _queueSystemChannelFactory;
             }
         }
 

@@ -39,7 +39,7 @@ namespace FluentPro.FluentPS.Psi.Services
             ds.Project.AddProjectRow(row);
 
             _psiContext.Project.QueueCreateProject(jobUid, ds, false);
-            return jobUid;
+            return jobUid; 
         }
 
         public Guid Delete(Guid projectUid)

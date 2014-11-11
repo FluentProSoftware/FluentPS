@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FluentPro.FluentPS.Contracts.Constants;
-using FluentPro.FluentPS.Psi.Services;
+﻿using FluentPro.FluentPS.Psi.Services;
 using FluentPro.FluentPS.Psi.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,13 +8,14 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
     public class ProjectPsiServiceTests
     {
         [TestMethod]
-        public void CreateProject_WithNameAndGuid_ShouldReturnJobUid()
+        public void CreateProject_WithNameAndGuid_ShouldReturnTrue()
         {
             var target = new ProjectPsiService(Settings.PwaUri);
+            var queue = new QueuePsiService(Settings.PwaUri);
 
-            var result = target.Create(Settings.DefaultProjectGuid, Settings.DefaultProjectName);
+            var result = queue.Wait(target.Create(Settings.DefaultProjectGuid, Settings.DefaultProjectName));
 
-            Assert.IsNotNull(result);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -33,9 +29,14 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         }
 
         [TestMethod]
-        public void DeleteProject_ByGuid_ShouldReturnJobUid()
+        public void DeleteProject_ByGuid_ShouldReturnTrue()
         {
+            var target = new ProjectPsiService(Settings.PwaUri);
+            var queue = new QueuePsiService(Settings.PwaUri);
 
+            var result = queue.Wait(target.Delete(Settings.DefaultProjectGuid));
+
+            Assert.IsTrue(result);
         }
     }
 }

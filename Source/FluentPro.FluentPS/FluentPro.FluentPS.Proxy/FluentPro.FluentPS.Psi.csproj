@@ -107,13 +107,15 @@
     <Compile Include="Network\ChannelFactories\LookupTablePsiChannelFactory.cs" />
     <Compile Include="Network\ChannelFactories\ProjectPsiChannelFactory.cs" />
     <Compile Include="Network\ChannelFactories\PsiChannelFactory.cs" />
-    <Compile Include="Network\Channels\LookupTableChannel.cs" />
-    <Compile Include="Network\Channels\ProjectChannel.cs" />
-    <Compile Include="Network\Channels\QueueSystemChannel.cs" />
+    <Compile Include="Network\ChannelFactories\QueueSystemChannelFactory.cs" />
+    <Compile Include="Network\Channels\ILookupTableChannel.cs" />
+    <Compile Include="Network\Channels\IProjectChannel.cs" />
+    <Compile Include="Network\Channels\IQueueSystemChannel.cs" />
     <Compile Include="Network\PsiContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LookupTablePsiService.cs" />
     <Compile Include="Services\ProjectPsiService.cs" />
+    <Compile Include="Services\QueuePsiService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
