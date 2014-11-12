@@ -1,6 +1,7 @@
 ﻿using FluentPro.FluentPS.Common.Mapper;
 using FluentPro.FluentPS.Common.Tests.Extensions;
 using FluentPro.FluentPS.Common.Tests.Model;
+using FluentPro.FluentPS.Common.Types;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data;
@@ -11,7 +12,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
     public class MapperTest
     {
         [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name, default convention.")]
-        public void Map_DataTableToEntity_ByPlainName_ShouldReturnEntity()
+        public void Map_DataTableToEntity_ShouldReturnEntity()
         {
             var guid = Guid.NewGuid();
             var dt = new DataTable()
@@ -33,10 +34,27 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue(entity.PropertyWithSpace == "PropertyWithSpace");
         }
 
-        [TestMethod, Description("Ensure row values mapped to corresponding entity properties by name with use of PSI naming convention. PROJ_UID to ProjUid, etc.")]
-        public void Map_DataTableToEntity_ByPsiNamingConvention_ShouldReturnEntity()
+        [TestMethod, Description("Ensure row values mapped to corresponding property bag properties by name, default convention.")]
+        public void Map_DataTableToPropertyBag_ShouldReturnEntity()
         {
             var guid = Guid.NewGuid();
+            var dt = new DataTable()
+                .Column("PropertyGuid", typeof(Guid))
+                .Column("PROP_GUID", typeof(Guid))
+                .Column("PropertyInt", typeof(int))
+                .Column("PropertyString", typeof(string))
+                .Column("Property With Space", typeof(string));
+
+            dt.Row(guid, guid, 10, "PropertyString", "PropertyWithSpace");
+
+            var reader = dt.CreateDataReader();
+            reader.Read();
+            var bag = DsMapper.Map<DataTableReader, PropertyBag>(reader);
+            Assert.IsTrue((Guid)bag["PropertyGuid"] == guid);
+            Assert.IsTrue((Guid)bag["PropGuid"] == guid);
+            Assert.IsTrue((int)bag["PropertyInt"] == 10);
+            Assert.IsTrue((string)bag["PropertyString"] == "PropertyString");
+            Assert.IsTrue((string)bag["PropertyWithSpace"] == "PropertyWithSpace");
         }
     }
 }

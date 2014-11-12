@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\PropertyBagPropertyMissingException.cs" />
     <Compile Include="Mapper\Conventions\Naming\DefaultNamingConvention.cs" />
     <Compile Include="Mapper\DsMapper.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyResolverException.cs" />
@@ -48,7 +49,9 @@
     <Compile Include="Mapper\Resolvers\DefaultObjectResolver.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesResolvers\DataTableReaderPropertiesResolver.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesResolvers\PocoPropertiesResolver.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesResolvers\PropertyBagPropertiesResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\PropertyBag.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

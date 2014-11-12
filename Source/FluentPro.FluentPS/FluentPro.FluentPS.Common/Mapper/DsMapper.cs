@@ -10,6 +10,7 @@ using FluentPro.FluentPS.Common.Mapper.Model;
 using FluentPro.FluentPS.Common.Mapper.Resolvers;
 using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers;
 using System.Data;
+using FluentPro.FluentPS.Common.Types;
 
 namespace FluentPro.FluentPS.Common.Mapper
 {
@@ -17,8 +18,9 @@ namespace FluentPro.FluentPS.Common.Mapper
     {
         private static readonly Dictionary<Type, IPropertiesResolver> PropertiesResolvers = new Dictionary<Type, IPropertiesResolver>
         {
-           {typeof(DataTableReader), new DataTableReaderPropertiesResolver()},
-           {typeof(object), new PocoPropertiesResolver() }
+            {typeof(PropertyBag), new PropertyBagPropertiesResolver()},
+            {typeof(DataTableReader), new DataTableReaderPropertiesResolver()},
+            {typeof(object), new PocoPropertiesResolver() }
         };
 
         private static readonly IObjectResolver ObjectResolver = new DefaultObjectResolver();
