@@ -3,14 +3,10 @@ using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
-    public interface IPropertiesResolver
-    {
-    }
+    public interface IPropertiesResolver { }
 
-    public interface IPropertiesResolver<in T> : IPropertiesResolver
+    public interface IPropertiesResolver<in TSource, in TDestination> : IPropertiesResolver
     {
-        IEnumerable<PropInfo> GetProperties(T target);
-        object GetPropertyValue(T target, PropInfo prop);
-        void SetPropertyValue(T target, PropInfo prop, object value);
+        IEnumerable<PropInfo> GetProperties(TSource source, TDestination dest);
     }
 }

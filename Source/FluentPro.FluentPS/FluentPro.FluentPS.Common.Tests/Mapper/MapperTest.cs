@@ -1,10 +1,10 @@
-﻿using FluentPro.FluentPS.Common.Mapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using FluentPro.FluentPS.Common.Mapper;
 using FluentPro.FluentPS.Common.Tests.Extensions;
 using FluentPro.FluentPS.Common.Tests.Model;
-using FluentPro.FluentPS.Common.Types;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Data;
 
 namespace FluentPro.FluentPS.Common.Tests.Mapper
 {
@@ -49,7 +49,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
 
             var reader = dt.CreateDataReader();
             reader.Read();
-            var bag = DsMapper.Map<DataTableReader, PropertyBag>(reader);
+            var bag = DsMapper.Map<DataTableReader, Dictionary<string, object>>(reader);
             Assert.IsTrue((Guid)bag["PropertyGuid"] == guid);
             Assert.IsTrue((Guid)bag["PropGuid"] == guid);
             Assert.IsTrue((int)bag["PropertyInt"] == 10);

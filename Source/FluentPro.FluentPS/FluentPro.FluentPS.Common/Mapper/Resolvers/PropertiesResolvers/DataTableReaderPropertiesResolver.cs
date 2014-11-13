@@ -1,33 +1,22 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Mapper.Model;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
+using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using FluentPro.FluentPS.Common.Mapper.Model;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers
 {
-    public class DataTableReaderPropertiesResolver : IPropertiesResolver<DataTableReader>
+    public class DataTableReaderPropertiesResolver : IPropertiesResolver<DataTableReader, object>
     {
-        public IEnumerable<PropInfo> GetProperties(DataTableReader target)
+        public IEnumerable<PropInfo> GetProperties(DataTableReader source, object dest)
         {
-            for (var i = 0; i < target.FieldCount; i++)
+            for (var i = 0; i < source.FieldCount; i++)
             {
                 yield return new PropInfo
                 {
-                    Name = target.GetName(i),
-                    Type = target.GetFieldType(i)
+                    Name = source.GetName(i),
+                    Type = source.GetFieldType(i)
                 };
             }
-        }
-
-        public object GetPropertyValue(DataTableReader target, PropInfo prop)
-        {
-            return target[prop.Name];
-        }
-
-        public void SetPropertyValue(DataTableReader target, PropInfo prop, object value)
-        {
-            throw new NotSupportedException();
         }
     }
 }

@@ -38,22 +38,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\PropertyBagPropertyMissingException.cs" />
     <Compile Include="Mapper\Conventions\Naming\DefaultNamingConvention.cs" />
     <Compile Include="Mapper\DsMapper.cs" />
+    <Compile Include="Mapper\Exceptions\MissingPropertyAccessorException.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyResolverException.cs" />
     <Compile Include="Mapper\Interfaces\INamingConvention.cs" />
     <Compile Include="Mapper\Interfaces\IObjectResolver.cs" />
+    <Compile Include="Mapper\Interfaces\IPropertiesAccessor.cs" />
     <Compile Include="Mapper\Interfaces\IPropertiesResolver.cs" />
     <Compile Include="Mapper\Model\PropInfo.cs" />
     <Compile Include="Mapper\Resolvers\DefaultObjectResolver.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesAccessors\DataTableReaderPropertiesAccessor.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesAccessors\DictionaryPropertiesAccessor.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesAccessors\PocoPropertiesAccessor.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesResolvers\DataTableReaderPropertiesResolver.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesResolvers\PocoPropertiesResolver.cs" />
-    <Compile Include="Mapper\Resolvers\PropertiesResolvers\PropertyBagPropertiesResolver.cs" />
+    <Compile Include="Mapper\Resolvers\PropertiesResolvers\DictionaryPropertiesResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\PropertyBag.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Types\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
