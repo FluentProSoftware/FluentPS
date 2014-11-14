@@ -3,7 +3,7 @@ using FluentPro.FluentPS.Common.Mapper.Model;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors
 {
-    public class PocoPropertiesAccessor : IPropertiesAccessor<object>
+    public class PocoPropertiesAccessor : IPropertiesAccessor
     {
         public object GetPropertyValue(object target, PropInfo prop)
         {

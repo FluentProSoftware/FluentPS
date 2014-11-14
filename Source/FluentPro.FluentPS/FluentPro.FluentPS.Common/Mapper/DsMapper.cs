@@ -50,15 +50,15 @@ namespace FluentPro.FluentPS.Common.Mapper
             foreach (var prop in destProps)
             {
                 PropInfo propInfo = null;
-                var srcPropertyNames = NamingConvention.GetNames(prop.Name);
-                foreach (var suggestedPropertyName in srcPropertyNames)
-                {
-                    var srcProp = srcProps.FirstOrDefault(p => p.Name == suggestedPropertyName);
-                    if (srcProp != null)
-                    {
-                        propInfo = srcProp;
-                    }
-                }
+                var srcPropertyNames = NamingConvention.GetName(prop.Name);
+                //foreach (var suggestedPropertyName in srcPropertyNames)
+                //{
+                //    var srcProp = srcProps.FirstOrDefault(p => p.Name == suggestedPropertyName);
+                //    if (srcProp != null)
+                //    {
+                //        propInfo = srcProp;
+                //    }
+                //}
 
                 if (propInfo != null)
                 {
@@ -70,13 +70,13 @@ namespace FluentPro.FluentPS.Common.Mapper
             return dest;
         }
 
-        private static IPropertiesAccessor<T> GetPropsAccessor<T>()
+        private static IPropertiesAccessor GetPropsAccessor<T>()
         {
             foreach (var propertiesAccessor in PropertiesAccessors)
             {
                 if (propertiesAccessor.Key.IsAssignableFrom(typeof(T)))
                 {
-                    var accessor = propertiesAccessor.Value as IPropertiesAccessor<T>;
+                    var accessor = propertiesAccessor.Value as IPropertiesAccessor;
                     if (accessor != null)
                     {
                         return accessor;

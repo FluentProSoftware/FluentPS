@@ -4,16 +4,18 @@ using FluentPro.FluentPS.Common.Mapper.Model;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors
 {
-    public class DictionaryPropertiesAccessor : IPropertiesAccessor<IDictionary>
+    public class DictionaryPropertiesAccessor : IPropertiesAccessor
     {
-        public object GetPropertyValue(IDictionary target, PropInfo prop)
+        public object GetPropertyValue(object target, PropInfo prop)
         {
-            return target[prop.Name];
+            var dict = (IDictionary)target;
+            return dict[prop.Name];
         }
 
-        public void SetPropertyValue(IDictionary target, PropInfo prop, object value)
+        public void SetPropertyValue(object target, PropInfo prop, object value)
         {
-            target[prop.Name] = value;
+            var dict = (IDictionary)target;
+            dict[prop.Name] = value;
         }
     }
 }

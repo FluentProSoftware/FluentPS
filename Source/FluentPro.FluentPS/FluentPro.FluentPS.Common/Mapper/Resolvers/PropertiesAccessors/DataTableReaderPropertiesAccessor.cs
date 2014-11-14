@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Data;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Mapper.Model;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors
 {
-    public class DataTableReaderPropertiesAccessor : IPropertiesAccessor<DataTableReader>
+    public class DataTableReaderPropertiesAccessor : IPropertiesAccessor
     {
-        public object GetPropertyValue(DataTableReader target, PropInfo prop)
+        public object GetPropertyValue(object target, string propName)
         {
-            return target[prop.Name];
+            var reader = (DataTableReader)target;
+            return reader[propName];
         }
 
-        public void SetPropertyValue(DataTableReader target, PropInfo prop, object value)
+        public void SetPropertyValue(object target, string propName, object value)
         {
             throw new NotSupportedException();
         }

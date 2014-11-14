@@ -2,11 +2,9 @@
 
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
-    public interface IPropertiesAccessor { }
-
-    public interface IPropertiesAccessor<T> : IPropertiesAccessor
+    public interface IPropertiesAccessor
     {
-        object GetPropertyValue(T target, PropInfo prop);
-        void SetPropertyValue(T target, PropInfo prop, object value);
+        object GetPropertyValue(object target, string propName);
+        void SetPropertyValue(object target, string propName, object value);
     }
 }

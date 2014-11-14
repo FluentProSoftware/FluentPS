@@ -39,13 +39,13 @@ namespace FluentPro.FluentPS.Psi.Services
             ds.Project.AddProjectRow(row);
 
             _psiContext.Project.QueueCreateProject(jobUid, ds, false);
-            return jobUid; 
+            return jobUid;
         }
 
         public Guid Delete(Guid projectUid)
         {
             var jobUid = Guid.NewGuid();
-            _psiContext.Project.QueueDeleteProjects(jobUid, true, new [] { projectUid }, true);
+            _psiContext.Project.QueueDeleteProjects(jobUid, true, new[] { projectUid }, true);
             return jobUid;
         }
 
@@ -57,7 +57,7 @@ namespace FluentPro.FluentPS.Psi.Services
 
             return DsMapper.Map<DataTableReader, T>(reader);
         }
-       
+
         public Guid Publish(Guid projectUid)
         {
             var jobUid = Guid.NewGuid();

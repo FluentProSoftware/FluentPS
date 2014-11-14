@@ -5,6 +5,6 @@ namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
     public interface INamingConvention
     {
-        IEnumerable<string> GetNames(string sourceName);
+        string GetName(string sourceName);
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace FluentPro.FluentPS.Common.Tests.Mapper
 {
     [TestClass]
-    public class MapperTest
+    public class MapperTests
     {
         [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name, default convention.")]
         public void Map_DataTableToEntity_ShouldReturnEntity()
