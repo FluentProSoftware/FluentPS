@@ -1,5 +1,5 @@
 ﻿using System;
-using FluentPro.FluentPS.Common.Mapper.Conventions.Naming;
+using FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FluentPro.FluentPS.Common.Tests.Mapper.Conventions.Naming
@@ -10,7 +10,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Conventions.Naming
         [TestMethod]
         public void GetName_WithSimpleName_ShouldReturnSimpleName()
         {
-            var sut = new DefaultNamingConvention();
+            var sut = new RemoveWhiteSpacesPropertyNameConverter();
 
             var res = sut.GetName("Name");
 

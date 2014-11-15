@@ -38,16 +38,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapper\Conventions\Naming\DefaultNamingConvention.cs" />
-    <Compile Include="Mapper\DsMapper.cs" />
+    <Compile Include="Mapper\Converters\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
+    <Compile Include="Mapper\FluentMapper.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyAccessorException.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyResolverException.cs" />
-    <Compile Include="Mapper\Interfaces\INamingConvention.cs" />
+    <Compile Include="Mapper\Interfaces\IMappingStrategy.cs" />
+    <Compile Include="Mapper\Interfaces\IPropertyNameConverter.cs" />
     <Compile Include="Mapper\Interfaces\IObjectResolver.cs" />
     <Compile Include="Mapper\Interfaces\IPropertiesAccessor.cs" />
     <Compile Include="Mapper\Interfaces\IPropertiesResolver.cs" />
+    <Compile Include="Mapper\MappingStrategies\ForEachDestPropFindPropInSrcMappingStrategy.cs" />
+    <Compile Include="Mapper\MappingStrategies\ForEachSrcPropFindPropInDestMappingStrategy.cs" />
+    <Compile Include="Mapper\Model\MapperContext.cs" />
     <Compile Include="Mapper\Model\PropInfo.cs" />
-    <Compile Include="Mapper\Resolvers\DefaultObjectResolver.cs" />
+    <Compile Include="Mapper\Resolvers\ObjectResolvers\ActivatorObjectResolver.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DataTableReaderPropertiesAccessor.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DictionaryPropertiesAccessor.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\PocoPropertiesAccessor.cs" />

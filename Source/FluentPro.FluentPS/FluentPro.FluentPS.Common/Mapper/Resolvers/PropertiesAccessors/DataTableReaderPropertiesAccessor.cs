@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using System;
 using System.Data;
-using FluentPro.FluentPS.Common.Mapper.Interfaces;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors
 {

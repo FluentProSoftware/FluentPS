@@ -1,23 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using FluentPro.FluentPS.Common.Mapper.Interfaces;
+﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers
 {
-    public class DictionaryPropertiesResolver : IPropertiesResolver<IDictionary, DataTableReader>
+    public class DictionaryPropertiesResolver : IPropertiesResolver<Dictionary<string, object>>
     {
-        public IEnumerable<PropInfo> GetProperties(IDictionary source, DataTableReader dest)
+        public IEnumerable<PropInfo> GetProperties(Dictionary<string, object> target)
         {
-            for (var i = 0; i < dest.FieldCount; i++)
+            return target.Keys.Select(key => new PropInfo
             {
-                yield return new PropInfo
-                {
-                    Name = dest.GetName(i),
-                    Type = dest.GetFieldType(i)
-                };
-            }
+                Name = key,
+                Type = target[key].GetType()
+            });
         }
     }
 }

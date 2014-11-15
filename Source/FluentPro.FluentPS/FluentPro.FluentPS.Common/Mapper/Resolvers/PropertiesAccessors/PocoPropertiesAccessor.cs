@@ -1,18 +1,17 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Mapper.Model;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors
 {
     public class PocoPropertiesAccessor : IPropertiesAccessor
     {
-        public object GetPropertyValue(object target, PropInfo prop)
+        public object GetPropertyValue(object target, string propName)
         {
-            return target.GetType().GetProperty(prop.Name).GetValue(target, null);
+            return target.GetType().GetProperty(propName).GetValue(target, null);
         }
 
-        public void SetPropertyValue(object target, PropInfo prop, object value)
+        public void SetPropertyValue(object target, string propName, object value)
         {
-            target.GetType().GetProperty(prop.Name).SetValue(target, value, null);
+            target.GetType().GetProperty(propName).SetValue(target, value, null);
         }
     }
 }

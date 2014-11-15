@@ -5,8 +5,8 @@ namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
     public interface IPropertiesResolver { }
 
-    public interface IPropertiesResolver<in TSource, in TDestination> : IPropertiesResolver
+    public interface IPropertiesResolver<in T> : IPropertiesResolver
     {
-        IEnumerable<PropInfo> GetProperties(TSource source, TDestination dest);
+        IEnumerable<PropInfo> GetProperties(T traget);
     }
 }

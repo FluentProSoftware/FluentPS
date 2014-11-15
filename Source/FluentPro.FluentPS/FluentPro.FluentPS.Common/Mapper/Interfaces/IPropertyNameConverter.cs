@@ -1,9 +1,7 @@
 ﻿
-using System.Collections.Generic;
-
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
-    public interface INamingConvention
+    public interface IPropertyNameConverter
     {
         string GetName(string sourceName);
     }
