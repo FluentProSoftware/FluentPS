@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using FluentPro.FluentPS.Common.Types;
 
 namespace FluentPro.FluentPS.Common.Mapper
 {
@@ -41,28 +42,10 @@ namespace FluentPro.FluentPS.Common.Mapper
                 {typeof(object), new PocoPropertiesAccessor() }
             };
 
-            //DataTable -> object = DestProps
-            //object -> object = DestProps
-            //object -> DataTable = SrcProps
-            //DataTable -> Dict = SrcProps
-            //Dict -> DataTable = SrcProps
-            DefaultMappingStrategies = new Dictionary<Type, Dictionary<Type, IMappingStrategy>>
+            DefaultMappingStrategies = new Dictionary<Pair<Type, Type>, IMappingStrategy>
             {
-                { 
-                    typeof(DataTableReader), new Dictionary<Type, IMappingStrategy>
-                    {
-                        { typeof(Dictionary<string, object>), new ForEachSrcPropFindPropInDestMappingStrategy() },
-                        { typeof(object), new ForEachDestPropFindPropInSrcMappingStrategy() }
-                    }
-                },
-
-                {
-                    typeof(object), new Dictionary<Type, IMappingStrategy>
-                    {
-                        { typeof(Dictionary<string, object>), new ForEachSrcPropFindPropInDestMappingStrategy() },
-                        { typeof(object), new ForEachDestPropFindPropInSrcMappingStrategy() }
-                    }
-                }
+                { new Pair<Type, Type>(typeof(DataTableReader), typeof(Dictionary<string, object>)), new ForEachSrcPropAddOrSetPropInDestMappingStrategy() },
+                { new Pair<Type, Type>(typeof(DataTableReader), typeof(object)), new ForEachSrcPropFindPropInDestMappingStrategy() }
             };
         }
 
@@ -82,7 +65,7 @@ namespace FluentPro.FluentPS.Common.Mapper
             IMappingStrategy mappingStrategy,
             Dictionary<Type, IPropertiesResolver> propertiesResolvers,
             Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
-            Dictionary<Type, Dictionary<Type, IMappingStrategy>> mappingStrategies)
+            Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
         {
             MappingStrategies = mappingStrategies;
             MappingStrategy = mappingStrategy;
@@ -142,7 +125,7 @@ namespace FluentPro.FluentPS.Common.Mapper
         /// <value>
         /// The default mapping strategies.
         /// </value>
-        public static Dictionary<Type, Dictionary<Type, IMappingStrategy>> DefaultMappingStrategies { get; set; }
+        public static Dictionary<Pair<Type, Type>, IMappingStrategy> DefaultMappingStrategies { get; set; }
 
         #endregion // Defaults
 
@@ -194,7 +177,7 @@ namespace FluentPro.FluentPS.Common.Mapper
         /// <value>
         /// The mapping strategies.
         /// </value>
-        public Dictionary<Type, Dictionary<Type, IMappingStrategy>> MappingStrategies { get; private set; }
+        public Dictionary<Pair<Type, Type>, IMappingStrategy> MappingStrategies { get; private set; }
 
         #endregion // Instance properties
 
@@ -229,7 +212,7 @@ namespace FluentPro.FluentPS.Common.Mapper
             IMappingStrategy mappingStrategy,
             Dictionary<Type, IPropertiesResolver> propertiesResolvers,
             Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
-            Dictionary<Type, Dictionary<Type, IMappingStrategy>> mappingStrategies)
+            Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
         {
             return new FluentMapper(objectResolver, namingConvention, mappingStrategy, propertiesResolvers, propertiesAccessors, mappingStrategies);
         }
@@ -240,10 +223,9 @@ namespace FluentPro.FluentPS.Common.Mapper
 
         public TDest Map<TSrc, TDest>(TSrc src)
         {
+            var ctx = new MapperContext(PropertyNameConverter, ObjectResolver, PropertiesAccessors, PropertiesResolvers, MappingStrategies);
+            var strategy = ctx.GetMappingStrategy<TSrc, TDest>();
             var dest = ObjectResolver.CreateInstance<TDest>();
-
-            var ctx = new MapperContext(PropertyNameConverter, ObjectResolver, PropertiesAccessors, PropertiesResolvers);
-            var strategy = new ForEachSrcPropFindPropInDestMappingStrategy();
             strategy.Map(ctx, src, dest);
             return dest;
         }

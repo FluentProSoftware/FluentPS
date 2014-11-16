@@ -14,12 +14,11 @@ namespace FluentPro.FluentPS.Common.Tests.Data
             {
                 var dt = new DataTable()
                     .Column("PropertyGuid", typeof(Guid))
-                    .Column("PROP_GUID", typeof(Guid))
                     .Column("PropertyInt", typeof(int))
                     .Column("PropertyString", typeof(string))
                     .Column("Property With Space", typeof(string));
 
-                dt.Row(Guid, Guid, 10, "PropertyString", "PropertyWithSpace");
+                dt.Row(Guid, 10, "PropertyString", "PropertyWithSpace");
 
                 return dt;
             }

@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
 {
+    /// <summary>
+    /// For each property in source, find a property in destination and copy value from source to destination. 
+    /// If there is no such property in destination - do nothing.
+    /// </summary>
     public class ForEachSrcPropFindPropInDestMappingStrategy : IMappingStrategy
     {
         public void Map<TSrc, TDest>(MapperContext ctx, TSrc src, TDest dest)

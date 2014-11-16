@@ -20,7 +20,6 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             var entity = FluentMapper.Default.Map<DataTableReader, EntityWithPlainNames>(reader);
 
             Assert.IsTrue(entity.PropertyGuid == DefaultData.Guid);
-            Assert.IsTrue(entity.PropGuid == DefaultData.Guid);
             Assert.IsTrue(entity.PropertyInt == 10);
             Assert.IsTrue(entity.PropertyString == "PropertyString");
             Assert.IsTrue(entity.PropertyWithSpace == "PropertyWithSpace");
@@ -35,7 +34,6 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             var bag = FluentMapper.Default.Map<DataTableReader, Dictionary<string, object>>(reader);
 
             Assert.IsTrue((Guid)bag["PropertyGuid"] == DefaultData.Guid);
-            Assert.IsTrue((Guid)bag["PropGuid"] == DefaultData.Guid);
             Assert.IsTrue((int)bag["PropertyInt"] == 10);
             Assert.IsTrue((string)bag["PropertyString"] == "PropertyString");
             Assert.IsTrue((string)bag["PropertyWithSpace"] == "PropertyWithSpace");
