@@ -38,7 +38,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapper\Converters\PropertyNameConverters\CamelCaseToUpperUnderscorePropertyNameConverter.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
+    <Compile Include="Mapper\Converters\PropertyNameConverters\UpperUnderscoreToCamelCasePropertyNameConverter.cs" />
     <Compile Include="Mapper\Exceptions\MissingMappingStrategyException.cs" />
     <Compile Include="Mapper\FluentMapper.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyAccessorException.cs" />

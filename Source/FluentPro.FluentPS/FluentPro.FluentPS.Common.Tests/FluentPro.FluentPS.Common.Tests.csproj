@@ -57,7 +57,10 @@
   <ItemGroup>
     <Compile Include="Data\DefaultData.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
-    <Compile Include="Mapper\Conventions\Naming\DefaultNamingConventionTests.cs" />
+    <Compile Include="Mapper\Converters\PropertyNameConverters\CamelCaseToUpperUnderscorePropertyNameConverterTests.cs" />
+    <Compile Include="Mapper\Converters\PropertyNameConverters\PropertyNameConverterTests.cs" />
+    <Compile Include="Mapper\Converters\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverterTests.cs" />
+    <Compile Include="Mapper\Converters\PropertyNameConverters\UpperUnderscoreToCamelCasePropertyNameConverterTests.cs" />
     <Compile Include="Mapper\MapperTests.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DataTableReaderPropertiesAccessorTests.cs" />
     <Compile Include="Model\EntityWithPlainNames.cs" />
