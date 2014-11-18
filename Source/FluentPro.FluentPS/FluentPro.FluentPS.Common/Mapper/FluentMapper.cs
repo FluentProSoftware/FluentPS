@@ -45,7 +45,8 @@ namespace FluentPro.FluentPS.Common.Mapper
             DefaultMappingStrategies = new Dictionary<Pair<Type, Type>, IMappingStrategy>
             {
                 { new Pair<Type, Type>(typeof(DataTableReader), typeof(Dictionary<string, object>)), new ForEachSrcPropAddOrSetPropInDestMappingStrategy() },
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(object)), new ForEachSrcPropFindPropInDestMappingStrategy() }
+                { new Pair<Type, Type>(typeof(DataTableReader), typeof(object)), new ForEachSrcPropFindPropInDestMappingStrategy() },
+                { new Pair<Type, Type>(typeof(object), typeof(object)), new ForEachDestPropFindPropInSrcMappingStrategy() }
             };
         }
 

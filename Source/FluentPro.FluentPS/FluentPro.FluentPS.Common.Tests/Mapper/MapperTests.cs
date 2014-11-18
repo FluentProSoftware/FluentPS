@@ -38,5 +38,24 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue((string)bag["PropertyString"] == "PropertyString");
             Assert.IsTrue((string)bag["PropertyWithSpace"] == "PropertyWithSpace");
         }
+
+        [TestMethod, Description("Ensure entity values mapped to corresponding entity properties by name, default convention.")]
+        public void Map_EntityWithPlainNamesToEntityWithPlainNames_ShouldReturnEntityWithPlainNames()
+        {
+            var entity = new EntityWithPlainNames
+            {
+                PropertyGuid = DefaultData.Guid,
+                PropertyInt = 10,
+                PropertyString = "PropertyString",
+                PropertyWithSpace = "PropertyWithSpace"
+            };
+
+            var result = FluentMapper.Default.Map<EntityWithPlainNames, EntityWithPlainNames>(entity);
+
+            Assert.IsTrue(result.PropertyGuid == DefaultData.Guid);
+            Assert.IsTrue(result.PropertyInt == 10);
+            Assert.IsTrue(result.PropertyString == "PropertyString");
+            Assert.IsTrue(result.PropertyWithSpace == "PropertyWithSpace");
+        }
     }
 }

@@ -17,7 +17,6 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
                 var convertedName = ctx.PropertyNameConverter.GetName(prop.Name);
                 var srcVal = srcPropsAccessor.GetPropertyValue(src, prop.Name);
                 destPropsAccessor.SetPropertyValue(dest, convertedName, srcVal);
-
             }
         }
     }
