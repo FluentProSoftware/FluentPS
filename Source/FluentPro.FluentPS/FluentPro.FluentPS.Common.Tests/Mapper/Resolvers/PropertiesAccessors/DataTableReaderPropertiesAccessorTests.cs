@@ -1,8 +1,7 @@
-﻿using System;
-using FluentPro.FluentPS.Common.Mapper.Model;
-using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors;
+﻿using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors;
 using FluentPro.FluentPS.Common.Tests.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace FluentPro.FluentPS.Common.Tests.Mapper.Resolvers.PropertiesAccessors
 {
@@ -17,6 +16,8 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Resolvers.PropertiesAccessors
             reader.Read();
 
             var result = sut.GetPropertyValue(reader, "PropertyGuid");
+
+            Assert.IsTrue((Guid)result == DefaultData.Guid);
         }
     }
 }
