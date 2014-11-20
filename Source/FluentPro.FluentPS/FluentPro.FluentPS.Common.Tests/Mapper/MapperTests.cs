@@ -11,7 +11,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
     [TestClass]
     public class MapperTests
     {
-        [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name, default convention.")]
+        [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name.")]
         public void Map_DataTableReaderToEntity_ShouldReturnEntity()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
@@ -25,7 +25,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue(entity.PropertyWithSpace == "PropertyWithSpace");
         }
 
-        [TestMethod, Description("Ensure row values mapped to corresponding property bag properties by name, default convention.")]
+        [TestMethod, Description("Ensure row values mapped to corresponding property bag properties by name.")]
         public void Map_DataTableToDictionary_ShouldReturnEntity()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
@@ -39,7 +39,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue((string)bag["PropertyWithSpace"] == "PropertyWithSpace");
         }
 
-        [TestMethod, Description("Ensure entity values mapped to corresponding entity properties by name, default convention.")]
+        [TestMethod, Description("Ensure entity values mapped to corresponding entity properties by name.")]
         public void Map_EntityWithPlainNamesToEntityWithPlainNames_ShouldReturnEntityWithPlainNames()
         {
             var entity = new EntityWithPlainNames
