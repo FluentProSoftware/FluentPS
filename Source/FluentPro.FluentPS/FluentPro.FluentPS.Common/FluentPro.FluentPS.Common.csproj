@@ -38,14 +38,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetAnalyzer\FluentDataSetAnalyzer.cs" />
+    <Compile Include="DataSetAnalyzer\Model\DataSetInfo.cs" />
+    <Compile Include="DataSetAnalyzer\Model\TableInfo.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\CamelCaseToUpperUnderscorePropertyNameConverter.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\GetOriginalNamePropertyNameConverter.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\UpperUnderscoreToCamelCasePropertyNameConverter.cs" />
+    <Compile Include="Mapper\Exceptions\MissingMappingDestinationException.cs" />
+    <Compile Include="Mapper\Exceptions\MissingMappingSourceException.cs" />
     <Compile Include="Mapper\Exceptions\MissingMappingStrategyException.cs" />
     <Compile Include="Mapper\FluentMapper.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyAccessorException.cs" />
     <Compile Include="Mapper\Exceptions\MissingPropertyResolverException.cs" />
+    <Compile Include="Mapper\Interfaces\IMappingDestination.cs" />
+    <Compile Include="Mapper\Interfaces\IMappingSource.cs" />
     <Compile Include="Mapper\Interfaces\IMappingStrategy.cs" />
     <Compile Include="Mapper\Interfaces\IPropertyNameConverter.cs" />
     <Compile Include="Mapper\Interfaces\IObjectResolver.cs" />
@@ -53,9 +61,12 @@
     <Compile Include="Mapper\Interfaces\IPropertiesResolver.cs" />
     <Compile Include="Mapper\MappingStrategies\ForEachDestPropFindPropInSrcMappingStrategy.cs" />
     <Compile Include="Mapper\MappingStrategies\ForEachSrcPropAddOrSetPropInDestMappingStrategy.cs" />
+    <Compile Include="Mapper\MappingStrategies\ForEachSrcPropFindPropInDestForGenericListMappingStrategy.cs" />
     <Compile Include="Mapper\MappingStrategies\ForEachSrcPropFindPropInDestMappingStrategy.cs" />
     <Compile Include="Mapper\Model\MapperContext.cs" />
     <Compile Include="Mapper\Model\PropInfo.cs" />
+    <Compile Include="Mapper\Resolvers\MappingDestinations\ListMappingDestination.cs" />
+    <Compile Include="Mapper\Resolvers\MappingSources\DataTableReaderMappingSource.cs" />
     <Compile Include="Mapper\Resolvers\ObjectResolvers\ActivatorObjectResolver.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DataTableReaderPropertiesAccessor.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DictionaryPropertiesAccessor.cs" />

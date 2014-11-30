@@ -8,10 +8,10 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
     {
         public void Map<TSrc, TDest>(MapperContext ctx, TSrc src, TDest dest)
         {
-            var destPropsAccessor = ctx.GetPropsAccessor<TDest>();
-            var srcPropsAccessor = ctx.GetPropsAccessor<TSrc>();
+            var destPropsAccessor = ctx.GetPropsAccessor(typeof(TDest));
+            var srcPropsAccessor = ctx.GetPropsAccessor(typeof(TSrc));
 
-            var srcProps = ctx.GetPropsResolver<TSrc>().GetProperties(src).ToArray();
+            var srcProps = ctx.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
             foreach (var prop in srcProps)
             {
                 var convertedName = ctx.PropertyNameConverter.GetName(prop.Name);

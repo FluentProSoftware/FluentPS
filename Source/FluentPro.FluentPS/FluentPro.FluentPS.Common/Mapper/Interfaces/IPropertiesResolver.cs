@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
-    public interface IPropertiesResolver { }
-
-    public interface IPropertiesResolver<in T> : IPropertiesResolver
+    public interface IPropertiesResolver
     {
-        IEnumerable<PropInfo> GetProperties(T traget);
+        IEnumerable<PropInfo> GetProperties(object traget);
     }
 }

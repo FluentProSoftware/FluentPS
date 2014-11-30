@@ -13,5 +13,9 @@ namespace FluentPro.FluentPS.Common.Tests.Model
         public int PropertyInt { get; set; }
 
         public string PropertyWithSpace { get; set; }
+
+        public DummyEnum PropertyWithDummyEnum { get; set; }
+
+        public DummyEnum PropertyWithDummyEnum1 { get; set; }
     }
 }

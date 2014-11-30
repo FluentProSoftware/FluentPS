@@ -64,6 +64,7 @@
     <Compile Include="Mapper\Converters\PropertyNameConverters\UpperUnderscoreToCamelCasePropertyNameConverterTests.cs" />
     <Compile Include="Mapper\MapperTests.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DataTableReaderPropertiesAccessorTests.cs" />
+    <Compile Include="Model\DummyEnum.cs" />
     <Compile Include="Model\EntityWithPlainNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

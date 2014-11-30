@@ -78,9 +78,14 @@
     <Compile Include="Network\PsiContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProjectPsiServiceTests.cs" />
+    <Compile Include="Services\LookupTablePsiServiceTests.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
+      <Project>{33988cf5-b1bb-4d98-bf1b-e34d0ef0e3d2}</Project>
+      <Name>FluentPro.FluentPS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">
       <Project>{459f522c-fec0-4175-bb39-147644acf858}</Project>
       <Name>FluentPro.FluentPS.Contracts</Name>

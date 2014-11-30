@@ -100,6 +100,7 @@
     <Compile Include="Model\Messages\ReadProjectListByDepartmentRequest.cs" />
     <Compile Include="Model\Messages\ReadProjectListByDepartmentResponse.cs" />
     <Compile Include="Model\Messages\TaskListImportInfo.cs" />
+    <Compile Include="Model\Project\ProjectBasicInfo.cs" />
     <Compile Include="Network\Behaviors\MaxFaultSizeBehavior.cs" />
     <Compile Include="Network\Bindings\HttpsPsiWcfBinding.cs" />
     <Compile Include="Network\Bindings\HttpPsiWcfBinding.cs" />

@@ -12,11 +12,11 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
     {
         public void Map<TSrc, TDest>(MapperContext ctx, TSrc src, TDest dest)
         {
-            var destPropsAccessor = ctx.GetPropsAccessor<TDest>();
-            var destProps = ctx.GetPropsResolver<TDest>().GetProperties(dest).ToArray();
+            var destPropsAccessor = ctx.GetPropsAccessor(typeof(TDest));
+            var destProps = ctx.GetPropsResolver(typeof(TDest)).GetProperties(dest).ToArray();
 
-            var srcPropsAccessor = ctx.GetPropsAccessor<TSrc>();
-            var srcProps = ctx.GetPropsResolver<TSrc>().GetProperties(src).ToArray();
+            var srcPropsAccessor = ctx.GetPropsAccessor(typeof(TSrc));
+            var srcProps = ctx.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
 
             foreach (var prop in srcProps)
             {

@@ -5,16 +5,17 @@ using System.Data;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers
 {
-    public class DataTableReaderPropertiesResolver : IPropertiesResolver<DataTableReader>
+    public class DataTableReaderPropertiesResolver : IPropertiesResolver
     {
-        public IEnumerable<PropInfo> GetProperties(DataTableReader target)
+        public IEnumerable<PropInfo> GetProperties(object target)
         {
-            for (var i = 0; i < target.FieldCount; i++)
+            var reader = target as DataTableReader;
+            for (var i = 0; i < reader.FieldCount; i++)
             {
                 yield return new PropInfo
                 {
-                    Name = target.GetName(i),
-                    Type = target.GetFieldType(i)
+                    Name = reader.GetName(i),
+                    Type = reader.GetFieldType(i)
                 };
             }
         }

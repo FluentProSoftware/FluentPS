@@ -9,6 +9,7 @@ using FluentPro.FluentPS.Psi.Interfaces.Psi;
 using FluentPro.FluentPS.Psi.Model.DataSets;
 using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Network;
+using FluentPro.FluentPS.Psi.Model.Project;
 
 namespace FluentPro.FluentPS.Psi.Services
 {
@@ -21,9 +22,13 @@ namespace FluentPro.FluentPS.Psi.Services
             _psiContext = PsiContext.Get(pwaUri);
         }
 
-        public DataSet ReadProjectList()
+        public List<ProjectBasicInfo> GetProjectsBasicInfo()
         {
-            return _psiContext.Project.ReadProjectList();
+            var ds = _psiContext.Project.ReadProjectList();
+            var reader = ds.Project.CreateDataReader();
+
+            var result = FluentMapper.Default.Map<DataTableReader, List<ProjectBasicInfo>>(reader);
+            return result;
         }
 
         public Guid Create(Guid projectUid, string projectName)
@@ -55,7 +60,7 @@ namespace FluentPro.FluentPS.Psi.Services
             var reader = dataSet.Project.CreateDataReader();
             reader.Read();
 
-            return FluentMapper.Map<DataTableReader, T>(reader);
+            return FluentMapper.Default.Map<DataTableReader, T>(reader);
         }
 
         public Guid Publish(Guid projectUid)

@@ -3,6 +3,7 @@ using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Types;
 using System;
 using System.Collections.Generic;
+using FluentPro.FluentPS.Common.Extensions;
 
 namespace FluentPro.FluentPS.Common.Mapper.Model
 {
@@ -13,10 +14,14 @@ namespace FluentPro.FluentPS.Common.Mapper.Model
     {
         public MapperContext(IPropertyNameConverter propertyNameConverter,
             IObjectResolver objectResolver,
+            Dictionary<Type, Func<object, IMappingSource>> mappingSources,
+            Dictionary<Type, Func<object, IMappingDestination>> mappingDestinations,
             Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
             Dictionary<Type, IPropertiesResolver> propertiesResolvers,
             Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
         {
+            MappingSources = mappingSources;
+            MappingDestinations = mappingDestinations;
             MappingStrategies = mappingStrategies;
             PropertiesResolvers = propertiesResolvers;
             PropertiesAccessors = propertiesAccessors;
@@ -25,6 +30,10 @@ namespace FluentPro.FluentPS.Common.Mapper.Model
         }
 
         public Dictionary<Type, IPropertiesResolver> PropertiesResolvers { get; private set; }
+
+        public Dictionary<Type, Func<object, IMappingSource>> MappingSources { get; private set; }
+
+        public Dictionary<Type, Func<object, IMappingDestination>> MappingDestinations { get; private set; }
 
         public Dictionary<Type, IPropertiesAccessor> PropertiesAccessors { get; private set; }
 
@@ -38,7 +47,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Model
         {
             foreach (var mappingStrategy in MappingStrategies)
             {
-                if (mappingStrategy.Key.First.IsAssignableFrom(typeof(TSrc)) && mappingStrategy.Key.Second.IsAssignableFrom(typeof(TDest)))
+                if (mappingStrategy.Key.First.IsAssignableFromType(typeof(TSrc)) && mappingStrategy.Key.Second.IsAssignableFromType(typeof(TDest)))
                 {
                     return mappingStrategy.Value;
                 }
@@ -51,11 +60,45 @@ namespace FluentPro.FluentPS.Common.Mapper.Model
             };
         }
 
-        public IPropertiesAccessor GetPropsAccessor<T>()
+        public IMappingSource GetMappingSource(object obj)
+        {
+            var type = obj.GetType();
+            foreach (var mappingSource in MappingSources)
+            {
+                if (mappingSource.Key.IsAssignableFromType(type))
+                {
+                    return mappingSource.Value(obj);
+                }
+            }
+
+            throw new MissingMappingStrategyException("The mapping source missing for supplied type")
+            {
+                Src = type
+            };
+        }
+
+        public IMappingDestination GetMappingDestination(object obj)
+        {
+            var type = obj.GetType();
+            foreach (var mappingDestinations in MappingDestinations)
+            {
+                if (mappingDestinations.Key.IsAssignableFromType(type))
+                {
+                    return mappingDestinations.Value(obj);
+                }
+            }
+
+            throw new MissingMappingDestinationException("The mapping destination missing for supplied type")
+            {
+                Dest = type
+            };
+        }
+
+        public IPropertiesAccessor GetPropsAccessor(Type t)
         {
             foreach (var propertiesAccessor in PropertiesAccessors)
             {
-                if (propertiesAccessor.Key.IsAssignableFrom(typeof(T)))
+                if (propertiesAccessor.Key.IsAssignableFrom(t))
                 {
                     var accessor = propertiesAccessor.Value as IPropertiesAccessor;
                     if (accessor != null)
@@ -67,17 +110,17 @@ namespace FluentPro.FluentPS.Common.Mapper.Model
 
             throw new MissingPropertyAccessorException("The property accessor missing for supplied type")
             {
-                Type = typeof(T)
+                Type = t
             };
         }
 
-        public IPropertiesResolver<T> GetPropsResolver<T>()
+        public IPropertiesResolver GetPropsResolver(Type t)
         {
             foreach (var propertiesResolver in PropertiesResolvers)
             {
-                if (propertiesResolver.Key.IsAssignableFrom(typeof(T)))
+                if (propertiesResolver.Key.IsAssignableFrom(t))
                 {
-                    var resolver = propertiesResolver.Value as IPropertiesResolver<T>;
+                    var resolver = propertiesResolver.Value as IPropertiesResolver;
                     if (resolver != null)
                     {
                         return resolver;
@@ -87,7 +130,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Model
 
             throw new MissingPropertyResolverException("The property resolver missing for supplied type")
             {
-                Type = typeof(T)
+                Type = t
             };
         }
     }

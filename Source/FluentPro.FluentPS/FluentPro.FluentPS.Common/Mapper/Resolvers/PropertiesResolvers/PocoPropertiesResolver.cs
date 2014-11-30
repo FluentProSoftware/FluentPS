@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers
 {
-    public class PocoPropertiesResolver : IPropertiesResolver<object>
+    public class PocoPropertiesResolver : IPropertiesResolver
     {
         public IEnumerable<PropInfo> GetProperties(object target)
         {

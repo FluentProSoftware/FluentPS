@@ -2,14 +2,16 @@
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.MappingStrategies;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using FluentPro.FluentPS.Common.Mapper.Resolvers.MappingDestinations;
+using FluentPro.FluentPS.Common.Mapper.Resolvers.MappingSources;
 using FluentPro.FluentPS.Common.Mapper.Resolvers.ObjectResolvers;
 using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors;
 using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers;
+using FluentPro.FluentPS.Common.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using FluentPro.FluentPS.Common.Types;
 
 namespace FluentPro.FluentPS.Common.Mapper
 {
@@ -26,7 +28,7 @@ namespace FluentPro.FluentPS.Common.Mapper
         static FluentMapper()
         {
             DefaultObjectResolver = new ActivatorObjectResolver();
-            DefaultPropertyNameConverter = new RemoveWhiteSpacesPropertyNameConverter();
+            DefaultPropertyNameConverter = new UpperUnderscoreToCamelCasePropertyNameConverter();
 
             DefaultPropertiesResolvers = new Dictionary<Type, IPropertiesResolver>
             {
@@ -42,8 +44,19 @@ namespace FluentPro.FluentPS.Common.Mapper
                 {typeof(object), new PocoPropertiesAccessor() }
             };
 
+            DefaultMappingSources = new Dictionary<Type, Func<object, IMappingSource>>
+            {
+                {typeof(DataTableReader), o => new DataTableReaderMappingSource(o as DataTableReader)}
+            };
+
+            DefaultMappingDestinations = new Dictionary<Type, Func<object, IMappingDestination>>
+            { 
+                {typeof(List<>), o => new ListMappingDestination(o)}
+            };
+
             DefaultMappingStrategies = new Dictionary<Pair<Type, Type>, IMappingStrategy>
             {
+                { new Pair<Type, Type>(typeof(DataTableReader), typeof(List<>)), new ForEachSrcPropFindPropInDestForGenericListMappingStrategy()},
                 { new Pair<Type, Type>(typeof(DataTableReader), typeof(Dictionary<string, object>)), new ForEachSrcPropAddOrSetPropInDestMappingStrategy() },
                 { new Pair<Type, Type>(typeof(DataTableReader), typeof(object)), new ForEachSrcPropFindPropInDestMappingStrategy() },
                 { new Pair<Type, Type>(typeof(object), typeof(object)), new ForEachDestPropFindPropInSrcMappingStrategy() }
@@ -66,8 +79,12 @@ namespace FluentPro.FluentPS.Common.Mapper
             IMappingStrategy mappingStrategy,
             Dictionary<Type, IPropertiesResolver> propertiesResolvers,
             Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
+            Dictionary<Type, Func<object, IMappingSource>> mappingSources,
+            Dictionary<Type, Func<object, IMappingDestination>> mappingDestinations,
             Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
         {
+            MappingSources = mappingSources;
+            MappingDestinations = mappingDestinations;
             MappingStrategies = mappingStrategies;
             MappingStrategy = mappingStrategy;
             PropertiesAccessors = propertiesAccessors;
@@ -119,6 +136,10 @@ namespace FluentPro.FluentPS.Common.Mapper
         /// The default properties accessors.
         /// </value>
         public static Dictionary<Type, IPropertiesAccessor> DefaultPropertiesAccessors { get; set; }
+
+        public static Dictionary<Type, Func<object, IMappingSource>> DefaultMappingSources { get; set; }
+
+        public static Dictionary<Type, Func<object, IMappingDestination>> DefaultMappingDestinations { get; set; }
 
         /// <summary>
         /// Gets or sets the default mapping strategies.
@@ -172,6 +193,10 @@ namespace FluentPro.FluentPS.Common.Mapper
         /// </value>
         public Dictionary<Type, IPropertiesAccessor> PropertiesAccessors { get; private set; }
 
+        public Dictionary<Type, Func<object, IMappingSource>> MappingSources { get; set; }
+
+        public Dictionary<Type, Func<object, IMappingDestination>> MappingDestinations { get; set; }
+
         /// <summary>
         /// Gets the mapping strategies.
         /// </summary>
@@ -213,9 +238,11 @@ namespace FluentPro.FluentPS.Common.Mapper
             IMappingStrategy mappingStrategy,
             Dictionary<Type, IPropertiesResolver> propertiesResolvers,
             Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
+            Dictionary<Type, Func<object, IMappingSource>> mappingSources,
+            Dictionary<Type, Func<object, IMappingDestination>> mappingDestinations,
             Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
         {
-            return new FluentMapper(objectResolver, namingConvention, mappingStrategy, propertiesResolvers, propertiesAccessors, mappingStrategies);
+            return new FluentMapper(objectResolver, namingConvention, mappingStrategy, propertiesResolvers, propertiesAccessors, mappingSources, mappingDestinations, mappingStrategies);
         }
 
         #endregion // Factory props and methods
@@ -224,7 +251,7 @@ namespace FluentPro.FluentPS.Common.Mapper
 
         public TDest Map<TSrc, TDest>(TSrc src)
         {
-            var ctx = new MapperContext(PropertyNameConverter, ObjectResolver, PropertiesAccessors, PropertiesResolvers, MappingStrategies);
+            var ctx = new MapperContext(PropertyNameConverter, ObjectResolver, MappingSources, MappingDestinations, PropertiesAccessors, PropertiesResolvers, MappingStrategies);
             var strategy = ctx.GetMappingStrategy<TSrc, TDest>();
             var dest = ObjectResolver.CreateInstance<TDest>();
             strategy.Map(ctx, src, dest);
@@ -249,6 +276,8 @@ namespace FluentPro.FluentPS.Common.Mapper
                 DefaultMappingStrategy,
                 DefaultPropertiesResolvers,
                 DefaultPropertiesAccessors,
+                DefaultMappingSources,
+                DefaultMappingDestinations,
                 DefaultMappingStrategies);
         }
 

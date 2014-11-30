@@ -1,6 +1,7 @@
-﻿using System;
+﻿using FluentPro.FluentPS.Common.Tests.Extensions;
+using FluentPro.FluentPS.Common.Tests.Model;
+using System;
 using System.Data;
-using FluentPro.FluentPS.Common.Tests.Extensions;
 
 namespace FluentPro.FluentPS.Common.Tests.Data
 {
@@ -16,9 +17,11 @@ namespace FluentPro.FluentPS.Common.Tests.Data
                     .Column("PropertyGuid", typeof(Guid))
                     .Column("PropertyInt", typeof(int))
                     .Column("PropertyString", typeof(string))
-                    .Column("Property With Space", typeof(string));
+                    .Column("Property With Space", typeof(string))
+                    .Column("PropertyWithDummyEnum", typeof(int))
+                    .Column("PropertyWithDummyEnum1", typeof(int));
 
-                dt.Row(Guid, 10, "PropertyString", "PropertyWithSpace");
+                dt.Row(Guid, 10, "PropertyString", "PropertyWithSpace", (int)DummyEnum.Hundred, (int)DummyEnum.Max);
 
                 return dt;
             }

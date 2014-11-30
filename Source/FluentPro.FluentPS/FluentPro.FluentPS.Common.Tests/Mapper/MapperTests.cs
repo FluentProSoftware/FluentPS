@@ -15,7 +15,6 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         public void Map_DataTableReaderToEntity_ShouldReturnEntity()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
-            reader.Read();
 
             var entity = FluentMapper.Default.Map<DataTableReader, EntityWithPlainNames>(reader);
 
@@ -23,13 +22,32 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue(entity.PropertyInt == 10);
             Assert.IsTrue(entity.PropertyString == "PropertyString");
             Assert.IsTrue(entity.PropertyWithSpace == "PropertyWithSpace");
+            Assert.IsTrue(entity.PropertyWithDummyEnum == DummyEnum.Hundred);
+            Assert.IsTrue(entity.PropertyWithDummyEnum1 == DummyEnum.Max);
+        }
+
+        [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name.")]
+        public void Map_DataTableReaderToEntitiesList_ShouldReturnEntitiesList()
+        {
+            var reader = DefaultData.DataTable.CreateDataReader();
+
+            var entities = FluentMapper.Default.Map<DataTableReader, List<EntityWithPlainNames>>(reader);
+
+            foreach (var entity in entities)
+            {
+                Assert.IsTrue(entity.PropertyGuid == DefaultData.Guid);
+                Assert.IsTrue(entity.PropertyInt == 10);
+                Assert.IsTrue(entity.PropertyString == "PropertyString");
+                Assert.IsTrue(entity.PropertyWithSpace == "PropertyWithSpace");
+                Assert.IsTrue(entity.PropertyWithDummyEnum == DummyEnum.Hundred);
+                Assert.IsTrue(entity.PropertyWithDummyEnum1 == DummyEnum.Max);
+            }
         }
 
         [TestMethod, Description("Ensure row values mapped to corresponding property bag properties by name.")]
-        public void Map_DataTableToDictionary_ShouldReturnEntity()
+        public void Map_DataTableReaderToDictionary_ShouldReturnEntity()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
-            reader.Read();
 
             var bag = FluentMapper.Default.Map<DataTableReader, Dictionary<string, object>>(reader);
 
@@ -37,6 +55,8 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue((int)bag["PropertyInt"] == 10);
             Assert.IsTrue((string)bag["PropertyString"] == "PropertyString");
             Assert.IsTrue((string)bag["PropertyWithSpace"] == "PropertyWithSpace");
+            Assert.IsTrue((DummyEnum)bag["PropertyWithDummyEnum"] == DummyEnum.Hundred);
+            Assert.IsTrue((DummyEnum)bag["PropertyWithDummyEnum1"] == DummyEnum.Max);
         }
 
         [TestMethod, Description("Ensure entity values mapped to corresponding entity properties by name.")]
@@ -47,7 +67,9 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
                 PropertyGuid = DefaultData.Guid,
                 PropertyInt = 10,
                 PropertyString = "PropertyString",
-                PropertyWithSpace = "PropertyWithSpace"
+                PropertyWithSpace = "PropertyWithSpace",
+                PropertyWithDummyEnum = DummyEnum.Hundred,
+                PropertyWithDummyEnum1 = DummyEnum.Max
             };
 
             var result = FluentMapper.Default.Map<EntityWithPlainNames, EntityWithPlainNames>(entity);
@@ -56,6 +78,8 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue(result.PropertyInt == 10);
             Assert.IsTrue(result.PropertyString == "PropertyString");
             Assert.IsTrue(result.PropertyWithSpace == "PropertyWithSpace");
+            Assert.IsTrue(entity.PropertyWithDummyEnum == DummyEnum.Hundred);
+            Assert.IsTrue(entity.PropertyWithDummyEnum1 == DummyEnum.Max);
         }
     }
 }

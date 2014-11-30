@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace FluentPro.FluentPS.Psi.Model.Enums
+﻿namespace FluentPro.FluentPS.Psi.Model.Enums
 {
     public enum ProjectType
     {

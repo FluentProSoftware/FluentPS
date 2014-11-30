@@ -8,6 +8,16 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
     public class ProjectPsiServiceTests
     {
         [TestMethod]
+        public void ReadProjectList_ShouldReturnValidCountOfProjects()
+        {
+            var target = new ProjectPsiService(Settings.PwaUri);
+
+            var projects = target.GetProjectsBasicInfo();
+
+            Assert.IsTrue(projects.Count == 38);
+        }
+
+        [TestMethod]
         public void CreateProject_WithNameAndGuid_ShouldReturnTrue()
         {
             var target = new ProjectPsiService(Settings.PwaUri);

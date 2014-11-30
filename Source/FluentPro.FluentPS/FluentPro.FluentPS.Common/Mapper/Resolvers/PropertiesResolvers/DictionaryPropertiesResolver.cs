@@ -5,14 +5,15 @@ using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers
 {
-    public class DictionaryPropertiesResolver : IPropertiesResolver<Dictionary<string, object>>
+    public class DictionaryPropertiesResolver : IPropertiesResolver
     {
-        public IEnumerable<PropInfo> GetProperties(Dictionary<string, object> target)
+        public IEnumerable<PropInfo> GetProperties(object target)
         {
-            return target.Keys.Select(key => new PropInfo
+            var dict = target as Dictionary<string, object>;
+            return dict.Keys.Select(key => new PropInfo
             {
                 Name = key,
-                Type = target[key].GetType()
+                Type = dict[key].GetType()
             });
         }
     }
