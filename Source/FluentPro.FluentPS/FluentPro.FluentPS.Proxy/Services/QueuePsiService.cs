@@ -17,32 +17,32 @@ namespace FluentPro.FluentPS.Psi.Services
 
         public bool Wait(Guid jobUid)
         {
-            //TODO: Optimize this http://msdn.microsoft.com/en-us/library/office/gg177226(v=office.15).aspx
-            //Here should not be never ending cycle
             while (true)
             {
-                //TODO: Move to better interface
-                var response = _psiContext.QueueSystem.GetJobCompletionState(new GetJobCompletionStateRequest(jobUid));
-                //TODO: Handle errors from response
+                var response = _psiContext.QueueSystem.Invoke(q => q.GetJobCompletionState(new GetJobCompletionStateRequest(jobUid)));
                 var jobState = response.GetJobCompletionStateResult;
-
                 if (jobState == JobState.Success)
                 {
                     return true;
                 }
 
-                if (jobState == JobState.Unknown
-                    || jobState == JobState.Failed
-                    || jobState == JobState.FailedNotBlocking
-                    || jobState == JobState.CorrelationBlocked
-                    || jobState == JobState.Canceled)
+                if (IsJobEndedAsFailed(jobState))
                 {
                     return false;
                 }
 
-                var waitTime = _psiContext.QueueSystem.GetJobWaitTime(jobUid);
-                Thread.Sleep(waitTime * 1000);
+                var aproxSecondsRemaining = _psiContext.QueueSystem.Invoke(q => q.GetJobWaitTime(jobUid));
+                Thread.Sleep(aproxSecondsRemaining * 1000); ;
             }
+        }
+
+        private bool IsJobEndedAsFailed(JobState jobState)
+        {
+            return jobState == JobState.Unknown
+                || jobState == JobState.Failed
+                || jobState == JobState.FailedNotBlocking
+                || jobState == JobState.CorrelationBlocked
+                || jobState == JobState.Canceled;
         }
     }
 }

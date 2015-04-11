@@ -21,9 +21,8 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         public void CreateProject_WithNameAndGuid_ShouldReturnTrue()
         {
             var target = new ProjectPsiService(Settings.PwaUri);
-            var queue = new QueuePsiService(Settings.PwaUri);
 
-            var result = queue.Wait(target.Create(Settings.DefaultProjectGuid, Settings.DefaultProjectName));
+            var result = target.Create(Settings.DefaultProjectGuid, Settings.DefaultProjectName).WaitSync();
 
             Assert.IsTrue(result);
         }
@@ -42,9 +41,8 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         public void DeleteProject_ByGuid_ShouldReturnTrue()
         {
             var target = new ProjectPsiService(Settings.PwaUri);
-            var queue = new QueuePsiService(Settings.PwaUri);
 
-            var result = queue.Wait(target.Delete(Settings.DefaultProjectGuid));
+            var result = target.Delete(Settings.DefaultProjectGuid).WaitSync();
 
             Assert.IsTrue(result);
         }

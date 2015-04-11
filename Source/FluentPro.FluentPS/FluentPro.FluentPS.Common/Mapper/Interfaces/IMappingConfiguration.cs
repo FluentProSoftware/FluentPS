@@ -10,8 +10,6 @@ namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 
         IPropertyNameConverter PropertyNameConverter { get; }
 
-        IMappingStrategy MappingStrategy { get; }
-
         Dictionary<Type, IPropertiesResolver> PropertiesResolvers { get; }
 
         Dictionary<Type, IPropertiesAccessor> PropertiesAccessors { get; }

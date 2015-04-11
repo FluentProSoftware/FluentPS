@@ -2,6 +2,7 @@
 using FluentPro.FluentPS.Psi.Network.Bindings;
 using FluentPro.FluentPS.Psi.Network.ChannelFactories;
 using FluentPro.FluentPS.Psi.Network.Channels;
+using FluentPro.FluentPS.Psi.Network.Types;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -16,9 +17,10 @@ namespace FluentPro.FluentPS.Psi.Network
 
         private readonly PsiWcfBinding _binding;
         private readonly EndpointAddress _address;
-        private volatile ProjectPsiChannelFactory _projectPsiChannelFactory;
-        private volatile LookupTablePsiChannelFactory _lookupPsiChannelFactory;
-        private volatile QueueSystemChannelFactory _queueSystemChannelFactory;
+
+        private volatile PsiService<IProjectChannel> _project;
+        private volatile PsiService<ILookupTableChannel> _lookup;
+        private volatile PsiService<IQueueSystemChannel> _queue;
 
         #region Constructors
 
@@ -30,24 +32,24 @@ namespace FluentPro.FluentPS.Psi.Network
 
         #endregion // Constructors
 
-        #region Channels
+        #region Services
 
-        public IProjectChannel Project
+        public PsiService<IProjectChannel> Project
         {
-            get { return ProjectChannelFactory.CreateChannel(); }
+            get { return _project ?? (_project = GetService<IProjectChannel>()); }
         }
 
-        public ILookupTableChannel LookupTable
+        public PsiService<ILookupTableChannel> LookupTable
         {
-            get { return LookupChannelFactory.CreateChannel(); }
+            get { return _lookup ?? (_lookup = GetService<ILookupTableChannel>()); }
         }
 
-        public IQueueSystemChannel QueueSystem
+        public PsiService<IQueueSystemChannel> QueueSystem
         {
-            get { return QueueSystemChannelFactory.CreateChannel(); }
+            get { return _queue ?? (_queue = GetService<IQueueSystemChannel>()); }
         }
 
-        #endregion // Channels
+        #endregion // Services
 
         #region PsiContext static factories
 
@@ -71,65 +73,13 @@ namespace FluentPro.FluentPS.Psi.Network
 
         #endregion // PsiContext static factories
 
-        #region Channel factories
-
-        private ProjectPsiChannelFactory ProjectChannelFactory
+        private PsiService<TChannel> GetService<TChannel>() where TChannel : IClientChannel
         {
-            get
+            lock (_lock)
             {
-                if (_projectPsiChannelFactory == null)
-                {
-                    lock (_lock)
-                    {
-                        if (_projectPsiChannelFactory == null)
-                        {
-                            _projectPsiChannelFactory = new ProjectPsiChannelFactory(_binding, _address);
-                        }
-                    }
-                }
-
-                return _projectPsiChannelFactory;
+                var channelFactory = new PsiChannelFactory<TChannel>(_binding, _address);
+                return new PsiService<TChannel>(channelFactory);
             }
         }
-
-        private LookupTablePsiChannelFactory LookupChannelFactory
-        {
-            get
-            {
-                if (_lookupPsiChannelFactory == null)
-                {
-                    lock (_lock)
-                    {
-                        if (_lookupPsiChannelFactory == null)
-                        {
-                            _lookupPsiChannelFactory = new LookupTablePsiChannelFactory(_binding, _address);
-                        }
-                    }
-                }
-
-                return _lookupPsiChannelFactory;
-            }
-        }
-
-        private QueueSystemChannelFactory QueueSystemChannelFactory
-        {
-            get
-            {
-                if (_queueSystemChannelFactory == null)
-                {
-                    lock (_lock)
-                    {
-                        if (_queueSystemChannelFactory == null)
-                        {
-                            _queueSystemChannelFactory = new QueueSystemChannelFactory(_binding, _address);
-                        }
-                    }
-                }
-
-                return _queueSystemChannelFactory;
-            }
-        }
-
-        #endregion // Channel factories
     }
 }

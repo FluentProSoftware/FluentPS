@@ -58,8 +58,6 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
 
         public IPropertyNameConverter PropertyNameConverter { get; set; }
 
-        public IMappingStrategy MappingStrategy { get; set; }
-
         public Dictionary<Type, IPropertiesResolver> PropertiesResolvers { get; set; }
 
         public Dictionary<Type, IPropertiesAccessor> PropertiesAccessors { get; set; }

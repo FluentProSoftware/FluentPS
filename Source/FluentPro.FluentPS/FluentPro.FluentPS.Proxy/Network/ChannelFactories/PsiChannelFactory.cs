@@ -4,6 +4,7 @@
     using System.ServiceModel;
     using System.ServiceModel.Channels;
     using Behaviors;
+    using System;
 
     public class PsiChannelFactory<TChannel> : ChannelFactory<TChannel> where TChannel : IClientChannel
     {

@@ -3,6 +3,7 @@ using FluentPro.FluentPS.Psi.Model.DataSets;
 using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Model.Project;
 using FluentPro.FluentPS.Psi.Network;
+using FluentPro.FluentPS.Psi.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,26 +12,27 @@ namespace FluentPro.FluentPS.Psi.Services
 {
     public class ProjectPsiService
     {
+        private readonly Uri _pwaUri;
         private readonly PsiContext _psiContext;
 
         public ProjectPsiService(Uri pwaUri)
         {
+            _pwaUri = pwaUri;
             _psiContext = PsiContext.Get(pwaUri);
         }
 
         public List<ProjectBasicInfo> GetProjectsBasicInfo()
         {
-            var ds = _psiContext.Project.ReadProjectList();
+            var ds = _psiContext.Project.Invoke(project => project.ReadProjectList());
             var reader = ds.Project.CreateDataReader();
 
             var result = FluentMapper.PsMapper.Map<DataTableReader, List<ProjectBasicInfo>>(reader);
             return result;
         }
 
-        public Guid Create(Guid projectUid, string projectName)
+        public QueueJob Create(Guid projectUid, string projectName)
         {
-            //So, check in you enterprise what Custom fields (for task or project) that are flagged with "Required".
-            var jobUid = Guid.NewGuid();
+            //So, check in you enterprise what Custom fields (for task or project) that are flagged with "Required".            
             var ds = new ProjectDataSet();
 
             var row = ds.Project.NewProjectRow();
@@ -39,31 +41,32 @@ namespace FluentPro.FluentPS.Psi.Services
             row.PROJ_NAME = projectName;
             ds.Project.AddProjectRow(row);
 
-            _psiContext.Project.QueueCreateProject(jobUid, ds, false);
-            return jobUid;
+            var job = new QueueJob(_pwaUri);
+            _psiContext.Project.Invoke(p => p.QueueCreateProject(job.JobUid, ds, false));
+            return job;
         }
 
-        public Guid Delete(Guid projectUid)
+        public QueueJob Delete(Guid projectUid)
         {
-            var jobUid = Guid.NewGuid();
-            _psiContext.Project.QueueDeleteProjects(jobUid, true, new[] { projectUid }, true);
-            return jobUid;
+            var job = new QueueJob(_pwaUri);
+            _psiContext.Project.Invoke(p => p.QueueDeleteProjects(job.JobUid, true, new[] { projectUid }, true));
+            return job;
         }
 
         public T Get<T>(Guid projectUid)
         {
-            var dataSet = _psiContext.Project.ReadProject(projectUid, DataStoreEnum.WorkingStore);
+            var dataSet = _psiContext.Project.Invoke(p => p.ReadProject(projectUid, DataStoreEnum.WorkingStore));
             var reader = dataSet.Project.CreateDataReader();
             reader.Read();
 
             return FluentMapper.PsMapper.Map<DataTableReader, T>(reader);
         }
 
-        public Guid Publish(Guid projectUid)
+        public QueueJob Publish(Guid projectUid)
         {
-            var jobUid = Guid.NewGuid();
-            _psiContext.Project.QueuePublish(jobUid, projectUid, true, string.Empty);
-            return jobUid;
+            var job = new QueueJob(_pwaUri);
+            _psiContext.Project.Invoke(p => p.QueuePublish(job.JobUid, projectUid, true, string.Empty));
+            return job;
         }
     }
 }
