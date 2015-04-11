@@ -9,7 +9,7 @@ using System.Data;
 namespace FluentPro.FluentPS.Common.Tests.Mapper
 {
     [TestClass]
-    public class MapperTests
+    public class PlainMapperTests
     {
         [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name.")]
         public void Map_DataTableReaderToEntity_ShouldReturnEntity()
@@ -38,7 +38,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             Assert.IsTrue((Guid)bag["PropertyGuid"] == DefaultData.Guid);
             Assert.IsTrue((int)bag["PropertyInt"] == 10);
             Assert.IsTrue((string)bag["PropertyString"] == "PropertyString");
-            Assert.IsTrue((string)bag["PropertyWithSpace"] == "PropertyWithSpace");
+            Assert.IsTrue((string)bag["Property With Space"] == "PropertyWithSpace");
             Assert.IsTrue((DummyEnum)bag["PropertyWithDummyEnum"] == DummyEnum.Hundred);
             Assert.IsTrue((DummyEnum)bag["PropertyWithDummyEnum1"] == DummyEnum.Max);
         }

@@ -23,10 +23,15 @@ namespace FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters
                     sb.Append(char.ToUpper(sourceName[i]));
                     continue;
                 }
-                                
-                if (char.IsUpper(x) && char.IsLower(sourceName[i - 1]))
+
+                if (char.IsUpper(x) && (char.IsLower(sourceName[i - 1]) || char.IsWhiteSpace(sourceName[i - 1])))
                 {
                     sb.Append(x);
+                    continue;
+                }
+
+                if (char.IsWhiteSpace(x))
+                {
                     continue;
                 }
 

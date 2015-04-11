@@ -1,6 +1,7 @@
 ﻿using FluentPro.FluentPS.Psi.Services;
 using FluentPro.FluentPS.Psi.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Psi.Tests.Services
 {
@@ -14,7 +15,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
 
             var projects = target.GetProjectsBasicInfo();
 
-            Assert.IsTrue(projects.Count == 38);
+            Assert.IsTrue(projects.Count == 1);
         }
 
         [TestMethod]
@@ -28,13 +29,23 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         }
 
         [TestMethod]
-        public void GetProject_ByGuid_ShouldReturnProject()
+        public void GetProject_ByGuid_ShouldReturnProjectEntity()
         {
             var target = new ProjectPsiService(Settings.PwaUri);
 
             var result = target.Get<SimpleProject>(Settings.DefaultProjectGuid);
 
             Assert.IsTrue(result.ProjName == Settings.DefaultProjectName);
+        }
+
+        [TestMethod]
+        public void GetProject_ByGuid_ShouldReturnDictionary()
+        {
+            var target = new ProjectPsiService(Settings.PwaUri);
+
+            var result = target.Get<Dictionary<string, object>>(Settings.DefaultProjectGuid);
+
+            Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
 
         [TestMethod]

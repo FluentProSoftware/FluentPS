@@ -4,7 +4,10 @@ using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
 {
-    public class ForEachSrcPropAddOrSetPropInDestMappingStrategy : IMappingStrategy
+    /// <summary>
+    /// Find all properties in source and set them to target. It is used when mapping datareader to Dictionary.
+    /// </summary>
+    public class ForEachSrcPropAddOrSetPropInDestMappingStrategyWithSameName : IMappingStrategy
     {
         public void Map<TSrc, TDest>(IMappingConfiguration ctx, TSrc src, TDest dest)
         {
@@ -14,9 +17,8 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
             var srcProps = ctx.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
             foreach (var prop in srcProps)
             {
-                var convertedName = ctx.PropertyNameConverter.GetName(prop.Name);
                 var srcVal = srcPropsAccessor.GetPropertyValue(src, prop.Name);
-                destPropsAccessor.SetPropertyValue(dest, convertedName, srcVal);
+                destPropsAccessor.SetPropertyValue(dest, prop.Name, srcVal);
             }
         }
     }

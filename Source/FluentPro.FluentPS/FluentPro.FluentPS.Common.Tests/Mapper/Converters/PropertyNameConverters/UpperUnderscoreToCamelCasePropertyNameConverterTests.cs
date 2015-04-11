@@ -31,6 +31,24 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Converters.PropertyNameConverte
             Validate("ProjUid", "ProjUid");
         }
 
+        [TestMethod]
+        public void GetName_T_Field_ShouldReturn_Tfield()
+        {
+            Validate("T Field", "TField");
+        }
+
+        [TestMethod]
+        public void GetName_TField_ShouldReturn_Tfield()
+        {
+            Validate("TField", "Tfield");
+        }
+
+        [TestMethod]
+        public void GetName_PM_TFS_Test_ShouldReturn_PmTfsTest()
+        {
+            Validate("PM TFS Test", "PmTfsTest");
+        }
+
         public override IPropertyNameConverter GetSut()
         {
             return new UpperUnderscoreToCamelCasePropertyNameConverter();

@@ -63,7 +63,7 @@
     <Compile Include="Mapper\Converters\PropertyNameConverters\PropertyNameConverterTests.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverterTests.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\UpperUnderscoreToCamelCasePropertyNameConverterTests.cs" />
-    <Compile Include="Mapper\MapperTests.cs" />
+    <Compile Include="Mapper\PlainMapperTests.cs" />
     <Compile Include="Mapper\Resolvers\PropertiesAccessors\DataTableReaderPropertiesAccessorTests.cs" />
     <Compile Include="Model\DummyEnum.cs" />
     <Compile Include="Model\EntityWithPlainNames.cs" />
