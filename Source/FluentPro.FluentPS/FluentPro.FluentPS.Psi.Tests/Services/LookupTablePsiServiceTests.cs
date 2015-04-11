@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentPro.FluentPS.Common.DataSetAnalyzer;
 using FluentPro.FluentPS.Psi.Network;
-using FluentPro.FluentPS.Common.DataSetAnalyzer;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FluentPro.FluentPS.Psi.Tests.Services
 {

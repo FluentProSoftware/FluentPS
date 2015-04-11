@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FluentPro.FluentPS.Proxy.Tests")]
+[assembly: AssemblyTitle("FluentPro.FluentPS.Psi.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FluentPro.FluentPS.Proxy.Tests")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("FluentPro.FluentPS.Psi.Tests")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e2d8d7d7-8653-47ee-b35d-d82d97feec1a")]
+[assembly: Guid("03dccce4-15cf-47ab-bdc2-5d3b8e10a981")]
 
 // Version information for an assembly consists of the following four values:
 //
