@@ -5,13 +5,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS", "Fluen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Contracts", "FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj", "{459F522C-FEC0-4175-BB39-147644ACF858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi", "FluentPro.FluentPS.Proxy\FluentPro.FluentPS.Psi.csproj", "{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Common", "FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj", "{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Common.Tests", "FluentPro.FluentPS.Common.Tests\FluentPro.FluentPS.Common.Tests.csproj", "{F5551897-C53B-49A5-9388-EA964496BC36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi.Tests", "FluentPro.FluentPS.Psi.Tests\FluentPro.FluentPS.Psi.Tests.csproj", "{205A7318-AA75-43F0-BB08-E00CDFD010D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi", "FluentPro.FluentPS.Psi\FluentPro.FluentPS.Psi.csproj", "{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,6 @@ Global
 		{459F522C-FEC0-4175-BB39-147644ACF858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{459F522C-FEC0-4175-BB39-147644ACF858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{459F522C-FEC0-4175-BB39-147644ACF858}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,6 +39,10 @@ Global
 		{205A7318-AA75-43F0-BB08-E00CDFD010D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{205A7318-AA75-43F0-BB08-E00CDFD010D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{205A7318-AA75-43F0-BB08-E00CDFD010D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
