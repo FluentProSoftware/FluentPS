@@ -1,17 +1,5 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters;
+﻿using FluentPro.FluentPS.Common.Mapper.Configurations;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Mapper.MappingStrategies;
-using FluentPro.FluentPS.Common.Mapper.Model;
-using FluentPro.FluentPS.Common.Mapper.Resolvers.MappingDestinations;
-using FluentPro.FluentPS.Common.Mapper.Resolvers.MappingSources;
-using FluentPro.FluentPS.Common.Mapper.Resolvers.ObjectResolvers;
-using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesAccessors;
-using FluentPro.FluentPS.Common.Mapper.Resolvers.PropertiesResolvers;
-using FluentPro.FluentPS.Common.Types;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 
 namespace FluentPro.FluentPS.Common.Mapper
 {
@@ -20,267 +8,38 @@ namespace FluentPro.FluentPS.Common.Mapper
     /// </summary>
     public class FluentMapper
     {
-        #region Constructors
-
-        /// <summary>
-        /// Initializes the <see cref="FluentMapper"/> class. Invoked when type accessed for the first time. All global default settings should reside here.
-        /// </summary>
-        static FluentMapper()
+        public FluentMapper(IMappingConfiguration config)
         {
-            DefaultObjectResolver = new ActivatorObjectResolver();
-            DefaultPropertyNameConverter = new UpperUnderscoreToCamelCasePropertyNameConverter();
-
-            DefaultPropertiesResolvers = new Dictionary<Type, IPropertiesResolver>
-            {
-                {typeof(IDictionary), new DictionaryPropertiesResolver()},
-                {typeof(DataTableReader), new DataTableReaderPropertiesResolver()},
-                {typeof(object), new PocoPropertiesResolver() }
-            };
-
-            DefaultPropertiesAccessors = new Dictionary<Type, IPropertiesAccessor>
-            {
-                {typeof(IDictionary), new DictionaryPropertiesAccessor()},
-                {typeof(DataTableReader), new DataTableReaderPropertiesAccessor() },
-                {typeof(object), new PocoPropertiesAccessor() }
-            };
-
-            DefaultMappingSources = new Dictionary<Type, Func<object, IMappingSource>>
-            {
-                {typeof(DataTableReader), o => new DataTableReaderMappingSource(o as DataTableReader)}
-            };
-
-            DefaultMappingDestinations = new Dictionary<Type, Func<object, IMappingDestination>>
-            { 
-                {typeof(List<>), o => new ListMappingDestination(o)}
-            };
-
-            DefaultMappingStrategies = new Dictionary<Pair<Type, Type>, IMappingStrategy>
-            {
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(List<>)), new ForEachSrcPropFindPropInDestForGenericListMappingStrategy()},
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(Dictionary<string, object>)), new ForEachSrcPropAddOrSetPropInDestMappingStrategy() },
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(object)), new ForEachSrcPropFindPropInDestMappingStrategy() },
-                { new Pair<Type, Type>(typeof(object), typeof(object)), new ForEachDestPropFindPropInSrcMappingStrategy() }
-            };
+            MapperConfiguration = config;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FluentMapper" /> class.
-        /// Invoked by FluentMapper factory. Should not be invoked directly.
-        /// </summary>
-        /// <param name="objectResolver">The object resolver.</param>
-        /// <param name="namingConvention">The naming convention.</param>
-        /// <param name="mappingStrategy">The mapping strategy.</param>
-        /// <param name="propertiesResolvers">The properties resolvers.</param>
-        /// <param name="propertiesAccessors">The properties accessors.</param>
-        /// <param name="mappingStrategies">The mapping strategies.</param>
-        private FluentMapper(
-            IObjectResolver objectResolver,
-            IPropertyNameConverter namingConvention,
-            IMappingStrategy mappingStrategy,
-            Dictionary<Type, IPropertiesResolver> propertiesResolvers,
-            Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
-            Dictionary<Type, Func<object, IMappingSource>> mappingSources,
-            Dictionary<Type, Func<object, IMappingDestination>> mappingDestinations,
-            Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
+        public IMappingConfiguration MapperConfiguration { get; private set; }
+
+        public static FluentMapper PsMapper
         {
-            MappingSources = mappingSources;
-            MappingDestinations = mappingDestinations;
-            MappingStrategies = mappingStrategies;
-            MappingStrategy = mappingStrategy;
-            PropertiesAccessors = propertiesAccessors;
-            PropertiesResolvers = propertiesResolvers;
-            PropertyNameConverter = namingConvention;
-            ObjectResolver = objectResolver;
+            get { return FluentMapperContainer.PsMapperInstance; }
         }
 
-        #endregion // Constructors
-
-        #region Defaults
-
-        /// <summary>
-        /// Gets or sets the default object resolver.
-        /// </summary>
-        /// <value>
-        /// The default object resolver.
-        /// </value>
-        public static IObjectResolver DefaultObjectResolver { get; set; }
-
-        /// <summary>
-        /// Gets or sets the default naming convention.
-        /// </summary>
-        /// <value>
-        /// The default naming convention.
-        /// </value>
-        public static IPropertyNameConverter DefaultPropertyNameConverter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the default mapping strategy.
-        /// </summary>
-        /// <value>
-        /// The default mapping strategy.
-        /// </value>
-        public static IMappingStrategy DefaultMappingStrategy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the default properties resolvers.
-        /// </summary>
-        /// <value>
-        /// The default properties resolvers.
-        /// </value>
-        public static Dictionary<Type, IPropertiesResolver> DefaultPropertiesResolvers { get; set; }
-
-        /// <summary>
-        /// Gets or sets the default properties accessors.
-        /// </summary>
-        /// <value>
-        /// The default properties accessors.
-        /// </value>
-        public static Dictionary<Type, IPropertiesAccessor> DefaultPropertiesAccessors { get; set; }
-
-        public static Dictionary<Type, Func<object, IMappingSource>> DefaultMappingSources { get; set; }
-
-        public static Dictionary<Type, Func<object, IMappingDestination>> DefaultMappingDestinations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the default mapping strategies.
-        /// </summary>
-        /// <value>
-        /// The default mapping strategies.
-        /// </value>
-        public static Dictionary<Pair<Type, Type>, IMappingStrategy> DefaultMappingStrategies { get; set; }
-
-        #endregion // Defaults
-
-        #region Instance properties
-
-        /// <summary>
-        /// Gets the object resolver.
-        /// </summary>
-        /// <value>
-        /// The object resolver.
-        /// </value>
-        public IObjectResolver ObjectResolver { get; private set; }
-
-        /// <summary>
-        /// Gets the naming convention.
-        /// </summary>
-        /// <value>
-        /// The naming convention.
-        /// </value>
-        public IPropertyNameConverter PropertyNameConverter { get; private set; }
-
-        /// <summary>
-        /// Gets the mapping strategy.
-        /// </summary>
-        /// <value>
-        /// The mapping strategy.
-        /// </value>
-        public IMappingStrategy MappingStrategy { get; private set; }
-
-        /// <summary>
-        /// Gets the properties resolvers.
-        /// </summary>
-        /// <value>
-        /// The properties resolvers.
-        /// </value>
-        public Dictionary<Type, IPropertiesResolver> PropertiesResolvers { get; private set; }
-
-        /// <summary>
-        /// Gets the properties accessors.
-        /// </summary>
-        /// <value>
-        /// The properties accessors.
-        /// </value>
-        public Dictionary<Type, IPropertiesAccessor> PropertiesAccessors { get; private set; }
-
-        public Dictionary<Type, Func<object, IMappingSource>> MappingSources { get; set; }
-
-        public Dictionary<Type, Func<object, IMappingDestination>> MappingDestinations { get; set; }
-
-        /// <summary>
-        /// Gets the mapping strategies.
-        /// </summary>
-        /// <value>
-        /// The mapping strategies.
-        /// </value>
-        public Dictionary<Pair<Type, Type>, IMappingStrategy> MappingStrategies { get; private set; }
-
-        #endregion // Instance properties
-
-        #region Factory props and methods
-
-        /// <summary>
-        /// Gets the current FluentMapper.
-        /// </summary>
-        /// <value>
-        /// The current FluentMapper.
-        /// </value>
-        public static FluentMapper Default
+        public static FluentMapper PlainMapper
         {
-            get { return FluentMapperContainer.DefaultInstance; }
+            get { return FluentMapperContainer.PlainMapper; }
         }
-
-        /// <summary>
-        /// Creates new FluentMapper instance.
-        /// </summary>
-        /// <param name="objectResolver">The object resolver.</param>
-        /// <param name="namingConvention">The naming convention.</param>
-        /// <param name="mappingStrategy">The mapping strategy.</param>
-        /// <param name="propertiesResolvers">The properties resolvers.</param>
-        /// <param name="propertiesAccessors">The properties accessors.</param>
-        /// <param name="mappingStrategies">The mapping strategies.</param>
-        /// <returns>
-        /// The new instance of FluentMapper.
-        /// </returns>
-        public static FluentMapper New(
-            IObjectResolver objectResolver,
-            IPropertyNameConverter namingConvention,
-            IMappingStrategy mappingStrategy,
-            Dictionary<Type, IPropertiesResolver> propertiesResolvers,
-            Dictionary<Type, IPropertiesAccessor> propertiesAccessors,
-            Dictionary<Type, Func<object, IMappingSource>> mappingSources,
-            Dictionary<Type, Func<object, IMappingDestination>> mappingDestinations,
-            Dictionary<Pair<Type, Type>, IMappingStrategy> mappingStrategies)
-        {
-            return new FluentMapper(objectResolver, namingConvention, mappingStrategy, propertiesResolvers, propertiesAccessors, mappingSources, mappingDestinations, mappingStrategies);
-        }
-
-        #endregion // Factory props and methods
-
-        #region Mapping methods
 
         public TDest Map<TSrc, TDest>(TSrc src)
         {
-            var ctx = new MapperContext(PropertyNameConverter, ObjectResolver, MappingSources, MappingDestinations, PropertiesAccessors, PropertiesResolvers, MappingStrategies);
-            var strategy = ctx.GetMappingStrategy<TSrc, TDest>();
-            var dest = ObjectResolver.CreateInstance<TDest>();
-            strategy.Map(ctx, src, dest);
+            var strategy = MapperConfiguration.GetMappingStrategy<TSrc, TDest>();
+            var dest = MapperConfiguration.ObjectResolver.CreateInstance<TDest>();
+            strategy.Map(MapperConfiguration, src, dest);
             return dest;
         }
-
-        #endregion // Mapping methods
-
-        #region Private methods
-
-        #endregion // Private methods
-
-        #region Nested classes
 
         private class FluentMapperContainer
         {
             static FluentMapperContainer() { }
 
-            internal static readonly FluentMapper DefaultInstance = new FluentMapper(
-                DefaultObjectResolver,
-                DefaultPropertyNameConverter,
-                DefaultMappingStrategy,
-                DefaultPropertiesResolvers,
-                DefaultPropertiesAccessors,
-                DefaultMappingSources,
-                DefaultMappingDestinations,
-                DefaultMappingStrategies);
-        }
+            internal static readonly FluentMapper PsMapperInstance = new FluentMapper(new PsMappingConfiguration());
 
-        #endregion // Nested classes
+            internal static readonly FluentMapper PlainMapper = new FluentMapper(new PlainMappingConfiguration());
+        }
     }
 }

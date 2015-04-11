@@ -56,7 +56,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Data\DefaultData.cs" />
-    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Data\Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensionsTest.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\CamelCaseToUpperUnderscorePropertyNameConverterTests.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\GetOriginalNamePropertyNameConverterTests.cs" />
     <Compile Include="Mapper\Converters\PropertyNameConverters\PropertyNameConverterTests.cs" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace FluentPro.FluentPS.Common.Tests.Extensions
+namespace FluentPro.FluentPS.Common.Tests.Data.Extensions
 {
     public static class DataTableExtensions
     {

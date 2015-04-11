@@ -1,4 +1,4 @@
-﻿using FluentPro.FluentPS.Common.Tests.Extensions;
+﻿using FluentPro.FluentPS.Common.Tests.Data.Extensions;
 using FluentPro.FluentPS.Common.Tests.Model;
 using System;
 using System.Data;

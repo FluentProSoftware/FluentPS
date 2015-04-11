@@ -23,7 +23,7 @@ namespace FluentPro.FluentPS.Psi.Services
             var ds = _psiContext.Project.ReadProjectList();
             var reader = ds.Project.CreateDataReader();
 
-            var result = FluentMapper.Default.Map<DataTableReader, List<ProjectBasicInfo>>(reader);
+            var result = FluentMapper.PsMapper.Map<DataTableReader, List<ProjectBasicInfo>>(reader);
             return result;
         }
 
@@ -56,7 +56,7 @@ namespace FluentPro.FluentPS.Psi.Services
             var reader = dataSet.Project.CreateDataReader();
             reader.Read();
 
-            return FluentMapper.Default.Map<DataTableReader, T>(reader);
+            return FluentMapper.PsMapper.Map<DataTableReader, T>(reader);
         }
 
         public Guid Publish(Guid projectUid)

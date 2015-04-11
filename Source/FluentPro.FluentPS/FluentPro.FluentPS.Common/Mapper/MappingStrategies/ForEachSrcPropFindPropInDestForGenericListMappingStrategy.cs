@@ -11,7 +11,7 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
 {
     public class ForEachSrcPropFindPropInDestForGenericListMappingStrategy : IMappingStrategy
     {
-        public void Map<TSrc, TDest>(MapperContext ctx, TSrc src, TDest dest)
+        public void Map<TSrc, TDest>(IMappingConfiguration ctx, TSrc src, TDest dest)
         {
             var srcWrapped = ctx.GetMappingSource(src);
             var destUnderlyingObjectType = typeof(TDest).GetGenericArguments()[0];

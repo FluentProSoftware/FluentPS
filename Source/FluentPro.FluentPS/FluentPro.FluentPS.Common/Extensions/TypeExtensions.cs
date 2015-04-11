@@ -25,8 +25,8 @@ namespace FluentPro.FluentPS.Common.Extensions
                 return true;
             }
 
-            Type baseType = givenType.BaseType;
-            if (baseType == null)
+            var baseType = givenType.BaseType;
+            if (baseType == null || baseType == typeof(object))
             {
                 return false;
             }

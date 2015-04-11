@@ -25,6 +25,12 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Converters.PropertyNameConverte
             Validate("PROJ_UID_MORE_DATA", "ProjUidMoreData");
         }
 
+        [TestMethod]
+        public void GetName_ProjUid_ShouldReturn_ProjUid()
+        {
+            Validate("ProjUid", "ProjUid");
+        }
+
         public override IPropertyNameConverter GetSut()
         {
             return new UpperUnderscoreToCamelCasePropertyNameConverter();

@@ -1,4 +1,5 @@
 ﻿using FluentPro.FluentPS.Common.Mapper;
+using FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters;
 using FluentPro.FluentPS.Common.Tests.Data;
 using FluentPro.FluentPS.Common.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,8 +16,9 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         public void Map_DataTableReaderToEntity_ShouldReturnEntity()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
+            reader.Read();
 
-            var entity = FluentMapper.Default.Map<DataTableReader, EntityWithPlainNames>(reader);
+            var entity = FluentMapper.PlainMapper.Map<DataTableReader, EntityWithPlainNames>(reader);
 
             Assert.IsTrue(entity.PropertyGuid == DefaultData.Guid);
             Assert.IsTrue(entity.PropertyInt == 10);
@@ -30,8 +32,9 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         public void Map_DataTableReaderToEntitiesList_ShouldReturnEntitiesList()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
+            reader.Read();
 
-            var entities = FluentMapper.Default.Map<DataTableReader, List<EntityWithPlainNames>>(reader);
+            var entities = FluentMapper.PlainMapper.Map<DataTableReader, List<EntityWithPlainNames>>(reader);
 
             foreach (var entity in entities)
             {
@@ -48,8 +51,9 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         public void Map_DataTableReaderToDictionary_ShouldReturnEntity()
         {
             var reader = DefaultData.DataTable.CreateDataReader();
+            reader.Read();
 
-            var bag = FluentMapper.Default.Map<DataTableReader, Dictionary<string, object>>(reader);
+            var bag = FluentMapper.PlainMapper.Map<DataTableReader, Dictionary<string, object>>(reader);
 
             Assert.IsTrue((Guid)bag["PropertyGuid"] == DefaultData.Guid);
             Assert.IsTrue((int)bag["PropertyInt"] == 10);
@@ -72,7 +76,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
                 PropertyWithDummyEnum1 = DummyEnum.Max
             };
 
-            var result = FluentMapper.Default.Map<EntityWithPlainNames, EntityWithPlainNames>(entity);
+            var result = FluentMapper.PlainMapper.Map<EntityWithPlainNames, EntityWithPlainNames>(entity);
 
             Assert.IsTrue(result.PropertyGuid == DefaultData.Guid);
             Assert.IsTrue(result.PropertyInt == 10);

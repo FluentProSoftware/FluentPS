@@ -10,7 +10,7 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
     /// </summary>
     public class ForEachSrcPropFindPropInDestMappingStrategy : IMappingStrategy
     {
-        public void Map<TSrc, TDest>(MapperContext ctx, TSrc src, TDest dest)
+        public void Map<TSrc, TDest>(IMappingConfiguration ctx, TSrc src, TDest dest)
         {
             var destPropsAccessor = ctx.GetPropsAccessor(typeof(TDest));
             var destProps = ctx.GetPropsResolver(typeof(TDest)).GetProperties(dest).ToArray();
