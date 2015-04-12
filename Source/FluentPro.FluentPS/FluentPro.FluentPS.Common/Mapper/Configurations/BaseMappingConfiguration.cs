@@ -45,12 +45,12 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
                 {typeof(List<>), o => new ListMappingDestination(o)}
             };
 
-            MappingStrategies = new Dictionary<Pair<Type, Type>, IMappingStrategy>
+            MappingStrategies = new List<IMappingStrategy>
             {
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(List<>)), new ForEachSrcPropFindPropInDestForGenericListMappingStrategy()},
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(Dictionary<string, object>)), new ForEachSrcPropAddOrSetPropInDestMappingStrategyWithSameName() },
-                { new Pair<Type, Type>(typeof(DataTableReader), typeof(object)), new ForEachSrcPropFindPropInDestMappingStrategy() },
-                { new Pair<Type, Type>(typeof(object), typeof(object)), new ForEachDestPropFindPropInSrcMappingStrategy() }
+                new ForEachSrcPropFindPropInDestForGenericListMappingStrategy(),
+                new ForEachSrcPropAddOrSetPropInDestMappingStrategyWithSameName(),
+                new ForEachSrcPropFindPropInDestMappingStrategy(),
+                new ForEachDestPropFindPropInSrcMappingStrategy()
             };
         }
 
@@ -66,15 +66,15 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
 
         public Dictionary<Type, Func<object, IMappingDestination>> MappingDestinations { get; set; }
 
-        public Dictionary<Pair<Type, Type>, IMappingStrategy> MappingStrategies { get; set; }
+        public List<IMappingStrategy> MappingStrategies { get; set; }
 
         public virtual IMappingStrategy GetMappingStrategy<TSrc, TDest>()
         {
             foreach (var mappingStrategy in MappingStrategies)
             {
-                if (mappingStrategy.Key.First.IsAssignableFromType(typeof(TSrc)) && mappingStrategy.Key.Second.IsAssignableFromType(typeof(TDest)))
+                if (mappingStrategy.CanMap<TSrc, TDest>())
                 {
-                    return mappingStrategy.Value;
+                    return mappingStrategy;
                 }
             }
 

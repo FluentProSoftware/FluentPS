@@ -62,6 +62,21 @@ namespace FluentPro.FluentPS.Psi.Services
             return FluentMapper.PsMapper.Map<DataTableReader, T>(reader);
         }
 
+        public T Get<T>(Guid projectUid, ProjectLoadType loadType)
+        {
+            var dataSet = _psiContext.Project.Invoke(p => p.ReadProjectEntities(projectUid, (int)loadType, DataStoreEnum.WorkingStore));
+            var reader = dataSet.Project.CreateDataReader();
+            reader.Read();
+
+            var dest = FluentMapper.PsMapper.Map<DataTableReader, T>(reader);
+
+            var customFieldsReader = dataSet.ProjectCustomFields.CreateDataReader();
+            reader.Read();
+            FluentMapper.PsMapper.Map<DataTableReader, T>(reader, dest);
+
+            return dest;
+        }
+
         public QueueJob Publish(Guid projectUid)
         {
             var job = new QueueJob(_pwaUri);

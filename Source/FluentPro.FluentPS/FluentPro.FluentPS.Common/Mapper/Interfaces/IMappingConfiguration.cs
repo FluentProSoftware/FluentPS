@@ -18,7 +18,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 
         Dictionary<Type, Func<object, IMappingDestination>> MappingDestinations { get; }
 
-        Dictionary<Pair<Type, Type>, IMappingStrategy> MappingStrategies { get; }
+        List<IMappingStrategy> MappingStrategies { get; }
 
         IMappingStrategy GetMappingStrategy<TSrc, TDest>();
 

@@ -4,6 +4,8 @@ namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
     public interface IMappingStrategy
     {
-        void Map<TSrc, TDest>(IMappingConfiguration config, TSrc src, TDest dest);
+        IMappingConfiguration MappingConfiguration { get; set; }
+        bool CanMap<TSrc, TDest>();
+        void Map<TSrc, TDest>(TSrc src, TDest dest);
     }
 }

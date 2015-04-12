@@ -1,32 +1,43 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using FluentPro.FluentPS.Common.Extensions;
+using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
 {
     public class ForEachSrcPropFindPropInDestForGenericListMappingStrategy : IMappingStrategy
     {
-        public void Map<TSrc, TDest>(IMappingConfiguration ctx, TSrc src, TDest dest)
+        public IMappingConfiguration MappingConfiguration { get; set; }
+
+        public bool CanMap<TSrc, TDest>()
         {
-            var srcWrapped = ctx.GetMappingSource(src);
+            return typeof(DataTableReader).IsAssignableFromType(typeof(TSrc)) &&
+                typeof(List<>).IsAssignableFromType(typeof(TDest));
+        }
+
+        public void Map<TSrc, TDest>(TSrc src, TDest dest)
+        {
+            var srcWrapped = MappingConfiguration.GetMappingSource(src);
             var destUnderlyingObjectType = typeof(TDest).GetGenericArguments()[0];
 
-            var destPropsAccessor = ctx.GetPropsAccessor(destUnderlyingObjectType);
+            var destPropsAccessor = MappingConfiguration.GetPropsAccessor(destUnderlyingObjectType);
 
-            var destProps = ctx
+            var destProps = MappingConfiguration
                 .GetPropsResolver(destUnderlyingObjectType)
-                .GetProperties(ctx.ObjectResolver.CreateInstance(destUnderlyingObjectType))
+                .GetProperties(MappingConfiguration.ObjectResolver.CreateInstance(destUnderlyingObjectType))
                 .ToArray();
 
-            var srcPropsAccessor = ctx.GetPropsAccessor(typeof(TSrc));
-            var srcProps = ctx.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
+            var srcPropsAccessor = MappingConfiguration.GetPropsAccessor(typeof(TSrc));
+            var srcProps = MappingConfiguration.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
 
             while (srcWrapped.Next())
             {
-                var obj = ctx.ObjectResolver.CreateInstance(destUnderlyingObjectType);
+                var obj = MappingConfiguration.ObjectResolver.CreateInstance(destUnderlyingObjectType);
                 foreach (var prop in srcProps)
                 {
-                    var convertedName = ctx.PropertyNameConverter.GetName(prop.Name);
+                    var convertedName = MappingConfiguration.PropertyNameConverter.GetName(prop.Name);
                     var propInfo = destProps.FirstOrDefault(p => p.Name == convertedName);
                     if (propInfo != null)
                     {

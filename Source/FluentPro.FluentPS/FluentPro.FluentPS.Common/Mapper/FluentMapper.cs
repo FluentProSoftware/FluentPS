@@ -27,10 +27,16 @@ namespace FluentPro.FluentPS.Common.Mapper
 
         public TDest Map<TSrc, TDest>(TSrc src)
         {
-            var strategy = MapperConfiguration.GetMappingStrategy<TSrc, TDest>();
             var dest = MapperConfiguration.ObjectResolver.CreateInstance<TDest>();
-            strategy.Map(MapperConfiguration, src, dest);
+            Map(src, dest);
             return dest;
+        }
+
+        public void Map<TSrc, TDest>(TSrc src, TDest dest)
+        {
+            var strategy = MapperConfiguration.GetMappingStrategy<TSrc, TDest>();
+            strategy.MappingConfiguration = MapperConfiguration;
+            strategy.Map(src, dest);
         }
 
         private class FluentMapperContainer

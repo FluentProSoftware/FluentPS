@@ -1,4 +1,5 @@
-﻿using FluentPro.FluentPS.Psi.Services;
+﻿using FluentPro.FluentPS.Psi.Model.Enums;
+using FluentPro.FluentPS.Psi.Services;
 using FluentPro.FluentPS.Psi.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -44,6 +45,18 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var target = new ProjectPsiService(Settings.PwaUri);
 
             var result = target.Get<Dictionary<string, object>>(Settings.DefaultProjectGuid);
+
+            Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
+        }
+
+        [TestMethod]
+        public void GetProject_ByGuid_ShouldReturnDictionaryWithCustomFields()
+        {
+            var target = new ProjectPsiService(Settings.PwaUri);
+
+            var result = target.Get<Dictionary<string, object>>(
+                Settings.DefaultProjectGuid, 
+                ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields);
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }

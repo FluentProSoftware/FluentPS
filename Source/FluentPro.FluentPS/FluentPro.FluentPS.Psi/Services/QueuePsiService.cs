@@ -32,7 +32,7 @@ namespace FluentPro.FluentPS.Psi.Services
                 }
 
                 var aproxSecondsRemaining = _psiContext.QueueSystem.Invoke(q => q.GetJobWaitTime(jobUid));
-                Thread.Sleep(aproxSecondsRemaining * 1000); ;
+                Thread.Sleep(aproxSecondsRemaining * 1000);
             }
         }
 

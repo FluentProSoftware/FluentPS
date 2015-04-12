@@ -1,5 +1,6 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Mapper.Model;
+﻿using FluentPro.FluentPS.Common.Extensions;
+using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using System.Data;
 using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
@@ -10,17 +11,25 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
     /// </summary>
     public class ForEachSrcPropFindPropInDestMappingStrategy : IMappingStrategy
     {
-        public void Map<TSrc, TDest>(IMappingConfiguration ctx, TSrc src, TDest dest)
-        {
-            var destPropsAccessor = ctx.GetPropsAccessor(typeof(TDest));
-            var destProps = ctx.GetPropsResolver(typeof(TDest)).GetProperties(dest).ToArray();
+        public IMappingConfiguration MappingConfiguration { get; set; }
 
-            var srcPropsAccessor = ctx.GetPropsAccessor(typeof(TSrc));
-            var srcProps = ctx.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
+        public bool CanMap<TSrc, TDest>()
+        {
+            return typeof(DataTableReader).IsAssignableFromType(typeof(TSrc))
+                && typeof(object).IsAssignableFromType(typeof(TDest));
+        }
+
+        public void Map<TSrc, TDest>(TSrc src, TDest dest)
+        {
+            var destPropsAccessor = MappingConfiguration.GetPropsAccessor(typeof(TDest));
+            var destProps = MappingConfiguration.GetPropsResolver(typeof(TDest)).GetProperties(dest).ToArray();
+
+            var srcPropsAccessor = MappingConfiguration.GetPropsAccessor(typeof(TSrc));
+            var srcProps = MappingConfiguration.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
 
             foreach (var prop in srcProps)
             {
-                var convertedName = ctx.PropertyNameConverter.GetName(prop.Name);
+                var convertedName = MappingConfiguration.PropertyNameConverter.GetName(prop.Name);
                 var propInfo = destProps.FirstOrDefault(p => p.Name == convertedName);
                 if (propInfo != null)
                 {

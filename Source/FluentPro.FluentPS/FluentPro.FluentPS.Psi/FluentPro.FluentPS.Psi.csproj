@@ -83,6 +83,7 @@
     </Compile>
     <Compile Include="Model\Enums\DataStoreEnum.cs" />
     <Compile Include="Model\Enums\JobState.cs" />
+    <Compile Include="Model\Enums\ProjectLoadType.cs" />
     <Compile Include="Model\Enums\ProjectType.cs" />
     <Compile Include="Model\Enums\PSErrorID.cs" />
     <Compile Include="Model\Enums\QueueID.cs" />
