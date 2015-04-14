@@ -4,15 +4,28 @@ using FluentPro.FluentPS.Psi.Network;
 using System;
 using System.Threading;
 
-namespace FluentPro.FluentPS.Psi.Services
+namespace FluentPro.FluentPS.Network.Types
 {
-    public class QueuePsiService
+    public class QueueJob
     {
         private readonly PsiContext _psiContext;
 
-        public QueuePsiService(Uri pwaUri)
+        public QueueJob(Uri pwaUri, Guid jobGuid)
         {
             _psiContext = PsiContext.Get(pwaUri);
+            JobUid = jobGuid;
+        }
+
+        public QueueJob(Uri pwaUri)
+            : this(pwaUri, Guid.NewGuid())
+        {
+        }
+
+        public Guid JobUid { get; private set; }
+
+        public bool WaitSync()
+        {
+            return Wait(JobUid);
         }
 
         public bool Wait(Guid jobUid)

@@ -38,6 +38,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\PsCustomFieldsColumnNames.cs" />
+    <Compile Include="Constants\PsDataTableNames.cs" />
+    <Compile Include="Constants\PsFieldType.cs" />
     <Compile Include="DataSetAnalyzer\FluentDataSetAnalyzer.cs" />
     <Compile Include="DataSetAnalyzer\Model\DataSetInfo.cs" />
     <Compile Include="DataSetAnalyzer\Model\TableInfo.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Mapper\MappingStrategies\ForEachSrcPropAddOrSetPropInDestMappingStrategy.cs" />
     <Compile Include="Mapper\MappingStrategies\ForEachSrcPropFindPropInDestForGenericListMappingStrategy.cs" />
     <Compile Include="Mapper\MappingStrategies\ForEachSrcPropFindPropInDestMappingStrategy.cs" />
+    <Compile Include="Mapper\MappingStrategies\PsCustomFieldsToEntityMappingStrategy.cs" />
     <Compile Include="Mapper\Model\PropInfo.cs" />
     <Compile Include="Mapper\Resolvers\MappingDestinations\ListMappingDestination.cs" />
     <Compile Include="Mapper\Resolvers\MappingSources\DataTableReaderMappingSource.cs" />

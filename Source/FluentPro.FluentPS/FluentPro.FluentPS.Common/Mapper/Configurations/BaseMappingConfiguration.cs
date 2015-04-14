@@ -72,6 +72,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
         {
             foreach (var mappingStrategy in MappingStrategies)
             {
+                mappingStrategy.MappingConfiguration = this;
                 if (mappingStrategy.CanMap<TSrc, TDest>())
                 {
                     return mappingStrategy;

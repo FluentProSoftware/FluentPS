@@ -1,33 +1,27 @@
-﻿using FluentPro.FluentPS.Contracts.Constants;
-using FluentPro.FluentPS.Psi.Network.Bindings;
-using FluentPro.FluentPS.Psi.Network.ChannelFactories;
-using FluentPro.FluentPS.Psi.Network.Channels;
+﻿using FluentPro.FluentPS.Psi.Network.Channels;
 using FluentPro.FluentPS.Psi.Network.Types;
 using System;
 using System.Collections.Generic;
-using System.ServiceModel;
+using System.Diagnostics;
 
 namespace FluentPro.FluentPS.Psi.Network
 {
     public class PsiContext
     {
-        private static readonly Dictionary<Uri, PsiContext> Contexts = new Dictionary<Uri, PsiContext>();
+        //TODO: Make this collection thread-safe, as well as other members of this class.
+        private static readonly Dictionary<Uri, PsiContext> CachedContexts = new Dictionary<Uri, PsiContext>();
 
-        private readonly object _lock = new object();
+        private readonly Uri _pwaUri;
 
-        private readonly PsiWcfBinding _binding;
-        private readonly EndpointAddress _address;
-
-        private volatile PsiService<IProjectChannel> _project;
-        private volatile PsiService<ILookupTableChannel> _lookup;
-        private volatile PsiService<IQueueSystemChannel> _queue;
+        private PsiService<IProjectChannel> _project;
+        private PsiService<ILookupTableChannel> _lookup;
+        private PsiService<IQueueSystemChannel> _queue;
 
         #region Constructors
 
-        private PsiContext(PsiWcfBinding binding, EndpointAddress address)
+        private PsiContext(Uri pwaUri)
         {
-            _binding = binding;
-            _address = address;
+            _pwaUri = pwaUri;
         }
 
         #endregion // Constructors
@@ -36,17 +30,17 @@ namespace FluentPro.FluentPS.Psi.Network
 
         public PsiService<IProjectChannel> Project
         {
-            get { return _project ?? (_project = GetService<IProjectChannel>()); }
+            get { return _project ?? (_project = new PsiService<IProjectChannel>(_pwaUri)); }
         }
 
         public PsiService<ILookupTableChannel> LookupTable
         {
-            get { return _lookup ?? (_lookup = GetService<ILookupTableChannel>()); }
+            get { return _lookup ?? (_lookup = new PsiService<ILookupTableChannel>(_pwaUri)); }
         }
 
         public PsiService<IQueueSystemChannel> QueueSystem
         {
-            get { return _queue ?? (_queue = GetService<IQueueSystemChannel>()); }
+            get { return _queue ?? (_queue = new PsiService<IQueueSystemChannel>(_pwaUri)); }
         }
 
         #endregion // Services
@@ -55,31 +49,18 @@ namespace FluentPro.FluentPS.Psi.Network
 
         public static PsiContext Get(Uri uri)
         {
-            var address = new EndpointAddress(new Uri(uri, Urls.PsiServiceRelativeUrl));
-            if (!Contexts.ContainsKey(address.Uri))
+            Trace.TraceInformation("PsiContext for {0} requested. Looking in cache...", uri);
+            if (!CachedContexts.ContainsKey(uri))
             {
-                PsiWcfBinding binding = new HttpPsiWcfBinding();
-                if (uri.Scheme == Uri.UriSchemeHttps)
-                {
-                    binding = new HttpsPsiWcfBinding();
-                }
-
-                var contex = new PsiContext(binding, address);
-                Contexts.Add(address.Uri, contex);
+                Trace.TraceInformation("PsiContext for url {0} not found in cache.", uri);
+                CachedContexts.Add(uri, new PsiContext(uri));
+                Trace.TraceInformation("New PsiContext for url {0} created and added to cache.", uri);
             }
 
-            return Contexts[address.Uri];
+            Trace.TraceInformation("PsiContext for endpoint {0} returned from cache.", uri);
+            return CachedContexts[uri];
         }
 
         #endregion // PsiContext static factories
-
-        private PsiService<TChannel> GetService<TChannel>() where TChannel : IClientChannel
-        {
-            lock (_lock)
-            {
-                var channelFactory = new PsiChannelFactory<TChannel>(_binding, _address);
-                return new PsiService<TChannel>(channelFactory);
-            }
-        }
     }
 }

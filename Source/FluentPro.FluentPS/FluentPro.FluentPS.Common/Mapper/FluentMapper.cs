@@ -8,16 +8,16 @@ namespace FluentPro.FluentPS.Common.Mapper
     /// </summary>
     public class FluentMapper
     {
+        private readonly IMappingConfiguration mapperConfiguration;
+
         public FluentMapper(IMappingConfiguration config)
         {
-            MapperConfiguration = config;
+            mapperConfiguration = config;
         }
-
-        public IMappingConfiguration MapperConfiguration { get; private set; }
 
         public static FluentMapper PsMapper
         {
-            get { return FluentMapperContainer.PsMapperInstance; }
+            get { return FluentMapperContainer.PsMapper; }
         }
 
         public static FluentMapper PlainMapper
@@ -27,15 +27,14 @@ namespace FluentPro.FluentPS.Common.Mapper
 
         public TDest Map<TSrc, TDest>(TSrc src)
         {
-            var dest = MapperConfiguration.ObjectResolver.CreateInstance<TDest>();
+            var dest = mapperConfiguration.ObjectResolver.CreateInstance<TDest>();
             Map(src, dest);
             return dest;
         }
 
         public void Map<TSrc, TDest>(TSrc src, TDest dest)
         {
-            var strategy = MapperConfiguration.GetMappingStrategy<TSrc, TDest>();
-            strategy.MappingConfiguration = MapperConfiguration;
+            var strategy = mapperConfiguration.GetMappingStrategy<TSrc, TDest>();
             strategy.Map(src, dest);
         }
 
@@ -43,7 +42,7 @@ namespace FluentPro.FluentPS.Common.Mapper
         {
             static FluentMapperContainer() { }
 
-            internal static readonly FluentMapper PsMapperInstance = new FluentMapper(new PsMappingConfiguration());
+            internal static readonly FluentMapper PsMapper = new FluentMapper(new PsMappingConfiguration());
 
             internal static readonly FluentMapper PlainMapper = new FluentMapper(new PlainMappingConfiguration());
         }

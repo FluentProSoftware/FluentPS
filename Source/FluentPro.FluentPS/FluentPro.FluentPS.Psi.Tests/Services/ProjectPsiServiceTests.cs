@@ -1,8 +1,11 @@
-﻿using FluentPro.FluentPS.Psi.Model.Enums;
-using FluentPro.FluentPS.Psi.Services;
+﻿using FluentPro.FluentPS.Common.Mapper;
+using FluentPro.FluentPS.Psi.Model.DataSets;
+using FluentPro.FluentPS.Psi.Model.Enums;
+using FluentPro.FluentPS.Psi.Network;
 using FluentPro.FluentPS.Psi.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Data;
 
 namespace FluentPro.FluentPS.Psi.Tests.Services
 {
@@ -12,19 +15,31 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void ReadProjectList_ShouldReturnValidCountOfProjects()
         {
-            var target = new ProjectPsiService(Settings.PwaUri);
+            var context = PsiContext.Get(Settings.PwaUri);
 
-            var projects = target.GetProjectsBasicInfo();
+            var ds = context.Project.Invoke(project => project.ReadProjectList());
+            var reader = ds.Project.CreateDataReader();
 
-            Assert.IsTrue(projects.Count == 1);
+            var result = FluentMapper.PsMapper.Map<DataTableReader, List<SimpleProject>>(reader);
+
+            Assert.IsTrue(result.Count == 1);
         }
 
         [TestMethod]
         public void CreateProject_WithNameAndGuid_ShouldReturnTrue()
         {
-            var target = new ProjectPsiService(Settings.PwaUri);
+            var context = PsiContext.Get(Settings.PwaUri);
 
-            var result = target.Create(Settings.DefaultProjectGuid, Settings.DefaultProjectName).WaitSync();
+            var ds = new ProjectDataSet();
+            var row = ds.Project.NewProjectRow();
+            row.PROJ_TYPE = (int)ProjectType.Project;
+            row.PROJ_UID = Settings.DefaultProjectGuid;
+            row.PROJ_NAME = Settings.DefaultProjectName;
+            ds.Project.AddProjectRow(row);
+
+            var result = context.Project
+                .Invoke((service, job) => service.QueueCreateProject(job.JobUid, ds, false))
+                .WaitSync();
 
             Assert.IsTrue(result);
         }
@@ -32,9 +47,14 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnProjectEntity()
         {
-            var target = new ProjectPsiService(Settings.PwaUri);
+            var context = PsiContext.Get(Settings.PwaUri);
 
-            var result = target.Get<SimpleProject>(Settings.DefaultProjectGuid);
+            var dataSet = context.Project.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+            var reader = dataSet.Project.CreateDataReader();
+            reader.Read();
+
+            var result = new SimpleProject();
+            FluentMapper.PsMapper.Map(reader, result);
 
             Assert.IsTrue(result.ProjName == Settings.DefaultProjectName);
         }
@@ -42,9 +62,14 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnDictionary()
         {
-            var target = new ProjectPsiService(Settings.PwaUri);
+            var context = PsiContext.Get(Settings.PwaUri);
 
-            var result = target.Get<Dictionary<string, object>>(Settings.DefaultProjectGuid);
+            var dataSet = context.Project.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+            var reader = dataSet.Project.CreateDataReader();
+            reader.Read();
+
+            var result = new Dictionary<string, object>();
+            FluentMapper.PsMapper.Map(reader, result);
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
@@ -52,11 +77,24 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnDictionaryWithCustomFields()
         {
-            var target = new ProjectPsiService(Settings.PwaUri);
+            var target = PsiContext.Get(Settings.PwaUri);
 
-            var result = target.Get<Dictionary<string, object>>(
-                Settings.DefaultProjectGuid, 
-                ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields);
+            var dataSet = target.Project
+                .Invoke(p => p.ReadProjectEntities(
+                    Settings.DefaultProjectGuid,
+                    (int)(ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields),
+                    DataStoreEnum.WorkingStore));
+
+            var result = new Dictionary<string, object>();
+
+            var reader = dataSet.Project.CreateDataReader();
+            reader.Read();
+            FluentMapper.PsMapper.Map(reader, result);
+
+            var customFieldsReader = dataSet.ProjectCustomFields.CreateDataReader();
+            reader.Read();
+            FluentMapper.PsMapper.Map(reader, result);
+
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
@@ -64,9 +102,23 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void DeleteProject_ByGuid_ShouldReturnTrue()
         {
-            var target = new ProjectPsiService(Settings.PwaUri);
+            var target = PsiContext.Get(Settings.PwaUri);
 
-            var result = target.Delete(Settings.DefaultProjectGuid).WaitSync();
+            var result = target.Project
+                .Invoke((p, job) => p.QueueDeleteProjects(job.JobUid, true, new[] { Settings.DefaultProjectGuid }, true))
+                .WaitSync();
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void PublishProject_ByGuid_ShouldReturnTrue()
+        {
+            var target = PsiContext.Get(Settings.PwaUri);
+
+            var result = target.Project
+                .Invoke((p, job) => p.QueuePublish(job.JobUid, Settings.DefaultProjectGuid, true, string.Empty))
+                .WaitSync();
 
             Assert.IsTrue(result);
         }

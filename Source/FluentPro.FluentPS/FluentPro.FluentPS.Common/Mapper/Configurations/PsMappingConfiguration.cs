@@ -1,4 +1,5 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters;
+using FluentPro.FluentPS.Common.Mapper.MappingStrategies;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations
 {
@@ -7,6 +8,8 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
         public PsMappingConfiguration()
         {
             PropertyNameConverter = new UpperUnderscoreToCamelCasePropertyNameConverter();
+
+            MappingStrategies.Insert(0, new PsCustomFieldsToEntityMappingStrategy());
         }
     }
 }
