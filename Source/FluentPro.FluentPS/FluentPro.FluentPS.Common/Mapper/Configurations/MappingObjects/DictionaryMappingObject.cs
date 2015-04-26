@@ -1,10 +1,10 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
+﻿using FluentPro.FluentPS.Common.Extensions;
+using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
 using System.Collections.Generic;
 using System.Linq;
-using FluentPro.FluentPS.Common.Extensions;
 
-namespace FluentPro.FluentPS.Common.Mapper.Resolvers.MappingObjects
+namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
     public class DictionaryMappingObject : IMappingSingleObject
     {

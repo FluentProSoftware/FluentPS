@@ -2,11 +2,15 @@
 using FluentPro.FluentPS.Common.Types;
 using System.Linq;
 
-namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
+namespace FluentPro.FluentPS.Common.Mapper.Strategies
 {
-    public class ForEachDestPropFindPropInSrcMappingStrategy : IMappingStrategy
+    public class ForEachDestPropSetExistingPropInSrcMappingStrategy : IMappingStrategy
     {
-        public void Map(MappingPair mappingPair, IMappingConfiguration config)
+        public IMappingConfiguration MapperConfiguration { get; set; }
+
+        public IPropertyNameConverter PropertyNameConverter { get; set; }
+
+        public void Map(MappingPair mappingPair)
         {
             var src = mappingPair.Src as IMappingSingleObject;
             var dest = mappingPair.Dest as IMappingSingleObject;
@@ -15,7 +19,7 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
             var srcProps = src.Properties;
             foreach (var prop in destProps)
             {
-                var convertedName = config.PropertyNameConverter.GetDestName(prop.Name);
+                var convertedName = PropertyNameConverter.GetName(prop.Name);
                 var propInfo = srcProps.FirstOrDefault(p => p.Name == convertedName);
                 if (propInfo != null)
                 {
@@ -30,12 +34,7 @@ namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
             var src = mappingObjects.Src as IMappingSingleObject;
             var dest = mappingObjects.Dest as IMappingSingleObject;
 
-            if (src == null || dest == null)
-            {
-                return false;
-            }
-
-            return dest.CanDiscoverProperties;
+            return dest.CanDiscoverProperties && src.CanDiscoverProperties;
         }
     }
 }

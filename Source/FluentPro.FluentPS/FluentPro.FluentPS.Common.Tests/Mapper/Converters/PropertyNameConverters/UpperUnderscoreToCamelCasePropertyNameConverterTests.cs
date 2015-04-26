@@ -1,4 +1,4 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters;
+﻿using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

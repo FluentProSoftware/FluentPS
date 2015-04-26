@@ -1,4 +1,4 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters;
+﻿using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,7 +15,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Converters.PropertyNameConverte
 
         public override IPropertyNameConverter GetSut()
         {
-            return new OriginalNamePropertyNameConverter();
+            return new LeaveOriginalNamePropertyNameConverter();
         }
     }
 }

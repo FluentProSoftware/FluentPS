@@ -31,8 +31,8 @@ namespace FluentPro.FluentPS.Psi.Tests.Network
             customFieldsReader.Read();
 
             var dict = new Dictionary<string, object>();
-            FluentMapper.PsMapper.Map(nativeFieldsReader, dict);
-            FluentMapper.PsMapper.Map(projectDataSet.ProjectCustomFields, dict);
+            FluentMapper.Current.Map(nativeFieldsReader, dict);
+            FluentMapper.Current.Map(projectDataSet.ProjectCustomFields, dict);
 
             Assert.IsTrue(dict["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }

@@ -1,13 +1,13 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Exceptions;
+﻿using FluentPro.FluentPS.Common.Extensions;
+using FluentPro.FluentPS.Common.Mapper.Exceptions;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
-using FluentPro.FluentPS.Common.Extensions;
 using System.Collections.Generic;
 using System.Data;
 
-namespace FluentPro.FluentPS.Common.Mapper.Resolvers.MappingObjects
+namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class DataTableReaderMappingObject : IMappingSingleObject
+    public class DataTableReaderMappingObject : IMappingSingleObject, IMappingEnumerableObject
     {
         private DataTableReader _reader;
 
@@ -46,6 +46,24 @@ namespace FluentPro.FluentPS.Common.Mapper.Resolvers.MappingObjects
         public static bool IsValid(object obj)
         {
             return typeof(DataTableReader).IsAssignableFromType(obj.GetType());
+        }
+
+        public void Add(object obj)
+        {
+            throw new UnderlyingObjectDoNotSupportAddOperationsException
+            {
+                UnderlyingObjectType = typeof(DataTableReader)
+            };
+        }
+
+        public bool Next()
+        {
+            return _reader.Read();
+        }
+
+        public object Current
+        {
+            get { return _reader; }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var ds = context.Project.Invoke(project => project.ReadProjectList());
             var reader = ds.Project.CreateDataReader();
 
-            var result = FluentMapper.PsMapper.Map<DataTableReader, List<SimpleProject>>(reader);
+            var result = FluentMapper.Current.Map<DataTableReader, List<SimpleProject>>(reader);
 
             Assert.IsTrue(result.Count == 1);
         }
@@ -54,7 +54,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             reader.Read();
 
             var result = new SimpleProject();
-            FluentMapper.PsMapper.Map(reader, result);
+            FluentMapper.Current.Map(reader, result);
 
             Assert.IsTrue(result.ProjName == Settings.DefaultProjectName);
         }
@@ -69,7 +69,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             reader.Read();
 
             var result = new Dictionary<string, object>();
-            FluentMapper.PsMapper.Map(reader, result);
+            FluentMapper.Current.Map(reader, result);
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
@@ -89,11 +89,11 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
 
             var reader = dataSet.Project.CreateDataReader();
             reader.Read();
-            FluentMapper.PsMapper.Map(reader, result);
+            FluentMapper.Current.Map(reader, result);
 
             var customFieldsReader = dataSet.ProjectCustomFields.CreateDataReader();
             reader.Read();
-            FluentMapper.PsMapper.Map(reader, result);
+            FluentMapper.Current.Map(reader, result);
 
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));

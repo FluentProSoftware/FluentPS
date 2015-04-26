@@ -1,4 +1,5 @@
 ﻿using FluentPro.FluentPS.Common.Mapper;
+using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.FluentPS.Common.Tests.Data;
 using FluentPro.FluentPS.Common.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,7 +18,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             var reader = DefaultData.DataTable.CreateDataReader();
             reader.Read();
 
-            var entity = FluentMapper.PlainMapper.Map<DataTableReader, EntityWithPlainNames>(reader);
+            var entity = FluentMapper.Current.Map<DataTableReader, EntityWithPlainNames>(reader, propertyNameConverter: new RemoveWhiteSpacesPropertyNameConverter());
 
             Assert.IsTrue(entity.PropertyGuid == DefaultData.Guid);
             Assert.IsTrue(entity.PropertyInt == 10);
@@ -33,7 +34,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
             var reader = DefaultData.DataTable.CreateDataReader();
             reader.Read();
 
-            var bag = FluentMapper.PlainMapper.Map<DataTableReader, Dictionary<string, object>>(reader);
+            var bag = FluentMapper.Current.Map<DataTableReader, Dictionary<string, object>>(reader, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
 
             Assert.IsTrue((Guid)bag["PropertyGuid"] == DefaultData.Guid);
             Assert.IsTrue((int)bag["PropertyInt"] == 10);
@@ -56,7 +57,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
                 PropertyWithDummyEnum1 = DummyEnum.Max
             };
 
-            var result = FluentMapper.PlainMapper.Map<EntityWithPlainNames, EntityWithPlainNames>(entity);
+            var result = FluentMapper.Current.Map<EntityWithPlainNames, EntityWithPlainNames>(entity, propertyNameConverter: new RemoveWhiteSpacesPropertyNameConverter());
 
             Assert.IsTrue(result.PropertyGuid == DefaultData.Guid);
             Assert.IsTrue(result.PropertyInt == 10);
@@ -71,7 +72,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         {
             var reader = DefaultData.DataTable.CreateDataReader();
 
-            var entities = FluentMapper.PlainMapper.Map<DataTableReader, List<EntityWithPlainNames>>(reader);
+            var entities = FluentMapper.Current.Map<DataTableReader, List<EntityWithPlainNames>>(reader, propertyNameConverter: new RemoveWhiteSpacesPropertyNameConverter());
 
             Assert.IsTrue(entities.Count > 0);
 

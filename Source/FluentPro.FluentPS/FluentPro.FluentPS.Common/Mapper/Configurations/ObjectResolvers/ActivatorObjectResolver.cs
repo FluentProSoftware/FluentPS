@@ -1,7 +1,7 @@
-﻿using System;
-using FluentPro.FluentPS.Common.Mapper.Interfaces;
+﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using System;
 
-namespace FluentPro.FluentPS.Common.Mapper.Resolvers.ObjectResolvers
+namespace FluentPro.FluentPS.Common.Mapper.ObjectResolvers
 {
     public class ActivatorObjectResolver : IObjectResolver
     {

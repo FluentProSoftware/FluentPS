@@ -1,7 +1,10 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
+﻿using FluentPro.FluentPS.Common.Constants;
+using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using FluentPro.FluentPS.Common.Types;
+using System.Data;
 using System.Text;
 
-namespace FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters
+namespace FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters
 {
     /// <summary>
     /// Convert upper case underscore property names to camel case property names.
@@ -10,7 +13,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters
     /// </summary>
     public class UpperUnderscoreToCamelCasePropertyNameConverter : IPropertyNameConverter
     {
-        public string GetDestName(string sourceName)
+        public string GetName(string sourceName)
         {
             var sb = new StringBuilder();
             sb.Append(sourceName[0]);
@@ -41,22 +44,23 @@ namespace FluentPro.FluentPS.Common.Mapper.Converters.PropertyNameConverters
             return sb.ToString();
         }
 
-        public string GetSourceName(string sourceName)
+        public static bool CanMap(MappingPair mappingPair)
         {
-            var sb = new StringBuilder();
-            sb.Append(sourceName[0]);
-            for (var i = 1; i < sourceName.Length; i++)
-            {
-                var x = sourceName[i];
-                if (char.IsUpper(x))
-                {
-                    sb.Append('_');
-                }
+            var src = mappingPair.Src as IMappingSingleObject;
+            var dest = mappingPair.Dest as IMappingSingleObject;
 
-                sb.Append(x);
+            var dataTable = src.UnderlyingObject as DataTable;
+            if (dataTable == null)
+            {
+                return false;
             }
 
-            return sb.ToString().ToUpper();
+            if (dataTable.TableName == PsDataTableNames.Project)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

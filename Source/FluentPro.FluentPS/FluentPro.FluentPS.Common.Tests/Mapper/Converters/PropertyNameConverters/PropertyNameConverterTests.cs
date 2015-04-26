@@ -11,11 +11,9 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Converters.PropertyNameConverte
         {
             var sut = GetSut();
 
-            var generatedDest = sut.GetDestName(source);
-            var generatedSrc = sut.GetSourceName(dest);
+            var generatedDest = sut.GetName(source);
 
             Assert.IsTrue(generatedDest == dest);
-            Assert.IsTrue(generatedSrc == source);
         }
     }
 }

@@ -47,6 +47,12 @@ namespace FluentPro.FluentPS.Common.Tests.Extensions
         }
 
         [TestMethod]
+        public void IsAssignableFromType_GenericList_ListOfEntityWithPlainNames_ReturnsFalse()
+        {
+            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(List<>), typeof(List<EntityWithPlainNames>)));
+        }
+
+        [TestMethod]
         public void IsAssignableFromType_EntityWithPlainNames_Object_ReturnsFalse()
         {
             Assert.IsFalse(TypeExtensions.IsAssignableFromType(typeof(EntityWithPlainNames), typeof(object)));

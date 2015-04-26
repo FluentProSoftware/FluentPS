@@ -16,24 +16,19 @@ namespace FluentPro.FluentPS.Common.Mapper
             mapperConfiguration = config;
         }
 
-        public static FluentMapper PsMapper
+        public static FluentMapper Current
         {
-            get { return FluentMapperContainer.PsMapper; }
+            get { return FluentMapperContainer.Current; }
         }
 
-        public static FluentMapper PlainMapper
-        {
-            get { return FluentMapperContainer.PlainMapper; }
-        }
-        
-        public TDest Map<TSrc, TDest>(TSrc src)
+        public TDest Map<TSrc, TDest>(TSrc src, IPropertyNameConverter propertyNameConverter = null, IMappingStrategy mappingStrategy = null)
         {
             var dest = mapperConfiguration.ObjectResolver.CreateInstance<TDest>();
-            Map(src, dest);
+            Map(src, dest, propertyNameConverter, mappingStrategy);
             return dest;
         }
 
-        public void Map<TSrc, TDest>(TSrc src, TDest dest)
+        public void Map<TSrc, TDest>(TSrc src, TDest dest, IPropertyNameConverter propertyNameConverter = null, IMappingStrategy mappingStrategy = null)
         {
             var srcMappingObjectType = mapperConfiguration.MappingObjects.Get(src);
             var srcMappingObject = mapperConfiguration.ObjectResolver.CreateInstance(srcMappingObjectType) as IMappingObject;
@@ -42,21 +37,22 @@ namespace FluentPro.FluentPS.Common.Mapper
             var destMappingObjectType = mapperConfiguration.MappingObjects.Get(dest);
             var destMappingObject = mapperConfiguration.ObjectResolver.CreateInstance(destMappingObjectType) as IMappingObject;
             destMappingObject.UnderlyingObject = dest;
-            
+
             var mappingPair = new MappingPair(srcMappingObject, destMappingObject);
 
             var strategyType = mapperConfiguration.MappingStrategies.Get(mappingPair);
-            var strategy = mapperConfiguration.ObjectResolver.CreateInstance(strategyType) as IMappingStrategy;
-            strategy.Map(mappingPair, mapperConfiguration);
+            var strategy = mappingStrategy ?? mapperConfiguration.ObjectResolver.CreateInstance(strategyType) as IMappingStrategy;
+            strategy.MapperConfiguration = mapperConfiguration;
+            strategy.PropertyNameConverter = propertyNameConverter ?? mapperConfiguration.PropertyNameConverters.Get(mappingPair) as IPropertyNameConverter;
+            strategy.Map(mappingPair);
+            dest = (TDest)mappingPair.Dest.UnderlyingObject;
         }
 
         private class FluentMapperContainer
         {
             static FluentMapperContainer() { }
 
-            internal static readonly FluentMapper PsMapper = new FluentMapper(new PsMappingConfiguration());
-
-            internal static readonly FluentMapper PlainMapper = new FluentMapper(new PlainMappingConfiguration());
+            internal static readonly FluentMapper Current = new FluentMapper(new DefaultMappingConfiguration());
         }
     }
 }
