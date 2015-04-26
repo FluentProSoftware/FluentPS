@@ -45,6 +45,7 @@ namespace FluentPro.FluentPS.Common.Mapper
             strategy.MapperConfiguration = mapperConfiguration;
             strategy.PropertyNameConverter = propertyNameConverter ?? mapperConfiguration.PropertyNameConverters.Get(mappingPair) as IPropertyNameConverter;
             strategy.Map(mappingPair);
+
             dest = (TDest)mappingPair.Dest.UnderlyingObject;
         }
 

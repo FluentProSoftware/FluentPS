@@ -8,7 +8,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
     public class MappingObjectsList : IMappingEnumerableObject
     {
-        private List<object> _list;
+        private IList _list;
         private IEnumerator _enumerator;
 
         public bool Next()
@@ -33,7 +33,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return _list; }
             set
             {
-                _list = ((List<object>)value);
+                _list = (IList)value;
                 _enumerator = _list.GetEnumerator();
             }
         }
@@ -42,6 +42,5 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
         {
             return typeof(List<>).IsAssignableFromType(obj.GetType());
         }
-
     }
 }
