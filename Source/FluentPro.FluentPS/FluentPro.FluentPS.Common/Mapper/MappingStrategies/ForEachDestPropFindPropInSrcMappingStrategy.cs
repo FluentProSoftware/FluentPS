@@ -1,37 +1,41 @@
-﻿using FluentPro.FluentPS.Common.Extensions;
-using FluentPro.FluentPS.Common.Mapper.Interfaces;
+﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using FluentPro.FluentPS.Common.Types;
 using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.MappingStrategies
 {
     public class ForEachDestPropFindPropInSrcMappingStrategy : IMappingStrategy
     {
-        public IMappingConfiguration MappingConfiguration { get; set; }
-
-        public bool CanMap<TSrc, TDest>()
+        public void Map(MappingPair mappingPair, IMappingConfiguration config)
         {
-            return typeof(object).IsAssignableFromType(typeof(TSrc))
-                && typeof(object).IsAssignableFromType(typeof(TDest));
-        }
+            var src = mappingPair.Src as IMappingSingleObject;
+            var dest = mappingPair.Dest as IMappingSingleObject;
 
-        public void Map<TSrc, TDest>(TSrc src, TDest dest)
-        {
-            var destPropsAccessor = MappingConfiguration.GetPropsAccessor(typeof(TDest));
-            var destProps = MappingConfiguration.GetPropsResolver(typeof(TDest)).GetProperties(dest).ToArray();
-
-            var srcPropsAccessor = MappingConfiguration.GetPropsAccessor(typeof(TSrc));
-            var srcProps = MappingConfiguration.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
-
+            var destProps = dest.Properties;
+            var srcProps = src.Properties;
             foreach (var prop in destProps)
             {
-                var convertedName = MappingConfiguration.PropertyNameConverter.GetName(prop.Name);
+                var convertedName = config.PropertyNameConverter.GetDestName(prop.Name);
                 var propInfo = srcProps.FirstOrDefault(p => p.Name == convertedName);
                 if (propInfo != null)
                 {
-                    var srcVal = srcPropsAccessor.GetPropertyValue(src, propInfo.Name);
-                    destPropsAccessor.SetPropertyValue(dest, prop.Name, srcVal);
+                    var val = src[propInfo.Name];
+                    dest[prop.Name] = val;
                 }
             }
+        }
+
+        public static bool CanMap(MappingPair mappingObjects)
+        {
+            var src = mappingObjects.Src as IMappingSingleObject;
+            var dest = mappingObjects.Dest as IMappingSingleObject;
+
+            if (src == null || dest == null)
+            {
+                return false;
+            }
+
+            return dest.CanDiscoverProperties;
         }
     }
 }

@@ -7,13 +7,15 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Converters.PropertyNameConverte
     {
         public abstract IPropertyNameConverter GetSut();
 
-        public void Validate(string input, string output)
+        public void Validate(string source, string dest)
         {
             var sut = GetSut();
 
-            var res = sut.GetName(input);
+            var generatedDest = sut.GetDestName(source);
+            var generatedSrc = sut.GetSourceName(dest);
 
-            Assert.IsTrue(res == output);
+            Assert.IsTrue(generatedDest == dest);
+            Assert.IsTrue(generatedSrc == source);
         }
     }
 }

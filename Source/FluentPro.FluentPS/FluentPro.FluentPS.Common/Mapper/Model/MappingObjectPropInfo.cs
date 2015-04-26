@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace FluentPro.FluentPS.Common.Mapper.Model
 {
     [DebuggerDisplay("{Name}")]
-    public class PropInfo
+    public class MappingObjectPropInfo
     {
         public string Name { get; set; }
 

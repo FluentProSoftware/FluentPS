@@ -8,8 +8,6 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
         public PsMappingConfiguration()
         {
             PropertyNameConverter = new UpperUnderscoreToCamelCasePropertyNameConverter();
-
-            MappingStrategies.Insert(0, new PsCustomFieldsToEntityMappingStrategy());
         }
     }
 }

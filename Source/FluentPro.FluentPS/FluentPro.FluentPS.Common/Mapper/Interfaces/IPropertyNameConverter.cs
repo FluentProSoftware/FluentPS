@@ -4,6 +4,7 @@
     // performance tests implemented.
     public interface IPropertyNameConverter
     {
-        string GetName(string sourceName);
+        string GetDestName(string sourceName);
+        string GetSourceName(string destName);
     }
 }

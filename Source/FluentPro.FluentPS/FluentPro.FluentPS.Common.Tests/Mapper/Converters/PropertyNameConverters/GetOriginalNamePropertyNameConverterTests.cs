@@ -15,7 +15,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper.Converters.PropertyNameConverte
 
         public override IPropertyNameConverter GetSut()
         {
-            return new GetOriginalNamePropertyNameConverter();
+            return new OriginalNamePropertyNameConverter();
         }
     }
 }

@@ -73,6 +73,8 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
 
             var entities = FluentMapper.PlainMapper.Map<DataTableReader, List<EntityWithPlainNames>>(reader);
 
+            Assert.IsTrue(entities.Count > 0);
+
             foreach (var entity in entities)
             {
                 Assert.IsTrue(entity.PropertyGuid == DefaultData.Guid);
