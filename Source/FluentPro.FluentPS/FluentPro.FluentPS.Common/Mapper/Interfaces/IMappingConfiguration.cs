@@ -1,10 +1,10 @@
-﻿using FluentPro.FluentPS.Common.Types;
+﻿using FluentPro.FluentPS.Common.Mapper.Types;
 
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
     public interface IMappingConfiguration
     {
-        IObjectResolver ObjectResolver { get; }
+        IMappingObjectFactory ObjectFactory { get; }
 
         FuncToTypeDictionary<object> MappingObjects { get; }
         FuncToTypeDictionary<MappingPair> MappingStrategies { get; }        

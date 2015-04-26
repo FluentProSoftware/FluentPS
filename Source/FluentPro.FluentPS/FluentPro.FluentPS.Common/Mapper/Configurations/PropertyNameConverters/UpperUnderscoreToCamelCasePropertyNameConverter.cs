@@ -1,6 +1,6 @@
 ﻿using FluentPro.FluentPS.Common.Constants;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Types;
+using FluentPro.FluentPS.Common.Mapper.Types;
 using System.Data;
 using System.Text;
 

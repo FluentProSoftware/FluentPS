@@ -1,5 +1,6 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-namespace FluentPro.FluentPS.Common.Types
+
+namespace FluentPro.FluentPS.Common.Mapper.Types
 {
     public class MappingPair
     {

@@ -1,7 +1,7 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Types;
+using FluentPro.FluentPS.Common.Mapper.Types;
 
-namespace FluentPro.FluentPS.Common.Mapper.Strategies
+namespace FluentPro.FluentPS.Common.Mapper.Configurations.Strategies
 {
     /// <summary>
     /// Find all properties in source and set them to target. It is used when mapping to an empty dictionary.

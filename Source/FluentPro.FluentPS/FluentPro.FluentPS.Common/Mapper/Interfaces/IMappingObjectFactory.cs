@@ -2,9 +2,8 @@
 
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {
-    public interface IObjectResolver
+    public interface IMappingObjectFactory
     {
-        T CreateInstance<T>();
         object CreateInstance(Type type);
     }
 }

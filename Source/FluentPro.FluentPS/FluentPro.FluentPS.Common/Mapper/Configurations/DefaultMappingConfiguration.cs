@@ -1,9 +1,9 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects;
+using FluentPro.FluentPS.Common.Mapper.Configurations.ObjectFactories;
 using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
+using FluentPro.FluentPS.Common.Mapper.Configurations.Strategies;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Mapper.ObjectResolvers;
-using FluentPro.FluentPS.Common.Mapper.Strategies;
-using FluentPro.FluentPS.Common.Types;
+using FluentPro.FluentPS.Common.Mapper.Types;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations
 {
@@ -11,7 +11,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
     {
         public DefaultMappingConfiguration()
         {
-            ObjectResolver = new ActivatorObjectResolver();
+            ObjectFactory = new ActivatorObjectFactory();
 
             MappingObjects = new FuncToTypeDictionary<object>
             {
@@ -26,8 +26,6 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
             {
                 { ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy)},
                 { ForEachSrcPropSetNewPropInDestMappingStrategy.CanMap, typeof(ForEachSrcPropSetNewPropInDestMappingStrategy) },
-
-                // Two most generic strategies
                 { ForEachSrcPropSetExistingPropInDestMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestMappingStrategy) },
                 { ForEachDestPropSetExistingPropInSrcMappingStrategy.CanMap, typeof(ForEachDestPropSetExistingPropInSrcMappingStrategy) }
             };
@@ -38,13 +36,12 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
             };
         }
 
-        public IObjectResolver ObjectResolver { get; set; }
+        public IMappingObjectFactory ObjectFactory { get; set; }
 
         public FuncToTypeDictionary<object> MappingObjects { get; set; }
 
         public FuncToTypeDictionary<MappingPair> MappingStrategies { get; set; }
 
         public FuncToTypeDictionary<MappingPair> PropertyNameConverters { get; set; }
-
     }
 }

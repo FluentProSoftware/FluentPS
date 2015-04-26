@@ -1,4 +1,5 @@
 ﻿using FluentPro.FluentPS.Common.Mapper;
+using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.FluentPS.Psi.Model.DataSets;
 using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Network;
@@ -69,7 +70,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             reader.Read();
 
             var result = new Dictionary<string, object>();
-            FluentMapper.Current.Map(reader, result);
+            FluentMapper.Current.Map(reader, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
@@ -94,7 +95,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var customFieldsReader = dataSet.ProjectCustomFields.CreateDataReader();
             reader.Read();
             FluentMapper.Current.Map(reader, result);
-
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }

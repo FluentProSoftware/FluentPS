@@ -1,4 +1,4 @@
-﻿using FluentPro.FluentPS.Common.Types;
+﻿using FluentPro.FluentPS.Common.Mapper.Types;
 
 namespace FluentPro.FluentPS.Common.Mapper.Interfaces
 {

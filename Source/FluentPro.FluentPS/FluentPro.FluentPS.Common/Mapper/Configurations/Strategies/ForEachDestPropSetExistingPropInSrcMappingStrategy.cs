@@ -1,8 +1,8 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Types;
+using FluentPro.FluentPS.Common.Mapper.Types;
 using System.Linq;
 
-namespace FluentPro.FluentPS.Common.Mapper.Strategies
+namespace FluentPro.FluentPS.Common.Mapper.Configurations.Strategies
 {
     public class ForEachDestPropSetExistingPropInSrcMappingStrategy : IMappingStrategy
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FluentPro.FluentPS.Common.Types
+namespace FluentPro.FluentPS.Common.Mapper.Types
 {
     public class FuncToTypeDictionary<T> : Dictionary<Func<T, bool>, Type>
     {

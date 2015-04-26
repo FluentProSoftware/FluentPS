@@ -1,8 +1,7 @@
-﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using System.Collections.Generic;
-using FluentPro.FluentPS.Common.Extensions;
+﻿using FluentPro.FluentPS.Common.Extensions;
+using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
@@ -25,8 +24,6 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
         {
             get { return _enumerator.Current; }
         }
-
-        public object GenericArguments { get; set; }
 
         public object UnderlyingObject
         {

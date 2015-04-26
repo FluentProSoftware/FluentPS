@@ -1,7 +1,7 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Interfaces;
-using FluentPro.FluentPS.Common.Types;
+using FluentPro.FluentPS.Common.Mapper.Types;
 
-namespace FluentPro.FluentPS.Common.Mapper.Strategies
+namespace FluentPro.FluentPS.Common.Mapper.Configurations.Strategies
 {
     public class ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy : IMappingStrategy
     {
@@ -17,19 +17,19 @@ namespace FluentPro.FluentPS.Common.Mapper.Strategies
             while (src.Next())
             {
                 var genericType = dest.UnderlyingObject.GetType().GetGenericArguments()[0];
-                var instance = MapperConfiguration.ObjectResolver.CreateInstance(genericType);
+                var instance = MapperConfiguration.ObjectFactory.CreateInstance(genericType);
 
                 var currentDestMappingObjectType = MapperConfiguration.MappingObjects.Get(instance);
-                var currentDest = MapperConfiguration.ObjectResolver.CreateInstance(currentDestMappingObjectType) as IMappingSingleObject;
+                var currentDest = MapperConfiguration.ObjectFactory.CreateInstance(currentDestMappingObjectType) as IMappingSingleObject;
                 currentDest.UnderlyingObject = instance;
 
                 var currentSrcMappingObjectType = MapperConfiguration.MappingObjects.Get(src.Current);
-                var currentSrc = MapperConfiguration.ObjectResolver.CreateInstance(currentSrcMappingObjectType) as IMappingSingleObject;
+                var currentSrc = MapperConfiguration.ObjectFactory.CreateInstance(currentSrcMappingObjectType) as IMappingSingleObject;
                 currentSrc.UnderlyingObject = src.Current;
 
                 var pair = new MappingPair(currentSrc, currentDest);
                 var strategyType = MapperConfiguration.MappingStrategies.Get(pair);
-                var strategy = MapperConfiguration.ObjectResolver.CreateInstance(strategyType) as IMappingStrategy;
+                var strategy = MapperConfiguration.ObjectFactory.CreateInstance(strategyType) as IMappingStrategy;
                 strategy.MapperConfiguration = MapperConfiguration;
                 strategy.PropertyNameConverter = PropertyNameConverter;
                 strategy.Map(pair);
