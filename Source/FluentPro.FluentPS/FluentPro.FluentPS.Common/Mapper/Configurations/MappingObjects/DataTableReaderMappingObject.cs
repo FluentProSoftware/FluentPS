@@ -42,12 +42,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return _reader; }
             set { _reader = (DataTableReader)value; }
         }
-
-        public static bool IsValid(object obj)
-        {
-            return typeof(DataTableReader).IsAssignableFromType(obj.GetType());
-        }
-
+        
         public void Add(object obj)
         {
             throw new UnderlyingObjectDoNotSupportAddOperationsException
@@ -64,6 +59,11 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
         public object Current
         {
             get { return _reader; }
+        }
+
+        public static bool IsValid(object obj)
+        {
+            return typeof(DataTableReader).IsAssignableFromType(obj.GetType());
         }
     }
 }

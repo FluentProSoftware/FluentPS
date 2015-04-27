@@ -15,7 +15,8 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
 
             MappingObjects = new FuncToTypeDictionary<object>
             {
-                { MappingObjectsList.IsValid, typeof(MappingObjectsList) },                
+                { MappingObjectsList.IsValid, typeof(MappingObjectsList) },   
+                { ProjectNativeFieldsDataTableMappingObject.IsValid, typeof(ProjectNativeFieldsDataTableMappingObject) },
                 { DataRowMappingObject.IsValid, typeof(DataRowMappingObject) },                          
                 { DictionaryMappingObject.IsValid, typeof(DictionaryMappingObject) },
                 { DataTableReaderMappingObject.IsValid, typeof(DataTableReaderMappingObject) },

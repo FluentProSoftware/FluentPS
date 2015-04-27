@@ -88,13 +88,8 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
 
             var result = new Dictionary<string, object>();
 
-            var reader = dataSet.Project.CreateDataReader();
-            reader.Read();
-            FluentMapper.Current.Map(reader, result);
-
-            var customFieldsReader = dataSet.ProjectCustomFields.CreateDataReader();
-            reader.Read();
-            FluentMapper.Current.Map(reader, result);
+            FluentMapper.Current.Map(dataSet.Project, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
+            // FluentMapper.Current.Map(dataSet.ProjectCustomFields, result);
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }

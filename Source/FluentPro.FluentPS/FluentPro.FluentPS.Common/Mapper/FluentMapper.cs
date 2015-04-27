@@ -43,7 +43,7 @@ namespace FluentPro.FluentPS.Common.Mapper
             var strategyType = mapperConfiguration.MappingStrategies.Get(mappingPair);
             var strategy = mappingStrategy ?? mapperConfiguration.ObjectFactory.CreateInstance(strategyType) as IMappingStrategy;
             strategy.MapperConfiguration = mapperConfiguration;
-            strategy.PropertyNameConverter = propertyNameConverter ?? mapperConfiguration.PropertyNameConverters.Get(mappingPair) as IPropertyNameConverter;
+            strategy.PropertyNameConverter = propertyNameConverter ?? mapperConfiguration.ObjectFactory.CreateInstance(mapperConfiguration.PropertyNameConverters.Get(mappingPair)) as IPropertyNameConverter;
             strategy.Map(mappingPair);
 
             dest = (TDest)mappingPair.Dest.UnderlyingObject;

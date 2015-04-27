@@ -46,6 +46,7 @@
     <Compile Include="DataSetAnalyzer\Model\TableInfo.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Mapper\Configurations\DefaultMappingConfiguration.cs" />
+    <Compile Include="Mapper\Configurations\MappingObjects\ProjectNativeFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\Configurations\PropertyNameConverters\CamelCaseToUpperUnderscorePropertyNameConverter.cs" />
     <Compile Include="Mapper\Configurations\PropertyNameConverters\LeaveOriginalNamePropertyNameConverter.cs" />
     <Compile Include="Mapper\Configurations\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
