@@ -12,6 +12,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <copyright>Copyright © 2015 FluentPro Software Corporation</copyright>
-    <tags>FluentPS SharePoint ProjectServer ProjectServer2010 ProjectServer2013</tags>
+    <tags>FluentPS SharePoint Project Server ProjectServer Project Online ProjectOnline 2010 2013 PSI</tags>
   </metadata>
 </package>

@@ -4,7 +4,7 @@ cd Source\FluentPro.FluentPS
 cd FluentPro.FluentPS
 del /S *.nupkg
 msbuild /p:Configuration=Release
-..\.nuget\NuGet.exe pack -Prop Configuration=Release
+..\.nuget\NuGet.exe pack -Symbols -Prop Configuration=Release
 cd ..\..\..
 
 RD /S /Q Packages

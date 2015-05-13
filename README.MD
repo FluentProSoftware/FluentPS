@@ -2,22 +2,19 @@
 
 Intro
 ===
-FluentPS is an open source library to simplify development and improve maintainability of Project Server 2010/2013/Project Online custom solutions by providing ORM-like interface to PSI/PJContext/CSOM. Utilizing FluentPS, you can access your data in form of plain .NET objects.
+FluentPS is an open source library to simplify development and improve maintainability of Project Server custom solutions by providing interface to PSI.
+
+Links
+====
+NuGet: https://www.nuget.org/packages/FluentPro.FluentPS
 
 Goals
 ====
 - Simplify use of framework
-- Create Nuget package
 - Create platform independent framework
 - Use static code analysis
-- Merge two branches, create a single lib with use of wrappers
-- Implement caching of channel factories
+- Add sepparate lib with interfaces for async operations
 
-How to add async operations
+Best practices
 ====
-TBD.
-
-Useful links
-====
-
 http://stackoverflow.com/questions/576185/logging-best-practices
