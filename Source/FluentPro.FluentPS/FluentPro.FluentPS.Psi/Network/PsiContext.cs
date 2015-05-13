@@ -1,66 +1,43 @@
-﻿using FluentPro.FluentPS.Psi.Network.Channels;
-using FluentPro.FluentPS.Psi.Network.Types;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-
-namespace FluentPro.FluentPS.Psi.Network
+﻿namespace FluentPro.FluentPS.Psi.Network
 {
+    using FluentPro.FluentPS.Psi.Network.Types;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+
     public class PsiContext
     {
         //TODO: Make this collection thread-safe, as well as other members of this class.
-        private static readonly Dictionary<Uri, PsiContext> CachedContexts = new Dictionary<Uri, PsiContext>();
+        /// <summary>
+        /// Cache PsiServices per AppDomain and URI
+        /// </summary>
+        private static readonly Dictionary<Uri, Dictionary<Type, object>> CachedServices = new Dictionary<Uri, Dictionary<Type, object>>();
 
-        private readonly Uri _pwaUri;
-
-        private PsiService<IProjectChannel> _project;
-        private PsiService<ILookupTableChannel> _lookup;
-        private PsiService<IQueueSystemChannel> _queue;
-
-        #region Constructors
-
-        private PsiContext(Uri pwaUri)
+        private PsiContext()
         {
-            _pwaUri = pwaUri;
         }
-
-        #endregion // Constructors
-
-        #region Services
-
-        public PsiService<IProjectChannel> Project
+        
+        public static PsiService<TService> Get<TService>(Uri pwaUri)
         {
-            get { return _project ?? (_project = new PsiService<IProjectChannel>(_pwaUri)); }
-        }
-
-        public PsiService<ILookupTableChannel> LookupTable
-        {
-            get { return _lookup ?? (_lookup = new PsiService<ILookupTableChannel>(_pwaUri)); }
-        }
-
-        public PsiService<IQueueSystemChannel> QueueSystem
-        {
-            get { return _queue ?? (_queue = new PsiService<IQueueSystemChannel>(_pwaUri)); }
-        }
-
-        #endregion // Services
-
-        #region PsiContext static factories
-
-        public static PsiContext Get(Uri uri)
-        {
-            Trace.TraceInformation("PsiContext for {0} requested. Looking in cache...", uri);
-            if (!CachedContexts.ContainsKey(uri))
+            var channelType = typeof(TService);
+            Trace.TraceInformation("PsiService<{0}> for url {1} requested.", channelType.Name, pwaUri);
+            if (!CachedServices.ContainsKey(pwaUri))
             {
-                Trace.TraceInformation("PsiContext for url {0} not found in cache.", uri);
-                CachedContexts.Add(uri, new PsiContext(uri));
-                Trace.TraceInformation("New PsiContext for url {0} created and added to cache.", uri);
+                Trace.TraceInformation("No Psi services for url {0} found in cache. Create a new entry.", pwaUri);
+                CachedServices.Add(pwaUri, new Dictionary<Type, object>());
             }
 
-            Trace.TraceInformation("PsiContext for endpoint {0} returned from cache.", uri);
-            return CachedContexts[uri];
-        }
+            var entry = CachedServices[pwaUri];
+            if (!entry.ContainsKey(channelType))
+            {
+                Trace.TraceInformation("PsiService<{0}> for url {1} not found in cache. Create a new PsiService<{0}> and add it to cache.", channelType.Name, pwaUri);
+                var psiService = new PsiService<TService>(pwaUri);
+                entry.Add(channelType, psiService);
+                return psiService;
+            }
 
-        #endregion // PsiContext static factories
+            Trace.TraceInformation("PsiContext for endpoint {0} returned from cache.", pwaUri);
+            return entry[channelType] as PsiService<TService>;
+        }
     }
 }

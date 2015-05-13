@@ -1,12 +1,11 @@
 ﻿namespace FluentPro.FluentPS.Psi.Network.ChannelFactories
 {
+    using Behaviors;
     using System.Security.Principal;
     using System.ServiceModel;
     using System.ServiceModel.Channels;
-    using Behaviors;
-    using System;
 
-    public class PsiChannelFactory<TChannel> : ChannelFactory<TChannel> where TChannel : IClientChannel
+    public class PsiChannelFactory<TChannel> : ChannelFactory<TChannel>
     {
         public PsiChannelFactory(Binding binding, EndpointAddress remoteAddress)
             : base(binding, remoteAddress)

@@ -45,9 +45,13 @@
     <Compile Include="Exceptions\Faults\DefaultServerFault.cs" />
     <Compile Include="Exceptions\Faults\ServerExecutionFault.cs" />
     <Compile Include="Exceptions\Faults\ServerFault.cs" />
+    <Compile Include="Interfaces\Psi\ICustomFields.cs" />
     <Compile Include="Interfaces\Psi\ILookupTable.cs" />
     <Compile Include="Interfaces\Psi\IProject.cs" />
     <Compile Include="Interfaces\Psi\IQueueSystem.cs" />
+    <Compile Include="Model\DataSets\CustomFieldDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\DataSets\LookupTableDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -106,22 +110,14 @@
     <Compile Include="Network\Bindings\HttpPsiWcfBinding.cs" />
     <Compile Include="Network\Bindings\PsiWcfBinding.cs" />
     <Compile Include="Network\ChannelFactories\PsiChannelFactory.cs" />
-    <Compile Include="Network\Channels\ILookupTableChannel.cs" />
-    <Compile Include="Network\Channels\IProjectChannel.cs" />
-    <Compile Include="Network\Channels\IQueueSystemChannel.cs" />
     <Compile Include="Network\PsiContext.cs" />
     <Compile Include="Network\Types\PsiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Network\Types\QueueJob.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
       <Project>{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}</Project>
       <Name>FluentPro.FluentPS.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentPro.FluentPS.Contracts\FluentPro.FluentPS.Contracts.csproj">
-      <Project>{459f522c-fec0-4175-bb39-147644acf858}</Project>
-      <Name>FluentPro.FluentPS.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

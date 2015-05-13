@@ -1,56 +1,70 @@
-﻿using FluentPro.FluentPS.Contracts.Constants;
-using FluentPro.FluentPS.Network.Types;
-using FluentPro.FluentPS.Psi.Network.Bindings;
-using FluentPro.FluentPS.Psi.Network.ChannelFactories;
-using System;
-using System.ServiceModel;
-
-namespace FluentPro.FluentPS.Psi.Network.Types
+﻿namespace FluentPro.FluentPS.Psi.Network.Types
 {
-    public class PsiService<T> where T : IClientChannel
+    using FluentPro.FluentPS.Psi.Exceptions.Faults;
+    using FluentPro.FluentPS.Psi.Network.Bindings;
+    using FluentPro.FluentPS.Psi.Network.ChannelFactories;
+    using System;
+    using System.Diagnostics;
+    using System.ServiceModel;
+    using System.ServiceModel.Channels;
+
+    public class PsiService<TChannel>
     {
+        private const string PsiServiceRelativeUrl = "_vti_bin/PSI/ProjectServer.svc";
+
+        private readonly Type _channelType;
         private readonly Uri _pwaUri;
-        private PsiWcfBinding _binding;
+        private Binding _binding;
         private EndpointAddress _address;
-        private ChannelFactory<T> _channelFactory;
+        private ChannelFactory<TChannel> _channelFactory;
 
         public PsiService(Uri pwaUri)
         {
             _pwaUri = pwaUri;
+            _channelType = typeof(TChannel);
         }
 
-        public TResult Invoke<TResult>(Func<T, TResult> func)
+        public TResult Invoke<TResult>(Func<TChannel, TResult> func)
         {
+            Trace.TraceInformation("Open channel for {0}:{1}", _pwaUri, _channelType.Name);
             var channel = (IClientChannel)ChannelFactory.CreateChannel();
             bool success = false;
             try
             {
-                var result = func((T)channel);
+                Trace.TraceInformation("Invoke action on {0}:{1}", _pwaUri, _channelType.Name);
+
+                Trace.Indent();
+                var result = func((TChannel)channel);
+                Trace.Unindent();
+
+                Trace.TraceInformation("Close channel for {0}:{1}", _pwaUri, _channelType.Name);
                 channel.Close();
                 success = true;
                 return result;
             }
-            //TODO: Add http://stackoverflow.com/questions/576185/logging-best-practices somewhere to readme
-            //catch (FaultException<ServerExecutionFault> fault)
-            //{ //TODO: Add more exception handlers
-            //}
+            catch (FaultException<ServerExecutionFault> fault)
+            {
+                Trace.Unindent();
+                Trace.TraceError("Failed to invoke action on channel for {0}:{1}. Message: {2}", _pwaUri, _channelType.Name, fault.Detail.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Trace.Unindent();
+                Trace.TraceError("Failed to invoke action on channel for {0}:{1}. Message: {2}", _pwaUri, _channelType.Name, ex.Message);
+                throw;
+            }
             finally
             {
                 if (!success)
                 {
+                    Trace.TraceInformation("Abort channel for {0}:{1}", _pwaUri, _channelType.Name);
                     channel.Abort();
                 }
             }
         }
 
-        public QueueJob Invoke(Action<T, QueueJob> action)
-        {
-            var job = new QueueJob(_pwaUri);
-            Invoke(channel => action(channel, job));
-            return job;
-        }
-
-        public void Invoke(Action<T> action)
+        public void Invoke(Action<TChannel> action)
         {
             Invoke(channel =>
             {
@@ -59,7 +73,7 @@ namespace FluentPro.FluentPS.Psi.Network.Types
             });
         }
 
-        private ChannelFactory<T> ChannelFactory
+        public ChannelFactory<TChannel> ChannelFactory
         {
             get
             {
@@ -71,8 +85,8 @@ namespace FluentPro.FluentPS.Psi.Network.Types
                         _binding = new HttpsPsiWcfBinding();
                     }
 
-                    _address = new EndpointAddress(new Uri(_pwaUri, Urls.PsiServiceRelativeUrl));
-                    _channelFactory = new PsiChannelFactory<T>(_binding, _address);
+                    _address = new EndpointAddress(new Uri(_pwaUri, PsiServiceRelativeUrl));
+                    _channelFactory = new PsiChannelFactory<TChannel>(_binding, _address);
                 }
 
                 return _channelFactory;

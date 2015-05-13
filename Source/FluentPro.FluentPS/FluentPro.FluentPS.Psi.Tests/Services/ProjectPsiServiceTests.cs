@@ -1,10 +1,13 @@
 ﻿using FluentPro.FluentPS.Common.Mapper;
 using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
+using FluentPro.FluentPS.Psi.Interfaces.Psi;
 using FluentPro.FluentPS.Psi.Model.DataSets;
 using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Network;
 using FluentPro.FluentPS.Psi.Tests.Model;
+using FluentPro.FluentPS.Psi.Tests.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -16,12 +19,11 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void ReadProjectList_ShouldReturnValidCountOfProjects()
         {
-            var context = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var ds = context.Project.Invoke(project => project.ReadProjectList());
-            var reader = ds.Project.CreateDataReader();
+            var ds = projectService.Invoke(project => project.ReadProjectList());
 
-            var result = FluentMapper.Current.Map<DataTableReader, List<SimpleProject>>(reader);
+            var result = FluentMapper.Current.Map<DataTable, List<SimpleProject>>(ds.Project);
 
             Assert.IsTrue(result.Count == 1);
         }
@@ -29,7 +31,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void CreateProject_WithNameAndGuid_ShouldReturnTrue()
         {
-            var context = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
             var ds = new ProjectDataSet();
             var row = ds.Project.NewProjectRow();
@@ -38,19 +40,17 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             row.PROJ_NAME = Settings.DefaultProjectName;
             ds.Project.AddProjectRow(row);
 
-            var result = context.Project
-                .Invoke((service, job) => service.QueueCreateProject(job.JobUid, ds, false))
-                .WaitSync();
-
-            Assert.IsTrue(result);
+            var jobUid = Guid.NewGuid();
+            projectService.Invoke(p => p.QueueCreateProject(jobUid, ds, false));
+            Assert.IsTrue(QueueUtil.Wait(jobUid));
         }
 
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnProjectEntity()
         {
-            var context = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var dataSet = context.Project.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+            var dataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
             var reader = dataSet.Project.CreateDataReader();
             reader.Read();
 
@@ -63,14 +63,25 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnDictionary()
         {
-            var context = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var dataSet = context.Project.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
-            var reader = dataSet.Project.CreateDataReader();
-            reader.Read();
+            var dataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
             var result = new Dictionary<string, object>();
-            FluentMapper.Current.Map(reader, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
+            FluentMapper.Current.Map(dataSet.Project, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
+
+            Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
+        }
+
+        [TestMethod]
+        public void GetProject_ByGuid_ShouldReturnDictionary_Async()
+        {
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
+
+            var dataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+
+            var result = new Dictionary<string, object>();
+            FluentMapper.Current.Map(dataSet.Project, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
@@ -78,10 +89,9 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnDictionaryWithCustomFields()
         {
-            var target = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var dataSet = target.Project
-                .Invoke(p => p.ReadProjectEntities(
+            var dataSet = projectService.Invoke(p => p.ReadProjectEntities(
                     Settings.DefaultProjectGuid,
                     (int)(ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields),
                     DataStoreEnum.WorkingStore));
@@ -97,25 +107,23 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         [TestMethod]
         public void DeleteProject_ByGuid_ShouldReturnTrue()
         {
-            var target = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var result = target.Project
-                .Invoke((p, job) => p.QueueDeleteProjects(job.JobUid, true, new[] { Settings.DefaultProjectGuid }, true))
-                .WaitSync();
+            var jobUid = Guid.NewGuid();
+            projectService.Invoke(p => p.QueueDeleteProjects(jobUid, true, new[] { Settings.DefaultProjectGuid }, true));
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(QueueUtil.Wait(jobUid));
         }
 
         [TestMethod]
         public void PublishProject_ByGuid_ShouldReturnTrue()
         {
-            var target = PsiContext.Get(Settings.PwaUri);
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var result = target.Project
-                .Invoke((p, job) => p.QueuePublish(job.JobUid, Settings.DefaultProjectGuid, true, string.Empty))
-                .WaitSync();
+            var jobUid = Guid.NewGuid();
+            projectService.Invoke(p => p.QueuePublish(jobUid, Settings.DefaultProjectGuid, true, string.Empty));
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(QueueUtil.Wait(jobUid));
         }
     }
 }
