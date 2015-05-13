@@ -21,3 +21,4 @@ _ReSharper*/
 *.ldf
 Source/FluentPro.FluentPS/TestResults/*
 Source/*/packages
+*.nupkg
