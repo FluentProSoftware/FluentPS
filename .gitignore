@@ -20,3 +20,4 @@ _ReSharper*/
 *.mdf
 *.ldf
 Source/FluentPro.FluentPS/TestResults/*
+Source/*/packages

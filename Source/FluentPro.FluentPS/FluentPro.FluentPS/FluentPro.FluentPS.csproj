@@ -40,7 +40,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
+      <Project>{33988cf5-b1bb-4d98-bf1b-e34d0ef0e3d2}</Project>
+      <Name>FluentPro.FluentPS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FluentPro.FluentPS.Psi\FluentPro.FluentPS.Psi.csproj">
+      <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
+      <Name>FluentPro.FluentPS.Psi</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
