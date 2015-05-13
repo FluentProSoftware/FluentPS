@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,14 +56,14 @@
       <Name>FluentPro.FluentPS.Psi</Name>
     </ProjectReference>
   </ItemGroup>
-  
   <ItemGroup>
     <None Include="FluentPro.FluentPS.nuspec" />
+    <None Include="Key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
     <CreateItem Include="@(ReferenceCopyLocalPaths)" Condition="'%(CopyLocal)'=='true' and '%(Extension)'=='.dll'">
-      <Output TaskParameter="Include" ItemName="IlmergeAssemblies"/>
+      <Output TaskParameter="Include" ItemName="IlmergeAssemblies" />
     </CreateItem>
     <Message Text="MERGING: @(IlmergeAssemblies->'%(Filename)')" Importance="High" />
     <Exec Command="&quot;..\packages\ILRepack.1.26.0\tools\ILRepack.exe&quot; /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
