@@ -1,13 +1,1 @@
-cd Source\FluentPro.FluentPS
-..\.nuget\NuGet.exe restore
-
-cd FluentPro.FluentPS
-del /S *.nupkg
-msbuild /p:Configuration=Release
-..\.nuget\NuGet.exe pack -Symbols -Prop Configuration=Release
-cd ..\..\..
-
-RD /S /Q Packages
-md Packages
-xcopy Source\FluentPro.FluentPS\FluentPro.FluentPS\FluentPro.FluentPS.*.nupkg Packages
-Source\FluentPro.FluentPS\.nuget\NuGet.exe push Packages\FluentPro.FluentPS.*.nupkg
+Source\FluentPro.FluentPS\packages\psake.4.4.1\tools\psake.cmd "Build\default.ps1"

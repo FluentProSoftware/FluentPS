@@ -69,4 +69,5 @@
     <Exec Command="&quot;..\packages\ILRepack.1.26.0\tools\ILRepack.exe&quot; /keyfile:$(KeyOriginatorFile) /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
   </Target>
+
 </Project>
