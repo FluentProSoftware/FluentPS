@@ -1,12 +1,13 @@
 ﻿using FluentPro.FluentPS.Common.Extensions;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class DictionaryMappingObject : IMappingSingleObject
+    public class DictionaryMappingObject : BaseMappingObject, IMappingSingleObject
     {
         private Dictionary<string, object> _dict;
 
@@ -49,7 +50,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return false; }
         }
 
-        public object UnderlyingObject
+        public override object UnderlyingObject
         {
             get { return _dict; }
             set { _dict = (Dictionary<string, object>)value; }

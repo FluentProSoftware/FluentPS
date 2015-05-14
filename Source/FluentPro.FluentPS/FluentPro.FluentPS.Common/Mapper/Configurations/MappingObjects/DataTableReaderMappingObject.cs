@@ -2,12 +2,13 @@
 using FluentPro.FluentPS.Common.Mapper.Exceptions;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class DataTableReaderMappingObject : IMappingSingleObject, IMappingEnumerableObject
+    public class DataTableReaderMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
         private DataTableReader _reader;
 
@@ -37,12 +38,12 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return true; }
         }
 
-        public object UnderlyingObject
+        public override object UnderlyingObject
         {
             get { return _reader; }
             set { _reader = (DataTableReader)value; }
         }
-        
+
         public void Add(object obj)
         {
             throw new UnderlyingObjectDoNotSupportAddOperationsException

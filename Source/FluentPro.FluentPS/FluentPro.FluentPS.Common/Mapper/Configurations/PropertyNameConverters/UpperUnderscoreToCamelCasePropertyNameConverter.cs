@@ -55,7 +55,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters
                 return false;
             }
 
-            if (dataTable.TableName == PsDataTableNames.Project)
+            if (dataTable.TableName == PsDataTableNames.Project || dataTable.TableName == PsDataTableNames.ProjectCustomFields)
             {
                 return true;
             }

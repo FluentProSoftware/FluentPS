@@ -1,13 +1,14 @@
 ﻿using FluentPro.FluentPS.Common.Extensions;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class PocoMappingObject : IMappingSingleObject
+    public class PocoMappingObject : BaseMappingObject, IMappingSingleObject
     {
         private object _target;
 
@@ -34,7 +35,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return true; }
         }
 
-        public object UnderlyingObject
+        public override object UnderlyingObject
         {
             get { return _target; }
             set { _target = value; }

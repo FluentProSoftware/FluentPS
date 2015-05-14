@@ -1,13 +1,14 @@
 ﻿using FluentPro.FluentPS.Common.Extensions;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class DataRowMappingObject : IMappingSingleObject
+    public class DataRowMappingObject : BaseMappingObject, IMappingSingleObject
     {
         private DataRow _row;
 
@@ -34,7 +35,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return true; }
         }
 
-        public object UnderlyingObject
+        public override object UnderlyingObject
         {
             get { return _row; }
             set { _row = (DataRow)value; }

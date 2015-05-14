@@ -1,6 +1,9 @@
 ﻿using FluentPro.FluentPS.Common.Mapper.Configurations;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
+using FluentPro.FluentPS.Common.Mapper.Model;
 using FluentPro.FluentPS.Common.Mapper.Types;
+using System;
+using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Common.Mapper
 {
@@ -21,22 +24,29 @@ namespace FluentPro.FluentPS.Common.Mapper
             get { return FluentMapperContainer.Current; }
         }
 
-        public TDest Map<TSrc, TDest>(TSrc src, IPropertyNameConverter propertyNameConverter = null, IMappingStrategy mappingStrategy = null)
+        public TDest Map<TSrc, TDest>(TSrc src, IPropertyNameConverter propertyNameConverter = null, IMappingStrategy mappingStrategy = null, Dictionary<string, object> externalData = null)
         {
             var dest = (TDest)mapperConfiguration.ObjectFactory.CreateInstance(typeof(TDest));
-            Map(src, dest, propertyNameConverter, mappingStrategy);
+            Map(src, dest, propertyNameConverter, mappingStrategy, externalData);
             return dest;
         }
 
-        public void Map<TSrc, TDest>(TSrc src, TDest dest, IPropertyNameConverter propertyNameConverter = null, IMappingStrategy mappingStrategy = null)
+        public void Map<TSrc, TDest>(TSrc src, TDest dest, IPropertyNameConverter propertyNameConverter = null, IMappingStrategy mappingStrategy = null, Dictionary<string, object> externalData = null)
         {
+            if (externalData == null)
+            {
+                externalData = new Dictionary<string, object>();
+            }
+
             var srcMappingObjectType = mapperConfiguration.MappingObjects.Get(src);
             var srcMappingObject = mapperConfiguration.ObjectFactory.CreateInstance(srcMappingObjectType) as IMappingObject;
             srcMappingObject.UnderlyingObject = src;
+            srcMappingObject.ExternalData = externalData;
 
             var destMappingObjectType = mapperConfiguration.MappingObjects.Get(dest);
             var destMappingObject = mapperConfiguration.ObjectFactory.CreateInstance(destMappingObjectType) as IMappingObject;
             destMappingObject.UnderlyingObject = dest;
+            destMappingObject.ExternalData = externalData;
 
             var mappingPair = new MappingPair(srcMappingObject, destMappingObject);
 

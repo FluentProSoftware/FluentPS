@@ -60,6 +60,7 @@
                 TResult result;
                 using (var scope = new OperationContextScope(channel))
                 {
+                    Trace.TraceInformation("Current AuthType = {0}", _authType);
                     if (_authType == AuthType.Windows)
                     {
                         WebOperationContext.Current.OutgoingRequest.Headers.Remove("X-FORMS_BASED_AUTH_ACCEPTED");

@@ -17,6 +17,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations
             {
                 { MappingObjectsList.IsValid, typeof(MappingObjectsList) },   
                 { ProjectNativeFieldsDataTableMappingObject.IsValid, typeof(ProjectNativeFieldsDataTableMappingObject) },
+                { ProjectCustomFieldsDataTableMappingObject.IsValid, typeof(ProjectCustomFieldsDataTableMappingObject) },
                 { DataRowMappingObject.IsValid, typeof(DataRowMappingObject) },                          
                 { DictionaryMappingObject.IsValid, typeof(DictionaryMappingObject) },
                 { DataTableReaderMappingObject.IsValid, typeof(DataTableReaderMappingObject) },

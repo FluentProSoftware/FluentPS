@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class MappingObjectsList : IMappingEnumerableObject
+    public class MappingObjectsList : BaseMappingObject, IMappingEnumerableObject
     {
         private IList _list;
         private IEnumerator _enumerator;
@@ -25,7 +25,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return _enumerator.Current; }
         }
 
-        public object UnderlyingObject
+        public override object UnderlyingObject
         {
             get { return _list; }
             set

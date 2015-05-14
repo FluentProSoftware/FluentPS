@@ -1,13 +1,14 @@
 ﻿using FluentPro.FluentPS.Common.Constants;
 using FluentPro.FluentPS.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Common.Mapper.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
 namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
 {
-    public class ProjectNativeFieldsDataTableMappingObject : IMappingSingleObject, IMappingEnumerableObject
+    public class ProjectNativeFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
         private DataTable _dataTable;
         private int _rowIdx;
@@ -33,7 +34,7 @@ namespace FluentPro.FluentPS.Common.Mapper.Configurations.MappingObjects
             get { return _dataTable.Rows[_rowIdx]; }
         }
 
-        public object UnderlyingObject
+        public override object UnderlyingObject
         {
             get { return _dataTable; }
             set { _dataTable = (DataTable)value; }

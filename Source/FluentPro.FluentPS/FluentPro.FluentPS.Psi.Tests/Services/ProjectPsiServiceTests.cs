@@ -74,34 +74,35 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
         }
 
         [TestMethod]
-        public void GetProject_ByGuid_ShouldReturnDictionary_Async()
-        {
-            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
-
-            var dataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
-
-            var result = new Dictionary<string, object>();
-            FluentMapper.Current.Map(dataSet.Project, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
-
-            Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
-        }
-
-        [TestMethod]
         public void GetProject_ByGuid_ShouldReturnDictionaryWithCustomFields()
         {
             var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
+            var customFieldsService = PsiContext.Get<ICustomFields>(Settings.PwaUri);
 
-            var dataSet = projectService.Invoke(p => p.ReadProjectEntities(
+            var projectDataSet = projectService.Invoke(p => p.ReadProjectEntities(
                     Settings.DefaultProjectGuid,
                     (int)(ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields),
                     DataStoreEnum.WorkingStore));
 
-            var result = new Dictionary<string, object>();
+            var customFieldsDataSet = customFieldsService.Invoke(s => s.ReadCustomFields(string.Empty, false));
 
-            FluentMapper.Current.Map(dataSet.Project, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
-            // FluentMapper.Current.Map(dataSet.ProjectCustomFields, result);
+            var result = new Dictionary<string, object>();
+            FluentMapper.Current.Map(
+                projectDataSet.Project,
+                result,
+                propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
+
+            FluentMapper.Current.Map(
+                projectDataSet.ProjectCustomFields,
+                result,
+                propertyNameConverter: new LeaveOriginalNamePropertyNameConverter(),
+                externalData: new Dictionary<string, object> 
+                {
+                    { customFieldsDataSet.DataSetName, customFieldsDataSet }
+                });
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
+            Assert.IsTrue(result["Custom Field"].Equals(Settings.DefaultProjectName));
         }
 
         [TestMethod]
