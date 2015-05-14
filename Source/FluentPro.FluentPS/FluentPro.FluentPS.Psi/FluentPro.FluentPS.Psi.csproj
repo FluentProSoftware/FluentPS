@@ -85,6 +85,7 @@
     <Compile Include="Model\DataSets\SyncErrorsDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\Enums\AuthType.cs" />
     <Compile Include="Model\Enums\DataStoreEnum.cs" />
     <Compile Include="Model\Enums\JobState.cs" />
     <Compile Include="Model\Enums\ProjectLoadType.cs" />
