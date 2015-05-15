@@ -1,11 +1,11 @@
-﻿using FluentPro.FluentPS.Common.Extensions;
-using FluentPro.FluentPS.Common.Tests.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using FluentPro.Common.Mapper.Extensions;
+using FluentPro.Common.Mapper.Tests.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FluentPro.FluentPS.Common.Tests.Extensions
+namespace FluentPro.Common.Mapper.Tests.Extensions
 {
     [TestClass]
     public class TypeExtensionsTest
@@ -13,61 +13,61 @@ namespace FluentPro.FluentPS.Common.Tests.Extensions
         [TestMethod]
         public void IsAssignableFromType_Object_Object_ReturnsTrue()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(object), typeof(object)));
+            Assert.IsTrue(typeof(object).IsAssignableFromType(typeof(object)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_Object_EntityWithPlainNames_ReturnsTrue()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(object), typeof(EntityWithPlainNames)));
+            Assert.IsTrue(typeof(object).IsAssignableFromType(typeof(EntityWithPlainNames)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_Object_Guid_ReturnsTrue()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(object), typeof(Guid)));
+            Assert.IsTrue(typeof(object).IsAssignableFromType(typeof(Guid)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_Object_GenericList_ReturnsTrue()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(object), typeof(List<>)));
+            Assert.IsTrue(typeof(object).IsAssignableFromType(typeof(List<>)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_Object_DictionaryStringObject_ReturnsTrue()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(object), typeof(Dictionary<string, object>)));
+            Assert.IsTrue(typeof(object).IsAssignableFromType(typeof(Dictionary<string, object>)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_Object_DataTableReader_ReturnsTrue()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(object), typeof(DataTableReader)));
+            Assert.IsTrue(typeof(object).IsAssignableFromType(typeof(DataTableReader)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_GenericList_ListOfEntityWithPlainNames_ReturnsFalse()
         {
-            Assert.IsTrue(TypeExtensions.IsAssignableFromType(typeof(List<>), typeof(List<EntityWithPlainNames>)));
+            Assert.IsTrue(typeof(List<>).IsAssignableFromType(typeof(List<EntityWithPlainNames>)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_EntityWithPlainNames_Object_ReturnsFalse()
         {
-            Assert.IsFalse(TypeExtensions.IsAssignableFromType(typeof(EntityWithPlainNames), typeof(object)));
+            Assert.IsFalse(typeof(EntityWithPlainNames).IsAssignableFromType(typeof(object)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_EntityWithPlainNames_GenericList_ReturnsFalse()
         {
-            Assert.IsFalse(TypeExtensions.IsAssignableFromType(typeof(EntityWithPlainNames), typeof(List<>)));
+            Assert.IsFalse(typeof(EntityWithPlainNames).IsAssignableFromType(typeof(List<>)));
         }
 
         [TestMethod]
         public void IsAssignableFromType_GenericList_EntityWithPlainNames_ReturnsFalse()
         {
-            Assert.IsFalse(TypeExtensions.IsAssignableFromType(typeof(List<>), typeof(EntityWithPlainNames)));
+            Assert.IsFalse(typeof(List<>).IsAssignableFromType(typeof(EntityWithPlainNames)));
         }
     }
 }

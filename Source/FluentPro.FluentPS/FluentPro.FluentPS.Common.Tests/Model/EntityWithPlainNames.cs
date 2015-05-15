@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentPro.FluentPS.Common.Tests.Model
+namespace FluentPro.Common.Mapper.Tests.Model
 {
     public class EntityWithPlainNames
     {

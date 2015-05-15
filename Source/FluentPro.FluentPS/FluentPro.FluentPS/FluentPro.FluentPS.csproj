@@ -44,12 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\PsCustomFieldsColumnNames.cs" />
+    <Compile Include="Constants\PsDataTableNames.cs" />
+    <Compile Include="Constants\PsFieldType.cs" />
+    <Compile Include="Mapper\MappingObjects\ProjectCustomFieldsDataTableMappingObject.cs" />
+    <Compile Include="Mapper\MappingObjects\ProjectNativeFieldsDataTableMappingObject.cs" />
+    <Compile Include="Mapper\PropertyNameConverters\NativeProjectFieldsToCamelCasePropertyNameConverter.cs" />
+    <Compile Include="Mapper\PsMappingConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
-      <Project>{33988cf5-b1bb-4d98-bf1b-e34d0ef0e3d2}</Project>
-      <Name>FluentPro.FluentPS.Common</Name>
+    <ProjectReference Include="..\FluentPro.Common.Mapper\FluentPro.Common.Mapper.csproj">
+      <Project>{acfd08ee-684e-4158-8502-d3ae7a635fe9}</Project>
+      <Name>FluentPro.Common.Mapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\FluentPro.FluentPS.Psi\FluentPro.FluentPS.Psi.csproj">
       <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
@@ -60,6 +67,7 @@
     <None Include="FluentPro.FluentPS.nuspec" />
     <None Include="Key.snk" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
     <CreateItem Include="@(ReferenceCopyLocalPaths)" Condition="'%(CopyLocal)'=='true' and '%(Extension)'=='.dll'">
@@ -69,5 +77,4 @@
     <Exec Command="&quot;..\packages\ILRepack.1.26.0\tools\ILRepack.exe&quot; /keyfile:$(KeyOriginatorFile) /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
   </Target>
-
 </Project>

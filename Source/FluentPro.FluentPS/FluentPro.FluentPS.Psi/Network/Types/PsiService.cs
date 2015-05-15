@@ -97,6 +97,8 @@
                     channel.Abort();
                 }
             }
+
+            //TODO: Add more catch and exception handling
         }
 
         public void Invoke(Action<TChannel> action)

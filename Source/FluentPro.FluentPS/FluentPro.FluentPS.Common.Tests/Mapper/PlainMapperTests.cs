@@ -1,13 +1,13 @@
-﻿using FluentPro.FluentPS.Common.Mapper;
-using FluentPro.FluentPS.Common.Mapper.Configurations.PropertyNameConverters;
-using FluentPro.FluentPS.Common.Tests.Data;
-using FluentPro.FluentPS.Common.Tests.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using FluentPro.Common.Mapper.Configurations;
+using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
+using FluentPro.Common.Mapper.Tests.Data;
+using FluentPro.Common.Mapper.Tests.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FluentPro.FluentPS.Common.Tests.Mapper
+namespace FluentPro.Common.Mapper.Tests.Mapper
 {
     [TestClass]
     public class PlainMapperTests
@@ -15,10 +15,12 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name.")]
         public void Map_DataTableReaderToEntity_ShouldReturnEntity()
         {
+            var sut = new FluentMapper(new DefaultMappingConfiguration());
+            
             var reader = DefaultData.DataTable.CreateDataReader();
             reader.Read();
 
-            var entity = FluentMapper.Current.Map<DataTableReader, EntityWithPlainNames>(reader, propertyNameConverter: new RemoveWhiteSpacesPropertyNameConverter());
+            var entity = sut.Map<DataTableReader, EntityWithPlainNames>(reader);
 
             Assert.IsTrue(entity.PropertyGuid == DefaultData.Guid);
             Assert.IsTrue(entity.PropertyInt == 10);
@@ -31,10 +33,12 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         [TestMethod, Description("Ensure row values mapped to corresponding property bag properties by name.")]
         public void Map_DataTableReaderToDictionary_ShouldReturnEntity()
         {
+            var sut = new FluentMapper(new DefaultMappingConfiguration());
+
             var reader = DefaultData.DataTable.CreateDataReader();
             reader.Read();
 
-            var bag = FluentMapper.Current.Map<DataTableReader, Dictionary<string, object>>(reader, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
+            var bag = sut.Map<DataTableReader, Dictionary<string, object>>(reader);
 
             Assert.IsTrue((Guid)bag["PropertyGuid"] == DefaultData.Guid);
             Assert.IsTrue((int)bag["PropertyInt"] == 10);
@@ -47,6 +51,8 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         [TestMethod, Description("Ensure entity values mapped to corresponding entity properties by name.")]
         public void Map_EntityWithPlainNamesToEntityWithPlainNames_ShouldReturnEntityWithPlainNames()
         {
+            var sut = new FluentMapper(new DefaultMappingConfiguration());
+
             var entity = new EntityWithPlainNames
             {
                 PropertyGuid = DefaultData.Guid,
@@ -57,7 +63,7 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
                 PropertyWithDummyEnum1 = DummyEnum.Max
             };
 
-            var result = FluentMapper.Current.Map<EntityWithPlainNames, EntityWithPlainNames>(entity, propertyNameConverter: new RemoveWhiteSpacesPropertyNameConverter());
+            var result = sut.Map<EntityWithPlainNames, EntityWithPlainNames>(entity);
 
             Assert.IsTrue(result.PropertyGuid == DefaultData.Guid);
             Assert.IsTrue(result.PropertyInt == 10);
@@ -70,9 +76,11 @@ namespace FluentPro.FluentPS.Common.Tests.Mapper
         [TestMethod, Description("Ensure row values mapped to coresponding entity properties by name.")]
         public void Map_DataTableReaderToEntitiesList_ShouldReturnEntitiesList()
         {
+            var sut = new FluentMapper(new DefaultMappingConfiguration());
+
             var reader = DefaultData.DataTable.CreateDataReader();
 
-            var entities = FluentMapper.Current.Map<DataTableReader, List<EntityWithPlainNames>>(reader, propertyNameConverter: new RemoveWhiteSpacesPropertyNameConverter());
+            var entities = sut.Map<DataTableReader, List<EntityWithPlainNames>>(reader);
 
             Assert.IsTrue(entities.Count > 0);
 

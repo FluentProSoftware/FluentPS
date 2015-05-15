@@ -115,12 +115,6 @@
     <Compile Include="Network\Types\PsiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
-      <Project>{33988CF5-B1BB-4D98-BF1B-E34D0EF0E3D2}</Project>
-      <Name>FluentPro.FluentPS.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

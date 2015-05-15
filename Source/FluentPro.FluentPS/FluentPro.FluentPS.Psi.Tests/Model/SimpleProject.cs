@@ -9,6 +9,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Model
 
         public string ProjName { get; set; }
 
-        public ProjectType ProjectType { get; set; }
+        public ProjectType ProjType { get; set; }
     }
 }

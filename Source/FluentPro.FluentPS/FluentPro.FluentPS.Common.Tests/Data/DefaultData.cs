@@ -1,9 +1,9 @@
-﻿using FluentPro.FluentPS.Common.Tests.Data.Extensions;
-using FluentPro.FluentPS.Common.Tests.Model;
-using System;
+﻿using System;
 using System.Data;
+using FluentPro.Common.Mapper.Tests.Data.Extensions;
+using FluentPro.Common.Mapper.Tests.Model;
 
-namespace FluentPro.FluentPS.Common.Tests.Data
+namespace FluentPro.Common.Mapper.Tests.Data
 {
     public static class DefaultData
     {

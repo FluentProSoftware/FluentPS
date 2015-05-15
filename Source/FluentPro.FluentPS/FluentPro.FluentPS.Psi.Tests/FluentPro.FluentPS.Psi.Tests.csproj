@@ -59,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Model\FullProject.cs" />
     <Compile Include="Model\SimpleProject.cs" />
     <Compile Include="Network\PsiContextTests.cs" />
     <Compile Include="Services\ProjectPsiServiceTests.cs" />
@@ -67,13 +68,17 @@
     <Compile Include="Utils\QueueUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FluentPro.FluentPS.Common\FluentPro.FluentPS.Common.csproj">
-      <Project>{33988cf5-b1bb-4d98-bf1b-e34d0ef0e3d2}</Project>
-      <Name>FluentPro.FluentPS.Common</Name>
+    <ProjectReference Include="..\FluentPro.Common.Mapper\FluentPro.Common.Mapper.csproj">
+      <Project>{acfd08ee-684e-4158-8502-d3ae7a635fe9}</Project>
+      <Name>FluentPro.Common.Mapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\FluentPro.FluentPS.Psi\FluentPro.FluentPS.Psi.csproj">
       <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
       <Name>FluentPro.FluentPS.Psi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FluentPro.FluentPS\FluentPro.FluentPS.csproj">
+      <Project>{27608ffd-72e4-4c14-99c0-36392a30c11a}</Project>
+      <Name>FluentPro.FluentPS</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

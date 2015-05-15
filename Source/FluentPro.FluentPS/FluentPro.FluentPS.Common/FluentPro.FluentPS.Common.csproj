@@ -38,48 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\PsCustomFieldsColumnNames.cs" />
-    <Compile Include="Constants\PsDataTableNames.cs" />
-    <Compile Include="Constants\PsFieldType.cs" />
-    <Compile Include="DataSetAnalyzer\FluentDataSetAnalyzer.cs" />
-    <Compile Include="DataSetAnalyzer\Model\DataSetInfo.cs" />
-    <Compile Include="DataSetAnalyzer\Model\TableInfo.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="Mapper\Configurations\DefaultMappingConfiguration.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\BaseMappingObject.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\ProjectCustomFieldsDataTableMappingObject.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\ProjectNativeFieldsDataTableMappingObject.cs" />
-    <Compile Include="Mapper\Configurations\PropertyNameConverters\CamelCaseToUpperUnderscorePropertyNameConverter.cs" />
-    <Compile Include="Mapper\Configurations\PropertyNameConverters\LeaveOriginalNamePropertyNameConverter.cs" />
-    <Compile Include="Mapper\Configurations\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
-    <Compile Include="Mapper\Configurations\PropertyNameConverters\UpperUnderscoreToCamelCasePropertyNameConverter.cs" />
-    <Compile Include="Mapper\Exceptions\ExternalDataRequiredException.cs" />
-    <Compile Include="Mapper\Exceptions\MissingMappingStrategyException.cs" />
-    <Compile Include="Mapper\Exceptions\UnderlyingObjectDoNotSupportAddOperationsException.cs" />
-    <Compile Include="Mapper\Exceptions\UnderlyingObjectDoNotSupportSetOperationsException.cs" />
-    <Compile Include="Mapper\FluentMapper.cs" />
-    <Compile Include="Mapper\Exceptions\MissingMappingWrapperException.cs" />
-    <Compile Include="Mapper\Interfaces\IMappingConfiguration.cs" />
-    <Compile Include="Mapper\Interfaces\IMappingEnumerableObject.cs" />
-    <Compile Include="Mapper\Interfaces\IMappingObject.cs" />
-    <Compile Include="Mapper\Interfaces\IMappingStrategy.cs" />
-    <Compile Include="Mapper\Interfaces\IPropertyNameConverter.cs" />
-    <Compile Include="Mapper\Interfaces\IMappingObjectFactory.cs" />
-    <Compile Include="Mapper\Interfaces\IMappingSingleObject.cs" />
-    <Compile Include="Mapper\Configurations\Strategies\ForEachDestPropSetExistingPropInSrcMappingStrategy.cs" />
-    <Compile Include="Mapper\Configurations\Strategies\ForEachSrcPropSetNewPropInDestMappingStrategy.cs" />
-    <Compile Include="Mapper\Configurations\Strategies\ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy.cs" />
-    <Compile Include="Mapper\Configurations\Strategies\ForEachSrcPropSetExistingPropInDestMappingStrategy.cs" />
-    <Compile Include="Mapper\Model\MappingObjectPropInfo.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\MappingObjectsList.cs" />
-    <Compile Include="Mapper\Configurations\ObjectFactories\ActivatorObjectFactory.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\DataRowMappingObject.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\DataTableReaderMappingObject.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\DictionaryMappingObject.cs" />
-    <Compile Include="Mapper\Configurations\MappingObjects\PocoMappingObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Mapper\Types\FuncToTypeDictionary.cs" />
-    <Compile Include="Mapper\Types\MappingPair.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

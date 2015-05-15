@@ -1,4 +1,4 @@
-﻿namespace FluentPro.FluentPS.Common.Tests.Model
+﻿namespace FluentPro.Common.Mapper.Tests.Model
 {
     public enum DummyEnum
     {
