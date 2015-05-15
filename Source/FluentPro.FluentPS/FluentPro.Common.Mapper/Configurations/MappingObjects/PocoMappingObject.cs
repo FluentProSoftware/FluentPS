@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using FluentPro.Common.Mapper.Extensions;
@@ -14,7 +15,7 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
         public object this[string propName]
         {
             get { return _target.GetType().GetProperty(propName).GetValue(_target, null); }
-            set { _target.GetType().GetProperty(propName).SetValue(_target, value, null); }
+            set { _target.GetType().GetProperty(propName).SetValue(_target, value == DBNull.Value ? null : value, null); }
         }
 
         public IEnumerable<MappingObjectPropInfo> Properties

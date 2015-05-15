@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using FluentPro.Common.Mapper;
 using FluentPro.Common.Mapper.Configurations;
 using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
@@ -81,7 +82,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var dataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
             var result = new Dictionary<string, object>();
-            mapper.Map(dataSet.Project, result, propertyNameConverter: new LeaveOriginalNamePropertyNameConverter());
+            mapper.Map(dataSet.Project, result);
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
         }
@@ -94,11 +95,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
             var customFieldsService = PsiContext.Get<ICustomFields>(Settings.PwaUri);
 
-            var projectDataSet = projectService.Invoke(p => p.ReadProjectEntities(
-                    Settings.DefaultProjectGuid,
-                    (int)(ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields),
-                    DataStoreEnum.WorkingStore));
-
+            var projectDataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
             var customFieldsDataSet = customFieldsService.Invoke(s => s.ReadCustomFields(string.Empty, false));
 
             var result = new Dictionary<string, object>();
@@ -119,6 +116,35 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
             Assert.IsTrue(result["Project - Text"].Equals("10"));
+        }
+
+        [TestMethod]
+        public void GetProject_ByGuid_ShouldReturnTaskDetailsObject()
+        {
+            var assnUid = new Guid("f8235c0e-eafa-e411-bf46-60a44c591f34");
+
+            var mapper = new FluentMapper(new PsMappingConfiguration());
+            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
+
+            var projectDataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+
+            var assingment = projectDataSet
+                .Assignment
+                .Rows
+                .Cast<ProjectDataSet.AssignmentRow>()
+                .FirstOrDefault(assn => assn.ASSN_UID == assnUid);
+
+            var task = projectDataSet
+                .Task
+                .Rows
+                .Cast<ProjectDataSet.TaskRow>()
+                .FirstOrDefault(tsk => tsk.TASK_UID == assingment.TASK_UID);
+
+            var taskDetails = new TaskDetails();
+            mapper.Map(task, taskDetails);
+            mapper.Map(assingment, taskDetails);
+
+            Assert.IsTrue(taskDetails.TaskName == "Task 1");
         }
 
         [TestMethod]

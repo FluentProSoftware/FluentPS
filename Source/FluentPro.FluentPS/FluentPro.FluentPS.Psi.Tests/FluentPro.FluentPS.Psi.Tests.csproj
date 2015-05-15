@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Model\FullProject.cs" />
     <Compile Include="Model\SimpleProject.cs" />
+    <Compile Include="Model\TaskDetails.cs" />
     <Compile Include="Network\PsiContextTests.cs" />
     <Compile Include="Services\ProjectPsiServiceTests.cs" />
     <Compile Include="Settings.cs" />

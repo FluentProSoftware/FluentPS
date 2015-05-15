@@ -51,7 +51,7 @@ namespace FluentPro.FluentPS.Tests.Mapper.PropertyNameConverters
 
         public override IPropertyNameConverter GetSut()
         {
-            return new NativeProjectFieldsToCamelCasePropertyNameConverter();
+            return new NativeFieldsToCamelCasePropertyNameConverter();
         }
     }
 }
