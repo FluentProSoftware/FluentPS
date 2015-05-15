@@ -1,12 +1,15 @@
 properties {
     $root = Resolve-Path "$($psake.build_script_dir)\.."    
     $nuget = "$($root)\Source\FluentPro.FluentPS\.nuget\NuGet.exe"
-    $ilrepack = "$($root)\FluentPro.FluentPS\packages\ILRepack.1.26.0\tools\ILRepack.exe"
     $conf = "Release"
-    $packagesFolder = "$($root)\Packages"
+    $artifacts = "$($root)\Artifacts"
+
+    $nupkgRoot = "$($root)\Nupkg"
+    $nupkgLib = "$($nupkgRoot)\Lib\net35"
+    $nuspec = "$($nupkgRoot)\FluentPro.FluentPS.nuspec"
 
     $prjFolder = "$($root)\Source\FluentPro.FluentPS\FluentPro.FluentPS"
-    $nupkgsInPrjFolder = "$($prjFolder)\*.nupkg"
+    $prjOutput = "$($prjFolder)\bin\$($conf)"
     $prj = "$($prjFolder)\FluentPro.FluentPS.csproj"
 
     $sln = "$($root)\Source\FluentPro.FluentPS\FluentPro.FluentPS.sln"
@@ -14,8 +17,9 @@ properties {
 
 task Clean { 
     msbuild $sln /t:Clean /p:Configuration=$conf
-    Get-ChildItem $prjFolder -Include *.nupkg -Recurse | % { Remove-Item $_.FullName }
-    Remove-Item $packagesFolder -Force -Recurse -ErrorAction SilentlyContinue 
+    Get-ChildItem $prjFolder -Include *.nupkg -Recurse | % { Remove-Item $_.FullName }    
+    Get-ChildItem $artifacts -Include * -Recurse | % { Remove-Item $_.FullName }
+    Get-ChildItem $nupkgLib -Include * -Recurse | % { Remove-Item $_.FullName }
 }
 
 task RestorePackages -Depends Clean {  
@@ -24,11 +28,36 @@ task RestorePackages -Depends Clean {
 
 task Build -Depends RestorePackages {
     msbuild $prj /t:Build /p:Configuration=$conf
+    Get-ChildItem $prjOutput -Include *.dll, *.pdb -Recurse | % { Copy-Item $_.FullName -Destination $nupkgLib}
 
-    New-Item -ItemType directory -Path $packagesFolder
-    &$nuget pack $prj -Symbols -OutputDirectory $packagesFolder -Prop Configuration=$conf
+    $assembly = [Reflection.Assembly]::ReflectionOnlyLoadFrom("$nupkgLib\FluentPro.FluentPS.dll")
+    $id = Get-AttributeValue $assembly "System.Reflection.AssemblyTitleAttribute"
+    $title = Get-AttributeValue $assembly "System.Reflection.AssemblyTitleAttribute"
+    $version = Get-AttributeValue $assembly "System.Reflection.AssemblyInformationalVersionAttribute"
+    $author = Get-AttributeValue $assembly "System.Reflection.AssemblyCompanyAttribute"
+    $description = Get-AttributeValue $assembly "System.Reflection.AssemblyDescriptionAttribute"
+
+    &$nuget pack $nuspec `
+        -Symbols `
+        -OutputDirectory $artifacts `
+        -Prop Id=$id `
+        -Prop Title=$title `
+        -Prop Version=$version `
+        -Prop Author=$author `
+        -Prop Description=$description `
+        -Prop Configuration=$conf
 }
 
 task Publish -Depends Build{
-    Get-ChildItem $packagesFolder -Include *.nupkg -Exclude *.symbols.nupkg -Recurse | % { &$nuget push $_.FullName }
+    Get-ChildItem $artifacts -Include *.nupkg -Exclude *.symbols.nupkg -Recurse | % { &$nuget push $_.FullName }
+}
+
+function Get-AttributeValue($assembly, $attrName) 
+{
+    $val = [Reflection.CustomAttributeData]::GetCustomAttributes($assembly) `
+       | ? { $_.AttributeType -like $attrName } `
+       | select -ExpandProperty ConstructorArguments `
+       | select -First 1 
+
+    return $val[0].Value
 }

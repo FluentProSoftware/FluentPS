@@ -60,7 +60,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FluentPro.FluentPS.nuspec" />
     <None Include="Key.snk" />
   </ItemGroup>
   <ItemGroup />
