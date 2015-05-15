@@ -58,10 +58,6 @@
       <Project>{acfd08ee-684e-4158-8502-d3ae7a635fe9}</Project>
       <Name>FluentPro.Common.Mapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FluentPro.FluentPS.Psi\FluentPro.FluentPS.Psi.csproj">
-      <Project>{29333d2c-c3b4-4df3-ba01-8e0592a7aa6f}</Project>
-      <Name>FluentPro.FluentPS.Psi</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="FluentPro.FluentPS.nuspec" />

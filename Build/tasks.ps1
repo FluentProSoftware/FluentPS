@@ -12,25 +12,23 @@ properties {
     $sln = "$($root)\Source\FluentPro.FluentPS\FluentPro.FluentPS.sln"
 }
 
-task default -depends Clean, RestorePackages, Build, Publish
-
-task RestorePackages {  
-    &$nuget restore $sln
-}
-
 task Clean { 
     msbuild $sln /t:Clean /p:Configuration=$conf
     Get-ChildItem $prjFolder -Include *.nupkg -Recurse | % { Remove-Item $_.FullName }
     Remove-Item $packagesFolder -Force -Recurse -ErrorAction SilentlyContinue 
 }
 
-task Build {
-    msbuild $sln /t:Build /p:Configuration=$conf
+task RestorePackages -Depends Clean {  
+    &$nuget restore $sln
+}
+
+task Build -Depends RestorePackages {
+    msbuild $prj /t:Build /p:Configuration=$conf
 
     New-Item -ItemType directory -Path $packagesFolder
     &$nuget pack $prj -Symbols -OutputDirectory $packagesFolder -Prop Configuration=$conf
 }
 
-task Publish {
+task Publish -Depends Build{
     Get-ChildItem $packagesFolder -Include *.nupkg -Exclude *.symbols.nupkg -Recurse | % { &$nuget push $_.FullName }
 }

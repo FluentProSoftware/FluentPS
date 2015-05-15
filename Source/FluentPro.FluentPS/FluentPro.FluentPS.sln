@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi.Tests", "FluentPro.FluentPS.Psi.Tests\FluentPro.FluentPS.Psi.Tests.csproj", "{205A7318-AA75-43F0-BB08-E00CDFD010D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.Psi", "FluentPro.FluentPS.Psi\FluentPro.FluentPS.Psi.csproj", "{29333D2C-C3B4-4DF3-BA01-8E0592A7AA6F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACFD08EE-684E-4158-8502-D3AE7A635FE9} = {ACFD08EE-684E-4158-8502-D3AE7A635FE9}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5AD0E6D4-E31C-45DE-BB67-C441B54B5BD5}"
 	ProjectSection(SolutionItems) = preProject
