@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using FluentPro.Common.Mapper;
 using FluentPro.Common.Mapper.Configurations;
 using FluentPro.FluentPS.Psi.Interfaces.Psi;
+using System.Text;
 
 namespace FluentPro.FluentPS.Psi.Tests.Network
 {
@@ -18,20 +19,24 @@ namespace FluentPro.FluentPS.Psi.Tests.Network
             Assert.IsNotNull(projectService);
         }
 
+        [Ignore]
         [TestMethod]
-        public void GetProjectDataSet_WithCustomFields_ShouldReturnDataSet()
+        public void Helper_DumpNativeFieldsToString()
         {
-            var mapper = new FluentMapper(new DefaultMappingConfiguration());
-
             var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
+            var viewService = PsiContext.Get<>()
 
-            var projectDataSet = projectService.Invoke(p => p.ReadProjectEntities(Settings.DefaultProjectGuid, (int)(ProjectLoadType.Project | ProjectLoadType.ProjectCustomFields), DataStoreEnum.WorkingStore));
+            var viewDataSet = 
 
-            var dict = new Dictionary<string, object>();
-            mapper.Map(projectDataSet.Project, dict);
-            mapper.Map(projectDataSet.ProjectCustomFields, dict);
+            //var projectDataSet =
+            //    projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
-            Assert.IsTrue(dict["PROJ_NAME"].Equals(Settings.DefaultProjectName));
+            //var sb = new StringBuilder();
+            //foreach (var col in projectDataSet.Project.Columns)
+            //{
+            //    //FieldInfo(PsDataType psEntiType, string name, PsDataType psDataType, Type type)
+            //    sb.AppendFormat("new FieldInfo(PsDataType.Project, \"{0}\",  ")
+            //}
         }
     }
 }

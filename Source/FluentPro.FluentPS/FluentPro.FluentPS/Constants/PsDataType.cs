@@ -4,7 +4,7 @@
     /// Partial copy of Microsoft.Office.Project.Server.Library.PSDataType,
     /// only essential enum members copied
     /// </summary>
-    public enum PsFieldType
+    public enum PsDataType
     {
         DATE = 4,
         DURATION = 6,

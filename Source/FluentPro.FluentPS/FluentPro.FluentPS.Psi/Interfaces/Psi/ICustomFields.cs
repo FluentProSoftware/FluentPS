@@ -16,7 +16,7 @@ namespace FluentPro.FluentPS.Psi.Interfaces.Psi
     using System.ServiceModel;
 
     [GeneratedCode("System.ServiceModel", "4.0.0.0")]
-    [ServiceContract(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/CustomFields/", ConfigurationName = "FluentPro.PsObjects.Psi.CustomFields.CustomFields")]
+    [ServiceContract(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/CustomFields/", ConfigurationName = "CustomFields")]
     public interface ICustomFields
     {
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/CustomFields/CheckOutCustomFields", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/CustomFields/CheckOutCustomFieldsResponse")]

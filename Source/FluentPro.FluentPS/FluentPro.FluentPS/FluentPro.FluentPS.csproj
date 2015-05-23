@@ -44,9 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\GuidAttribute.cs" />
+    <Compile Include="Attributes\NameAttribute.cs" />
     <Compile Include="Constants\PsCustomFieldsColumnNames.cs" />
     <Compile Include="Constants\PsDataTableNames.cs" />
-    <Compile Include="Constants\PsFieldType.cs" />
+    <Compile Include="Constants\PsEntityType.cs" />
+    <Compile Include="Constants\PsDataType.cs" />
+    <Compile Include="Constants\PsNativeFields.cs" />
     <Compile Include="Mapper\MappingObjects\ProjectCustomFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\MappingObjects\ProjectNativeFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\PropertyNameConverters\NativeFieldsToCamelCasePropertyNameConverter.cs" />
@@ -62,7 +66,10 @@
   <ItemGroup>
     <None Include="Key.snk" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Types\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
     <CreateItem Include="@(ReferenceCopyLocalPaths)" Condition="'%(CopyLocal)'=='true' and '%(Extension)'=='.dll'">

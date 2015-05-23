@@ -39,20 +39,21 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var mapper = new FluentMapper(new PsMappingConfiguration());
             var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            var simpleProject = new SimpleProject
-            {
-                ProjName = Settings.DefaultProjectName,
-                ProjUid = Settings.DefaultProjectGuid,
-                ProjType = (int)ProjectType.Project
-            };
+            //var simpleProject = new SimpleProject
+            //{
+            //    ProjName = Settings.DefaultProjectName,
+            //    ProjUid = Settings.DefaultProjectGuid,
+            //    ProjType = (int)ProjectType.Project
+            //};
 
             var ds = new ProjectDataSet();
-            mapper.Map(simpleProject, ds.Project);
-            //var row = ds.Project.NewProjectRow();
-            //row.PROJ_TYPE = (int)ProjectType.Project;
-            //row.PROJ_UID = Settings.DefaultProjectGuid;
-            //row.PROJ_NAME = Settings.DefaultProjectName;
-            //ds.Project.AddProjectRow(row);
+           // mapper.Map(simpleProject, ds.Project);
+
+            var row = ds.Project.NewProjectRow();
+            row.PROJ_TYPE = (int)ProjectType.Project;
+            row.PROJ_UID = Settings.DefaultProjectGuid;
+            row.PROJ_NAME = Settings.DefaultProjectName;
+            ds.Project.AddProjectRow(row);
 
             var jobUid = Guid.NewGuid();
             projectService.Invoke(p => p.QueueCreateProject(jobUid, ds, false));
