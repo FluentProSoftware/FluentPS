@@ -472,9 +472,6 @@
     <Compile Include="Model\Messages\LookupTableCheckOutPreEventArgs.cs" />
     <Compile Include="Model\Messages\LookupTableDeletePostEventArgs.cs" />
     <Compile Include="Model\Messages\LookupTableDeletePreEventArgs.cs" />
-    <Compile Include="Model\Messages\LookupTableMultiLangDataSet.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Model\Messages\LookupTablePostEventArgs.cs" />
     <Compile Include="Model\Messages\LookupTablePreEventArgs.cs" />
     <Compile Include="Model\Messages\LookupTableReadLookupTableByUidJSONRequest.cs" />

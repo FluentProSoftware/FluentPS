@@ -1,3 +1,5 @@
+using FluentPro.FluentPS.Psi.Model.DataSets;
+
 namespace FluentPro.FluentPS.Psi.Model.Messages
 {
     /// <remarks/>
