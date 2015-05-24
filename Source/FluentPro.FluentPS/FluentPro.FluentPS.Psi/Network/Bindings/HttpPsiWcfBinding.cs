@@ -5,8 +5,8 @@
     public class HttpPsiWcfBinding : PsiWcfBinding
     {
         public HttpPsiWcfBinding()
+            : base(BasicHttpSecurityMode.TransportCredentialOnly)
         {
-            Security.Mode = BasicHttpSecurityMode.TransportCredentialOnly;
         }
     }
 }

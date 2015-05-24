@@ -7,7 +7,7 @@ using FluentPro.FluentPS.Psi.Model.Messages;
 
 namespace FluentPro.FluentPS.Psi.Interfaces.Psi
 {
-    [ServiceContract(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/Project/", ConfigurationName = "FluentPro.FluentPS.Proxy.Wcf.Project")]
+    [ServiceContract(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/Project/", ConfigurationName = "Project")]
     public interface IProject
     {
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpdateProjectImpacts", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/Project/QueueUpdateProjectImpactsResponse")]

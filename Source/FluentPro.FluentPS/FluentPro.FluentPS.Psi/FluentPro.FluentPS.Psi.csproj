@@ -45,17 +45,146 @@
     <Compile Include="Exceptions\Faults\DefaultServerFault.cs" />
     <Compile Include="Exceptions\Faults\ServerExecutionFault.cs" />
     <Compile Include="Exceptions\Faults\ServerFault.cs" />
+    <Compile Include="Interfaces\Psi\IAdmin.cs" />
+    <Compile Include="Interfaces\Psi\IArchive.cs" />
+    <Compile Include="Interfaces\Psi\ICalendar.cs" />
+    <Compile Include="Interfaces\Psi\ICubeAdmin.cs" />
+    <Compile Include="Interfaces\Psi\IDriver.cs" />
+    <Compile Include="Interfaces\Psi\IEvents.cs" />
     <Compile Include="Interfaces\Psi\ICustomFields.cs" />
     <Compile Include="Interfaces\Psi\ILookupTable.cs" />
     <Compile Include="Interfaces\Psi\IProject.cs" />
     <Compile Include="Interfaces\Psi\IQueueSystem.cs" />
+    <Compile Include="Interfaces\Psi\INotifications.cs" />
+    <Compile Include="Interfaces\Psi\IObjectLinkProvider.cs" />
+    <Compile Include="Interfaces\Psi\IPortfolioAnalyses.cs" />
+    <Compile Include="Interfaces\Psi\IResource.cs" />
+    <Compile Include="Interfaces\Psi\IResourcePlan.cs" />
+    <Compile Include="Interfaces\Psi\ISecurity.cs" />
+    <Compile Include="Interfaces\Psi\IStatusing.cs" />
+    <Compile Include="Interfaces\Psi\ITimeSheet.cs" />
+    <Compile Include="Interfaces\Psi\IWorkflow.cs" />
+    <Compile Include="Interfaces\Psi\IWssInterop.cs" />
+    <Compile Include="Interfaces\Psi\IView.cs" />
+    <Compile Include="Interfaces\Psi\IPwa.cs" />
+    <Compile Include="Model\DataSets\AdminCheckedOutCalendarsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AdminCheckedOutCustomFieldsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AdminCheckedOutLookupTablesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AdminCheckedOutProjectsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AdminCheckedOutResourcePlansDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AdminCheckedOutResourcesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AlertSubscriptionInfoDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AnalysisDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ArchivedProjectsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ArchiveScheduleDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\AssnHistoryDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\CalendarDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\CubeCalculatedMemberDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\CubeFieldSettingDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\CubeSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\DataSets\CustomFieldDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\DelegationDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\DepartmentsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\DriverDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\DriverPrioritizationDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\EventHandlersDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\EventsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\FieldsAssocSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\FiscalPeriodDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\FiscalYearDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\GanttSchemesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\GanttSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\GroupSchemesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\GroupSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ImportTimesheetDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\DataSets\LookupTableDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\DataSets\LookupTableMultiLangDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ObjectLinkProviderDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\OptimizerDependencyDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\OptimizerSolutionDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\PDPFeatureInformationDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\PermissionDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\PlannerSolutionDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectArchiveRetentionDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectCenterDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\DataSets\ProjectContextDataSet.cs">
@@ -73,10 +202,100 @@
     <Compile Include="Model\DataSets\ProjectTeamDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\DataSets\ProjectTimesheetLinesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ProjectWSSInfoDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\PWAViewReportsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\PWSLinkDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\DataSets\QueueStatusDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\DataSets\QueueStatusRequestDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ReminderSubscriptionInfoDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ResourceAssignmentDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ResourceAuthorizationDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ResourceDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ResourcePlanDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\RulesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\RulesFieldListDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ScheduleDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SecurityCategoriesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SecurityGroupsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SecurityOrganizationalPermissionsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SecurityProjectCategoriesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SecurityTemplatesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SiteMapDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusApprovalDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusApprovalTransactionDetailsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingAssignmentDependenciesDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingAssignmentsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingTaskContactDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingTaskLinksDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusingTimephasedActualsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusReportsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\StatusTransactionDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\SummaryTaskPathDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\DataSets\SyncDataSet.cs">
@@ -85,27 +304,378 @@
     <Compile Include="Model\DataSets\SyncErrorsDataSet.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\DataSets\TimePeriodDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimesheetAuditExportDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimesheetDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimesheetLineClassDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimesheetListDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimesheetManagersDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimeSheetSettingsAndPeriodDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\TimeSheetSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\UnsubmittedTimesheetDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\UserDelegationDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\VersionsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\ViewFieldsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\WebAdminDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\WorkflowDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\WssServersDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DataSets\WssSettingsDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\Enums\Action.cs" />
+    <Compile Include="Model\Enums\ADSyncFrequencyUnit.cs" />
+    <Compile Include="Model\Enums\ADSyncStatus.cs" />
+    <Compile Include="Model\Enums\ArchiveOpcode.cs" />
+    <Compile Include="Model\Enums\AssnHistoryItemType.cs" />
+    <Compile Include="Model\Enums\AuditType.cs" />
     <Compile Include="Model\Enums\AuthType.cs" />
+    <Compile Include="Model\Enums\BuiltInFieldsGroup.cs" />
+    <Compile Include="Model\Enums\CacheType.cs" />
+    <Compile Include="Model\Enums\DatabaseTimeoutType.cs" />
     <Compile Include="Model\Enums\DataStoreEnum.cs" />
+    <Compile Include="Model\Enums\DateFormatType.cs" />
+    <Compile Include="Model\Enums\DelegationFilter.cs" />
+    <Compile Include="Model\Enums\DelegationFilterType.cs" />
+    <Compile Include="Model\Enums\EntityType.cs" />
     <Compile Include="Model\Enums\JobState.cs" />
+    <Compile Include="Model\Enums\LineClassState.cs" />
+    <Compile Include="Model\Enums\LineClassType.cs" />
+    <Compile Include="Model\Enums\Navigation.cs" />
+    <Compile Include="Model\Enums\PcsWorkerStatus.cs" />
+    <Compile Include="Model\Enums\PeriodState.cs" />
+    <Compile Include="Model\Enums\PermissionMode.cs" />
+    <Compile Include="Model\Enums\PreloadType.cs" />
     <Compile Include="Model\Enums\ProjectLoadType.cs" />
+    <Compile Include="Model\Enums\ProjectTimesheetLineQueryType.cs" />
     <Compile Include="Model\Enums\ProjectType.cs" />
     <Compile Include="Model\Enums\PSErrorID.cs" />
+    <Compile Include="Model\Enums\PSEventID.cs" />
+    <Compile Include="Model\Enums\PWSListTemplateType.cs" />
+    <Compile Include="Model\Enums\PWSWebPartViewType.cs" />
     <Compile Include="Model\Enums\QueueID.cs" />
     <Compile Include="Model\Enums\QueueMsgType.cs" />
+    <Compile Include="Model\Enums\ReadMode.cs" />
+    <Compile Include="Model\Enums\ResourceActiveFilter.cs" />
+    <Compile Include="Model\Enums\ResPlanStatus.cs" />
+    <Compile Include="Model\Enums\SharePointPermissionModeSyncType.cs" />
     <Compile Include="Model\Enums\SortColumn.cs" />
     <Compile Include="Model\Enums\SortOrder.cs" />
     <Compile Include="Model\Enums\SyncEntityUidType.cs" />
+    <Compile Include="Model\Enums\Type.cs" />
+    <Compile Include="Model\Enums\UserSyncSettings.cs" />
+    <Compile Include="Model\Enums\ValidationItemType.cs" />
+    <Compile Include="Model\Enums\ValidationStore.cs" />
+    <Compile Include="Model\Enums\ViewType.cs" />
+    <Compile Include="Model\Enums\WebObjectLinkType.cs" />
+    <Compile Include="Model\Enums\WorkflowState.cs" />
+    <Compile Include="Model\Messages\ActiveDirectoryGroup.cs" />
+    <Compile Include="Model\Messages\ActivityUpgradedEventArgs.cs" />
+    <Compile Include="Model\Messages\ActivityUpgradingEventArgs.cs" />
+    <Compile Include="Model\Messages\AdminDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\AdminDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\AdminFirePostDelegateRequest.cs" />
+    <Compile Include="Model\Messages\AdminFirePostDelegateResponse.cs" />
+    <Compile Include="Model\Messages\AdminFirePreDelegateRequest.cs" />
+    <Compile Include="Model\Messages\AdminFirePreDelegateResponse.cs" />
+    <Compile Include="Model\Messages\AdminPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ADSyncERPSettings.cs" />
+    <Compile Include="Model\Messages\ADSyncERPSettings2.cs" />
+    <Compile Include="Model\Messages\AdSyncERPSynchronizingEventArgs.cs" />
+    <Compile Include="Model\Messages\ADSyncGroupSettings.cs" />
+    <Compile Include="Model\Messages\AdSyncGroupsSynchronizedEventArgs.cs" />
+    <Compile Include="Model\Messages\AdSyncGroupsSynchronizingEventArgs.cs" />
+    <Compile Include="Model\Messages\AdSyncGroupSynchronizingEventArgs.cs" />
+    <Compile Include="Model\Messages\AnalysisPriorityData.cs" />
+    <Compile Include="Model\Messages\AssignmentWorkDataSetPostEventArgs.cs" />
+    <Compile Include="Model\Messages\AssignmentWorkDataSetPreEventArgs.cs" />
+    <Compile Include="Model\Messages\AsyncCommandRequest.cs" />
+    <Compile Include="Model\Messages\AsyncCommandResult.cs" />
+    <Compile Include="Model\Messages\CalendarCheckInPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarCheckInPreEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarCheckOutPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarCheckOutPreEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CalendarPreEventArgs.cs" />
+    <Compile Include="Model\Messages\CategoryCreatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\CategoryCreatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\CategoryDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\CategoryDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\CategorySetPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CategorySetPreEventArgs.cs" />
+    <Compile Include="Model\Messages\CBSRequestMessage.cs" />
+    <Compile Include="Model\Messages\CompletedPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CreateProjectFromListItemResultInfo.cs" />
+    <Compile Include="Model\Messages\CubeAdminPostCubeBuildEventArgs.cs" />
+    <Compile Include="Model\Messages\CubeAdminPostCubeProcessEventArgs.cs" />
+    <Compile Include="Model\Messages\CubeAdminPreCubeBuildEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsCheckInPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsCheckInPreEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsCheckOutPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsCheckOutPreEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsPostEventArgs.cs" />
+    <Compile Include="Model\Messages\CustomFieldsPreEventArgs.cs" />
+    <Compile Include="Model\Messages\DatabaseQuotaAndUsage.cs" />
+    <Compile Include="Model\Messages\Enum.cs" />
+    <Compile Include="Model\Messages\EventArgs.cs" />
+    <Compile Include="Model\Messages\ExistingAssignmentInfo.cs" />
+    <Compile Include="Model\Messages\GetADSyncReplacementCharacterRequest.cs" />
+    <Compile Include="Model\Messages\GetADSyncReplacementCharacterResponse.cs" />
     <Compile Include="Model\Messages\GetJobCompletionStateRequest.cs" />
     <Compile Include="Model\Messages\GetJobCompletionStateResponse.cs" />
+    <Compile Include="Model\Messages\GroupCreatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\GroupCreatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\GroupDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\GroupDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\GroupSetPostEventArgs.cs" />
+    <Compile Include="Model\Messages\GroupSetPreEventArgs.cs" />
     <Compile Include="Model\Messages\ImportResult.cs" />
+    <Compile Include="Model\Messages\JsGridSerializerArguments.cs" />
+    <Compile Include="Model\Messages\LineClassPostUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\LineClassPreUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableCheckInPostEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableCheckInPreEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableCheckOutPostEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableCheckOutPreEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableMultiLangDataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\Messages\LookupTablePostEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTablePreEventArgs.cs" />
+    <Compile Include="Model\Messages\LookupTableReadLookupTableByUidJSONRequest.cs" />
+    <Compile Include="Model\Messages\LookupTableReadLookupTableByUidJSONResponse.cs" />
+    <Compile Include="Model\Messages\NotificationsPostSendEventArgs.cs" />
+    <Compile Include="Model\Messages\NotificationsPreSendEventArgs.cs" />
+    <Compile Include="Model\Messages\OpenProjectState.cs" />
+    <Compile Include="Model\Messages\OptimizerMetricValue.cs" />
+    <Compile Include="Model\Messages\OptimizerSolutionCommittedArgs.cs" />
+    <Compile Include="Model\Messages\OptimizerSolutionUpdate.cs" />
+    <Compile Include="Model\Messages\OrganizationalPermissionsPostUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\OrganizationalPermissionsPreUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\PcsWorkerStatusData.cs" />
+    <Compile Include="Model\Messages\PDPFeatureInfo.cs" />
+    <Compile Include="Model\Messages\PostEventArgs.cs" />
+    <Compile Include="Model\Messages\PreEventArgs.cs" />
+    <Compile Include="Model\Messages\PrepareTimesheetLineRequest.cs" />
+    <Compile Include="Model\Messages\PrepareTimesheetLineResponse.cs" />
+    <Compile Include="Model\Messages\ProjectCategoryCreatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectCategoryCreatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectCategoryDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectCategoryDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectCategorySetPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectCategorySetPreEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectDrillDownInfo.cs" />
+    <Compile Include="Model\Messages\ProjectFieldInfo.cs" />
+    <Compile Include="Model\Messages\ProjectGetProjectDetailsForGridJsonRequest.cs" />
+    <Compile Include="Model\Messages\ProjectGetProjectDetailsForGridJsonResponse.cs" />
+    <Compile Include="Model\Messages\ProjectPostEntitiesDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPostPublishEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPostSummaryPublishEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPostUpdatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPreEntitiesDeletingEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPreEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPrePublishEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectPreSummaryPublishEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectTypeChangedPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ProjectTypeChangingEventArgs.cs" />
     <Compile Include="Model\Messages\QueueImportTaskListsRequest.cs" />
     <Compile Include="Model\Messages\QueueImportTaskListsResponse.cs" />
+    <Compile Include="Model\Messages\QueueInFlightJobData.cs" />
     <Compile Include="Model\Messages\QueuePurgeArchivedJobsRequest.cs" />
     <Compile Include="Model\Messages\QueuePurgeArchivedJobsResponse.cs" />
+    <Compile Include="Model\Messages\QueueServiceInternalStateData.cs" />
+    <Compile Include="Model\Messages\ReadEnterpriseProjectTypeListByDepartmentRequest.cs" />
+    <Compile Include="Model\Messages\ReadEnterpriseProjectTypeListByDepartmentResponse.cs" />
+    <Compile Include="Model\Messages\ReadOrCreateWebObjectsRequest.cs" />
+    <Compile Include="Model\Messages\ReadOrCreateWebObjectsResponse.cs" />
     <Compile Include="Model\Messages\ReadProjectListByDepartmentRequest.cs" />
     <Compile Include="Model\Messages\ReadProjectListByDepartmentResponse.cs" />
+    <Compile Include="Model\Messages\ReadPublishedNoteForTaskRequest.cs" />
+    <Compile Include="Model\Messages\ReadPublishedNoteForTaskResponse.cs" />
+    <Compile Include="Model\Messages\ReadResourceListByDepartmentRequest.cs" />
+    <Compile Include="Model\Messages\ReadResourceListByDepartmentResponse.cs" />
+    <Compile Include="Model\Messages\ReadStatusIncrementalQuery.cs" />
+    <Compile Include="Model\Messages\ReadStatusIncrementalResult.cs" />
+    <Compile Include="Model\Messages\ReportingPeriodPostUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPeriodPreUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostCommittedSolutionDecisionChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostCustomFieldChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostCustomFieldCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostCustomFieldDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostEnterpriseProjectTypeChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostFiscalPeriodChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostFiscalPeriodDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostLookupTableChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostLookupTableCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostLookupTableDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectWorkflowInformationChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectWorkspaceChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectWorkspaceCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostProjectWorkspaceDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostResourceCapacitiesChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostResourceCapacityTimeRangeChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostResourceChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostResourceCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostResourceDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetAdjustedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetClassChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetPeriodChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetPeriodCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetPeriodDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetProjectAggregatedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetSavedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostTimesheetStatusChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostUserViewChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostWorkflowPhaseChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ReportingPostWorkflowStageChangedEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceActivatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceActivatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceAuthorizationPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceAuthorizationPreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceCheckInPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceCheckInPreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceCheckOutPostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceCheckOutPreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceCreatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceCreatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceDeactivatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceDeactivatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourcePlanPublishedEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourcePlanPublishingEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceUpdatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\ResourceUpdatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPostCopyEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPostCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPostDeleteEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPostProcessEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPreCopyEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPreCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPreDeleteEventArgs.cs" />
+    <Compile Include="Model\Messages\RulesPreProcessEventArgs.cs" />
+    <Compile Include="Model\Messages\SerializableEventArgs.cs" />
+    <Compile Include="Model\Messages\SetADSyncReplacementCharacterRequest.cs" />
+    <Compile Include="Model\Messages\SetADSyncReplacementCharacterResponse.cs" />
+    <Compile Include="Model\Messages\StageEnteredPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StartedPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusCreateTaskPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusCreateTaskPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusDelegateTaskPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusDelegateTaskPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusDeleteHistoryPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusDeleteHistoryPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusDeleteTaskPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusDeleteTaskPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusingGetMyWorkForGridJson2Request.cs" />
+    <Compile Include="Model\Messages\StatusingGetMyWorkForGridJson2Response.cs" />
+    <Compile Include="Model\Messages\StatusingGetMyWorkForGridJsonRequest.cs" />
+    <Compile Include="Model\Messages\StatusingGetMyWorkForGridJsonResponse.cs" />
+    <Compile Include="Model\Messages\StatusingPostApplyEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusingPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusingPreApplyEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusingPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportPostDeleteEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportPreDeleteEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPostRequestCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPostRequestUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPostResponseCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPostResponseUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPreRequestCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPreRequestUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPreResponseCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusReportsPreResponseUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusSubmitPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusSubmitPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusUpdateApprovalsPostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusUpdateApprovalsPreEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusUpdatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\StatusUpdatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\SyncedProjectEnterpriseEntitiesEventArgs.cs" />
+    <Compile Include="Model\Messages\SyncingProjectEnterpriseEntitiesEventArgs.cs" />
+    <Compile Include="Model\Messages\TaskDetailsData.cs" />
     <Compile Include="Model\Messages\TaskListImportInfo.cs" />
+    <Compile Include="Model\Messages\TemplateCreatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\TemplateCreatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\TemplateDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\TemplateDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\TemplateSetPostEventArgs.cs" />
+    <Compile Include="Model\Messages\TemplateSetPreEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetLinePostApproveEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetLinePreApproveEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPostEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPreCreateEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPreDeleteEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPreRecallEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPreReviewEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPreSubmitEventArgs.cs" />
+    <Compile Include="Model\Messages\TimesheetPreUpdateEventArgs.cs" />
+    <Compile Include="Model\Messages\TimeSheetReadTimeSheetSettingsAndPeriodRequest.cs" />
+    <Compile Include="Model\Messages\TimeSheetReadTimeSheetSettingsAndPeriodResponse.cs" />
+    <Compile Include="Model\Messages\UpdatedPwaProjectEventArgs.cs" />
+    <Compile Include="Model\Messages\UpdatedScheduledProjectEventArgs.cs" />
+    <Compile Include="Model\Messages\UpdatingPwaProjectEventArgs.cs" />
+    <Compile Include="Model\Messages\UpdatingScheduledProjectEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationActivatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationActivatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationCreatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationCreatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationDeactivatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationDeactivatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationDeletePostEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationDeletePreEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationInfo.cs" />
+    <Compile Include="Model\Messages\UserDelegationUpdatePostEventArgs.cs" />
+    <Compile Include="Model\Messages\UserDelegationUpdatePreEventArgs.cs" />
+    <Compile Include="Model\Messages\UserEventArgs.cs" />
+    <Compile Include="Model\Messages\UserPreEventArgs.cs" />
+    <Compile Include="Model\Messages\WorkflowRunningEventArgs.cs" />
+    <Compile Include="Model\Messages\WssWorkspaceAddressDeletedEventArgs.cs" />
+    <Compile Include="Model\Messages\WssWorkspaceAddressDeletingEventArgs.cs" />
+    <Compile Include="Model\Messages\WssWorkspaceAddressUpdatedEventArgs.cs" />
+    <Compile Include="Model\Messages\WssWorkspaceAddressUpdatingEventArgs.cs" />
+    <Compile Include="Model\Messages\WssWorkspaceCreatedEventArgs.cs" />
+    <Compile Include="Model\Messages\WssWorkspaceCreatingEventArgs.cs" />
     <Compile Include="Network\Behaviors\MaxFaultSizeBehavior.cs" />
     <Compile Include="Network\Bindings\HttpsPsiWcfBinding.cs" />
     <Compile Include="Network\Bindings\HttpPsiWcfBinding.cs" />
@@ -115,7 +685,9 @@
     <Compile Include="Network\Types\PsiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

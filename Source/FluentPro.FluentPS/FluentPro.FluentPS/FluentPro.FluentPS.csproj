@@ -50,12 +50,15 @@
     <Compile Include="Constants\PsDataTableNames.cs" />
     <Compile Include="Constants\PsEntityType.cs" />
     <Compile Include="Constants\PsDataType.cs" />
+    <Compile Include="Constants\PsFieldConversionType.cs" />
     <Compile Include="Constants\PsNativeFields.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Mapper\MappingObjects\ProjectCustomFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\MappingObjects\ProjectNativeFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\PropertyNameConverters\NativeFieldsToCamelCasePropertyNameConverter.cs" />
     <Compile Include="Mapper\PsMappingConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\GenericEqualityComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.Common.Mapper\FluentPro.Common.Mapper.csproj">
@@ -68,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Types\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">

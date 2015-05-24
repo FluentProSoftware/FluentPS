@@ -1,25 +1,51 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace FluentPro.FluentPS.Psi.Model.Enums
+﻿namespace FluentPro.FluentPS.Psi.Model.Enums
 {
-    [Serializable]
-    [XmlType(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/")]
-    public enum JobState
-    {
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/office/project/server/webservices/PWA/")]
+    public enum JobState {
+        
+        /// <remarks/>
         Unknown,
+        
+        /// <remarks/>
         ReadyForProcessing,
+        
+        /// <remarks/>
         SendIncomplete,
+        
+        /// <remarks/>
         Processing,
+        
+        /// <remarks/>
         Success,
+        
+        /// <remarks/>
         Failed,
+        
+        /// <remarks/>
         FailedNotBlocking,
+        
+        /// <remarks/>
         ProcessingDeferred,
+        
+        /// <remarks/>
         CorrelationBlocked,
+        
+        /// <remarks/>
         Canceled,
+        
+        /// <remarks/>
         OnHold,
+        
+        /// <remarks/>
         Sleeping,
+        
+        /// <remarks/>
         ReadyForLaunch,
-        LastState
+        
+        /// <remarks/>
+        LastState,
     }
 }

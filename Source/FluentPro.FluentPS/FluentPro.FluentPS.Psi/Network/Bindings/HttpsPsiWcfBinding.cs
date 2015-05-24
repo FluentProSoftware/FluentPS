@@ -9,9 +9,8 @@
     public class HttpsPsiWcfBinding : PsiWcfBinding
     {
         public HttpsPsiWcfBinding()
+            : base(BasicHttpSecurityMode.Transport)
         {
-            Security.Mode = BasicHttpSecurityMode.Transport;
-
             if (ServicePointManager.ServerCertificateValidationCallback == null)
             {
                 ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };

@@ -9,21 +9,35 @@ namespace FluentPro.FluentPS.Constants
     {
         public static List<FieldInfo> FieldInfos = new List<FieldInfo>
         {
-            new FieldInfo { EntityType = PsEntityType.Project, DataType = PsDataType.STRING}
+           
         };
     }
 
+      //private DataColumn columnCONV_STRING;
+      //private DataColumn columnMD_PROP_NAME;
     public class FieldInfo
     {
-        public string Name { get; private set; }
+        public Guid Uid { get; set; }
+        
+        public string Name { get; set; }
 
-        public PsEntityType EntityType { get; private set; }
+        public string DisplayName { get; set; }
 
-        public PsDataType DataType { get; private set; }
+        public PsEntityType EntityType { get; set; }
 
-        public FieldInfo(PsDataType psEntiType, string name, PsDataType psDataType, Type type)
-        {
-            
+        public PsFieldConversionType ConversionType { get; set; }
+
+        public bool IsCustom { get; set; }
+
+        public Guid LookupTableGuid { get; set; }
+
+        public bool IsMultiValue { get; set; }
+
+        public bool IsMultiLine { get; set; }
+
+        //public FieldInfo(PsDataType psEntiType, Guid fieldUid, string name, PsFieldConversionType psConversionType, Type type)
+            //{
+
+            //}
         }
-    }
 }

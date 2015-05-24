@@ -3,7 +3,7 @@
     using System;
 
     [AttributeUsage(AttributeTargets.All, Inherited = false)]
-    internal sealed class GuidAttribute : Attribute
+    public sealed class GuidAttribute : Attribute
     {
         public GuidAttribute(string guid)
         {

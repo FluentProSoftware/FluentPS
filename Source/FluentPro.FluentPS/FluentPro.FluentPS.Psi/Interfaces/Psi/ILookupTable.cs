@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using FluentPro.FluentPS.Psi.Exceptions.Faults;
 using FluentPro.FluentPS.Psi.Model.DataSets;
+using LookupTableMultiLangDataSet = FluentPro.FluentPS.Psi.Model.Messages.LookupTableMultiLangDataSet;
 
 namespace FluentPro.FluentPS.Psi.Interfaces.Psi
 {

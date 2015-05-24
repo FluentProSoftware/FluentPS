@@ -1,6 +1,6 @@
 ﻿namespace FluentPro.FluentPS.Psi.Network
 {
-    using FluentPro.FluentPS.Psi.Network.Types;
+    using Types;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -17,6 +17,16 @@
         {
         }
         
+        /// <summary>
+        /// Get service for given pwa uri.
+        /// </summary>
+        /// <typeparam name="TService">Interface of the service. Can be IProject, IResource, IQueueSystem etc.</typeparam>
+        /// <param name="pwaUri">The Project Web App uri, should have slash at the end, for example http://server/pwa/. </param>
+        /// <example>
+        /// var projectService = PsiContext.Get&lt;IProject&gt;(new Uri("http://server/pwa/"));
+        /// var projectDs = projectService.Invoke(p => p.ReadProjectList());
+        /// </example>
+        /// <returns>PsiService instance.</returns>
         public static PsiService<TService> Get<TService>(Uri pwaUri)
         {
             var channelType = typeof(TService);

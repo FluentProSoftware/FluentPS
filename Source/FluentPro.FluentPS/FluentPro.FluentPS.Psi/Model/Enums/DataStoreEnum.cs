@@ -1,15 +1,21 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace FluentPro.FluentPS.Psi.Model.Enums
+﻿namespace FluentPro.FluentPS.Psi.Model.Enums
 {
-    [Serializable]
-    [XmlType(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/Project/")]
-    public enum DataStoreEnum
-    {
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/office/project/server/webservices/PWA/")]
+    public enum DataStoreEnum {
+        
+        /// <remarks/>
         WorkingStore,
+        
+        /// <remarks/>
         PublishedStore,
+        
+        /// <remarks/>
         VersionsStore,
-        ReportingStore
+        
+        /// <remarks/>
+        ReportingStore,
     }
 }

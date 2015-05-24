@@ -1,7 +1,9 @@
-﻿using FluentPro.FluentPS.Psi.Network;
+﻿using System;
+using FluentPro.FluentPS.Psi.Network;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentPro.FluentPS.Psi.Model.Enums;
 using System.Collections.Generic;
+using System.ServiceModel.Security;
 using FluentPro.Common.Mapper;
 using FluentPro.Common.Mapper.Configurations;
 using FluentPro.FluentPS.Psi.Interfaces.Psi;
@@ -19,24 +21,12 @@ namespace FluentPro.FluentPS.Psi.Tests.Network
             Assert.IsNotNull(projectService);
         }
 
-        [Ignore]
         [TestMethod]
-        public void Helper_DumpNativeFieldsToString()
+        [ExpectedException(typeof(MessageSecurityException))]
+        public void GetContext_WithWrongUrl_ShouldThrow()
         {
-            var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
-            var viewService = PsiContext.Get<>()
-
-            var viewDataSet = 
-
-            //var projectDataSet =
-            //    projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
-
-            //var sb = new StringBuilder();
-            //foreach (var col in projectDataSet.Project.Columns)
-            //{
-            //    //FieldInfo(PsDataType psEntiType, string name, PsDataType psDataType, Type type)
-            //    sb.AppendFormat("new FieldInfo(PsDataType.Project, \"{0}\",  ")
-            //}
+            var projectService = PsiContext.Get<IProject>(Settings.WrongPwaUri);
+            projectService.Invoke(p => p.ReadProjectList());
         }
     }
 }

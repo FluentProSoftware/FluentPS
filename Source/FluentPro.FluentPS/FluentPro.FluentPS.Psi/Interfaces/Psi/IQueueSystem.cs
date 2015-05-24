@@ -7,7 +7,7 @@ using System.ServiceModel;
 
 namespace FluentPro.FluentPS.Psi.Interfaces.Psi
 {
-    [ServiceContractAttribute(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ConfigurationName = "SvcQueueSystem.QueueSystem")]
+    [ServiceContractAttribute(Namespace = "http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ConfigurationName = "QueueSystem")]
     public interface IQueueSystem
     {
         [OperationContract(Action = "http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJob", ReplyAction = "http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJobResponse")]

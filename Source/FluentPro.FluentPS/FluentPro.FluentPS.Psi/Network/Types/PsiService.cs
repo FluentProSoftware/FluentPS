@@ -1,4 +1,6 @@
-﻿namespace FluentPro.FluentPS.Psi.Network.Types
+﻿using System.ServiceModel.Security;
+
+namespace FluentPro.FluentPS.Psi.Network.Types
 {
     using FluentPro.FluentPS.Psi.Exceptions.Faults;
     using FluentPro.FluentPS.Psi.Model.Enums;
@@ -14,7 +16,7 @@
     {
         private const string PsiServiceRelativeUrl = "_vti_bin/PSI/ProjectServer.svc";
 
-        private readonly Type _channelType;
+        private readonly System.Type _channelType;
         private readonly Uri _pwaUri;
         private Binding _binding;
         private EndpointAddress _address;
@@ -81,6 +83,13 @@
             {
                 Trace.Unindent();
                 Trace.TraceError("Failed to invoke action on channel for {0}:{1}. Message: {2}", _pwaUri, _channelType.Name, fault.Detail.Message);
+                throw;
+            }
+            catch (MessageSecurityException ex)
+            {
+                Trace.Unindent();
+                Trace.TraceError("Failed to invoke action on channel for {0}:{1}. Message: {2}", _pwaUri, _channelType.Name, ex.Message);
+                Trace.TraceError("Check your Project WebApp Url, it can be not valid: {0}.", _pwaUri);
                 throw;
             }
             catch (Exception ex)

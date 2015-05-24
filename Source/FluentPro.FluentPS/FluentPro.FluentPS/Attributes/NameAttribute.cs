@@ -3,7 +3,7 @@
     using System;
 
     [AttributeUsage(AttributeTargets.All, Inherited = false)]
-    internal sealed class NameAttribute : Attribute
+    public sealed class NameAttribute : Attribute
     {
         public NameAttribute(string name)
         {

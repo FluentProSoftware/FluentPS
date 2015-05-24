@@ -1,11 +1,10 @@
 namespace FluentPro.FluentPS.Psi.Model.Enums
 {
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.0.30319.17929")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/office/project/server/webservices/Admin/")]
-    public enum LineClassType
-    {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/office/project/server/webservices/PWA/")]
+    public enum LineClassType {
         
         /// <remarks/>
         Regular,

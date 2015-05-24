@@ -5,7 +5,8 @@
 
     public class PsiWcfBinding : BasicHttpBinding
     {
-        public PsiWcfBinding()
+        public PsiWcfBinding(BasicHttpSecurityMode basicHttpSecurityMode)
+            : base(basicHttpSecurityMode)
         {
             Name = "basicHttpConf";
             SendTimeout = TimeSpan.MaxValue;
