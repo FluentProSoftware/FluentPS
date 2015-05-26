@@ -54,31 +54,5 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
 
             return true;
         }
-
-        //public void Map<TSrc, TDest>(TSrc src, TDest dest)
-        //{
-        //    var srcPropsAccessor = MappingConfiguration.GetPropsAccessor(typeof(TSrc));
-        //    var srcProps = MappingConfiguration.GetPropsResolver(typeof(TSrc)).GetProperties(src).ToArray();
-
-        //    while (srcWrapped.Next())
-        //    {
-        //        var obj = MappingConfiguration.ObjectResolver.CreateInstance(destUnderlyingObjectType);
-        //        foreach (var prop in srcProps)
-        //        {
-        //            var convertedName = MappingConfiguration.PropertyNameConverter.GetName(prop.Name);
-        //            var propInfo = destProps.FirstOrDefault(p => p.Name == convertedName);
-        //            if (propInfo != null)
-        //            {
-        //                var srcVal = srcPropsAccessor.GetPropertyValue(srcWrapped.Current, prop.Name);
-        //                destPropsAccessor.SetPropertyValue(obj, convertedName, srcVal);
-        //            }
-        //        }
-
-        //        typeof(TDest)
-        //            .GetMethod("Add")
-        //            .Invoke(dest, new object[] { obj });
-        //    }
-        //}
-
     }
 }

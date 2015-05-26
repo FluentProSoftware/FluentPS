@@ -10,15 +10,43 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using FluentPro.Common.Mapper;
-using FluentPro.Common.Mapper.Configurations;
 using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
+using FluentPro.FluentPS.Attributes;
+using FluentPro.FluentPS.Extensions;
 using FluentPro.FluentPS.Mapper;
+using FluentPro.FluentPS.Model;
 
 namespace FluentPro.FluentPS.Psi.Tests.Services
 {
     [TestClass]
     public class ProjectPsiServiceTests
     {
+        [TestMethod]
+        public void CreateCustomFields()
+        {
+            var customFieldsService = PsiContext.Get<ICustomFields>(Settings.PwaUri);
+
+            var customFieldsDs = new CustomFieldDataSet();
+
+            var row = customFieldsDs.CustomFields.NewCustomFieldsRow();
+            row.MD_PROP_UID = new Guid("573050DE-58A3-44C7-A22A-318C3290C8E5");
+            row.MD_PROP_NAME = "1 Custom Field";
+            row.MD_ENT_TYPE_UID = PsEntityType.Project.GetAttr<GuidAttribute>().Guid;
+            row.MD_PROP_TYPE_ENUM = (byte)PsConversionType.String;
+            
+            customFieldsDs.CustomFields.AddCustomFieldsRow(row);
+
+            customFieldsService.Invoke(c => c.CreateCustomFields2(customFieldsDs, false, true));
+        }
+
+        [TestMethod]
+        public void RecreateProject()
+        {
+            DeleteProject_ByGuid_ShouldReturnTrue();
+            CreateProject_WithNameAndGuid_ShouldReturnTrue();
+            PublishProject_ByGuid_ShouldReturnTrue();
+        }
+
         [TestMethod]
         public void ReadProjectList_ShouldReturnValidCountOfProjects()
         {
@@ -39,21 +67,16 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
             var mapper = new FluentMapper(new PsMappingConfiguration());
             var projectService = PsiContext.Get<IProject>(Settings.PwaUri);
 
-            //var simpleProject = new SimpleProject
-            //{
-            //    ProjName = Settings.DefaultProjectName,
-            //    ProjUid = Settings.DefaultProjectGuid,
-            //    ProjType = (int)ProjectType.Project
-            //};
+            var simpleProject = new SimpleProject
+            {
+                ProjUid = Settings.DefaultProjectGuid,
+                ProjName = Settings.DefaultProjectName,
+                ProjType = (int)ProjectType.Project,
+                WprojDescription = "Some description"
+            };
 
             var ds = new ProjectDataSet();
-           // mapper.Map(simpleProject, ds.Project);
-
-            var row = ds.Project.NewProjectRow();
-            row.PROJ_TYPE = (int)ProjectType.Project;
-            row.PROJ_UID = Settings.DefaultProjectGuid;
-            row.PROJ_NAME = Settings.DefaultProjectName;
-            ds.Project.AddProjectRow(row);
+            mapper.Map(simpleProject, ds.Project);
 
             var jobUid = Guid.NewGuid();
             projectService.Invoke(p => p.QueueCreateProject(jobUid, ds, false));
@@ -129,7 +152,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
 
             var projectDataSet = projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
-            var assingment = projectDataSet
+            var assignment = projectDataSet
                 .Assignment
                 .Rows
                 .Cast<ProjectDataSet.AssignmentRow>()
@@ -139,11 +162,11 @@ namespace FluentPro.FluentPS.Psi.Tests.Services
                 .Task
                 .Rows
                 .Cast<ProjectDataSet.TaskRow>()
-                .FirstOrDefault(tsk => tsk.TASK_UID == assingment.TASK_UID);
+                .FirstOrDefault(tsk => tsk.TASK_UID == assignment.TASK_UID);
 
             var taskDetails = new TaskDetails();
             mapper.Map(task, taskDetails);
-            mapper.Map(assingment, taskDetails);
+            mapper.Map(assignment, taskDetails);
 
             Assert.IsTrue(taskDetails.TaskName == "Task 1");
         }

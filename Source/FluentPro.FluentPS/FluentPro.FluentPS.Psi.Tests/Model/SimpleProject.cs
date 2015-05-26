@@ -10,5 +10,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Model
         public string ProjName { get; set; }
 
         public ProjectType ProjType { get; set; }
+
+        public string WprojDescription { get; set; }
     }
 }

@@ -30,10 +30,27 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Templ
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("namespace FluentPro.FluentPS.Constants \r\n{\r\n\tusing System.Collections.Generic;\r\n\t" +
-                    "using Model;\r\n\r\n\tpublic static class PsNativeFields\r\n\t{\t\t\r\n");
+            this.Write(@"namespace FluentPro.FluentPS.Constants 
+{
+	using System.Collections.Generic;
+	using Model;
+
+	public static class PsNativeFields
+	{		
+		static PsNativeFields()
+        {
+            AllFields = new List<PsFieldInfo>();
+            AllFields.AddRange(ProjectFields);
+            AllFields.AddRange(TaskFields);
+            AllFields.AddRange(ResourceFields);
+            AllFields.AddRange(AssignmentFields);
+        }
+
+        public static List<PsFieldInfo> AllFields;
+
+");
             
-            #line 15 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 26 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
 	var sections = this.Session["sections"] as List<NativeFieldsSectionInfo>;
 	foreach(var section in sections){ 
             
@@ -41,98 +58,98 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Templ
             #line hidden
             this.Write("\t\tpublic static List<PsFieldInfo> ");
             
-            #line 17 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 28 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(section.Name));
             
             #line default
             #line hidden
             this.Write("Fields = new List<PsFieldInfo>\r\n\t\t{\r\n");
             
-            #line 19 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 30 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
 	foreach(var field in section.Fields) { 
             
             #line default
             #line hidden
             this.Write("\t\t\tnew PsFieldInfo { EntityType = PsEntityType.");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.EntityType));
             
             #line default
             #line hidden
             this.Write(", PsiName = \"");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.PsiName));
             
             #line default
             #line hidden
             this.Write("\", DbName = \"");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.DbName));
             
             #line default
             #line hidden
             this.Write("\", PropertyName = \"");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.PropertyName));
             
             #line default
             #line hidden
             this.Write("\", DisplayName = \"");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.DisplayName));
             
             #line default
             #line hidden
             this.Write("\", DataType = typeof(");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.DataType));
             
             #line default
             #line hidden
             this.Write("), IsUpdatable = ");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.IsUpdatable.ToString().ToLower()));
             
             #line default
             #line hidden
             this.Write(", ConversionType = PsConversionType.");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.ConversionType));
             
             #line default
             #line hidden
             this.Write(", FieldType = PsFieldType.");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FieldType));
             
             #line default
             #line hidden
             this.Write(", Origin = PsOrigin.");
             
-            #line 20 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 31 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Origin));
             
             #line default
             #line hidden
             this.Write(" },\r\n");
             
-            #line 21 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 32 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t};\r\n\r\n");
             
-            #line 23 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
+            #line 34 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
  } 
             
             #line default

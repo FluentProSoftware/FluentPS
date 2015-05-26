@@ -12,6 +12,17 @@ namespace FluentPro.FluentPS.Constants
 
 	public static class PsNativeFields
 	{		
+		static PsNativeFields()
+        {
+            AllFields = new List<PsFieldInfo>();
+            AllFields.AddRange(ProjectFields);
+            AllFields.AddRange(TaskFields);
+            AllFields.AddRange(ResourceFields);
+            AllFields.AddRange(AssignmentFields);
+        }
+
+        public static List<PsFieldInfo> AllFields;
+
 <#	var sections = this.Session["sections"] as List<NativeFieldsSectionInfo>;
 	foreach(var section in sections){ #>
 		public static List<PsFieldInfo> <#= section.Name #>Fields = new List<PsFieldInfo>

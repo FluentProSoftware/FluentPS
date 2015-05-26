@@ -11,7 +11,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
     public class ProjectNativeFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
         private DataTable _dataTable;
-        private int _rowIdx;
+        private int _rowIdx = -1;
 
         public bool Next()
         {
@@ -43,7 +43,20 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
         public object this[string propName]
         {
             get { return _dataTable.Rows[_rowIdx][propName]; }
-            set { _dataTable.Rows[_rowIdx][propName] = value; }
+            set { SetOrAdd(propName, value); }
+        }
+
+        private void SetOrAdd(string column, object value)
+        {
+            if (_rowIdx == -1)
+            {
+                var row = _dataTable.NewRow();
+                row[column] = value;
+                _dataTable.Rows.Add(row);
+                _rowIdx++;
+            }
+
+            _dataTable.Rows[_rowIdx][column] = value;
         }
 
         public IEnumerable<MappingObjectPropInfo> Properties

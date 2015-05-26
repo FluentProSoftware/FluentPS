@@ -1,52 +1,29 @@
 ﻿using System.Data;
 using System.Linq;
-using System.Text;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Types;
 using FluentPro.FluentPS.Constants;
 
 namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
 {
-    public class NativeFieldsToCamelCasePropertyNameConverter : IPropertyNameConverter
+    public class PsToCamelCasePropertyNameConverter : IPropertyNameConverter
     {
         private static readonly string[] SupportedTables = {
             PsDataTableNames.Project,
-            PsDataTableNames.ProjectCustomFields,
             PsDataTableNames.Task,
-            PsDataTableNames.TaskCustomFields,
             PsDataTableNames.Assignment,
-            PsDataTableNames.AssignmentCustomFields
+            PsDataTableNames.Resources
         };
 
         public string GetName(string sourceName)
         {
-            var sb = new StringBuilder();
-            sb.Append(sourceName[0]);
-            for (var i = 1; i < sourceName.Length; i++)
+            var field = PsNativeFields.ProjectFields.FirstOrDefault(f => f.PsiName == sourceName);
+            if (field == null)
             {
-                var x = sourceName[i];
-                if (x == '_')
-                {
-                    i++;
-                    sb.Append(char.ToUpper(sourceName[i]));
-                    continue;
-                }
-
-                if (char.IsUpper(x) && (char.IsLower(sourceName[i - 1]) || char.IsWhiteSpace(sourceName[i - 1])))
-                {
-                    sb.Append(x);
-                    continue;
-                }
-
-                if (char.IsWhiteSpace(x))
-                {
-                    continue;
-                }
-
-                sb.Append(char.ToLower(x));
+                return sourceName;
             }
 
-            return sb.ToString();
+            return field.PropertyName;
         }
 
         public static bool CanMap(MappingPair mappingPair)
