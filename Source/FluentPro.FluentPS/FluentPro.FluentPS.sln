@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentPS.Psi", "FluentPS.Ps
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{EA0C3F66-C959-44E3-AA82-4A9DCC381B56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.CodeGenerator", "FluentPro.FluentPS.CodeGenerator\FluentPro.FluentPS.CodeGenerator.csproj", "{AEA84FA9-39DC-47E2-A6F8-CD0F5F97A22E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPro.FluentPS.CodeGenerator", "Utils\FluentPro.FluentPS.CodeGenerator\FluentPro.FluentPS.CodeGenerator.csproj", "{AEA84FA9-39DC-47E2-A6F8-CD0F5F97A22E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

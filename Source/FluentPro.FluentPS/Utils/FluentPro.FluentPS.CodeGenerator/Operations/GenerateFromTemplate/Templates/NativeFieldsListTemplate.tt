@@ -1,0 +1,25 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Model" #>
+<#@ import namespace="FluentPro.FluentPS.Model" #>
+namespace FluentPro.FluentPS.Constants 
+{
+	using System.Collections.Generic;
+	using Model;
+
+	public static class PsNativeFields
+	{		
+<#	var sections = this.Session["sections"] as List<NativeFieldsSectionInfo>;
+	foreach(var section in sections){ #>
+		public static List<PsFieldInfo> <#= section.Name #>Fields = new List<PsFieldInfo>
+		{
+<#	foreach(var field in section.Fields) { #>
+			new PsFieldInfo { EntityType = PsEntityType.<#= field.EntityType #>, PsiName = "<#= field.PsiName #>", DbName = "<#= field.DbName #>", PropertyName = "<#= field.PropertyName #>", DisplayName = "<#= field.DisplayName #>", DataType = typeof(<#= field.DataType #>), IsUpdatable = <#= field.IsUpdatable.ToString().ToLower() #>, ConversionType = PsConversionType.<#= field.ConversionType #>, FieldType = PsFieldType.<#= field.FieldType #>, Origin = PsOrigin.<#= field.Origin #> },
+<# } #>		};
+
+<# } #>
+	};
+}
