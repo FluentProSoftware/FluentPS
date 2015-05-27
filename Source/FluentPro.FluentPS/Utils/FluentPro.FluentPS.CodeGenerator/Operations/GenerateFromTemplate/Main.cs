@@ -21,7 +21,7 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
         {
             { PsEntityType.Project, new ProjectDataSet.ProjectDataTable() },
             { PsEntityType.Resource, new ResourceDataSet.ResourcesDataTable() },
-            { PsEntityType.Task, new ProjectDataSet.ProjectDataTable() },
+            { PsEntityType.Task, new ProjectDataSet.TaskDataTable() },
             { PsEntityType.Assignment, new ProjectDataSet.AssignmentDataTable() }
         };
 

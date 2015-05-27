@@ -56,12 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentPro.Common.Mapper\FluentPro.Common.Mapper.csproj">
-      <Project>{ACFD08EE-684E-4158-8502-D3AE7A635FE9}</Project>
+      <Project>{acfd08ee-684e-4158-8502-d3ae7a635fe9}</Project>
       <Name>FluentPro.Common.Mapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentPro.FluentPS.Common.Tests\FluentPro.Common.Mapper.Tests.csproj">
-      <Project>{f5551897-c53b-49a5-9388-ea964496bc36}</Project>
-      <Name>FluentPro.Common.Mapper.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\FluentPro.FluentPS\FluentPro.FluentPS.csproj">
       <Project>{27608FFD-72E4-4C14-99C0-36392A30C11A}</Project>

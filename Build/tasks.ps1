@@ -30,7 +30,7 @@ task Build -Depends RestorePackages {
     msbuild $prj /t:Build /p:Configuration=$conf
     Get-ChildItem $prjOutput -Include *.dll, *.pdb -Recurse | % { Copy-Item $_.FullName -Destination $nupkgLib}
 
-    $assembly = [Reflection.Assembly]::ReflectionOnlyLoadFrom("$nupkgLib\FluentPro.FluentPS.dll")
+    $assembly = [Reflection.Assembly]::LoadFrom("$nupkgLib\FluentPro.FluentPS.dll")
     $id = Get-AttributeValue $assembly "System.Reflection.AssemblyTitleAttribute"
     $title = Get-AttributeValue $assembly "System.Reflection.AssemblyTitleAttribute"
     $version = Get-AttributeValue $assembly "System.Reflection.AssemblyInformationalVersionAttribute"
