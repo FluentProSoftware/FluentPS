@@ -12,12 +12,13 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             PsDataTableNames.Project,
             PsDataTableNames.Task,
             PsDataTableNames.Assignment,
-            PsDataTableNames.Resources
+            PsDataTableNames.Resources,
+            PsDataTableNames.ProjectTeam
         };
 
         public string GetName(string sourceName)
         {
-            var field = PsNativeFields.ProjectFields.FirstOrDefault(f => f.PropertyName == sourceName);
+            var field = PsNativeFields.AllFields.FirstOrDefault(f => f.PropertyName == sourceName);
             if (field == null)
             {
                 return sourceName;
@@ -31,11 +32,6 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             var dataTable = mappingPair.Dest.UnderlyingObject as DataTable;
             if (dataTable != null)
             {
-                if (dataTable.DataSet.DataSetName != "ProjectDataSet")
-                {
-                    return false;
-                }
-
                 if (SupportedTables.Contains(dataTable.TableName))
                 {
                     return true;
@@ -47,11 +43,6 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             var dataRow = mappingPair.Dest.UnderlyingObject as DataRow;
             if (dataRow != null)
             {
-                if (dataRow.Table.DataSet.DataSetName != "ProjectDataSet")
-                {
-                    return false;
-                }
-
                 if (SupportedTables.Contains(dataRow.Table.TableName))
                 {
                     return true;

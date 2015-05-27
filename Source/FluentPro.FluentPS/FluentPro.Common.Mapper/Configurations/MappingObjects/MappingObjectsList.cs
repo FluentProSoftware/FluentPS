@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using FluentPro.Common.Mapper.Extensions;
 using FluentPro.Common.Mapper.Interfaces;
@@ -7,22 +8,26 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
 {
     public class MappingObjectsList : BaseMappingObject, IMappingEnumerableObject
     {
+        private int _idx = -1;
         private IList _list;
-        private IEnumerator _enumerator;
+        private Type _genericItemType;
 
         public bool Next()
         {
-            return _enumerator.MoveNext();
+            return ++_idx < _list.Count;
         }
 
-        public void Add(object obj)
+        public object New()
         {
-            _list.Add(obj);
+            var item = Activator.CreateInstance(_genericItemType);
+            _list.Add(item);
+            _idx++;
+            return _list[_idx];
         }
 
         public object Current
         {
-            get { return _enumerator.Current; }
+            get { return _list[_idx]; }
         }
 
         public override object UnderlyingObject
@@ -31,7 +36,7 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
             set
             {
                 _list = (IList)value;
-                _enumerator = _list.GetEnumerator();
+                _genericItemType = _list.GetType().GetGenericArguments()[0];
             }
         }
 

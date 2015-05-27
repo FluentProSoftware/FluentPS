@@ -19,5 +19,6 @@
         public const string WorkflowStageStrategicImpact = "WorkflowStageStrategicImpact";
         public const string CubeFieldSettings = "CubeFieldSettings";
         public const string CubeSettings = "CubeSettings";
+        public const string ProjectTeam = "ProjectTeam";
     }
 }

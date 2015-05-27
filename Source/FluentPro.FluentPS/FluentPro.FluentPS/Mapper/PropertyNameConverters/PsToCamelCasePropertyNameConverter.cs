@@ -12,12 +12,13 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             PsDataTableNames.Project,
             PsDataTableNames.Task,
             PsDataTableNames.Assignment,
-            PsDataTableNames.Resources
+            PsDataTableNames.Resources,
+            PsDataTableNames.ProjectTeam
         };
 
         public string GetName(string sourceName)
         {
-            var field = PsNativeFields.ProjectFields.FirstOrDefault(f => f.PsiName == sourceName);
+            var field = PsNativeFields.AllFields.FirstOrDefault(f => f.PsiName == sourceName);
             if (field == null)
             {
                 return sourceName;
@@ -31,42 +32,22 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             var dataTable = mappingPair.Src.UnderlyingObject as DataTable;
             if (dataTable != null)
             {
-                if (dataTable.DataSet.DataSetName != "ProjectDataSet")
-                {
-                    return false;
-                }
-
-                if (!SupportedTables.Contains(dataTable.TableName))
-                {
-                    return false;
-                }
-
-                if (!mappingPair.Dest.CanContainWhitespacesInProperties)
+                if (SupportedTables.Contains(dataTable.TableName))
                 {
                     return true;
                 }
-
+                
                 return false;
             }
 
             var dataRow = mappingPair.Src.UnderlyingObject as DataRow;
             if (dataRow != null)
             {
-                if (dataRow.Table.DataSet.DataSetName != "ProjectDataSet")
-                {
-                    return false;
-                }
-
-                if (!SupportedTables.Contains(dataRow.Table.TableName))
-                {
-                    return false;
-                }
-
-                if (!mappingPair.Dest.CanContainWhitespacesInProperties)
+                if (SupportedTables.Contains(dataRow.Table.TableName))
                 {
                     return true;
                 }
-
+                
                 return false;
             }
 

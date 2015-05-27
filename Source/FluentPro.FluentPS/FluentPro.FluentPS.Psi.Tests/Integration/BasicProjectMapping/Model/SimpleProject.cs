@@ -1,7 +1,7 @@
-﻿using FluentPro.FluentPS.Psi.Model.Enums;
-using System;
+﻿using System;
+using FluentPro.FluentPS.Psi.Model.Enums;
 
-namespace FluentPro.FluentPS.Psi.Tests.Model
+namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
 {
     public class SimpleProject
     {

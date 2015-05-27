@@ -26,11 +26,6 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             return false;
         }
 
-        public void Add(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public object Current
         {
             get { throw new NotImplementedException(); }
@@ -136,6 +131,12 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             var customFieldsTable = customFieldsDs.Tables["CustomFields"];
 
             return customFieldsTable;
+        }
+
+
+        public object New()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using FluentPro.Common.Mapper.Configurations.MappingObjects;
@@ -10,23 +11,40 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
 {
     public class ProjectNativeFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
+        private static readonly string[] SupportedTables = {
+            PsDataTableNames.Project,
+            PsDataTableNames.Task,
+            PsDataTableNames.Assignment,
+            PsDataTableNames.Resources,
+            PsDataTableNames.ProjectTeam
+        };
+
         private DataTable _dataTable;
         private int _rowIdx = -1;
 
-        public bool Next()
+        public object New()
         {
-            if (_rowIdx < _dataTable.Rows.Count)
+            var row = _dataTable.NewRow();
+            foreach (var col in _dataTable.Columns.Cast<DataColumn>().Where(c => !c.AllowDBNull && row[c.ColumnName] == DBNull.Value))
             {
-                _rowIdx++;
-                return true;
+                if (col.DataType == typeof(string))
+                {
+                    row[col.ColumnName] = string.Empty;
+                    continue;
+                }
+
+                row[col.ColumnName] = Activator.CreateInstance(col.DataType);
             }
 
-            return false;
+            _dataTable.Rows.Add(row);
+            _rowIdx++;
+
+            return _dataTable.Rows[_rowIdx];
         }
 
-        public void Add(object obj)
+        public bool Next()
         {
-            _dataTable.Rows.Add((DataRow)obj);
+            return ++_rowIdx < _dataTable.Rows.Count;
         }
 
         public object Current
@@ -42,18 +60,25 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
 
         public object this[string propName]
         {
-            get { return _dataTable.Rows[_rowIdx][propName]; }
-            set { SetOrAdd(propName, value); }
+            get { return Get(propName); }
+            set { Set(propName, value); }
         }
 
-        private void SetOrAdd(string column, object value)
+        private object Get(string column)
         {
             if (_rowIdx == -1)
             {
-                var row = _dataTable.NewRow();
-                row[column] = value;
-                _dataTable.Rows.Add(row);
                 _rowIdx++;
+            }
+
+            return _dataTable.Rows[_rowIdx][column];
+        }
+
+        private void Set(string column, object value)
+        {
+            if (_rowIdx == -1)
+            {
+                New();
             }
 
             _dataTable.Rows[_rowIdx][column] = value;
@@ -89,7 +114,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 return false;
             }
 
-            if (dataTable.TableName != PsDataTableNames.Project)
+            if (!SupportedTables.Contains(dataTable.TableName))
             {
                 return false;
             }

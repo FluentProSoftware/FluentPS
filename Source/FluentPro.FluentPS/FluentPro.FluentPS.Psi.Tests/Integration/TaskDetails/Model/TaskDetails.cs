@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentPro.FluentPS.Psi.Tests.Model
+namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails.Model
 {
     public class TaskDetails
     {

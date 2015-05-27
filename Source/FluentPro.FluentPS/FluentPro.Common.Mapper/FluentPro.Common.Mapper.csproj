@@ -55,7 +55,7 @@
     <Compile Include="Configurations\PropertyNameConverters\LeaveOriginalNamePropertyNameConverter.cs" />
     <Compile Include="Configurations\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
     <Compile Include="Configurations\Strategies\ForEachDestPropSetExistingPropInSrcMappingStrategy.cs" />
-    <Compile Include="Configurations\Strategies\ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy.cs" />
+    <Compile Include="Configurations\Strategies\ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy.cs" />
     <Compile Include="Configurations\Strategies\ForEachSrcPropSetExistingPropInDestMappingStrategy.cs" />
     <Compile Include="Configurations\Strategies\ForEachSrcPropSetNewPropInDestMappingStrategy.cs" />
     <Compile Include="Exceptions\ExternalDataRequiredException.cs" />

@@ -24,7 +24,7 @@ namespace FluentPro.Common.Mapper.Configurations
 
             MappingStrategies = new FuncToTypeList<MappingPair>
             {
-                new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy)),
+                new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy)),
                 new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetNewPropInDestMappingStrategy.CanMap, typeof(ForEachSrcPropSetNewPropInDestMappingStrategy)),
                 new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetExistingPropInDestMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestMappingStrategy)),
                 new FuncToTypeListItem<MappingPair>(ForEachDestPropSetExistingPropInSrcMappingStrategy.CanMap, typeof(ForEachDestPropSetExistingPropInSrcMappingStrategy))

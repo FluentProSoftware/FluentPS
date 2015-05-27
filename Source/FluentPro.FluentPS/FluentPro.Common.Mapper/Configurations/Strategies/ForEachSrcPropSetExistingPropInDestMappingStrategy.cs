@@ -37,7 +37,16 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
         public static bool CanMap(MappingPair mappingObjects)
         {
             var src = mappingObjects.Src as IMappingSingleObject;
+            if (src == null)
+            {
+                return false;
+            }
+
             var dest = mappingObjects.Dest as IMappingSingleObject;
+            if (dest == null)
+            {
+                return false;
+            }
 
             return dest.CanDiscoverProperties && src.CanDiscoverProperties;
         }

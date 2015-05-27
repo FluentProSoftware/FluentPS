@@ -1,16 +1,15 @@
-﻿using System.ServiceModel.Security;
-
-namespace FluentPro.FluentPS.Psi.Network.Types
+﻿namespace FluentPro.FluentPS.Psi.Network.Types
 {
-    using FluentPro.FluentPS.Psi.Exceptions.Faults;
-    using FluentPro.FluentPS.Psi.Model.Enums;
-    using FluentPro.FluentPS.Psi.Network.Bindings;
-    using FluentPro.FluentPS.Psi.Network.ChannelFactories;
+    using Exceptions.Faults;
+    using Model.Enums;
+    using Bindings;
+    using ChannelFactories;
     using System;
     using System.Diagnostics;
     using System.ServiceModel;
     using System.ServiceModel.Channels;
     using System.ServiceModel.Web;
+    using System.ServiceModel.Security;
 
     public class PsiService<TChannel>
     {

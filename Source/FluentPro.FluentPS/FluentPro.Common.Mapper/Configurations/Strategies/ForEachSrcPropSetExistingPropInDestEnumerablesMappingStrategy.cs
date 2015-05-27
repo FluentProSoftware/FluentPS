@@ -3,7 +3,7 @@ using FluentPro.Common.Mapper.Types;
 
 namespace FluentPro.Common.Mapper.Configurations.Strategies
 {
-    public class ForEachSrcPropSetExistingPropInDestGenericListMappingStrategy : IMappingStrategy
+    public class ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy : IMappingStrategy
     {
         public IPropertyNameConverter PropertyNameConverter { get; set; }
 
@@ -16,12 +16,9 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
 
             while (src.Next())
             {
-                var genericType = dest.UnderlyingObject.GetType().GetGenericArguments()[0];
-                var instance = MapperConfiguration.ObjectFactory.CreateInstance(genericType);
-
-                var currentDestMappingObjectType = MapperConfiguration.MappingObjects.Get(instance);
+                var currentDestMappingObjectType = MapperConfiguration.MappingObjects.Get(dest.New());
                 var currentDest = MapperConfiguration.ObjectFactory.CreateInstance(currentDestMappingObjectType) as IMappingSingleObject;
-                currentDest.UnderlyingObject = instance;
+                currentDest.UnderlyingObject = dest.Current;
 
                 var currentSrcMappingObjectType = MapperConfiguration.MappingObjects.Get(src.Current);
                 var currentSrc = MapperConfiguration.ObjectFactory.CreateInstance(currentSrcMappingObjectType) as IMappingSingleObject;
@@ -33,8 +30,6 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
                 strategy.MapperConfiguration = MapperConfiguration;
                 strategy.PropertyNameConverter = PropertyNameConverter;
                 strategy.Map(pair);
-
-                dest.Add(currentDest.UnderlyingObject);
             }
         }
 

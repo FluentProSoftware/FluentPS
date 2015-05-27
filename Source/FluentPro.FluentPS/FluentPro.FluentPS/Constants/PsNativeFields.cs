@@ -1,4 +1,4 @@
-﻿namespace FluentPro.FluentPS.Constants 
+namespace FluentPro.FluentPS.Constants 
 {
 	using System.Collections.Generic;
 	using Model;
@@ -110,6 +110,7 @@
 			new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "IDEA_ITEM_ID", DbName = "", PropertyName = "IdeaItemId", DisplayName = "", DataType = typeof(System.Int32), IsUpdatable = false, ConversionType = PsConversionType.Invalid, FieldType = PsFieldType.Unknown, Origin = PsOrigin.PsiDataTable },
 			new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "PROJ_IS_TASK_LIST", DbName = "", PropertyName = "ProjIsTaskList", DisplayName = "", DataType = typeof(System.Boolean), IsUpdatable = false, ConversionType = PsConversionType.Invalid, FieldType = PsFieldType.Unknown, Origin = PsOrigin.PsiDataTable },
 			new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "WPROJ_DESCRIPTION", DbName = "", PropertyName = "WprojDescription", DisplayName = "Description", DataType = typeof(System.String), IsUpdatable = true, ConversionType = PsConversionType.PsStrings, FieldType = PsFieldType.Intrinsic, Origin = PsOrigin.Manual },
+			new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "NEW_RES_UID", DbName = "", PropertyName = "NewResUid", DisplayName = "Resource New Uid", DataType = typeof(System.Guid), IsUpdatable = true, ConversionType = PsConversionType.Guid, FieldType = PsFieldType.Intrinsic, Origin = PsOrigin.Manual },
 		};
 
 		public static List<PsFieldInfo> ResourceFields = new List<PsFieldInfo>

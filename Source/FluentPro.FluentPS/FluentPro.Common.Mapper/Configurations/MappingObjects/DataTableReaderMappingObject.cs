@@ -48,17 +48,17 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
             set { _reader = (DataTableReader)value; }
         }
 
-        public void Add(object obj)
-        {
-            throw new UnderlyingObjectDoNotSupportAddOperationsException
-            {
-                UnderlyingObjectType = typeof(DataTableReader)
-            };
-        }
-
         public bool Next()
         {
             return _reader.Read();
+        }
+
+        public object New()
+        {
+            throw new UnderlyingObjectDoNotSupportAddOperationsException("DataTableReader do not support creation of new objects.")
+            {
+                UnderlyingObjectType = typeof(DataTableReader)
+            };
         }
 
         public object Current

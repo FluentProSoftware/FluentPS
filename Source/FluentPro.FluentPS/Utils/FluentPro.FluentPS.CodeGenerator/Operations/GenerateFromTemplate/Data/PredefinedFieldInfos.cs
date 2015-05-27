@@ -211,7 +211,8 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Data
 
         public static readonly List<PsFieldInfo> Additional = new List<PsFieldInfo>
         {
-            new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "WPROJ_DESCRIPTION", DbName = string.Empty, DisplayName = "Description", FieldType = PsFieldType.Intrinsic, ConversionType = PsConversionType.PsStrings, Uid = new Guid("837aafa9-fa1a-49c0-8a08-6b007865991b"), DataType = typeof(string), IsUpdatable = true, Origin = PsOrigin.Manual, PropertyName = "WprojDescription"}
+            new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "WPROJ_DESCRIPTION", DbName = string.Empty, DisplayName = "Description", FieldType = PsFieldType.Intrinsic, ConversionType = PsConversionType.PsStrings, Uid = new Guid("837aafa9-fa1a-49c0-8a08-6b007865991b"), DataType = typeof(string), IsUpdatable = true, Origin = PsOrigin.Manual, PropertyName = "WprojDescription"},
+            new PsFieldInfo { EntityType = PsEntityType.Project, PsiName = "NEW_RES_UID", DbName = string.Empty, DisplayName = "Resource New Uid", FieldType = PsFieldType.Intrinsic, ConversionType = PsConversionType.Guid, Uid = new Guid("847D3B3A-76A7-469E-8AB1-2BBA6D59D856"), DataType = typeof(Guid), IsUpdatable = true, Origin = PsOrigin.Manual, PropertyName = "NewResUid"}
         };
     }
 }
