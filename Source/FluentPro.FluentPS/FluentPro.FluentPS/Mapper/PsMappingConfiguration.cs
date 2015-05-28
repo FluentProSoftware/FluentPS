@@ -9,8 +9,8 @@ namespace FluentPro.FluentPS.Mapper
     {
         public PsMappingConfiguration()
         {
-            MappingObjects.Insert(0, new FuncToTypeListItem<object>(ProjectNativeFieldsDataTableMappingObject.IsValid, typeof(ProjectNativeFieldsDataTableMappingObject)));
-            MappingObjects.Insert(0, new FuncToTypeListItem<object>(ProjectCustomFieldsDataTableMappingObject.IsValid, typeof(ProjectCustomFieldsDataTableMappingObject)));
+            MappingObjects.Insert(0, new FuncToTypeListItem<object>(NativeFieldsDataTableMappingObject.IsValid, typeof(NativeFieldsDataTableMappingObject)));
+            MappingObjects.Insert(0, new FuncToTypeListItem<object>(CustomFieldsDataTableMappingObject.IsValid, typeof(CustomFieldsDataTableMappingObject)));
 
             PropertyNameConverters.Insert(0, new FuncToTypeListItem<MappingPair>(PsToCamelCasePropertyNameConverter.CanMap, typeof(PsToCamelCasePropertyNameConverter)));
             PropertyNameConverters.Insert(0, new FuncToTypeListItem<MappingPair>(CamelCaseToPsPropertyNameConverter.CanMap, typeof(CamelCaseToPsPropertyNameConverter)));

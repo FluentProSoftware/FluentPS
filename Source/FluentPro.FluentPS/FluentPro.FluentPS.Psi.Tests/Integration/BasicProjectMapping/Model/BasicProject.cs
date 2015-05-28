@@ -3,7 +3,7 @@ using FluentPro.FluentPS.Psi.Model.Enums;
 
 namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
 {
-    public class SimpleProject
+    public class BasicProject
     {
         public Guid ProjUid { get; set; }
 

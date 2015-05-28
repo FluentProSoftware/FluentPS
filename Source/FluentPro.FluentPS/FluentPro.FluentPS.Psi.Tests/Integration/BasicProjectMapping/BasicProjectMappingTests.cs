@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using FluentPro.Common.Mapper;
 using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.Common.Mapper.Interfaces;
+using FluentPro.FluentPS.Attributes;
+using FluentPro.FluentPS.Extensions;
 using FluentPro.FluentPS.Mapper;
+using FluentPro.FluentPS.Model;
 using FluentPro.FluentPS.Psi.Interfaces.Psi;
 using FluentPro.FluentPS.Psi.Model.DataSets;
 using FluentPro.FluentPS.Psi.Model.Enums;
@@ -22,7 +27,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
         private static PsiService<ICustomFields> _customFieldsService;
 
         private static IFluentMapper _mapper;
-            
+
         [ClassInitialize]
         public static void ClassInit(TestContext context)
         {
@@ -32,7 +37,30 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
 
             ClassCleanup();
 
-            var simpleProject = new SimpleProject
+            //TODO: Generate metadata for custom fields mapping
+            //var cfds = new CustomFieldDataSet();
+            //var cfs = new List<BasicProjectCustomField>
+            //{
+            //    new BasicProjectCustomField
+            //    { 
+            //        MdPropUid = Guid.NewGuid(), 
+            //        MdPropName = "Test - Project - Text", 
+            //        MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
+            //        MdPropTypeEnum = PsConversionType.String
+            //    },
+
+            //    new BasicProjectCustomField
+            //    { 
+            //        MdPropUid = Guid.NewGuid(), 
+            //        MdPropName = "Test - Project - Number", 
+            //        MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
+            //        MdPropTypeEnum = PsConversionType.Number
+            //    },
+            //};
+            //_mapper.Map(cfs, cfds.CustomFields);
+            //_customFieldsService.Invoke(c => c.CreateCustomFields2(cfds, false, true));
+
+            var simpleProject = new BasicProject
             {
                 ProjUid = Settings.DefaultProjectGuid,
                 ProjName = Settings.DefaultProjectName,
@@ -70,32 +98,34 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                 QueueUtil.Wait(deleteProjectJobUid);
             }
             catch { }
+
+            try
+            {
+                var customFields = _customFieldsService.Invoke(s => s.ReadCustomFieldsByEntity2(PsEntityType.Project.GetAttr<GuidAttribute>().Guid));
+
+                var toDelete = customFields
+                    .CustomFields
+                    .Cast<CustomFieldDataSet.CustomFieldsRow>()
+                    .Where(r => r.MD_PROP_NAME.StartsWith("Test"))
+                    .ToList();
+
+                var toCheckout = toDelete
+                    .Where(r => r.IsMD_PROP_CHECKOUTBYNull())
+                    .Select(r => r.MD_PROP_UID)
+                    .ToArray();
+
+                _customFieldsService.Invoke(s => s.CheckOutCustomFields(toCheckout));
+                _customFieldsService.Invoke(s => s.DeleteCustomFields(toDelete.Select(f => f.MD_PROP_UID).ToArray()));
+            }
+            catch { }
         }
-
-        //[TestMethod]
-        //public void CreateCustomFields()
-        //{
-        //    var customFieldsService = PsiContext.Get<ICustomFields>(Settings.PwaUri);
-
-        //    var customFieldsDs = new CustomFieldDataSet();
-
-        //    var row = customFieldsDs.CustomFields.NewCustomFieldsRow();
-        //    row.MD_PROP_UID = new Guid("573050DE-58A3-44C7-A22A-318C3290C8E5");
-        //    row.MD_PROP_NAME = "1 Custom Field";
-        //    row.MD_ENT_TYPE_UID = PsEntityType.Project.GetAttr<GuidAttribute>().Guid;
-        //    row.MD_PROP_TYPE_ENUM = (byte)PsConversionType.String;
-
-        //    customFieldsDs.CustomFields.AddCustomFieldsRow(row);
-
-        //    customFieldsService.Invoke(c => c.CreateCustomFields2(customFieldsDs, false, true));
-        //}
 
         [TestMethod]
         public void GetProject_ByGuid_ShouldReturnProjectEntity()
         {
             var dataSet = _projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
-            var result = new SimpleProject();
+            var result = new BasicProject();
             _mapper.Map(dataSet.Project, result);
 
             Assert.IsTrue(result.ProjName == Settings.DefaultProjectName);

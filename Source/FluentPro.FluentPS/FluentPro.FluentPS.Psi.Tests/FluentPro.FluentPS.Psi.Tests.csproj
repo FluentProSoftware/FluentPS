@@ -60,13 +60,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Integration\BasicProjectMapping\Model\BasicProjectCustomField.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsAssignment.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsProject.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsProjectTeamResource.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsResource.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsTask.cs" />
     <Compile Include="Integration\TaskDetails\TaskDetailsTests.cs" />
-    <Compile Include="Integration\BasicProjectMapping\Model\SimpleProject.cs" />
+    <Compile Include="Integration\BasicProjectMapping\Model\BasicProject.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetails.cs" />
     <Compile Include="Integration\Context\PsiContextTests.cs" />
     <Compile Include="Integration\BasicProjectMapping\BasicProjectMappingTests.cs" />

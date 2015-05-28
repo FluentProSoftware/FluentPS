@@ -9,7 +9,7 @@ using FluentPro.FluentPS.Constants;
 
 namespace FluentPro.FluentPS.Mapper.MappingObjects
 {
-    public class ProjectNativeFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
+    public class NativeFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
         private static readonly string[] SupportedTables = {
             PsDataTableNames.Project,

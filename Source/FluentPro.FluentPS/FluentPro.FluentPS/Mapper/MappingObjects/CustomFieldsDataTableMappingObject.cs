@@ -10,7 +10,7 @@ using FluentPro.FluentPS.Constants;
 
 namespace FluentPro.FluentPS.Mapper.MappingObjects
 {
-    public class ProjectCustomFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
+    public class CustomFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
         private DataTable _dataTable;
         private int _rowIdx;

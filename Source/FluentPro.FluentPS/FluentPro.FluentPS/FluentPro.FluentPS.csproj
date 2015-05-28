@@ -55,8 +55,8 @@
     <Compile Include="Model\PsConversionType.cs" />
     <Compile Include="Constants\PsNativeFields.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Mapper\MappingObjects\ProjectCustomFieldsDataTableMappingObject.cs" />
-    <Compile Include="Mapper\MappingObjects\ProjectNativeFieldsDataTableMappingObject.cs" />
+    <Compile Include="Mapper\MappingObjects\CustomFieldsDataTableMappingObject.cs" />
+    <Compile Include="Mapper\MappingObjects\NativeFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\PropertyNameConverters\PsToCamelCasePropertyNameConverter.cs" />
     <Compile Include="Mapper\PsMappingConfiguration.cs" />
     <Compile Include="Model\PsClassification.cs" />
