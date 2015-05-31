@@ -32,7 +32,7 @@ namespace FluentPro.Common.Mapper.Configurations
 
             PropertyNameConverters = new FuncToTypeList<MappingPair>
             {
-                new FuncToTypeListItem<MappingPair>(LeaveOriginalNamePropertyNameConverter.CanMap, typeof(LeaveOriginalNamePropertyNameConverter)),
+                new FuncToTypeListItem<MappingPair>(NopPropertyNameConverter.CanMap, typeof(NopPropertyNameConverter)),
                 new FuncToTypeListItem<MappingPair>(RemoveWhiteSpacesPropertyNameConverter.CanMap, typeof(RemoveWhiteSpacesPropertyNameConverter))
             };
         }

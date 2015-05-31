@@ -17,12 +17,11 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
             return ++_idx < _list.Count;
         }
 
-        public object New()
+        public void New()
         {
             var item = Activator.CreateInstance(_genericItemType);
             _list.Add(item);
             _idx++;
-            return _list[_idx];
         }
 
         public object Current

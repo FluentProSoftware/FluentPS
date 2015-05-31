@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FluentPro.Common.Mapper.Configurations.PropertyValueConverters;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Types;
 
@@ -18,19 +19,22 @@ namespace FluentPro.Common.Mapper
 
         public TDest Map<TSrc, TDest>(TSrc src,
             IPropertyNameConverter propertyNameConverter = null,
+            IPropertyValueConverter propertyValueConverter = null,
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null)
         {
             var dest = (TDest)_mapperConfiguration.ObjectFactory.CreateInstance(typeof(TDest));
-            Map(src, dest, propertyNameConverter, mappingStrategy, externalData);
+            Map(src, dest, propertyNameConverter, propertyValueConverter, mappingStrategy, externalData);
             return dest;
         }
 
         public void Map<TSrc, TDest>(TSrc src, TDest dest,
             IPropertyNameConverter propertyNameConverter = null,
+            IPropertyValueConverter propertyValueConverter = null,
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null)
         {
+            propertyValueConverter = propertyValueConverter ?? new NopPropertyValueConverter();
             externalData = externalData ?? new Dictionary<string, object>();
 
             var srcMappingObjectType = _mapperConfiguration.MappingObjects.Get(src);
@@ -48,6 +52,7 @@ namespace FluentPro.Common.Mapper
             var strategyType = _mapperConfiguration.MappingStrategies.Get(mappingPair);
             var strategy = mappingStrategy ?? _mapperConfiguration.ObjectFactory.CreateInstance(strategyType) as IMappingStrategy;
             strategy.MapperConfiguration = _mapperConfiguration;
+            strategy.PropertyValueConverter = propertyValueConverter;
             strategy.PropertyNameConverter = propertyNameConverter ?? _mapperConfiguration.ObjectFactory.CreateInstance(_mapperConfiguration.PropertyNameConverters.Get(mappingPair)) as IPropertyNameConverter;
             strategy.Map(mappingPair);
         }

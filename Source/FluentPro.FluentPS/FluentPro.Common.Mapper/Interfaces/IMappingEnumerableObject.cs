@@ -12,10 +12,10 @@
         bool Next();
 
         /// <summary>
-        /// Creates a new object in the list of objects and returns it, moves pointer to this new object.
+        /// Creates a new object in the list of objects, moves pointer to this new object.
         /// </summary>
         /// <returns></returns>
-        object New();
+        void New();
 
         /// <summary>
         /// Returns current object from list of objects.

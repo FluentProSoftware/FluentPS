@@ -22,7 +22,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
         private DataTable _dataTable;
         private int _rowIdx = -1;
 
-        public object New()
+        public void New()
         {
             var row = _dataTable.NewRow();
             foreach (var col in _dataTable.Columns.Cast<DataColumn>().Where(c => !c.AllowDBNull && row[c.ColumnName] == DBNull.Value))
@@ -38,8 +38,6 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
 
             _dataTable.Rows.Add(row);
             _rowIdx++;
-
-            return _dataTable.Rows[_rowIdx];
         }
 
         public bool Next()

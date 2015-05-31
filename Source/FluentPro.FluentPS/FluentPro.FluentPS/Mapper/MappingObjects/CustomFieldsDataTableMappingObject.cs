@@ -133,8 +133,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             return customFieldsTable;
         }
 
-
-        public object New()
+        public void New()
         {
             throw new NotImplementedException();
         }

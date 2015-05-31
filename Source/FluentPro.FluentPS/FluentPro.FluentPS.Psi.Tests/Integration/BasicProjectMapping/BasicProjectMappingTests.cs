@@ -140,7 +140,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
             var dataSet = _projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
             var result = new Dictionary<string, object>();
-            _mapper.Map(dataSet.Project, result, new LeaveOriginalNamePropertyNameConverter());
+            _mapper.Map(dataSet.Project, result, new NopPropertyNameConverter());
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
             Assert.IsTrue(result["PROJ_UID"].Equals(Settings.DefaultProjectGuid));
@@ -158,12 +158,12 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
             _mapper.Map(
                 projectDataSet.Project,
                 result,
-                new LeaveOriginalNamePropertyNameConverter());
+                new NopPropertyNameConverter());
 
             _mapper.Map(
                 projectDataSet.ProjectCustomFields,
                 result,
-                new LeaveOriginalNamePropertyNameConverter(),
+                new NopPropertyNameConverter(),
                 externalData: new Dictionary<string, object> 
                 {
                     { customFieldsDataSet.DataSetName, customFieldsDataSet }

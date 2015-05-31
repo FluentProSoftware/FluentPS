@@ -5,9 +5,11 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
 {
     public class ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy : IMappingStrategy
     {
+        public IMappingConfiguration MapperConfiguration { get; set; }
+
         public IPropertyNameConverter PropertyNameConverter { get; set; }
 
-        public IMappingConfiguration MapperConfiguration { get; set; }
+        public IPropertyValueConverter PropertyValueConverter { get; set; }
 
         public void Map(MappingPair mappingPair)
         {
@@ -16,7 +18,9 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
 
             while (src.Next())
             {
-                var currentDestMappingObjectType = MapperConfiguration.MappingObjects.Get(dest.New());
+                dest.New();
+
+                var currentDestMappingObjectType = MapperConfiguration.MappingObjects.Get(dest.Current);
                 var currentDest = MapperConfiguration.ObjectFactory.CreateInstance(currentDestMappingObjectType) as IMappingSingleObject;
                 currentDest.UnderlyingObject = dest.Current;
 
@@ -29,6 +33,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
                 var strategy = MapperConfiguration.ObjectFactory.CreateInstance(strategyType) as IMappingStrategy;
                 strategy.MapperConfiguration = MapperConfiguration;
                 strategy.PropertyNameConverter = PropertyNameConverter;
+                strategy.PropertyValueConverter = PropertyValueConverter;
                 strategy.Map(pair);
             }
         }

@@ -54,9 +54,9 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
                 WprojDescription = ProjectName,
                 Tasks = new List<TaskDetailsTask>
                 {
-                    new TaskDetailsTask { TaskName = "Task 1", TaskUid = TaskGuid, ProjUid = ProjectGuid },
-                    new TaskDetailsTask { TaskName = "Task 2", TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
-                    new TaskDetailsTask { TaskName = "Task 3", TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
+                    new TaskDetailsTask { TaskName = "Task 1", TaskWork = 100, TaskUid = TaskGuid, ProjUid = ProjectGuid },
+                    new TaskDetailsTask { TaskName = "Task 2", TaskWork = 200,  TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
+                    new TaskDetailsTask { TaskName = "Task 3", TaskWork = 300, TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
                 }
             };
 
@@ -187,6 +187,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
             Mapper.Map(assignment, taskDetails);
 
             Assert.IsTrue(taskDetails.TaskName == "Task 1");
+            Assert.IsTrue(taskDetails.TaskWork == 100);
         }
     }
 }

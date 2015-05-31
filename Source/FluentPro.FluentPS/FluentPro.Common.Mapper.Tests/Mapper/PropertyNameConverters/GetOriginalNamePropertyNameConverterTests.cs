@@ -15,7 +15,7 @@ namespace FluentPro.Common.Mapper.Tests.Mapper.PropertyNameConverters
 
         public override IPropertyNameConverter GetSut()
         {
-            return new LeaveOriginalNamePropertyNameConverter();
+            return new NopPropertyNameConverter();
         }
     }
 }

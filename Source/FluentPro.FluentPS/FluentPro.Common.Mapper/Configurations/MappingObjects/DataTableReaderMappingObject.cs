@@ -53,7 +53,7 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
             return _reader.Read();
         }
 
-        public object New()
+        public void New()
         {
             throw new UnderlyingObjectDoNotSupportAddOperationsException("DataTableReader do not support creation of new objects.")
             {

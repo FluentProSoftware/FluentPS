@@ -9,5 +9,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails.Model
         public Guid TaskUid { get; set; }
 
         public string TaskName { get; set; }
+
+        public double TaskWork { get; set; }
     }
 }

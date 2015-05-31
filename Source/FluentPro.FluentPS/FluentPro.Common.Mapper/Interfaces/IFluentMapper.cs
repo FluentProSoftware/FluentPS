@@ -6,11 +6,13 @@ namespace FluentPro.Common.Mapper.Interfaces
     {
         TDest Map<TSrc, TDest>(TSrc src,
             IPropertyNameConverter propertyNameConverter = null,
+            IPropertyValueConverter propertyValueConverter = null,
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null);
 
         void Map<TSrc, TDest>(TSrc src, TDest dest,
             IPropertyNameConverter propertyNameConverter = null,
+            IPropertyValueConverter propertyValueConverter = null,
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null);
     }

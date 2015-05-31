@@ -8,9 +8,11 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
     /// </summary>
     public class ForEachSrcPropSetNewPropInDestMappingStrategy : IMappingStrategy
     {
+        public IMappingConfiguration MapperConfiguration { get; set; }
+
         public IPropertyNameConverter PropertyNameConverter { get; set; }
 
-        public IMappingConfiguration MapperConfiguration { get; set; }
+        public IPropertyValueConverter PropertyValueConverter { get; set; }
 
         public void Map(MappingPair mappingPair)
         {
@@ -21,8 +23,8 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
 
             foreach (var prop in srcProps)
             {
-                var srcVal = src[prop.Name];
                 var convertedName = PropertyNameConverter.GetName(prop.Name);
+                var srcVal = PropertyValueConverter.GetValue(prop, src[prop.Name]);
                 dest[convertedName] = srcVal;
             }
         }

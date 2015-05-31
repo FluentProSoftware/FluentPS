@@ -14,6 +14,8 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
 
         public IPropertyNameConverter PropertyNameConverter { get; set; }
 
+        public IPropertyValueConverter PropertyValueConverter { get; set; }
+
         public void Map(MappingPair mappingPair)
         {
             var src = mappingPair.Src as IMappingSingleObject;
@@ -28,7 +30,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
                 var propInfo = destProps.FirstOrDefault(p => p.Name == convertedName);
                 if (propInfo != null)
                 {
-                    var srcVal = src[prop.Name];
+                    var srcVal = PropertyValueConverter.GetValue(propInfo, src[prop.Name]);
                     dest[convertedName] = srcVal;
                 }
             }
