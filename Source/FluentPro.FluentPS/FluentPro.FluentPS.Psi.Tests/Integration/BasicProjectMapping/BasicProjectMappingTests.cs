@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Xml.Schema;
 using FluentPro.Common.Mapper;
-using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
+using FluentPro.Common.Mapper.Configurations.PropsMatchers;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.FluentPS.Attributes;
 using FluentPro.FluentPS.Extensions;
@@ -60,6 +60,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
 
             _mapper.Map(cfs, cfds.CustomFields);
             _customFieldsService.Invoke(c => c.CreateCustomFields2(cfds, false, true));
+            var customFieldsDataSet = _customFieldsService.Invoke(s => s.ReadCustomFields(string.Empty, false));
 
             var simpleProject = new BasicProject
             {
@@ -72,7 +73,10 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
 
             var ds = new ProjectDataSet();
             _mapper.Map(simpleProject, ds.Project);
-            // _mapper.Map(simpleProject, ds.ProjectCustomFields);
+            _mapper.Map(simpleProject, ds.ProjectCustomFields, externalData: new Dictionary<string, object>
+            {
+                { cfds.DataSetName, customFieldsDataSet }
+            });
 
             var createProjectJobUid = Guid.NewGuid();
             _projectService.Invoke(p => p.QueueCreateProject(createProjectJobUid, ds, false));
@@ -143,7 +147,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
             var dataSet = _projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 
             var result = new Dictionary<string, object>();
-            _mapper.Map(dataSet.Project, result, new NopPropertyNameConverter());
+            _mapper.Map(dataSet.Project, result, new NopPropsMatcher());
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
             Assert.IsTrue(result["PROJ_UID"].Equals(Settings.DefaultProjectGuid));
@@ -161,19 +165,19 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
             _mapper.Map(
                 projectDataSet.Project,
                 result,
-                new NopPropertyNameConverter());
+                new NopPropsMatcher());
 
             _mapper.Map(
                 projectDataSet.ProjectCustomFields,
                 result,
-                new NopPropertyNameConverter(),
+                new NopPropsMatcher(),
                 externalData: new Dictionary<string, object> 
                 {
                     { customFieldsDataSet.DataSetName, customFieldsDataSet }
                 });
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
-            // Assert.IsTrue(result["Test - Project - Text"].Equals("10"));
+            Assert.IsTrue(result["Test - Project - Text"].Equals("10"));
         }
     }
 }

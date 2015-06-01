@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Text;
 using FluentPro.FluentPS.Attributes;
 using FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Data;
 using FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Templates;
@@ -16,14 +15,19 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 {
     public class Main : IOperation
     {
+        /// <summary>
+        /// The list of datatable to process, only non-custom fields datatables here.
+        /// </summary>
         private readonly List<DataTable> _dataTables = new List<DataTable>
         {
             new ProjectDataSet.ProjectDataTable(),
-            new ResourceDataSet.ResourcesDataTable(),
-            new ProjectDataSet.TaskDataTable(),
+            new ProjectDataSet.ProjectResourceDataTable(),
             new ProjectDataSet.AssignmentDataTable(),
-            new CustomFieldDataSet.CustomFieldsDataTable(),
-            new ProjectTeamDataSet.ProjectTeamDataTable()
+            new ProjectDataSet.TaskDataTable(),
+            new ResourceDataSet.ResourcesDataTable(),
+            new ProjectTeamDataSet.ProjectTeamDataTable(),
+
+            new CustomFieldDataSet.CustomFieldsDataTable()
         };
 
         public void Help()

@@ -22,7 +22,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
             var srcProps = src.Properties;
             var destProps = dest.Properties;
 
-            var props = PropsMatcher.GetPropertisMap(srcProps, destProps);
+            var props = PropsMatcher.GetPropertiesMap(srcProps, destProps);
             foreach (var prop in srcProps)
             {
                 var convertedName = props[prop.Name];

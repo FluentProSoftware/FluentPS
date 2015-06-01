@@ -52,8 +52,8 @@
     <Compile Include="Configurations\MappingObjects\MappingObjectsList.cs" />
     <Compile Include="Configurations\MappingObjects\PocoMappingObject.cs" />
     <Compile Include="Configurations\ObjectFactories\ActivatorObjectFactory.cs" />
-    <Compile Include="Configurations\PropertyNameConverters\NopPropertyNameConverter.cs" />
-    <Compile Include="Configurations\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverter.cs" />
+    <Compile Include="Configurations\PropsMatchers\NopPropsMatcher.cs" />
+    <Compile Include="Configurations\PropsMatchers\RemoveWhiteSpacesPropsMatcher.cs" />
     <Compile Include="Configurations\PropertyValueConverters\NopPropertyValueConverter.cs" />
     <Compile Include="Configurations\Strategies\ForEachDestPropSetExistingPropInSrcMappingStrategy.cs" />
     <Compile Include="Configurations\Strategies\ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy.cs" />

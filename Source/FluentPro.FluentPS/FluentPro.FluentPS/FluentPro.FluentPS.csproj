@@ -49,7 +49,7 @@
     <Compile Include="Attributes\PrimaryColumnAttribute.cs" />
     <Compile Include="Constants\PsCustomFieldsColumnNames.cs" />
     <Compile Include="Constants\PsDataTableNames.cs" />
-    <Compile Include="Mapper\PropertyNameConverters\CamelCaseToPsPropertyNameConverter.cs" />
+    <Compile Include="Mapper\PropsMatchers\CamelCaseToPsPropsMatcher.cs" />
     <Compile Include="Model\PsEntityType.cs" />
     <Compile Include="Model\PsDataType.cs" />
     <Compile Include="Model\PsConversionType.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Mapper\MappingObjects\CustomFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\MappingObjects\NativeFieldsDataTableMappingObject.cs" />
-    <Compile Include="Mapper\PropertyNameConverters\PsToCamelCasePropertyNameConverter.cs" />
+    <Compile Include="Mapper\PropsMatchers\PsToCamelCasePropsMatcher.cs" />
     <Compile Include="Mapper\PsMappingConfiguration.cs" />
     <Compile Include="Model\PsClassification.cs" />
     <Compile Include="Model\PsFieldType.cs" />

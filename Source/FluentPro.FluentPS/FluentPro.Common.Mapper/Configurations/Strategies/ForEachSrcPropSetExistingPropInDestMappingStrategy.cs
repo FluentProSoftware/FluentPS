@@ -24,7 +24,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
             var destProps = dest.Properties;
             var srcProps = src.Properties;
 
-            var props = PropsMatcher.GetPropertisMap(srcProps, destProps);
+            var props = PropsMatcher.GetPropertiesMap(srcProps, destProps);
             foreach (var prop in srcProps)
             {
                 if (!props.ContainsKey(prop.Name))

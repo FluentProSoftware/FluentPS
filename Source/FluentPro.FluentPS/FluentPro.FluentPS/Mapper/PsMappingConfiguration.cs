@@ -1,7 +1,7 @@
 ﻿using FluentPro.Common.Mapper.Configurations;
 using FluentPro.Common.Mapper.Types;
 using FluentPro.FluentPS.Mapper.MappingObjects;
-using FluentPro.FluentPS.Mapper.PropertyNameConverters;
+using FluentPro.FluentPS.Mapper.PropsMatchers;
 
 namespace FluentPro.FluentPS.Mapper
 {
@@ -12,8 +12,8 @@ namespace FluentPro.FluentPS.Mapper
             MappingObjects.Insert(0, new FuncToTypeListItem<object>(NativeFieldsDataTableMappingObject.IsValid, typeof(NativeFieldsDataTableMappingObject)));
             MappingObjects.Insert(0, new FuncToTypeListItem<object>(CustomFieldsDataTableMappingObject.IsValid, typeof(CustomFieldsDataTableMappingObject)));
 
-            PropertyNameConverters.Insert(0, new FuncToTypeListItem<MappingPair>(PsToCamelCasePropertyNameConverter.CanMap, typeof(PsToCamelCasePropertyNameConverter)));
-            PropertyNameConverters.Insert(0, new FuncToTypeListItem<MappingPair>(CamelCaseToPsPropertyNameConverter.CanMap, typeof(CamelCaseToPsPropertyNameConverter)));
+            PropertyNameConverters.Insert(0, new FuncToTypeListItem<MappingPair>(PsToCamelCasePropsMatcher.CanMap, typeof(PsToCamelCasePropsMatcher)));
+            PropertyNameConverters.Insert(0, new FuncToTypeListItem<MappingPair>(CamelCaseToPsPropsMatcher.CanMap, typeof(CamelCaseToPsPropsMatcher)));
         }
     }
 }

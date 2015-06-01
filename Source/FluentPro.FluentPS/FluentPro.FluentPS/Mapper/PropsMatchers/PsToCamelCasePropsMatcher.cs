@@ -1,17 +1,17 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using FluentPro.Common.Mapper.Interfaces;
+using FluentPro.Common.Mapper.Model;
 using FluentPro.Common.Mapper.Types;
 using FluentPro.FluentPS.Metadata;
-using System.Collections.Generic;
-using FluentPro.Common.Mapper.Model;
 
-namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
+namespace FluentPro.FluentPS.Mapper.PropsMatchers
 {
-    public class PsToCamelCasePropertyNameConverter : IPropsMatcher
+    public class PsToCamelCasePropsMatcher : IPropsMatcher
     {
-        public Dictionary<string, string> GetPropertisMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
+        public Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {
             var result = new Dictionary<string, string>();
             foreach (var srcProp in src)
@@ -36,7 +36,7 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             for (var i = 1; i < sourceName.Length; i++)
             {
                 var x = sourceName[i];
-                if (x == '_')
+                if (x == '_' || x == '-')
                 {
                     i++;
                     sb.Append(char.ToUpper(sourceName[i]));

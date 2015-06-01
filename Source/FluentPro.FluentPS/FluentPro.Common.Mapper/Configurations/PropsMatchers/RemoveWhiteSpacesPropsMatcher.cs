@@ -3,11 +3,11 @@ using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Model;
 using FluentPro.Common.Mapper.Types;
 
-namespace FluentPro.Common.Mapper.Configurations.PropertyNameConverters
+namespace FluentPro.Common.Mapper.Configurations.PropsMatchers
 {
-    public class RemoveWhiteSpacesPropertyNameConverter : IPropsMatcher
+    public class RemoveWhiteSpacesPropsMatcher : IPropsMatcher
     {
-        public Dictionary<string, string> GetPropertisMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
+        public Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {
             var result = new Dictionary<string, string>();
             foreach (var srcProp in src)

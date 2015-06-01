@@ -5,6 +5,6 @@ namespace FluentPro.Common.Mapper.Interfaces
 {
     public interface IPropsMatcher
     {
-        Dictionary<string, string> GetPropertisMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest);
+        Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest);
     }
 }
