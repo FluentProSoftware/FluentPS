@@ -86,11 +86,6 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             }
         }
 
-        public override bool CanDiscoverProperties
-        {
-            get { return true; }
-        }
-
         public override bool CanContainWhitespacesInProperties
         {
             get { return true; }

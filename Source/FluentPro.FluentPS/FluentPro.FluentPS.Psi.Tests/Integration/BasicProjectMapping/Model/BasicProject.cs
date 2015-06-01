@@ -13,6 +13,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
 
         public string WprojDescription { get; set; }
 
-        public double TestProjectNumber { get; set; }
+        public string TestProjectText { get; set; }
     }
 }

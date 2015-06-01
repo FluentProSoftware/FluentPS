@@ -9,8 +9,6 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
 
         public virtual object UnderlyingObject { get; set; }
 
-        public virtual bool CanDiscoverProperties { get; private set; }
-
         public virtual bool CanContainWhitespacesInProperties { get; private set; }
     }
 }

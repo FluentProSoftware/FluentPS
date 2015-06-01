@@ -8,7 +8,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
     /// For each property in source, find a property in destination and copy value from source to destination. 
     /// If there is no such property in destination - do nothing.
     /// </summary>
-    public class ForEachSrcPropSetExistingPropInDestMappingStrategy : IMappingStrategy
+    public class ForEachSrcPropSetPropInDestMappingStrategy : IMappingStrategy
     {
         public IMappingConfiguration MapperConfiguration { get; set; }
 
@@ -20,25 +20,18 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
         {
             var src = mappingPair.Src as IMappingSingleObject;
             var dest = mappingPair.Dest as IMappingSingleObject;
-
-            var destProps = dest.Properties;
-            var srcProps = src.Properties;
-
-            var props = PropsMatcher.GetPropertiesMap(srcProps, destProps);
-            foreach (var prop in srcProps)
+            
+            var props = PropsMatcher.GetPropertiesMap(src.Properties, dest.Properties);
+            foreach (var prop in props)
             {
-                if (!props.ContainsKey(prop.Name))
+                var propInfo = src.Properties.FirstOrDefault(p => p.Name == prop.Key);
+                if (propInfo == null)
                 {
                     continue;
                 }
 
-                var convertedName = props[prop.Name];
-                var propInfo = destProps.FirstOrDefault(p => p.Name == convertedName);
-                if (propInfo != null)
-                {
-                    var srcVal = PropertyValueConverter.GetValue(propInfo, src[prop.Name]);
-                    dest[convertedName] = srcVal;
-                }
+                var srcVal = PropertyValueConverter.GetValue(propInfo, src[prop.Key]);
+                dest[prop.Value] = srcVal;
             }
         }
 
@@ -56,7 +49,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
                 return false;
             }
 
-            return dest.CanDiscoverProperties && src.CanDiscoverProperties;
+            return true;
         }
     }
 }

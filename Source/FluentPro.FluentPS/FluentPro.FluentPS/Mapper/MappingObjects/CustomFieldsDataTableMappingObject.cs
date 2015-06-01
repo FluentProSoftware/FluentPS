@@ -17,20 +17,20 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
 
         public void New()
         {
-            var row = _dataTable.NewRow();
-            foreach (var col in _dataTable.Columns.Cast<DataColumn>().Where(c => !c.AllowDBNull && row[c.ColumnName] == DBNull.Value))
-            {
-                if (col.DataType == typeof(string))
-                {
-                    row[col.ColumnName] = string.Empty;
-                    continue;
-                }
+            //var row = _dataTable.NewRow();
+            //foreach (var col in _dataTable.Columns.Cast<DataColumn>().Where(c => !c.AllowDBNull && row[c.ColumnName] == DBNull.Value))
+            //{
+            //    if (col.DataType == typeof(string))
+            //    {
+            //        row[col.ColumnName] = string.Empty;
+            //        continue;
+            //    }
 
-                row[col.ColumnName] = Activator.CreateInstance(col.DataType);
-            }
+            //    row[col.ColumnName] = Activator.CreateInstance(col.DataType);
+            //}
 
-            _dataTable.Rows.Add(row);
-            _rowIdx++;
+            //_dataTable.Rows.Add(row);
+            //_rowIdx++;
         }
 
         public bool Next()
@@ -47,7 +47,6 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
         {
             get
             {
-                //TODO: Test with two fields with the same name in different domains
                 var customFieldsTable = GetCustomFieldsTable();
                 var customFieldsMap = customFieldsTable.Rows
                     .Cast<DataRow>()
@@ -64,7 +63,22 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             }
             set
             {
-                throw new NotImplementedException();
+                var customFieldsTable = GetCustomFieldsTable();
+                var customFieldsMap = customFieldsTable.Rows
+                    .Cast<DataRow>()
+                    .ToDictionary(r => r["MD_PROP_NAME"], r => r);
+
+                var propUid = customFieldsMap[propName]["MD_PROP_UID"];
+                var row = _dataTable.Rows.Cast<DataRow>().FirstOrDefault(r => r["MD_PROP_UID"].Equals(propUid));
+                if (row == null)
+                {
+                    var dataRow = _dataTable.NewRow();
+                    dataRow["MD_PROP_UID"] = propUid;
+                    dataRow["PROJ_UID"] = ExternalData["PROJ_UID"];
+                    dataRow["CUSTOM_FIELD_UID"] = Guid.NewGuid();
+                    dataRow["TEXT_VALUE"] = value;
+                    _dataTable.Rows.Add(dataRow);
+                }
             }
         }
 
@@ -73,33 +87,17 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             get
             {
                 var customFieldsTable = GetCustomFieldsTable();
-                var customFieldsMap = customFieldsTable.Rows
+                var fields = customFieldsTable.Rows
                     .Cast<DataRow>()
-                    .ToDictionary(r => r["MD_PROP_UID"], r => r);
-
-                var props = new List<MappingObjectPropInfo>();
-                foreach (var row in _dataTable.Rows.Cast<DataRow>())
-                {
-                    if (!customFieldsMap.ContainsKey(row[PsCustomFieldsColumnNames.MD_PROP_UID]))
+                    .Select(r => new MappingObjectPropInfo
                     {
-                        continue;
-                    }
-
-                    var customFieldDefinition = customFieldsMap[row[PsCustomFieldsColumnNames.MD_PROP_UID]];
-                    props.Add(new MappingObjectPropInfo
-                    {
-                        Name = customFieldDefinition["MD_PROP_NAME"].ToString(),
+                        Name = r["MD_PROP_NAME"].ToString(),
                         Type = typeof(string)
-                    });
-                }
+                    })
+                    .ToList();
 
-                return props;
+                return fields;
             }
-        }
-
-        public override bool CanDiscoverProperties
-        {
-            get { return true; }
         }
 
         public override bool CanContainWhitespacesInProperties
@@ -121,12 +119,12 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 return false;
             }
 
-            if (dataTable.TableName != PsDataTableNames.ProjectCustomFields)
+            if (dataTable.TableName.EndsWith("CustomFields") && dataTable.TableName != "CustomFields")
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         private DataTable GetCustomFieldsTable()

@@ -32,11 +32,6 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
             }
         }
 
-        public override bool CanDiscoverProperties
-        {
-            get { return true; }
-        }
-
         public override bool CanContainWhitespacesInProperties
         {
             get { return true; }

@@ -60,7 +60,8 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
 
             _mapper.Map(cfs, cfds.CustomFields);
             _customFieldsService.Invoke(c => c.CreateCustomFields2(cfds, false, true));
-            var customFieldsDataSet = _customFieldsService.Invoke(s => s.ReadCustomFields(string.Empty, false));
+
+            var customFieldsDataSet = _customFieldsService.Invoke(s => s.ReadCustomFieldsByEntity2(PsEntityType.Project.GetAttr<GuidAttribute>().Guid));
 
             var simpleProject = new BasicProject
             {
@@ -68,14 +69,15 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                 ProjName = Settings.DefaultProjectName,
                 ProjType = (int)ProjectType.Project,
                 WprojDescription = Settings.DefaultProjectName,
-                TestProjectNumber = 10
+                TestProjectText = "10"
             };
 
             var ds = new ProjectDataSet();
             _mapper.Map(simpleProject, ds.Project);
             _mapper.Map(simpleProject, ds.ProjectCustomFields, externalData: new Dictionary<string, object>
             {
-                { cfds.DataSetName, customFieldsDataSet }
+                { customFieldsDataSet.DataSetName, customFieldsDataSet },
+                { "PROJ_UID", Settings.DefaultProjectGuid}
             });
 
             var createProjectJobUid = Guid.NewGuid();

@@ -3,7 +3,7 @@ using FluentPro.Common.Mapper.Types;
 
 namespace FluentPro.Common.Mapper.Configurations.Strategies
 {
-    public class ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy : IMappingStrategy
+    public class ForEachSrcPropSetPropInDestEnumerablesMappingStrategy : IMappingStrategy
     {
         public IMappingConfiguration MapperConfiguration { get; set; }
 

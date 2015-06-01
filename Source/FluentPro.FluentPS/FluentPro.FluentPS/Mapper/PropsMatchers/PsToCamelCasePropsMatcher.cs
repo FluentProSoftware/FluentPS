@@ -31,30 +31,37 @@ namespace FluentPro.FluentPS.Mapper.PropsMatchers
 
         private string GetPropertyName(string sourceName)
         {
+            var capitalizeAfter = new[] { '_', '-' };
+            var capitalizeNext = false;
             var sb = new StringBuilder();
             sb.Append(sourceName[0]);
             for (var i = 1; i < sourceName.Length; i++)
             {
-                var x = sourceName[i];
-                if (x == '_' || x == '-')
+                while (capitalizeAfter.Contains(sourceName[i]))
                 {
                     i++;
+                    capitalizeNext = true;
+                } 
+                
+                if (char.IsWhiteSpace(sourceName[i]))
+                {
+                    continue;
+                }
+
+                if (capitalizeNext)
+                {
                     sb.Append(char.ToUpper(sourceName[i]));
+                    capitalizeNext = false;
                     continue;
                 }
 
-                if (char.IsUpper(x) && (char.IsLower(sourceName[i - 1]) || char.IsWhiteSpace(sourceName[i - 1])))
+                if (char.IsUpper(sourceName[i]) && (char.IsLower(sourceName[i - 1]) || char.IsWhiteSpace(sourceName[i - 1])))
                 {
-                    sb.Append(x);
+                    sb.Append(sourceName[i]);
                     continue;
                 }
 
-                if (char.IsWhiteSpace(x))
-                {
-                    continue;
-                }
-
-                sb.Append(char.ToLower(x));
+                sb.Append(char.ToLower(sourceName[i]));
             }
 
             return sb.ToString();
@@ -65,7 +72,7 @@ namespace FluentPro.FluentPS.Mapper.PropsMatchers
             var dataTable = mappingPair.Src.UnderlyingObject as DataTable;
             if (dataTable != null)
             {
-                if (PsMetadata.Tables.Contains(dataTable.TableName))
+                if (PsMetadata.Tables.Contains(dataTable.TableName) || dataTable.TableName.EndsWith("CustomFields"))
                 {
                     return true;
                 }
@@ -76,7 +83,7 @@ namespace FluentPro.FluentPS.Mapper.PropsMatchers
             var dataRow = mappingPair.Src.UnderlyingObject as DataRow;
             if (dataRow != null)
             {
-                if (PsMetadata.Tables.Contains(dataRow.Table.TableName))
+                if (PsMetadata.Tables.Contains(dataRow.Table.TableName) || dataRow.Table.TableName.EndsWith("CustomFields"))
                 {
                     return true;
                 }
