@@ -12,7 +12,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
     {
         public IMappingConfiguration MapperConfiguration { get; set; }
 
-        public IPropertyNameConverter PropertyNameConverter { get; set; }
+        public IPropsMatcher PropsMatcher { get; set; }
 
         public IPropertyValueConverter PropertyValueConverter { get; set; }
 
@@ -24,9 +24,15 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
             var destProps = dest.Properties;
             var srcProps = src.Properties;
 
+            var props = PropsMatcher.GetPropertisMap(srcProps, destProps);
             foreach (var prop in srcProps)
             {
-                var convertedName = PropertyNameConverter.GetName(prop.Name);
+                if (!props.ContainsKey(prop.Name))
+                {
+                    continue;
+                }
+
+                var convertedName = props[prop.Name];
                 var propInfo = destProps.FirstOrDefault(p => p.Name == convertedName);
                 if (propInfo != null)
                 {

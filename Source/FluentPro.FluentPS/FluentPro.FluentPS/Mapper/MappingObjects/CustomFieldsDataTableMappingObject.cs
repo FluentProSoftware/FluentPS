@@ -15,15 +15,27 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
         private DataTable _dataTable;
         private int _rowIdx;
 
-        public bool Next()
+        public void New()
         {
-            if (_rowIdx < _dataTable.Rows.Count)
+            var row = _dataTable.NewRow();
+            foreach (var col in _dataTable.Columns.Cast<DataColumn>().Where(c => !c.AllowDBNull && row[c.ColumnName] == DBNull.Value))
             {
-                _rowIdx++;
-                return true;
+                if (col.DataType == typeof(string))
+                {
+                    row[col.ColumnName] = string.Empty;
+                    continue;
+                }
+
+                row[col.ColumnName] = Activator.CreateInstance(col.DataType);
             }
 
-            return false;
+            _dataTable.Rows.Add(row);
+            _rowIdx++;
+        }
+
+        public bool Next()
+        {
+            return ++_rowIdx < _dataTable.Rows.Count;
         }
 
         public object Current
@@ -131,11 +143,6 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             var customFieldsTable = customFieldsDs.Tables["CustomFields"];
 
             return customFieldsTable;
-        }
-
-        public void New()
-        {
-            throw new NotImplementedException();
         }
     }
 }

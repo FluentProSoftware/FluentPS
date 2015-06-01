@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using FluentPro.Common.Mapper.Configurations;
-using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.Common.Mapper.Tests.Data;
 using FluentPro.Common.Mapper.Tests.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

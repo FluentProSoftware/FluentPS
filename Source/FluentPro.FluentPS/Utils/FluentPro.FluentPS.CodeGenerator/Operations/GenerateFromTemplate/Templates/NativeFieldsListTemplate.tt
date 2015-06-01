@@ -29,7 +29,7 @@ namespace FluentPro.FluentPS.Metadata
         public static List<PsFieldInfo> Fields = new List<PsFieldInfo> 
 		{
 <# foreach(var field in fields) { #>
-			new PsFieldInfo { TableName = "<#= field.TableName #>", PsName = "<#= field.PsName #>", DbName = "<#= field.DbName #>", PropertyName = "<#= field.PropertyName #>", DisplayName = "<#= field.DisplayName #>", DataType = typeof(<#= field.DataType #>), IsUpdatable = <#= field.IsUpdatable.ToString().ToLower() #>, ConversionType = PsConversionType.<#= field.ConversionType #>, FieldType = PsFieldType.<#= field.FieldType #>, Origin = PsOrigin.<#= field.Origin #> },
+			new PsFieldInfo { TableName = "<#= field.TableName #>", PsName = "<#= field.PsName #>", DbName = "<#= field.DbName #>", DisplayName = "<#= field.DisplayName #>", DataType = typeof(<#= field.DataType #>), IsUpdatable = <#= field.IsUpdatable.ToString().ToLower() #>, ConversionType = PsConversionType.<#= field.ConversionType #>, FieldType = PsFieldType.<#= field.FieldType #>, Origin = PsOrigin.<#= field.Origin #> },
 <# } #>	
 		};
 	};

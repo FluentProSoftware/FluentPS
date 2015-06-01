@@ -14,8 +14,6 @@
 
         public string DisplayName { get; set; }
 
-        public string PropertyName { get; set; }
-
         public Type DataType { get; set; }
 
         public PsConversionType ConversionType { get; set; }

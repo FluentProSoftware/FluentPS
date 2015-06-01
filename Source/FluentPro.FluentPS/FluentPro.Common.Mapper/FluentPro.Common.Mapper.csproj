@@ -73,7 +73,7 @@
     <Compile Include="Interfaces\IMappingObjectFactory.cs" />
     <Compile Include="Interfaces\IMappingSingleObject.cs" />
     <Compile Include="Interfaces\IMappingStrategy.cs" />
-    <Compile Include="Interfaces\IPropertyNameConverter.cs" />
+    <Compile Include="Interfaces\IPropsMatcher.cs" />
     <Compile Include="Interfaces\IPropertyValueConverter.cs" />
     <Compile Include="Model\MappingObjectPropInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

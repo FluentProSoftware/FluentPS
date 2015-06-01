@@ -27,7 +27,7 @@ namespace FluentPro.Common.Mapper.Configurations
                 new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestEnumerablesMappingStrategy)),
                 new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetNewPropInDestMappingStrategy.CanMap, typeof(ForEachSrcPropSetNewPropInDestMappingStrategy)),
                 new FuncToTypeListItem<MappingPair>(ForEachSrcPropSetExistingPropInDestMappingStrategy.CanMap, typeof(ForEachSrcPropSetExistingPropInDestMappingStrategy)),
-                new FuncToTypeListItem<MappingPair>(ForEachDestPropSetExistingPropInSrcMappingStrategy.CanMap, typeof(ForEachDestPropSetExistingPropInSrcMappingStrategy))
+               // new FuncToTypeListItem<MappingPair>(ForEachDestPropSetExistingPropInSrcMappingStrategy.CanMap, typeof(ForEachDestPropSetExistingPropInSrcMappingStrategy))
             };
 
             PropertyNameConverters = new FuncToTypeList<MappingPair>

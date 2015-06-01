@@ -5,7 +5,6 @@ using System.Linq;
 using FluentPro.Common.Mapper.Configurations.MappingObjects;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Model;
-using FluentPro.FluentPS.Constants;
 using FluentPro.FluentPS.Metadata;
 
 namespace FluentPro.FluentPS.Mapper.MappingObjects

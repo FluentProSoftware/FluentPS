@@ -10,7 +10,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
     {
         public IMappingConfiguration MapperConfiguration { get; set; }
 
-        public IPropertyNameConverter PropertyNameConverter { get; set; }
+        public IPropsMatcher PropsMatcher { get; set; }
 
         public IPropertyValueConverter PropertyValueConverter { get; set; }
 
@@ -20,10 +20,12 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
             var dest = mappingPair.Dest as IMappingSingleObject;
 
             var srcProps = src.Properties;
+            var destProps = dest.Properties;
 
+            var props = PropsMatcher.GetPropertisMap(srcProps, destProps);
             foreach (var prop in srcProps)
             {
-                var convertedName = PropertyNameConverter.GetName(prop.Name);
+                var convertedName = props[prop.Name];
                 var srcVal = PropertyValueConverter.GetValue(prop, src[prop.Name]);
                 dest[convertedName] = srcVal;
             }

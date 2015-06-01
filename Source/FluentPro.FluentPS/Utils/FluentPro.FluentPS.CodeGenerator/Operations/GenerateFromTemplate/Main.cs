@@ -55,8 +55,7 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                         DbName = string.Empty,
                         ConversionType = PsConversionType.Invalid,
                         FieldType = PsFieldType.Unknown,
-                        IsUpdatable = false,
-                        PropertyName = string.Empty
+                        IsUpdatable = false
                     };
 
                     var dbFieldInfo = dbFields
@@ -110,7 +109,6 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                         fieldInfo.IsUpdatable = userDefined.IsUpdatable;
                     }
 
-                    fieldInfo.PropertyName = GetPropertyName(column.ColumnName);
                     fields.Add(fieldInfo);
                 }
             }
@@ -188,38 +186,7 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 
             return fields;
         }
-
-        private string GetPropertyName(string sourceName)
-        {
-            var sb = new StringBuilder();
-            sb.Append(sourceName[0]);
-            for (var i = 1; i < sourceName.Length; i++)
-            {
-                var x = sourceName[i];
-                if (x == '_')
-                {
-                    i++;
-                    sb.Append(char.ToUpper(sourceName[i]));
-                    continue;
-                }
-
-                if (char.IsUpper(x) && (char.IsLower(sourceName[i - 1]) || char.IsWhiteSpace(sourceName[i - 1])))
-                {
-                    sb.Append(x);
-                    continue;
-                }
-
-                if (char.IsWhiteSpace(x))
-                {
-                    continue;
-                }
-
-                sb.Append(char.ToLower(x));
-            }
-
-            return sb.ToString();
-        }
-
+        
         private T GetValueOrDefault<T>(object obj, T defaultValue)
         {
             return obj == DBNull.Value ? defaultValue : (T)obj;

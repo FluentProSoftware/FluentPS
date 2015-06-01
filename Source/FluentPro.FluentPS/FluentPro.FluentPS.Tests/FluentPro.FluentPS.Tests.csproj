@@ -50,8 +50,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Mapper\PropertyNameConverters\PropertyNameConverterTests.cs" />
-    <Compile Include="Mapper\PropertyNameConverters\NativeProjectFieldsToCamelCasePropertyNameConverterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -12,5 +12,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
         public ProjectType ProjType { get; set; }
 
         public string WprojDescription { get; set; }
+
+        public double TestProjectNumber { get; set; }
     }
 }

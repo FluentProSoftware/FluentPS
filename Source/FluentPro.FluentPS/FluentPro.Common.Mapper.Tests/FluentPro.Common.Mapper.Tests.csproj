@@ -58,9 +58,6 @@
     <Compile Include="Data\DefaultData.cs" />
     <Compile Include="Data\Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\TypeExtensionsTest.cs" />
-    <Compile Include="Mapper\PropertyNameConverters\GetOriginalNamePropertyNameConverterTests.cs" />
-    <Compile Include="Mapper\PropertyNameConverters\PropertyNameConverterTests.cs" />
-    <Compile Include="Mapper\PropertyNameConverters\RemoveWhiteSpacesPropertyNameConverterTests.cs" />
     <Compile Include="Mapper\PlainMapperTests.cs" />
     <Compile Include="Model\DummyEnum.cs" />
     <Compile Include="Model\EntityWithPlainNames.cs" />

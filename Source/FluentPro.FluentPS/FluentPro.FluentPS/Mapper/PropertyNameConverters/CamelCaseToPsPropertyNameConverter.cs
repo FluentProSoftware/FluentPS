@@ -1,22 +1,21 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using FluentPro.Common.Mapper.Interfaces;
+using FluentPro.Common.Mapper.Model;
 using FluentPro.Common.Mapper.Types;
 using FluentPro.FluentPS.Metadata;
 
 namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
 {
-    public class CamelCaseToPsPropertyNameConverter : IPropertyNameConverter
+    public class CamelCaseToPsPropertyNameConverter : IPropsMatcher
     {
-        public string GetName(string sourceName)
+        public Dictionary<string, string> GetPropertisMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {
-            var field = PsMetadata.Fields.FirstOrDefault(f => f.PropertyName == sourceName);
-            if (field == null)
-            {
-                return sourceName;
-            }
+            var psConverter = new PsToCamelCasePropertyNameConverter();
+            var map = psConverter.GetPropertisMap(dest, src);
 
-            return field.PsName;
+            return map.ToDictionary(i => i.Value, i => i.Key);
         }
 
         public static bool CanMap(MappingPair mappingPair)
@@ -45,6 +44,5 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
 
             return false;
         }
-
     }
 }

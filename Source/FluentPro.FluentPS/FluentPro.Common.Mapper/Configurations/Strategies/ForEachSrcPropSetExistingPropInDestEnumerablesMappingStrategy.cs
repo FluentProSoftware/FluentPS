@@ -7,7 +7,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
     {
         public IMappingConfiguration MapperConfiguration { get; set; }
 
-        public IPropertyNameConverter PropertyNameConverter { get; set; }
+        public IPropsMatcher PropsMatcher { get; set; }
 
         public IPropertyValueConverter PropertyValueConverter { get; set; }
 
@@ -32,7 +32,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
                 var strategyType = MapperConfiguration.MappingStrategies.Get(pair);
                 var strategy = MapperConfiguration.ObjectFactory.CreateInstance(strategyType) as IMappingStrategy;
                 strategy.MapperConfiguration = MapperConfiguration;
-                strategy.PropertyNameConverter = PropertyNameConverter;
+                strategy.PropsMatcher = PropsMatcher;
                 strategy.PropertyValueConverter = PropertyValueConverter;
                 strategy.Map(pair);
             }

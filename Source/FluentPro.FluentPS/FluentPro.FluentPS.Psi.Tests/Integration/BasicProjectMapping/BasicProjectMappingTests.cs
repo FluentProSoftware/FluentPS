@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Xml.Schema;
 using FluentPro.Common.Mapper;
 using FluentPro.Common.Mapper.Configurations.PropertyNameConverters;
 using FluentPro.Common.Mapper.Interfaces;
@@ -37,39 +38,41 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
 
             ClassCleanup();
 
-            //TODO: Generate metadata for custom fields mapping
-            //var cfds = new CustomFieldDataSet();
-            //var cfs = new List<BasicProjectCustomField>
-            //{
-            //    new BasicProjectCustomField
-            //    { 
-            //        MdPropUid = Guid.NewGuid(), 
-            //        MdPropName = "Test - Project - Text", 
-            //        MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
-            //        MdPropTypeEnum = PsConversionType.String
-            //    },
+            var cfds = new CustomFieldDataSet();
+            var cfs = new List<BasicProjectCustomField>
+            {
+                new BasicProjectCustomField
+                { 
+                    MdPropUid = Guid.NewGuid(), 
+                    MdPropName = "Test - Project - Text", 
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
+                    MdPropTypeEnum = PsConversionType.String
+                },
 
-            //    new BasicProjectCustomField
-            //    { 
-            //        MdPropUid = Guid.NewGuid(), 
-            //        MdPropName = "Test - Project - Number", 
-            //        MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
-            //        MdPropTypeEnum = PsConversionType.Number
-            //    },
-            //};
-            //_mapper.Map(cfs, cfds.CustomFields);
-            //_customFieldsService.Invoke(c => c.CreateCustomFields2(cfds, false, true));
+                new BasicProjectCustomField
+                { 
+                    MdPropUid = Guid.NewGuid(), 
+                    MdPropName = "Test - Project - Number", 
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
+                    MdPropTypeEnum = PsConversionType.Number
+                }
+            };
+
+            _mapper.Map(cfs, cfds.CustomFields);
+            _customFieldsService.Invoke(c => c.CreateCustomFields2(cfds, false, true));
 
             var simpleProject = new BasicProject
             {
                 ProjUid = Settings.DefaultProjectGuid,
                 ProjName = Settings.DefaultProjectName,
                 ProjType = (int)ProjectType.Project,
-                WprojDescription = Settings.DefaultProjectName
+                WprojDescription = Settings.DefaultProjectName,
+                TestProjectNumber = 10
             };
 
             var ds = new ProjectDataSet();
             _mapper.Map(simpleProject, ds.Project);
+            // _mapper.Map(simpleProject, ds.ProjectCustomFields);
 
             var createProjectJobUid = Guid.NewGuid();
             _projectService.Invoke(p => p.QueueCreateProject(createProjectJobUid, ds, false));
@@ -170,8 +173,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                 });
 
             Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
-            //TODO: Uncoment after full support for custom fields.
-            //Assert.IsTrue(result["Project - Text"].Equals("10"));
+            // Assert.IsTrue(result["Test - Project - Text"].Equals("10"));
         }
     }
 }

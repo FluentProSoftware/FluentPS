@@ -91,13 +91,6 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Templ
             
             #line default
             #line hidden
-            this.Write("\", PropertyName = \"");
-            
-            #line 32 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(field.PropertyName));
-            
-            #line default
-            #line hidden
             this.Write("\", DisplayName = \"");
             
             #line 32 "D:\Projects\fluentps-ng\Source\FluentPro.FluentPS\Utils\FluentPro.FluentPS.CodeGenerator\Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.tt"
