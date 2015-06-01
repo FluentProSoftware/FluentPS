@@ -3,34 +3,34 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Model" #>
 <#@ import namespace="FluentPro.FluentPS.Model" #>
-namespace FluentPro.FluentPS.Constants 
-{
-	using System.Collections.Generic;
-	using Model;
+using FluentPro.FluentPS.Model;
+using System.Collections.Generic;
 
-	public static class PsNativeFields
+namespace FluentPro.FluentPS.Metadata 
+{
+<# 
+	var fields = Session["fields"] as List<PsFieldInfo>; 
+	var tables = fields.Select(f => f.TableName).Distinct().ToList();
+#>
+	public static class PsMetadata
 	{		
-		static PsNativeFields()
+		static PsMetadata()
         {
-            AllFields = new List<PsFieldInfo>();
-            AllFields.AddRange(ProjectFields);
-            AllFields.AddRange(TaskFields);
-            AllFields.AddRange(ResourceFields);
-            AllFields.AddRange(AssignmentFields);
         }
 
-        public static List<PsFieldInfo> AllFields;
-
-<#	var sections = this.Session["sections"] as List<NativeFieldsSectionInfo>;
-	foreach(var section in sections){ #>
-		public static List<PsFieldInfo> <#= section.Name #>Fields = new List<PsFieldInfo>
+		public static List<string> Tables = new List<string>
 		{
-<#	foreach(var field in section.Fields) { #>
-			new PsFieldInfo { EntityType = PsEntityType.<#= field.EntityType #>, PsiName = "<#= field.PsiName #>", DbName = "<#= field.DbName #>", PropertyName = "<#= field.PropertyName #>", DisplayName = "<#= field.DisplayName #>", DataType = typeof(<#= field.DataType #>), IsUpdatable = <#= field.IsUpdatable.ToString().ToLower() #>, ConversionType = PsConversionType.<#= field.ConversionType #>, FieldType = PsFieldType.<#= field.FieldType #>, Origin = PsOrigin.<#= field.Origin #> },
-<# } #>		};
-
+<# foreach(var table in tables) { #>
+			"<#= table #>",
 <# } #>
+		};
+
+        public static List<PsFieldInfo> Fields = new List<PsFieldInfo> 
+		{
+<# foreach(var field in fields) { #>
+			new PsFieldInfo { TableName = "<#= field.TableName #>", PsName = "<#= field.PsName #>", DbName = "<#= field.DbName #>", PropertyName = "<#= field.PropertyName #>", DisplayName = "<#= field.DisplayName #>", DataType = typeof(<#= field.DataType #>), IsUpdatable = <#= field.IsUpdatable.ToString().ToLower() #>, ConversionType = PsConversionType.<#= field.ConversionType #>, FieldType = PsFieldType.<#= field.FieldType #>, Origin = PsOrigin.<#= field.Origin #> },
+<# } #>	
+		};
 	};
 }

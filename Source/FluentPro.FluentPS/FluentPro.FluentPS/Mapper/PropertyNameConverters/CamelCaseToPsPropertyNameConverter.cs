@@ -2,29 +2,21 @@
 using System.Linq;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Types;
-using FluentPro.FluentPS.Constants;
+using FluentPro.FluentPS.Metadata;
 
 namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
 {
     public class CamelCaseToPsPropertyNameConverter : IPropertyNameConverter
     {
-        private static readonly string[] SupportedTables = {
-            PsDataTableNames.Project,
-            PsDataTableNames.Task,
-            PsDataTableNames.Assignment,
-            PsDataTableNames.Resources,
-            PsDataTableNames.ProjectTeam
-        };
-
         public string GetName(string sourceName)
         {
-            var field = PsNativeFields.AllFields.FirstOrDefault(f => f.PropertyName == sourceName);
+            var field = PsMetadata.Fields.FirstOrDefault(f => f.PropertyName == sourceName);
             if (field == null)
             {
                 return sourceName;
             }
 
-            return field.PsiName;
+            return field.PsName;
         }
 
         public static bool CanMap(MappingPair mappingPair)
@@ -32,7 +24,7 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             var dataTable = mappingPair.Dest.UnderlyingObject as DataTable;
             if (dataTable != null)
             {
-                if (SupportedTables.Contains(dataTable.TableName))
+                if (PsMetadata.Tables.Contains(dataTable.TableName))
                 {
                     return true;
                 }
@@ -43,7 +35,7 @@ namespace FluentPro.FluentPS.Mapper.PropertyNameConverters
             var dataRow = mappingPair.Dest.UnderlyingObject as DataRow;
             if (dataRow != null)
             {
-                if (SupportedTables.Contains(dataRow.Table.TableName))
+                if (PsMetadata.Tables.Contains(dataRow.Table.TableName))
                 {
                     return true;
                 }

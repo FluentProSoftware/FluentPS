@@ -53,7 +53,7 @@
     <Compile Include="Model\PsEntityType.cs" />
     <Compile Include="Model\PsDataType.cs" />
     <Compile Include="Model\PsConversionType.cs" />
-    <Compile Include="Constants\PsNativeFields.cs" />
+    <Compile Include="Metadata\PsMetadata.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Mapper\MappingObjects\CustomFieldsDataTableMappingObject.cs" />
     <Compile Include="Mapper\MappingObjects\NativeFieldsDataTableMappingObject.cs" />

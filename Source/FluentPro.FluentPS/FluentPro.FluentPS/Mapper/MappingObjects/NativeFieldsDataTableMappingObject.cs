@@ -6,19 +6,12 @@ using FluentPro.Common.Mapper.Configurations.MappingObjects;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Model;
 using FluentPro.FluentPS.Constants;
+using FluentPro.FluentPS.Metadata;
 
 namespace FluentPro.FluentPS.Mapper.MappingObjects
 {
     public class NativeFieldsDataTableMappingObject : BaseMappingObject, IMappingSingleObject, IMappingEnumerableObject
     {
-        private static readonly string[] SupportedTables = {
-            PsDataTableNames.Project,
-            PsDataTableNames.Task,
-            PsDataTableNames.Assignment,
-            PsDataTableNames.Resources,
-            PsDataTableNames.ProjectTeam
-        };
-
         private DataTable _dataTable;
         private int _rowIdx = -1;
 
@@ -112,7 +105,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 return false;
             }
 
-            if (!SupportedTables.Contains(dataTable.TableName))
+            if (!PsMetadata.Tables.Contains(dataTable.TableName))
             {
                 return false;
             }

@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Operations\GenerateFromTemplate\Data\PredefinedFieldInfos.cs" />
     <Compile Include="Operations\GenerateFromTemplate\Main.cs" />
-    <Compile Include="Operations\GenerateFromTemplate\Model\NativeFieldsSectionInfo.cs" />
     <Compile Include="Operations\GenerateFromTemplate\Templates\NativeFieldsListTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,7 +71,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Operations\GenerateFromTemplate\Services\" />
     <Folder Include="Types\" />
   </ItemGroup>
   <ItemGroup>

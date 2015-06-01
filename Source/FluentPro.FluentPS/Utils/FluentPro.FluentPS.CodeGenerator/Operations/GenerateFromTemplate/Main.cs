@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using FluentPro.FluentPS.Attributes;
 using FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Data;
-using FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Model;
 using FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate.Templates;
 using FluentPro.FluentPS.Extensions;
 using FluentPro.FluentPS.Model;
@@ -17,12 +16,14 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 {
     public class Main : IOperation
     {
-        private readonly Dictionary<PsEntityType, DataTable> _dataTables = new Dictionary<PsEntityType, DataTable>
+        private readonly List<DataTable> _dataTables = new List<DataTable>
         {
-            { PsEntityType.Project, new ProjectDataSet.ProjectDataTable() },
-            { PsEntityType.Resource, new ResourceDataSet.ResourcesDataTable() },
-            { PsEntityType.Task, new ProjectDataSet.TaskDataTable() },
-            { PsEntityType.Assignment, new ProjectDataSet.AssignmentDataTable() }
+            new ProjectDataSet.ProjectDataTable(),
+            new ResourceDataSet.ResourcesDataTable(),
+            new ProjectDataSet.TaskDataTable(),
+            new ProjectDataSet.AssignmentDataTable(),
+            new CustomFieldDataSet.CustomFieldsDataTable(),
+            new ProjectTeamDataSet.ProjectTeamDataTable()
         };
 
         public void Help()
@@ -38,18 +39,16 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
         {
             var dbFields = GetDbFieldInfos();
 
-            var sections = new List<NativeFieldsSectionInfo>();
+            var fields = new List<PsFieldInfo>();
             foreach (var dataTable in _dataTables)
             {
-                var section = new NativeFieldsSectionInfo();
-                section.Name = dataTable.Key.GetAttr<NameAttribute>().Name;
-                foreach (DataColumn column in dataTable.Value.Columns)
+                foreach (DataColumn column in dataTable.Columns)
                 {
                     var fieldInfo = new PsFieldInfo
                     {
                         Origin = PsOrigin.PsiDataTable,
-                        EntityType = dataTable.Key,
-                        PsiName = column.ColumnName,
+                        PsName = column.ColumnName,
+                        TableName = column.Table.TableName ?? string.Empty,
                         DataType = column.DataType,
                         Uid = Guid.Empty,
                         DisplayName = string.Empty,
@@ -61,8 +60,9 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                     };
 
                     var dbFieldInfo = dbFields
-                        .Where(f => f.EntityType == dataTable.Key)
-                        .FirstOrDefault(f => f.PsiName == column.ColumnName);
+                        .Where(f => f.TableName == dataTable.TableName)
+                        .FirstOrDefault(f => f.PsName == column.ColumnName);
+
                     if (dbFieldInfo != null)
                     {
                         fieldInfo.Origin = PsOrigin.Database;
@@ -86,8 +86,9 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                     }
 
                     var userDefined = PredefinedFieldInfos.Overrides
-                        .Where(f => f.EntityType == dataTable.Key)
-                        .FirstOrDefault(f => f.PsiName == column.ColumnName);
+                        .Where(f => f.TableName == dataTable.TableName)
+                        .FirstOrDefault(f => f.PsName == column.ColumnName);
+
                     if (userDefined != null)
                     {
                         fieldInfo.Origin = PsOrigin.Manual;
@@ -105,27 +106,22 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                         {
                             fieldInfo.DataType = userDefined.DataType;
                         }
-                        
+
                         fieldInfo.IsUpdatable = userDefined.IsUpdatable;
                     }
 
                     fieldInfo.PropertyName = GetPropertyName(column.ColumnName);
-                    section.Fields.Add(fieldInfo);
+                    fields.Add(fieldInfo);
                 }
-
-                var fieldsToAdd = PredefinedFieldInfos.Additional
-                    .Where(f => f.EntityType == dataTable.Key)
-                    .ToList();
-
-                section.Fields.AddRange(fieldsToAdd);
-                sections.Add(section);
             }
+            
+            fields.AddRange(PredefinedFieldInfos.Additional);
 
             var template = new NativeFieldsListTemplate
             {
                 Session = new Dictionary<string, object>
                 {
-                    {"sections", sections }
+                    {"fields", fields }
                 }
             };
 
@@ -151,30 +147,34 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 
                 var cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = @"
-                    SELECT
-	                    WTABLE_UID as EntityUid,
-	                    WFIELD_UID as Uid,
-	                    WFIELD_NAME_SQL as PsiName,
-	                    WFIELD_NAME_OLEDB as DbName,
-	                    CONV_STRING as DisplayName,
-	                    WFIELD_TEXTCONV_TYPE as ConversionType,
-	                    WFIELD_IS_CUSTOM_FIELD as FieldType
-                    FROM pub.MSP_WEB_VIEW_FIELDS VF 
-	                    LEFT JOIN pub.MSP_WEB_CONVERSIONS CV ON VF.WFIELD_NAME_CONV_VALUE = CV.CONV_VALUE
-                    WHERE 
-	                    --WFIELD_IS_CUSTOM_FIELD = 0 AND
-	                    WTABLE_UID IS NOT NULL
-                    ORDER BY 
-	                    EntityUid, PsiName";
+                            SELECT
+        	                    WTABLE_UID as EntityUid,
+        	                    WFIELD_UID as Uid,
+        	                    WFIELD_NAME_SQL as PsiName,
+        	                    WFIELD_NAME_OLEDB as DbName,
+        	                    CONV_STRING as DisplayName,
+        	                    WFIELD_TEXTCONV_TYPE as ConversionType,
+        	                    WFIELD_IS_CUSTOM_FIELD as FieldType
+                            FROM pub.MSP_WEB_VIEW_FIELDS VF 
+        	                    LEFT JOIN pub.MSP_WEB_CONVERSIONS CV ON VF.WFIELD_NAME_CONV_VALUE = CV.CONV_VALUE
+                            WHERE 
+        	                    --WFIELD_IS_CUSTOM_FIELD = 0 AND
+        	                    WTABLE_UID IS NOT NULL
+                            ORDER BY 
+        	                    EntityUid, PsiName";
 
                 var rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     var fieldInfo = new PsFieldInfo
                     {
-                        EntityType = EnumExtensions.GetByAttr<PsEntityType, GuidAttribute>(attr => attr.Guid == (Guid)rdr["EntityUid"]),
+                        TableName = EnumExtensions
+                            .GetByAttr<PsEntityType, GuidAttribute>(attr => attr.Guid == (Guid)rdr["EntityUid"])
+                            .GetAttr<NameAttribute>()
+                            .Name,
+
                         Uid = (Guid)rdr["Uid"],
-                        PsiName = GetValueOrDefault(rdr["PsiName"], string.Empty),
+                        PsName = GetValueOrDefault(rdr["PsiName"], string.Empty),
                         DbName = GetValueOrDefault(rdr["DbName"], string.Empty),
                         DisplayName = GetValueOrDefault(rdr["DisplayName"], string.Empty),
                         ConversionType = (PsConversionType)rdr["ConversionType"],

@@ -6,9 +6,11 @@
     {
         public Guid Uid { get; set; }
 
+        public string TableName { get; set; }
+        
         public string DbName { get; set; }
 
-        public string PsiName { get; set; }
+        public string PsName { get; set; }
 
         public string DisplayName { get; set; }
 
@@ -17,8 +19,6 @@
         public Type DataType { get; set; }
 
         public PsConversionType ConversionType { get; set; }
-
-        public PsEntityType EntityType { get; set; }
 
         public PsFieldType FieldType { get; set; }
 
