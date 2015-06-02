@@ -12,11 +12,11 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails.Model
 
         public string TaskName { get; set; }
 
-        public double TaskWork { get; set; }
+        public decimal TaskWork { get; set; }
 
-        public double TaskRemWork { get; set; }
+        public decimal TaskRemWork { get; set; }
 
-        public double TaskActWork { get; set; }
+        public decimal TaskActWork { get; set; }
 
         public DateTime TaskStartDate { get; set; }
 

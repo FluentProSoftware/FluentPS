@@ -7,6 +7,7 @@ using FluentPro.FluentPS.Mapper;
 using FluentPro.FluentPS.Psi.Interfaces.Psi;
 using FluentPro.FluentPS.Psi.Model.DataSets;
 using FluentPro.FluentPS.Psi.Model.Enums;
+using FluentPro.FluentPS.Psi.Network;
 using FluentPro.FluentPS.Psi.Network.Types;
 using FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails.Model;
 using FluentPro.FluentPS.Psi.Tests.Utils;
@@ -27,22 +28,23 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
 
         private static readonly Guid TaskGuid = new Guid("6A7BEA97-C124-4656-94AE-8F4A7FF34DFC");
 
-        private static readonly Guid ResGuid = Guid.NewGuid();
-
-        private static readonly string ResName = "Task Details Test Resource";
+        private static Guid ResGuid;
 
         private static readonly string ProjectName = "Task Details Test Project";
 
         private static PsiService<IProject> _projectService;
         private static PsiService<IResource> _resourceService;
+        private static PsiService<IStatusing> _statusingService;
 
         private static readonly IFluentMapper Mapper = new FluentMapper(new PsMappingConfiguration());
 
-        [ClassInitialize]
+        [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
-            _projectService = Network.PsiContext.Get<IProject>(PwaUri);
-            _resourceService = Network.PsiContext.Get<IResource>(PwaUri);
+            _projectService = PsiContext.Get<IProject>(PwaUri);
+            _resourceService = PsiContext.Get<IResource>(PwaUri);
+            _statusingService = PsiContext.Get<IStatusing>(PwaUri);
+            ResGuid = _resourceService.Invoke(s => s.GetCurrentUserUid());
 
             ClassCleanup();
 
@@ -54,16 +56,10 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
                 WprojDescription = ProjectName,
                 Tasks = new List<TaskDetailsTask>
                 {
-                    new TaskDetailsTask { TaskName = "Task 1", TaskWork = 100, TaskUid = TaskGuid, ProjUid = ProjectGuid },
-                    new TaskDetailsTask { TaskName = "Task 2", TaskWork = 200,  TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
-                    new TaskDetailsTask { TaskName = "Task 3", TaskWork = 300, TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
+                    new TaskDetailsTask { TaskName = "Task 1", TaskWork = 10000, TaskStartDate = DateTime.Now, TaskFinishDate = DateTime.Now.AddDays(3), TaskUid = TaskGuid, ProjUid = ProjectGuid },
+                    new TaskDetailsTask { TaskName = "Task 2", TaskWork = 20000, TaskStartDate = DateTime.Now, TaskFinishDate = DateTime.Now.AddDays(3), TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
+                    new TaskDetailsTask { TaskName = "Task 3", TaskWork = 30000, TaskStartDate = DateTime.Now, TaskFinishDate = DateTime.Now.AddDays(3), TaskUid = Guid.NewGuid(), ProjUid = ProjectGuid },
                 }
-            };
-
-            var resource = new TaskDetailsResource
-            {
-                ResUid = ResGuid,
-                ResName = ResName
             };
 
             var projectTeamResource = new TaskDetailsProjectTeamResource
@@ -81,8 +77,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
                 TaskUid = TaskGuid
             };
 
-            var resDs = new ResourceDataSet();
-            Mapper.Map(resource, resDs.Resources);
 
             var projectCreateDs = new ProjectDataSet();
             Mapper.Map(project, projectCreateDs.Project);
@@ -93,8 +87,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
 
             var projectAssnDs = new ProjectDataSet();
             Mapper.Map(assn, projectAssnDs.Assignment);
-
-            _resourceService.Invoke(s => s.CreateResources(resDs, false, true));
 
             var createProjectJobUid = Guid.NewGuid();
             _projectService.Invoke(p => p.QueueCreateProjectAndCheckOut(createProjectJobUid, SessionGuid, "Unit tests session", projectCreateDs, false));
@@ -123,7 +115,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
             QueueUtil.Wait(publishSummaryProjectJobUid);
         }
 
-        [ClassCleanup]
+        [ClassCleanup()]
         public static void ClassCleanup()
         {
             try
@@ -136,58 +128,103 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails
 
             try
             {
+                _statusingService.Invoke(s => s.DeleteStatusingInformationForProject(new[] { ProjectGuid }, DateTime.MinValue, DateTime.MaxValue));
+            }
+            catch { }
+
+            try
+            {
                 var deleteProjectJobUid = Guid.NewGuid();
                 _projectService.Invoke(p => p.QueueDeleteProjects(deleteProjectJobUid, true, new[] { ProjectGuid }, true));
                 QueueUtil.Wait(deleteProjectJobUid);
             }
             catch { }
 
-            try
-            {
-                var resources = _resourceService.Invoke(s => s.ReadResources("", false));
+            //try
+            //{
+            //    var resources = _resourceService.Invoke(s => s.ReadResources("", false));
 
-                var toDelete = resources.Resources
-                    .Cast<ResourceDataSet.ResourcesRow>()
-                    .Where(r => r.RES_NAME.StartsWith(ResName))
-                    .ToList();
+            //    var toDelete = resources.Resources
+            //        .Cast<ResourceDataSet.ResourcesRow>()
+            //        .Where(r => r.RES_NAME.StartsWith(ResName))
+            //        .ToList();
 
-                var toCheckout = toDelete
-                    .Where(r => r.IsRES_CHECKOUTBYNull())
-                    .Select(r => r.RES_UID)
-                    .ToArray();
+            //    var toCheckout = toDelete
+            //        .Where(r => r.IsRES_CHECKOUTBYNull())
+            //        .Select(r => r.RES_UID)
+            //        .ToArray();
 
-                _resourceService.Invoke(s => s.CheckOutResources(toCheckout));
+            //    _resourceService.Invoke(s => s.CheckOutResources(toCheckout));
 
-                var deleteResourceJobUid = Guid.NewGuid();
-                _resourceService.Invoke(s => s.DeleteResources(toDelete.Select(r => r.RES_UID).ToArray(), "Removed by unit tests"));
-                QueueUtil.Wait(deleteResourceJobUid);
-            }
-            catch { }
+            //    var deleteResourceJobUid = Guid.NewGuid();
+            //    _resourceService.Invoke(s => s.DeleteResources(toDelete.Select(r => r.RES_UID).ToArray(), "Removed by unit tests"));
+            //    QueueUtil.Wait(deleteResourceJobUid);
+            //}
+            //catch { }
         }
 
         [TestMethod]
-        public void GetProject_ByGuid_ShouldReturnTaskDetailsObject()
+        public void GetTaskDetailsFromStatusingDataSet_ByGuid_ShouldReturnTaskDetailsObject()
         {
-            var projectDataSet = _projectService.Invoke(p => p.ReadProject(ProjectGuid, DataStoreEnum.WorkingStore));
+            var currentDate = DateTime.Now;
+            var changesXml = @" 
+                <Changes>
+                  <Proj ID='{0}'>
+                    <Task ID='{1}'>
+                        {2}
+                    </Task>
+                  </Proj>
+                </Changes>";
 
-            var assignment = projectDataSet
-                .Assignment
+            var changeXml = @"<Change PID='{0}'>{1}</Change>";
+
+            var taskDetails = GetTaskDetailsFromStatusing();
+            Assert.IsTrue(taskDetails.TaskName == "Task 1");
+            Assert.IsTrue(taskDetails.TaskWork == 10000);
+
+            taskDetails.TaskRemWork = 5000;
+            taskDetails.TaskStartDate = currentDate.AddDays(1);
+            taskDetails.TaskFinishDate = currentDate.AddDays(4);
+
+            var changes = string.Empty;
+            changes += string.Format(changeXml, 184549382, taskDetails.TaskRemWork);
+            changes += string.Format(changeXml, 184549386, taskDetails.TaskStartDate);
+            changes += string.Format(changeXml, 184549387, taskDetails.TaskFinishDate);
+
+            var xml = string.Format(changesXml, taskDetails.ProjUid, taskDetails.TaskUid, changes);
+
+            _statusingService.Invoke(s => s.UpdateStatus(xml));
+            _statusingService.Invoke(s => s.UpdateStatus(xml));
+            _statusingService.Invoke(s => s.UpdateStatus(xml));
+
+            var updatedTaskDetails = GetTaskDetailsFromStatusing();
+            Assert.IsTrue(updatedTaskDetails.TaskRemWork == updatedTaskDetails.TaskWork);
+            Assert.IsTrue(updatedTaskDetails.TaskRemWork == 5000, "Actual: {0}, Expected: 50", updatedTaskDetails.TaskRemWork);
+            Assert.IsTrue(updatedTaskDetails.TaskStartDate.ToLongDateString() == currentDate.AddDays(1).ToLongDateString());
+            Assert.IsTrue(updatedTaskDetails.TaskFinishDate.ToLongDateString() == currentDate.AddDays(4).ToLongDateString());
+        }
+
+        private Model.TaskDetails GetTaskDetailsFromStatusing()
+        {
+            var statusingDs = _statusingService.Invoke(s => s.ReadStatus(Guid.Empty, DateTime.MinValue, DateTime.MaxValue));
+
+            var assignment = statusingDs
+                .Assignments
                 .Rows
-                .Cast<ProjectDataSet.AssignmentRow>()
+                .Cast<StatusingDataSet.AssignmentsRow>()
                 .FirstOrDefault(assn => assn.ASSN_UID == AssnGuid);
 
-            var task = projectDataSet
-                .Task
+            var task = statusingDs
+                .Tasks
                 .Rows
-                .Cast<ProjectDataSet.TaskRow>()
+                .Cast<StatusingDataSet.TasksRow>()
                 .FirstOrDefault(tsk => tsk.TASK_UID == assignment.TASK_UID);
 
             var taskDetails = new Model.TaskDetails();
-            Mapper.Map(task, taskDetails);
             Mapper.Map(assignment, taskDetails);
+            Mapper.Map(task, taskDetails);
 
-            Assert.IsTrue(taskDetails.TaskName == "Task 1");
-            Assert.IsTrue(taskDetails.TaskWork == 100);
+            return taskDetails;
         }
     }
 }

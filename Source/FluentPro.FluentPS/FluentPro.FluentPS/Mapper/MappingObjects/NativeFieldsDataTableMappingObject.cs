@@ -99,7 +99,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 return false;
             }
 
-            if (!PsMetadata.Tables.Contains(dataTable.TableName))
+            if (!dataTable.Namespace.Contains("http://schemas.microsoft.com/office/project/server"))
             {
                 return false;
             }

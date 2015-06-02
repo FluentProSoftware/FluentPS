@@ -72,7 +72,7 @@ namespace FluentPro.FluentPS.Mapper.PropsMatchers
             var dataTable = mappingPair.Src.UnderlyingObject as DataTable;
             if (dataTable != null)
             {
-                if (PsMetadata.Tables.Contains(dataTable.TableName) || dataTable.TableName.EndsWith("CustomFields"))
+                if (dataTable.Namespace.Contains("http://schemas.microsoft.com/office/project/server"))
                 {
                     return true;
                 }
@@ -83,7 +83,7 @@ namespace FluentPro.FluentPS.Mapper.PropsMatchers
             var dataRow = mappingPair.Src.UnderlyingObject as DataRow;
             if (dataRow != null)
             {
-                if (PsMetadata.Tables.Contains(dataRow.Table.TableName) || dataRow.Table.TableName.EndsWith("CustomFields"))
+                if (dataRow.Table.Namespace.Contains("http://schemas.microsoft.com/office/project/server"))
                 {
                     return true;
                 }

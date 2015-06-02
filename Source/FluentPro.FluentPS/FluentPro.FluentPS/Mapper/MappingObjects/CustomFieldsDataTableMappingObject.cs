@@ -119,7 +119,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 return false;
             }
 
-            if (dataTable.TableName.EndsWith("CustomFields") && dataTable.TableName != "CustomFields")
+            if (dataTable.Namespace.Contains("http://schemas.microsoft.com/office/project/server") && dataTable.TableName.EndsWith("CustomFields") && dataTable.TableName != "CustomFields")
             {
                 return true;
             }

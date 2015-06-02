@@ -11,5 +11,9 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskDetails.Model
         public string TaskName { get; set; }
 
         public double TaskWork { get; set; }
+
+        public DateTime TaskStartDate { get; set; }
+
+        public DateTime TaskFinishDate { get; set; }
     }
 }

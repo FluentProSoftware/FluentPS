@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FluentPro.Common.Mapper.Configurations.PropertyValueConverters;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Types;
@@ -34,6 +35,11 @@ namespace FluentPro.Common.Mapper
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null)
         {
+            if (src == null)
+            {
+                throw new ArgumentNullException("src", "Source can not be null, specify valid source for mapping");
+            }
+
             propertyValueConverter = propertyValueConverter ?? new NopPropertyValueConverter();
             externalData = externalData ?? new Dictionary<string, object>();
 
