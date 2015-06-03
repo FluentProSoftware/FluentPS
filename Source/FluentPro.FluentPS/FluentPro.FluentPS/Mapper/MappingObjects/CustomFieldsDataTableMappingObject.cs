@@ -7,6 +7,7 @@ using FluentPro.Common.Mapper.Exceptions;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Model;
 using FluentPro.FluentPS.Constants;
+using FluentPro.FluentPS.Model;
 
 namespace FluentPro.FluentPS.Mapper.MappingObjects
 {
@@ -43,6 +44,10 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             get { throw new NotImplementedException(); }
         }
 
+        // TODO: Implement mapping to types different than decimal
+        // Implement mapping Duration to TimeSpan
+        // Implement mapping Work to TimeSpan
+        // It shuld be done in value converter
         public object this[string propName]
         {
             get
@@ -52,14 +57,24 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                     .Cast<DataRow>()
                     .ToDictionary(r => r["MD_PROP_NAME"], r => r);
 
-                var propUid = customFieldsMap[propName]["MD_PROP_UID"];
-                var propVal = _dataTable.Rows
-                    .Cast<DataRow>()
-                    .Where(r => r["MD_PROP_UID"].Equals(propUid))
-                    .Select(r => r["TEXT_VALUE"])
-                    .FirstOrDefault();
+                var customField = customFieldsMap[propName];
+                var propUid = customField["MD_PROP_UID"];
 
-                return propVal;
+                // MD_PROP_TYPE_ENUM stored as byte internaly, we have to unbox it to byte first to convert to enum.
+                var type = (PsConversionType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
+                var targetColumn = GetColumnNameByDataType(type);
+
+                var row = _dataTable.Rows
+                    .Cast<DataRow>()
+                    .Where(r => r["PROJ_UID"].Equals(ExternalData["PROJ_UID"]))
+                    .FirstOrDefault(r => r["MD_PROP_UID"].Equals(propUid));
+
+                if (row == null)
+                {
+                    return null;
+                }
+
+                return row[targetColumn];
             }
             set
             {
@@ -68,16 +83,39 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                     .Cast<DataRow>()
                     .ToDictionary(r => r["MD_PROP_NAME"], r => r);
 
-                var propUid = customFieldsMap[propName]["MD_PROP_UID"];
+                var customField = customFieldsMap[propName];
+
+                var propUid = customField["MD_PROP_UID"];
+                
+                // MD_PROP_TYPE_ENUM stored as byte internaly, we have to unbox it to byte first to convert to enum.
+                var type = (PsConversionType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
+                var targetColumn = GetColumnNameByDataType(type);
+
                 var row = _dataTable.Rows.Cast<DataRow>().FirstOrDefault(r => r["MD_PROP_UID"].Equals(propUid));
-                if (row == null)
+
+                //If there are now row exists for given custom field value, create a new one.
+                if (row == null && value != null)
                 {
-                    var dataRow = _dataTable.NewRow();
-                    dataRow["MD_PROP_UID"] = propUid;
-                    dataRow["PROJ_UID"] = ExternalData["PROJ_UID"];
-                    dataRow["CUSTOM_FIELD_UID"] = Guid.NewGuid();
-                    dataRow["TEXT_VALUE"] = value;
-                    _dataTable.Rows.Add(dataRow);
+                    row = _dataTable.NewRow();
+                    row["MD_PROP_UID"] = propUid;
+                    row["PROJ_UID"] = ExternalData["PROJ_UID"];
+                    row["CUSTOM_FIELD_UID"] = Guid.NewGuid();
+                    row[targetColumn] = value;
+                    _dataTable.Rows.Add(row);
+                    return;
+                }
+
+                //If custom field value is null, remove the row with existing values, it will erase the field on server.
+                if (row != null && value == null)
+                {
+                    _dataTable.Rows.Remove(row);
+                    return;
+                }
+
+                //If row for given custom field value exists, update a value in column
+                if (row != null)
+                {
+                    row[targetColumn] = value;
                 }
             }
         }
@@ -125,6 +163,27 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             }
 
             return false;
+        }
+
+        private string GetColumnNameByDataType(PsConversionType conversionType)
+        {
+            var dict = new Dictionary<PsConversionType, string>
+            {
+                { PsConversionType.Guid, "CODE_VALUE" },
+                { PsConversionType.String, "TEXT_VALUE" },
+                { PsConversionType.Cost, "NUM_VALUE" },
+                { PsConversionType.Number, "NUM_VALUE" },
+                { PsConversionType.Date, "DATE_VALUE" },
+                { PsConversionType.YesNo, "FLAG_VALUE" },
+                { PsConversionType.Duration, "DUR_VALUE" }
+            };
+
+            if (!dict.ContainsKey(conversionType))
+            {
+                throw new ArgumentOutOfRangeException("conversionType", "Conversion type not supported");
+            }
+
+            return dict[conversionType];
         }
 
         private DataTable GetCustomFieldsTable()

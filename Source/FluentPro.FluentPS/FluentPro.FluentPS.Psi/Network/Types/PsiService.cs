@@ -86,6 +86,9 @@
             }
             catch (MessageSecurityException ex)
             {
+                // TODO: Add handling of invalid dates
+                // https://social.msdn.microsoft.com/Forums/en-US/85a42068-050e-4713-a4a4-1315882f0130/generaldatenotvalid-error-when-updating-resource-hire-date?forum=project2010custprog
+
                 Trace.Unindent();
                 Trace.TraceError("Failed to invoke action on channel for {0}:{1}. Message: {2}", _pwaUri, _channelType.Name, ex.Message);
                 Trace.TraceError("Check your Project WebApp Url, it can be not valid: {0}.", _pwaUri);

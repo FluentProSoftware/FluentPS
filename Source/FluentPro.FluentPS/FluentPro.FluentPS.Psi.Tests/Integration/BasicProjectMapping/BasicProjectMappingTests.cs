@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Schema;
 using FluentPro.Common.Mapper;
@@ -21,6 +22,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
 {
+    //// TODO: Describe common data types, write about decimal for NUMBER, COST, WORK
+    /// When maping Duda
     [TestClass]
     public class BasicProjectMappingTests
     {
@@ -55,6 +58,46 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropName = "Test - Project - Number", 
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
                     MdPropTypeEnum = PsConversionType.Number
+                },
+                
+                new BasicProjectCustomField
+                {
+                    MdPropUid = Guid.NewGuid(),
+                    MdPropName = "Test - Project - Cost",
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
+                    MdPropTypeEnum = PsConversionType.Cost
+                },
+                
+                new BasicProjectCustomField
+                {
+                    MdPropUid = Guid.NewGuid(),
+                    MdPropName = "Test - Project - Duration",
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
+                    MdPropTypeEnum = PsConversionType.Duration
+                },
+
+                new BasicProjectCustomField
+                {
+                    MdPropUid = Guid.NewGuid(),
+                    MdPropName = "Test - Project - Date",
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
+                    MdPropTypeEnum = PsConversionType.Date
+                },
+
+                new BasicProjectCustomField
+                {
+                    MdPropUid = Guid.NewGuid(),
+                    MdPropName = "Test - Project - YesNo - True",
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
+                    MdPropTypeEnum = PsConversionType.YesNo
+                },
+
+                new BasicProjectCustomField
+                {
+                    MdPropUid = Guid.NewGuid(),
+                    MdPropName = "Test - Project - YesNo - False",
+                    MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
+                    MdPropTypeEnum = PsConversionType.YesNo
                 }
             };
 
@@ -69,7 +112,12 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                 ProjName = Settings.DefaultProjectName,
                 ProjType = (int)ProjectType.Project,
                 WprojDescription = Settings.DefaultProjectName,
-                TestProjectText = "10"
+                TestProjectText = "10",
+                TestProjectNumber = 20,
+                TestProjectCost = 3000,
+                TestProjectDuration = 4000,
+                TestProjectDate = DateTime.Parse("1991-02-16", CultureInfo.InvariantCulture),
+                TestProjectYesNoTrue = true
             };
 
             var ds = new ProjectDataSet();
@@ -175,11 +223,18 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                 new NopPropsMatcher(),
                 externalData: new Dictionary<string, object> 
                 {
-                    { customFieldsDataSet.DataSetName, customFieldsDataSet }
+                    { customFieldsDataSet.DataSetName, customFieldsDataSet },
+                    { "PROJ_UID", result["PROJ_UID"] }
                 });
 
-            Assert.IsTrue(result["PROJ_NAME"].Equals(Settings.DefaultProjectName));
-            Assert.IsTrue(result["Test - Project - Text"].Equals("10"));
+            Assert.IsTrue(((string)result["PROJ_NAME"]).Equals(Settings.DefaultProjectName));
+            Assert.IsTrue(((string)result["Test - Project - Text"]).Equals("10"));
+            Assert.IsTrue(((decimal)result["Test - Project - Number"]).Equals(20));
+            Assert.IsTrue(((decimal)result["Test - Project - Cost"]).Equals(3000));
+            Assert.IsTrue(((int)result["Test - Project - Duration"]).Equals(4000));
+            Assert.IsTrue(((DateTime)result["Test - Project - Date"]).Equals(DateTime.Parse("1991-02-16", CultureInfo.InvariantCulture)));
+            Assert.IsTrue(((bool)result["Test - Project - YesNo - True"]).Equals(true));
+            Assert.IsTrue(((bool)result["Test - Project - YesNo - False"]).Equals(false));
         }
     }
 }

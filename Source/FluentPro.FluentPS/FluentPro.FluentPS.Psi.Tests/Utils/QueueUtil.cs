@@ -1,9 +1,9 @@
 ﻿namespace FluentPro.FluentPS.Psi.Tests.Utils
 {
     using Interfaces.Psi;
-    using Psi.Model.Enums;
-    using Psi.Model.Messages;
-    using Psi.Network;
+    using Model.Enums;
+    using Model.Messages;
+    using Network;
     using System;
     using System.Threading;
 
