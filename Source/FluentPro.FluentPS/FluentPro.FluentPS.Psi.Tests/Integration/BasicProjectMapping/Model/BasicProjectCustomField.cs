@@ -12,6 +12,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
         //// TODO: Add support for GUID -> EntityType conversion
         public Guid MdEntTypeUid { get; set; }
 
-        public PsConversionType MdPropTypeEnum { get; set; }
+        public PsDataType MdPropTypeEnum { get; set; }
     }
 }

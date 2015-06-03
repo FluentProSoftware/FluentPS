@@ -50,15 +50,13 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                 {
                     var fieldInfo = new PsFieldInfo
                     {
-                        Origin = PsOrigin.PsiDataTable,
                         PsName = column.ColumnName,
                         TableName = column.Table.TableName ?? string.Empty,
                         DataType = column.DataType,
                         Uid = Guid.Empty,
                         DisplayName = string.Empty,
                         DbName = string.Empty,
-                        ConversionType = PsConversionType.Invalid,
-                        FieldType = PsFieldType.Unknown,
+                        PsDataType = PsDataType.Invalid,
                         IsUpdatable = false
                     };
 
@@ -68,7 +66,6 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 
                     if (dbFieldInfo != null)
                     {
-                        fieldInfo.Origin = PsOrigin.Database;
                         if (fieldInfo.Uid == Guid.Empty)
                         {
                             fieldInfo.Uid = dbFieldInfo.Uid;
@@ -84,8 +81,8 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                             fieldInfo.DbName = dbFieldInfo.DbName;
                         }
 
-                        fieldInfo.FieldType = dbFieldInfo.FieldType;
-                        fieldInfo.ConversionType = dbFieldInfo.ConversionType;
+                        fieldInfo.PsDataType = dbFieldInfo.PsDataType;
+                        fieldInfo.PsDataType = dbFieldInfo.PsDataType;
                     }
 
                     var userDefined = PredefinedFieldInfos.Overrides
@@ -94,7 +91,6 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 
                     if (userDefined != null)
                     {
-                        fieldInfo.Origin = PsOrigin.Manual;
                         if (string.IsNullOrEmpty(fieldInfo.DbName))
                         {
                             fieldInfo.DbName = userDefined.DbName;
@@ -113,10 +109,15 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                         fieldInfo.IsUpdatable = userDefined.IsUpdatable;
                     }
 
+                    if (fieldInfo.PsDataType == PsDataType.FinishDate || fieldInfo.PsDataType == PsDataType.StartDate)
+                    {
+                        fieldInfo.PsDataType = PsDataType.Date;
+                    }
+
                     fields.Add(fieldInfo);
                 }
             }
-            
+
             fields.AddRange(PredefinedFieldInfos.Additional);
 
             var template = new NativeFieldsListTemplate
@@ -179,9 +180,7 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
                         PsName = GetValueOrDefault(rdr["PsiName"], string.Empty),
                         DbName = GetValueOrDefault(rdr["DbName"], string.Empty),
                         DisplayName = GetValueOrDefault(rdr["DisplayName"], string.Empty),
-                        ConversionType = (PsConversionType)rdr["ConversionType"],
-                        FieldType = (PsFieldType)rdr["FieldType"],
-                        Origin = PsOrigin.Database
+                        PsDataType = (PsDataType)rdr["ConversionType"]
                     };
 
                     fields.Add(fieldInfo);
@@ -190,7 +189,7 @@ namespace FluentPro.FluentPS.CodeGenerator.Operations.GenerateFromTemplate
 
             return fields;
         }
-        
+
         private T GetValueOrDefault<T>(object obj, T defaultValue)
         {
             return obj == DBNull.Value ? defaultValue : (T)obj;

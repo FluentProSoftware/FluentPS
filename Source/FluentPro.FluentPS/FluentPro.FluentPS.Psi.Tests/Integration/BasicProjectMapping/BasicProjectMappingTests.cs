@@ -49,7 +49,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(), 
                     MdPropName = "Test - Project - Text", 
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
-                    MdPropTypeEnum = PsConversionType.String
+                    MdPropTypeEnum = PsDataType.String
                 },
 
                 new BasicProjectCustomField
@@ -57,7 +57,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(), 
                     MdPropName = "Test - Project - Number", 
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid, 
-                    MdPropTypeEnum = PsConversionType.Number
+                    MdPropTypeEnum = PsDataType.Number
                 },
                 
                 new BasicProjectCustomField
@@ -65,7 +65,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(),
                     MdPropName = "Test - Project - Cost",
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
-                    MdPropTypeEnum = PsConversionType.Cost
+                    MdPropTypeEnum = PsDataType.Cost
                 },
                 
                 new BasicProjectCustomField
@@ -73,7 +73,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(),
                     MdPropName = "Test - Project - Duration",
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
-                    MdPropTypeEnum = PsConversionType.Duration
+                    MdPropTypeEnum = PsDataType.Duration
                 },
 
                 new BasicProjectCustomField
@@ -81,7 +81,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(),
                     MdPropName = "Test - Project - Date",
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
-                    MdPropTypeEnum = PsConversionType.Date
+                    MdPropTypeEnum = PsDataType.Date
                 },
 
                 new BasicProjectCustomField
@@ -89,7 +89,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(),
                     MdPropName = "Test - Project - YesNo - True",
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
-                    MdPropTypeEnum = PsConversionType.YesNo
+                    MdPropTypeEnum = PsDataType.YesNo
                 },
 
                 new BasicProjectCustomField
@@ -97,7 +97,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
                     MdPropUid = Guid.NewGuid(),
                     MdPropName = "Test - Project - YesNo - False",
                     MdEntTypeUid = PsEntityType.Project.GetAttr<GuidAttribute>().Guid,
-                    MdPropTypeEnum = PsConversionType.YesNo
+                    MdPropTypeEnum = PsDataType.YesNo
                 }
             };
 
@@ -105,7 +105,6 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
             _customFieldsService.Invoke(c => c.CreateCustomFields2(cfds, false, true));
 
             var customFieldsDataSet = _customFieldsService.Invoke(s => s.ReadCustomFieldsByEntity2(PsEntityType.Project.GetAttr<GuidAttribute>().Guid));
-
             var simpleProject = new BasicProject
             {
                 ProjUid = Settings.DefaultProjectGuid,

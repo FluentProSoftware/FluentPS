@@ -61,7 +61,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 var propUid = customField["MD_PROP_UID"];
 
                 // MD_PROP_TYPE_ENUM stored as byte internaly, we have to unbox it to byte first to convert to enum.
-                var type = (PsConversionType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
+                var type = (PsDataType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
                 var targetColumn = GetColumnNameByDataType(type);
 
                 var row = _dataTable.Rows
@@ -88,7 +88,7 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 var propUid = customField["MD_PROP_UID"];
                 
                 // MD_PROP_TYPE_ENUM stored as byte internaly, we have to unbox it to byte first to convert to enum.
-                var type = (PsConversionType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
+                var type = (PsDataType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
                 var targetColumn = GetColumnNameByDataType(type);
 
                 var row = _dataTable.Rows.Cast<DataRow>().FirstOrDefault(r => r["MD_PROP_UID"].Equals(propUid));
@@ -165,17 +165,17 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
             return false;
         }
 
-        private string GetColumnNameByDataType(PsConversionType conversionType)
+        private string GetColumnNameByDataType(PsDataType conversionType)
         {
-            var dict = new Dictionary<PsConversionType, string>
+            var dict = new Dictionary<PsDataType, string>
             {
-                { PsConversionType.Guid, "CODE_VALUE" },
-                { PsConversionType.String, "TEXT_VALUE" },
-                { PsConversionType.Cost, "NUM_VALUE" },
-                { PsConversionType.Number, "NUM_VALUE" },
-                { PsConversionType.Date, "DATE_VALUE" },
-                { PsConversionType.YesNo, "FLAG_VALUE" },
-                { PsConversionType.Duration, "DUR_VALUE" }
+                { PsDataType.Guid, "CODE_VALUE" },
+                { PsDataType.String, "TEXT_VALUE" },
+                { PsDataType.Cost, "NUM_VALUE" },
+                { PsDataType.Number, "NUM_VALUE" },
+                { PsDataType.Date, "DATE_VALUE" },
+                { PsDataType.YesNo, "FLAG_VALUE" },
+                { PsDataType.Duration, "DUR_VALUE" }
             };
 
             if (!dict.ContainsKey(conversionType))
