@@ -238,7 +238,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
         }
 
         [TestMethod]
-        public void GetProject_ByGuid_ShouldReturn()
+        public void GetProject_ByGuid_ShouldReturnNewDataSetWithUpdatedProjectName()
         {
             var projectDataSet = _projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
 

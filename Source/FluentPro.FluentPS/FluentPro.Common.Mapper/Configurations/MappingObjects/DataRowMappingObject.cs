@@ -14,7 +14,22 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
         public object this[string propName]
         {
             get { return _row[propName]; }
-            set { _row[propName] = value; }
+            set { Set(propName, value); }
+        }
+
+        private void Set(string column, object value)
+        {
+            if (!_row.Table.Columns.Contains(column))
+            {
+                return;
+            }
+
+            if (_row.Table.Columns[column].ReadOnly)
+            {
+                return;
+            }
+
+            _row[column] = value;
         }
 
         public IEnumerable<MappingObjectPropInfo> Properties

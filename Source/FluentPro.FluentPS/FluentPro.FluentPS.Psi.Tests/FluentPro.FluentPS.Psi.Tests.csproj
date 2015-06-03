@@ -64,6 +64,7 @@
     <Compile Include="Integration\BasicProjectMapping\Model\BasicProjectCustomField.cs" />
     <Compile Include="Integration\BasicProjectMapping\PropValueConverters\BasicProjectMappingIfProjNameTestSetUpdatedValueConverter.cs" />
     <Compile Include="Integration\BasicProjectMapping\PropValueConverters\BasicProjectMappingProjNameToTestValueConverter.cs" />
+    <Compile Include="Integration\Mapping\MappingTests.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsAssignment.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsProject.cs" />
     <Compile Include="Integration\TaskDetails\Model\TaskDetailsProjectTeamResource.cs" />
