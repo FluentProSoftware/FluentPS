@@ -5,7 +5,7 @@ using FluentPro.Common.Mapper.Types;
 
 namespace FluentPro.Common.Mapper.Configurations.PropsMatchers
 {
-    public class NopPropsMatcher : IPropsMatcher
+    public class NopPropsMatcher : IPropNamesMatcher
     {
         public Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {

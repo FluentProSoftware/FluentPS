@@ -5,11 +5,10 @@ using System.Text;
 using FluentPro.Common.Mapper.Interfaces;
 using FluentPro.Common.Mapper.Model;
 using FluentPro.Common.Mapper.Types;
-using FluentPro.FluentPS.Metadata;
 
 namespace FluentPro.FluentPS.Mapper.PropsMatchers
 {
-    public class PsToCamelCasePropsMatcher : IPropsMatcher
+    public class PsToCamelCasePropsMatcher : IPropNamesMatcher
     {
         public Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {

@@ -19,8 +19,8 @@ namespace FluentPro.Common.Mapper
         }
 
         public TDest Map<TSrc, TDest>(TSrc src,
-            IPropsMatcher propsMatcher = null,
-            IPropertyValueConverter propertyValueConverter = null,
+            IPropNamesMatcher propsMatcher = null,
+            IPropValueConverter propertyValueConverter = null,
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null)
         {
@@ -30,8 +30,8 @@ namespace FluentPro.Common.Mapper
         }
 
         public void Map<TSrc, TDest>(TSrc src, TDest dest,
-            IPropsMatcher propsMatcher = null,
-            IPropertyValueConverter propertyValueConverter = null,
+            IPropNamesMatcher propsMatcher = null,
+            IPropValueConverter propertyValueConverter = null,
             IMappingStrategy mappingStrategy = null,
             Dictionary<string, object> externalData = null)
         {
@@ -58,8 +58,8 @@ namespace FluentPro.Common.Mapper
             var strategyType = _mapperConfiguration.MappingStrategies.Get(mappingPair);
             var strategy = mappingStrategy ?? _mapperConfiguration.ObjectFactory.CreateInstance(strategyType) as IMappingStrategy;
             strategy.MapperConfiguration = _mapperConfiguration;
-            strategy.PropertyValueConverter = propertyValueConverter;
-            strategy.PropsMatcher = propsMatcher ?? _mapperConfiguration.ObjectFactory.CreateInstance(_mapperConfiguration.PropertyNameConverters.Get(mappingPair)) as IPropsMatcher;
+            strategy.PropValueConverter = propertyValueConverter;
+            strategy.PropsMatcher = propsMatcher ?? _mapperConfiguration.ObjectFactory.CreateInstance(_mapperConfiguration.PropertyNameConverters.Get(mappingPair)) as IPropNamesMatcher;
             strategy.Map(mappingPair);
         }
     }

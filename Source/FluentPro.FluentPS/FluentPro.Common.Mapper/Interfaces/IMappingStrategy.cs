@@ -4,8 +4,8 @@ namespace FluentPro.Common.Mapper.Interfaces
 {
     public interface IMappingStrategy
     {
-        IPropsMatcher PropsMatcher { get; set; }
-        IPropertyValueConverter PropertyValueConverter { get; set; }
+        IPropNamesMatcher PropsMatcher { get; set; }
+        IPropValueConverter PropValueConverter { get; set; }
         IMappingConfiguration MapperConfiguration { get; set; }
 
         void Map(MappingPair mappingPair);

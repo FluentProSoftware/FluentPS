@@ -5,16 +5,15 @@ using FluentPro.Common.Mapper.Types;
 namespace FluentPro.Common.Mapper.Configurations.Strategies
 {
     /// <summary>
-    /// For each property in source, find a property in destination and copy value from source to destination. 
-    /// If there is no such property in destination - do nothing.
+    /// For each property in source, find a property in destination and copy value from source to destination.
     /// </summary>
     public class ForEachSrcPropSetPropInDestMappingStrategy : IMappingStrategy
     {
         public IMappingConfiguration MapperConfiguration { get; set; }
 
-        public IPropsMatcher PropsMatcher { get; set; }
+        public IPropNamesMatcher PropsMatcher { get; set; }
 
-        public IPropertyValueConverter PropertyValueConverter { get; set; }
+        public IPropValueConverter PropValueConverter { get; set; }
 
         public void Map(MappingPair mappingPair)
         {
@@ -30,7 +29,7 @@ namespace FluentPro.Common.Mapper.Configurations.Strategies
                     continue;
                 }
 
-                var srcVal = PropertyValueConverter.GetValue(propInfo, src[prop.Key]);
+                var srcVal = PropValueConverter.GetConvertedValue(propInfo, null, src[prop.Key]);
                 dest[prop.Value] = srcVal;
             }
         }

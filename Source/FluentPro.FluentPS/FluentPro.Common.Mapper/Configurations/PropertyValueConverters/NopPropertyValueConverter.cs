@@ -3,9 +3,9 @@ using FluentPro.Common.Mapper.Model;
 
 namespace FluentPro.Common.Mapper.Configurations.PropertyValueConverters
 {
-    public class NopPropertyValueConverter : IPropertyValueConverter
+    public class NopPropertyValueConverter : IPropValueConverter
     {
-        public object GetValue(MappingObjectPropInfo propInfo, object value)
+        public object GetConvertedValue(MappingObjectPropInfo propInfo, MappingObjectPropInfo destPropInfo, object value)
         {
             return value;
         }

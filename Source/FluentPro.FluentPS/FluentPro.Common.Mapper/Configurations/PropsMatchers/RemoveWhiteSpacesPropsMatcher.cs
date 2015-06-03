@@ -5,7 +5,7 @@ using FluentPro.Common.Mapper.Types;
 
 namespace FluentPro.Common.Mapper.Configurations.PropsMatchers
 {
-    public class RemoveWhiteSpacesPropsMatcher : IPropsMatcher
+    public class RemoveWhiteSpacesPropsMatcher : IPropNamesMatcher
     {
         public Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {

@@ -6,7 +6,7 @@ using FluentPro.Common.Mapper.Types;
 
 namespace FluentPro.FluentPS.Mapper.PropsMatchers
 {
-    public class CamelCaseToPsPropsMatcher : IPropsMatcher
+    public class CamelCaseToPsPropsMatcher : IPropNamesMatcher
     {
         public Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest)
         {

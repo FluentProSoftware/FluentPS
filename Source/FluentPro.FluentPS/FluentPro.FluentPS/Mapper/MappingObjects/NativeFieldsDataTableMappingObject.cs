@@ -71,6 +71,16 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 New();
             }
 
+            if (!_dataTable.Columns.Contains(column))
+            {
+                return;
+            }
+
+            if (_dataTable.Columns[column].ReadOnly)
+            {
+                return;
+            }
+
             _dataTable.Rows[_rowIdx][column] = value;
         }
 

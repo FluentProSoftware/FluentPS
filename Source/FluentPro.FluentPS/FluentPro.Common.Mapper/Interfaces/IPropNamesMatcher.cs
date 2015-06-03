@@ -3,7 +3,7 @@ using FluentPro.Common.Mapper.Model;
 
 namespace FluentPro.Common.Mapper.Interfaces
 {
-    public interface IPropsMatcher
+    public interface IPropNamesMatcher
     {
         Dictionary<string, string> GetPropertiesMap(IEnumerable<MappingObjectPropInfo> src, IEnumerable<MappingObjectPropInfo> dest);
     }

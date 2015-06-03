@@ -17,6 +17,7 @@ using FluentPro.FluentPS.Psi.Model.Enums;
 using FluentPro.FluentPS.Psi.Network;
 using FluentPro.FluentPS.Psi.Network.Types;
 using FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model;
+using FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.PropValueConverters;
 using FluentPro.FluentPS.Psi.Tests.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -234,6 +235,32 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping
             Assert.IsTrue(((DateTime)result["Test - Project - Date"]).Equals(DateTime.Parse("1991-02-16", CultureInfo.InvariantCulture)));
             Assert.IsTrue(((bool)result["Test - Project - YesNo - True"]).Equals(true));
             Assert.IsTrue(((bool)result["Test - Project - YesNo - False"]).Equals(false));
+        }
+
+        [TestMethod]
+        public void GetProject_ByGuid_ShouldReturn()
+        {
+            var projectDataSet = _projectService.Invoke(p => p.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+
+            var result = new Dictionary<string, object>();
+            _mapper.Map(
+                projectDataSet.Project,
+                result,
+                new NopPropsMatcher(),
+                new BasicProjectMappingProjNameToTestValueConverter());
+
+            Assert.IsTrue(result["PROJ_NAME"].Equals("Test"));
+            Assert.IsTrue(((Guid)result["PROJ_UID"]).Equals(Settings.DefaultProjectGuid));
+
+            var newProjectDataSet = new ProjectDataSet();
+            _mapper.Map(
+                result,
+                newProjectDataSet.Project,
+                new NopPropsMatcher(),
+                new BasicProjectMappingIfProjNameTestSetUpdatedValueConverter());
+
+            Assert.IsTrue(newProjectDataSet.Project[0]["PROJ_NAME"].Equals("Updated"));
+            Assert.IsTrue(((Guid)newProjectDataSet.Project[0]["PROJ_UID"]).Equals(Settings.DefaultProjectGuid));
         }
     }
 }
