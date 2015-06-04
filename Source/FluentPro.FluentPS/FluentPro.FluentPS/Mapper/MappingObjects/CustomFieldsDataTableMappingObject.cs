@@ -61,12 +61,19 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 var propUid = customField["MD_PROP_UID"];
 
                 // MD_PROP_TYPE_ENUM stored as byte internaly, we have to unbox it to byte first to convert to enum.
-                var type = (PsDataType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
+                var type = (PsDataType)(byte)customField["MD_PROP_TYPE_ENUM"];
                 var targetColumn = GetColumnNameByDataType(type);
 
-                var row = _dataTable.Rows
+                var rows = _dataTable.Rows
                     .Cast<DataRow>()
-                    .Where(r => r["PROJ_UID"].Equals(ExternalData["PROJ_UID"]))
+                    .Where(r => r["PROJ_UID"].Equals(ExternalData["PROJ_UID"]));
+
+                if (ExternalData.ContainsKey("TASK_UID"))
+                {
+                    rows = rows.Where(r => r["TASK_UID"].Equals(ExternalData["TASK_UID"]));
+                }
+
+                var row = rows
                     .FirstOrDefault(r => r["MD_PROP_UID"].Equals(propUid));
 
                 if (row == null)
@@ -86,9 +93,9 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 var customField = customFieldsMap[propName];
 
                 var propUid = customField["MD_PROP_UID"];
-                
+
                 // MD_PROP_TYPE_ENUM stored as byte internaly, we have to unbox it to byte first to convert to enum.
-                var type = (PsDataType)(byte)customField["MD_PROP_TYPE_ENUM"]; 
+                var type = (PsDataType)(byte)customField["MD_PROP_TYPE_ENUM"];
                 var targetColumn = GetColumnNameByDataType(type);
 
                 var row = _dataTable.Rows.Cast<DataRow>().FirstOrDefault(r => r["MD_PROP_UID"].Equals(propUid));
@@ -99,6 +106,12 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                     row = _dataTable.NewRow();
                     row["MD_PROP_UID"] = propUid;
                     row["PROJ_UID"] = ExternalData["PROJ_UID"];
+
+                    if (ExternalData.ContainsKey("TASK_UID"))
+                    {
+                        row["TASK_UID"] = ExternalData["TASK_UID"];
+                    }
+
                     row["CUSTOM_FIELD_UID"] = Guid.NewGuid();
                     row[targetColumn] = value;
                     _dataTable.Rows.Add(row);

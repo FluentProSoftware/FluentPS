@@ -6,6 +6,8 @@ using FluentPro.Common.Mapper.Types;
 
 namespace FluentPro.Common.Mapper
 {
+    //// TODO: Add support for GUID -> Enum with GuidAttribute, NameAttribute or any other attribute conversion
+    //// TODO: Describe common data types, write about decimal for NUMBER, COST, WORK
     /// <summary>
     /// FluentMapper provides core functionality for mapping between objects.
     /// </summary>

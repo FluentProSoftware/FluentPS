@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentPro.FluentPS.Psi.Model.Enums;
 
-namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
+namespace FluentPro.FluentPS.Psi.Tests.Integration.ProjectMapping.Model
 {
     public class BasicProject
     {

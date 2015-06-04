@@ -61,6 +61,14 @@ namespace FluentPro.FluentPS.Mapper.MappingObjects
                 _rowIdx++;
             }
 
+            if (ExternalData.ContainsKey("TASK_UID"))
+            {
+                if ((bool)((DataRow)Current)["TASK_IS_SUMMARY"])
+                {
+                    _rowIdx++;
+                }
+            }
+
             return _dataTable.Rows[_rowIdx][column];
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentPro.FluentPS.Model;
 
-namespace FluentPro.FluentPS.Psi.Tests.Integration.BasicProjectMapping.Model
+namespace FluentPro.FluentPS.Psi.Tests.Integration.ProjectMapping.Model
 {
     public class BasicProjectCustomField
     {
