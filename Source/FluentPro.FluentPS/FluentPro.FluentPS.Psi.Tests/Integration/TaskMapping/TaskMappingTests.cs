@@ -69,6 +69,46 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskMapping
 
             Assert.IsTrue(dict["TASK_NAME"].Equals("Task 1"));
             Assert.IsTrue(dict["Test - Task - Text"].Equals("10"));
+
+            var propertiesToUpdate = new Dictionary<string, object>
+            {
+                {"Test - Task - Text", "20"}
+            };
+
+            _mapper.Map(propertiesToUpdate, projectDataSet.TaskCustomFields, new NopPropsMatcher(), externalData: new Dictionary<string, object>
+            {
+                { customFields.DataSetName, customFields },
+                { "PROJ_UID", task.ProjUid },
+                { "TASK_UID", task.TaskUid }
+            });
+
+            _projectService.Invoke(s => s.CheckOutProject(Settings.DefaultProjectGuid, Settings.DefaultSessionGuid, "TaskMapping"));
+            
+            var updateProjectJobUid = Guid.NewGuid();
+            _projectService.Invoke(s => s.QueueUpdateProject2(updateProjectJobUid, Settings.DefaultSessionGuid, projectDataSet, false));
+            _envUtil.Wait(updateProjectJobUid);
+
+            var checkInJobUid = Guid.NewGuid();
+            _projectService.Invoke(s => s.QueueCheckInProject(checkInJobUid, Settings.DefaultProjectGuid, false, Settings.DefaultSessionGuid, "TaskMapping"));
+            _envUtil.Wait(checkInJobUid);
+
+            var updatedProjectDs = _projectService.Invoke(s => s.ReadProject(Settings.DefaultProjectGuid, DataStoreEnum.WorkingStore));
+
+            var updatedTaskFields = new Dictionary<string, object>();
+            _mapper.Map(updatedProjectDs.Task, updatedTaskFields, new NopPropsMatcher(), externalData: new Dictionary<string, object>
+            {
+                 { "TASK_UID", task.TaskUid }  
+            });
+
+            _mapper.Map(updatedProjectDs.TaskCustomFields, updatedTaskFields, new NopPropsMatcher(), externalData: new Dictionary<string, object>
+            {
+                { customFields.DataSetName, customFields },
+                { "PROJ_UID", Settings.DefaultProjectGuid },
+                { "TASK_UID", task.TaskUid }
+            });
+
+            Assert.IsTrue(updatedTaskFields["TASK_NAME"].Equals("Task 1"));
+            Assert.IsTrue(updatedTaskFields["Test - Task - Text"].Equals("20"));
         }
 
         [ClassInitialize]

@@ -36,10 +36,11 @@ namespace FluentPro.Common.Mapper.Configurations.MappingObjects
         {
             get
             {
+                //TODO: Is it correct to asume type object when value is null? May be introduce special property or something.
                 return _dict.Keys.Select(key => new MappingObjectPropInfo
                 {
                     Name = key,
-                    Type = _dict[key].GetType()
+                    Type = _dict[key] == null ? typeof(object) : _dict[key].GetType()
                 });
             }
         }
