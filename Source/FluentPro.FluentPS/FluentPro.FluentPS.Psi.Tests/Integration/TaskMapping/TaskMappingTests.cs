@@ -57,7 +57,7 @@ namespace FluentPro.FluentPS.Psi.Tests.Integration.TaskMapping
             var dict = new Dictionary<string, object>();
             _mapper.Map(projectDataSet.Task, dict, new NopPropsMatcher(), externalData: new Dictionary<string, object>
             {
-                 { "TASK_UID", task.TaskUid }  
+                 { "TASK_UID", task.TaskUid } 
             });
 
             _mapper.Map(projectDataSet.TaskCustomFields, dict, new NopPropsMatcher(), externalData: new Dictionary<string, object>
